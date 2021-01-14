@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+	id 'org.jetbrains.intellij' version '0.6.5'
+}
+
+group 'com.github.adamwojszczyk'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+intellij {
+	version '2020.3'
+}
+
+patchPluginXml {
+	pluginDescription = """
+    	<h3>Gruvbox Light Soft Black Theme</h3>
+    	<br>
+    	<a href="https://github.com/adamwojszczyk/gruvbox-light-soft-black-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/gruvbox-light-soft-black-theme/issues">Report an issue</a>
+    	<br><br><br>
+    	<img src="https://raw.githubusercontent.com/adamwojszczyk/gruvbox-light-soft-black-theme/master/theme/screenshots/main-window.png" border="0" alt="Main window screenshot">
+	"""
+	changeNotes = """
+		<i><b>0.0.1</b></i>
+		<ul>
+			<li>initial release</li>
+		</ul>
+	"""
+}
+
+publishPlugin {
+	channels 'stable'
+	token = System.getenv('ORG_GRADLE_PROJECT_intellijPublishToken')
+}
