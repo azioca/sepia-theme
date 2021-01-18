@@ -2,18 +2,26 @@ package theme;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText;
+
+import java.util.List;
 
 public class Plugin {
 
 	final Color background = Palette.sepia.lightest();
 	final Color foreground = Palette.black.darker();
-	public Theme theme = new Theme();
-	public Scheme scheme = new Scheme();
+
 	String id = "com.github.adamwojszczyk.gruvboxLightHardBlackTheme";
 	String name = "Gruvbox Light Hard Black Theme";
 	String email = "adam.wojszczyk@gmail.com";
 	String vendor = "Adam Wojszczyk";
 	String themeProviderId = "f20d8fb3-da86-46ac-8621-661b16f0d135";
+
+	public Theme theme = new Theme();
+	public Scheme scheme = new Scheme();
 
 	class Theme {
 		String name = Plugin.this.name;
@@ -212,6 +220,38 @@ public class Plugin {
 		}
 	}
 
+	@JacksonXmlRootElement(localName = "scheme")
 	class Scheme {
+
+		@JacksonXmlProperty(isAttribute = true)
+		String name = Plugin.this.name;
+		@JacksonXmlProperty(isAttribute = true)
+		String version = "142";
+		@JacksonXmlProperty(isAttribute = true)
+		String parent_scheme = "Default";
+		MetaInfo metaInfo = new MetaInfo();
+
+		class Property {
+			@JacksonXmlProperty(isAttribute = true)
+			final String name;
+
+			@JacksonXmlText
+			final String text;
+
+			Property(String name, String text) {
+				this.name = name;
+				this.text = text;
+			}
+		}
+
+		class MetaInfo {
+
+			@JacksonXmlElementWrapper(useWrapping = false)
+			List<Property> property = List.of(
+				new Property("ide", "Idea"),
+				new Property("ideVersion", "2020.3.1.0.0"),
+				new Property("originalScheme", Plugin.this.name)
+			);
+		}
 	}
 }
