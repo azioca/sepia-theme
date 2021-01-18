@@ -1,7 +1,7 @@
 {
 	"name": "Gruvbox Light Hard Black Theme",
-	"dark": false,
 	"author": "Adam Wojszczyk",
+	"dark": false,
 	"editorScheme": "/intellij.scheme.xml",
 	"ui": {
 		"*": {
@@ -85,32 +85,68 @@
 	},
 	"icons": {
 		"ColorPalette": {
-			"Actions.Grey": "#928374",
-			"Actions.Red": "#9d0006",
-			"Actions.Yellow": "#b57614",
-			"Actions.Green": "#98971a",
-			"Actions.Blue": "#458588",
-			"Actions.GreyInline.Dark": "#282828",
-			"Objects.Grey": "#928374",
-			"Objects.RedStatus": "#9d0006",
-			"Objects.Red": "#9d0006",
-			"Objects.Pink": "#8f3f71",
-			"Objects.Yellow": "#d79921",
-			"Objects.Green": "#98971a",
-			"Objects.Blue": "#458588",
-			"Objects.Purple": "#b16286",
-			"Objects.BlackText": "#282828",
-			"Objects.YellowDark": "#d79921",
-			"Objects.GreenAndroid": "#79740e",
-			"Checkbox.Foreground.Selected.Dark": "#282828",
-			"Checkbox.Foreground.Disabled.Dark": "#7c6f64",
-			"Checkbox.Background.Default.Dark": "#fbf1c7",
-			"Checkbox.Background.Disabled.Dark": "#fbf1c7",
-			"Checkbox.Border.Default.Dark": "#282828",
-			"Checkbox.Border.Disabled.Dark": "#7c6f64",
-			"Checkbox.Focus.Wide.Dark": "#458588",
-			"Checkbox.Focus.Thin.Default.Dark": "#458588",
-			"Checkbox.Focus.Thin.Selected.Dark": "#7c6f64"
+			"Actions": {
+				"Grey": "#928374",
+				"Red": "#9d0006",
+				"Yellow": "#b57614",
+				"Green": "#98971a",
+				"Blue": "#458588",
+				"GreyInline": {
+					"Dark": "#282828"
+				}
+			},
+			"Objects": {
+				"Grey": "#928374",
+				"RedStatus": "#9d0006",
+				"Red": "#9d0006",
+				"Pink": "#8f3f71",
+				"Yellow": "#d79921",
+				"Green": "#98971a",
+				"Blue": "#458588",
+				"Purple": "#b16286",
+				"BlackText": "#282828",
+				"YellowDark": "#d79921",
+				"GreenAndroid": "#79740e"
+			},
+			"Checkboxes": {
+				"Foreground": {
+					"Selected": {
+						"Dark": "#282828"
+					},
+					"Disabled": {
+						"Dark": "#7c6f64"
+					}
+				},
+				"Background": {
+					"Disabled": {
+						"Dark": "#fbf1c7"
+					},
+					"Default": {
+						"Dark": "#fbf1c7"
+					}
+				},
+				"Border": {
+					"disabled": {
+						"Dark": "#7c6f64"
+					},
+					"Default": {
+						"Dark": "#282828"
+					}
+				},
+				"Focus": {
+					"Wide": {
+						"Dark": "#458588"
+					},
+					"Thin": {
+						"Selected": {
+							"Dark": "#7c6f64"
+						},
+						"Default": {
+							"Dark": "#458588"
+						}
+					}
+				}
+			}
 		}
 	}
 }

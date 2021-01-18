@@ -1,3 +1,5 @@
+package theme;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
 class Color {

@@ -1,3 +1,5 @@
+package theme;
+
 interface Palette {
 
 	WideColorRange sepia = new WideColorRange("a89984", "bdae93", "d5c4a1", "ebdbb2", "f2e5bc", "fbf1c7", "f9f5d7");

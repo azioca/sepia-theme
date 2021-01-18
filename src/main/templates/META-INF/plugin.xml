@@ -1,0 +1,10 @@
+<idea-plugin>
+	<id>$id</id>
+	<name>$name</name>
+	<vendor email="$email">$vendor</vendor>
+	<depends>com.intellij.modules.platform</depends>
+	<extensions defaultExtensionNs="com.intellij">
+		<themeProvider id="$themeProviderId" path="/intellij.theme.json"/>
+	</extensions>
+	<actions/>
+</idea-plugin>

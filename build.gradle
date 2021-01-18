@@ -1,3 +1,9 @@
+import theme.Json
+import theme.Map
+import theme.Xml
+
+import java.nio.charset.StandardCharsets
+
 plugins {
 	id 'java'
 	id 'org.jetbrains.intellij' version '0.6.5'
@@ -39,9 +45,32 @@ publishPlugin {
 	token = System.getenv('ORG_GRADLE_PROJECT_intellijPublishToken')
 }
 
-task generateIntelliJTheme(type: Copy, group: "theme", ) {
+task generatePluginXml(type: Copy, group: "theme") {
 	outputs.upToDateWhen { false }
 	from "$projectDir/src/main/templates/"
-	expand(new AsMap(new Theme()).map())
+	expand(new Map(new theme.Plugin()).string())
 	into "$projectDir/src/main/resources/"
 }
+
+task generateIntelliJTheme(group: "theme") {
+	outputs.upToDateWhen { false }
+	doLast {
+		File file = file("$projectDir/src/main/resources/intellij.theme.json")
+		file.setText(new Json(new theme.Plugin().theme).text(), StandardCharsets.UTF_8.name())
+	}
+}
+
+task generateIntelliJScheme(group: "theme") {
+	enabled = false
+	outputs.upToDateWhen { false }
+	doLast {
+		File file = file("$projectDir/src/main/resources/intellij.scheme.xml")
+		file.setText(new Xml(new theme.Plugin().scheme).text(), StandardCharsets.UTF_8.name())
+	}
+}
+
+task generateTheme(group: "theme") {
+	dependsOn(generatePluginXml, generateIntelliJTheme, generateIntelliJScheme)
+}
+
+buildPlugin.dependsOn(generateTheme)

@@ -1,3 +1,5 @@
+package theme;
+
 class WideColorRange {
 
 	private final Color darkest;
