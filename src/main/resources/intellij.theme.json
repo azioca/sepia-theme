@@ -1,0 +1,116 @@
+{
+	"name": "Gruvbox Light Hard Black Theme",
+	"dark": false,
+	"author": "Adam Wojszczyk",
+	"editorScheme": "/intellij.scheme.xml",
+	"ui": {
+		"*": {
+			"background": "#f9f5d7",
+			"foreground": "#282828",
+			"infoForeground": "#282828",
+			"lightSelectionBackground": "#f2e5bc",
+			"selectionBackground": "#f2e5bc",
+			"selectionForeground": "#282828",
+			"selectionBackgroundInactive": "#f2e5bc",
+			"selectionInactiveBackground": "#f2e5bc",
+			"selectedInactiveBackground": "#f2e5bc",
+			"selectedBackgroundInactive": "#f2e5bc",
+			"selectedBackground": "#f9f5d7",
+			"selectedForeground": "#282828",
+			"hoverBackground": "#fbf1c7",
+			"borderColor": "#d5c4a1",
+			"disabledBorderColor": "#f9f5d7",
+			"separatorColor": "#d5c4a1"
+		},
+		"ActionButton": {
+			"hoverBackground": "#d5c4a1"
+		},
+		"Button": {
+			"startBackground": "#f9f5d7",
+			"endBackground": "#f9f5d7",
+			"startBorderColor": "#d5c4a1",
+			"endBorderColor": "#d5c4a1",
+			"default": {
+				"foreground": "#282828",
+				"startBackground": "#f2e5bc",
+				"endBackground": "#f2e5bc",
+				"startBorderColor": "#665c54",
+				"endBorderColor": "#665c54",
+				"focusedBorderColor": "#f9f5d7"
+			}
+		},
+		"ComboBox": {
+			"nonEditableBackground": "#f9f5d7",
+			"ArrowButton": {
+				"iconColor": "#282828",
+				"disabledIconColor": "#282828",
+				"nonEditableBackground": "#f9f5d7"
+			}
+		},
+		"EditorTabs": {
+			"underlinedTabBackground": "#f9f5d7",
+			"underlineColor": "#076678"
+		},
+		"ToolWindow": {
+			"Header": {
+				"background": "#f2e5bc",
+				"inactiveBackground": "#f9f5d7"
+			},
+			"HeaderTab": {
+				"selectedInactiveBackground": "#f9f5d7",
+				"hoverInactiveBackground": "#f9f5d7"
+			}
+		},
+		"Table": {
+			"stripeColor": "#f2e5bc",
+			"lightSelectionForeground": "#282828",
+			"lightSelectionInactiveForeground": "#7c6f64",
+			"lightSelectionBackground": "#f2e5bc",
+			"lightSelectionInactiveBackground": "#f9f5d7"
+		},
+		"FileColor": {
+			"Yellow": "#fabd2f15",
+			"Green": "#b8bb2630",
+			"Blue": "#83a598",
+			"Violet": "#d3869b",
+			"Orange": "#fe8019",
+			"Rose": "#fb4934"
+		},
+		"Link": {
+			"activeForeground": "#076678",
+			"hoverForeground": "#076678",
+			"pressedForeground": "#076678",
+			"visitedForeground": "#076678"
+		}
+	},
+	"icons": {
+		"ColorPalette": {
+			"Actions.Grey": "#928374",
+			"Actions.Red": "#9d0006",
+			"Actions.Yellow": "#b57614",
+			"Actions.Green": "#98971a",
+			"Actions.Blue": "#458588",
+			"Actions.GreyInline.Dark": "#282828",
+			"Objects.Grey": "#928374",
+			"Objects.RedStatus": "#9d0006",
+			"Objects.Red": "#9d0006",
+			"Objects.Pink": "#8f3f71",
+			"Objects.Yellow": "#d79921",
+			"Objects.Green": "#98971a",
+			"Objects.Blue": "#458588",
+			"Objects.Purple": "#b16286",
+			"Objects.BlackText": "#282828",
+			"Objects.YellowDark": "#d79921",
+			"Objects.GreenAndroid": "#79740e",
+			"Checkbox.Foreground.Selected.Dark": "#282828",
+			"Checkbox.Foreground.Disabled.Dark": "#7c6f64",
+			"Checkbox.Background.Default.Dark": "#fbf1c7",
+			"Checkbox.Background.Disabled.Dark": "#fbf1c7",
+			"Checkbox.Border.Default.Dark": "#282828",
+			"Checkbox.Border.Disabled.Dark": "#7c6f64",
+			"Checkbox.Focus.Wide.Dark": "#458588",
+			"Checkbox.Focus.Thin.Default.Dark": "#458588",
+			"Checkbox.Focus.Thin.Selected.Dark": "#7c6f64"
+		}
+	}
+}

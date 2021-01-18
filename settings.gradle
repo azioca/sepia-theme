@@ -1,4 +1,0 @@
-rootProject.name = 'gruvbox-light-soft-black-theme'
-
-include 'theme'
-include 'example'

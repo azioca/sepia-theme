@@ -4,7 +4,7 @@
 	<vendor email="adam.wojszczyk@gmail.com">Adam Wojszczyk</vendor>
 	<depends>com.intellij.modules.platform</depends>
 	<extensions defaultExtensionNs="com.intellij">
-		<themeProvider id="f20d8fb3-da86-46ac-8621-661b16f0d132" path="/theme.theme.json"/>
+		<themeProvider id="f20d8fb3-da86-46ac-8621-661b16f0d132" path="/intellij.theme.json"/>
 	</extensions>
 	<actions/>
 </idea-plugin>

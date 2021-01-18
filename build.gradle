@@ -10,13 +10,17 @@ repositories {
 	mavenCentral()
 }
 
+dependencies {
+	compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
+}
+
 intellij {
 	version '2020.3'
 }
 
 patchPluginXml {
 	pluginDescription = """
-    	<h3>Gruvbox Light Soft Black Theme</h3>
+    	<h3>Gruvbox Light Hard Black Theme</h3>
     	<br>
     	<a href="https://github.com/adamwojszczyk/gruvbox-light-soft-black-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/gruvbox-light-soft-black-theme/issues">Report an issue</a>
     	<br><br><br>
@@ -33,4 +37,11 @@ patchPluginXml {
 publishPlugin {
 	channels 'stable'
 	token = System.getenv('ORG_GRADLE_PROJECT_intellijPublishToken')
+}
+
+task generateIntelliJTheme(type: Copy, group: "theme", ) {
+	outputs.upToDateWhen { false }
+	from "$projectDir/src/main/templates/"
+	expand(new AsMap(new Theme()).map())
+	into "$projectDir/src/main/resources/"
 }
