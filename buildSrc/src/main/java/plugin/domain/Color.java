@@ -63,7 +63,7 @@ public class Color {
 	}
 
 	@JsonValue
-	String asString() {
+	public String asString() {
 		return (presentAsHex ? "#" : "") + slider.chosen().asString() + transparency.asString();
 	}
 
