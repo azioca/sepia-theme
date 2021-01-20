@@ -104,7 +104,7 @@ public class Scheme {
 			new Attribute("CONSOLE_YELLOW_OUTPUT").foreground(palette.yellow()),
 			new Attribute("CTRL_CLICKABLE").foreground(palette.blue().darker()).effectColor(palette.blue().darker()).effectType(1),
 
-			new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().brighter()),
+			new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
 			new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).fontType(2),
 			new Attribute("DEFAULT_BRACES"),
 			new Attribute("DEFAULT_BRACKETS"),
@@ -118,11 +118,10 @@ public class Scheme {
 			new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(foreground),
 			new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.blue().darker()),
 			new Attribute("DEFAULT_IDENTIFIER").foreground(foreground),
-			new Attribute("DEFAULT_INSTANCE_FIELD").foreground(palette.purple().brighter()).fontType(1),
+			new Attribute("DEFAULT_INSTANCE_FIELD").foreground(palette.purple().darker()).fontType(1),
 			new Attribute("DEFAULT_INTERFACE_NAME").foreground(foreground).fontType(2),
 			new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(foreground).effectColor(palette.red()).effectType(2),
 			new Attribute("DEFAULT_KEYWORD").foreground(palette.blue()).fontType(1),
-			new Attribute("DEFAULT_LABEL").foreground(palette.blue()).fontType(1),
 			new Attribute("DEFAULT_LABEL").foreground(palette.blue()).fontType(1),
 			new Attribute("DEFAULT_LINE_COMMENT").foreground(palette.gray()).fontType(2),
 			new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
@@ -130,9 +129,9 @@ public class Scheme {
 			new Attribute("DEFAULT_NUMBER").foreground(palette.blue()),
 			new Attribute("DEFAULT_OPERATION_SIGN"),
 			new Attribute("DEFAULT_PARAMETER").foreground(palette.purple()).fontType(1),
-			new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple().brighter()).effectColor(palette.purple().brighter()).effectType(1),
+			new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()).effectColor(palette.purple()).effectType(1),
 			new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).fontType(1).effectColor(palette.purple()).effectType(1),
-			new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().brighter()).fontType(3),
+			new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().darker()).fontType(3),
 			new Attribute("DEFAULT_STATIC_METHOD").foreground(foreground).fontType(2),
 			new Attribute("DEFAULT_STRING").foreground(palette.aqua()),
 			new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
@@ -169,13 +168,13 @@ public class Scheme {
 			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(palette.blue().brighter()).errorStripeColor(palette.blue().brighter()),
 			new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).fontType(2).errorStripeColor(palette.green().darker()),
 			new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").baseAttributes("DEFAULT_PARAMETER"),
-			new Attribute("TYPO").effectColor(palette.red().brighter()).effectType(2),
+			new Attribute("TYPO").effectColor(palette.gray().brighter()).effectType(2),
 			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(palette.red().brighter()).errorStripeColor(palette.red().brighter()),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
 			new Attribute("WARNING_ATTRIBUTES").effectColor(palette.yellow().darker()).errorStripeColor(palette.yellow().darker()).effectType(2),
 			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()).errorStripeColor(palette.aqua().brighter()),
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()).errorStripeColor(palette.aqua().brighter()),
-			new Attribute("WRONG_REFERENCES_ATTRIBUTES").foreground(palette.red()).errorStripeColor(palette.red()).effectType(2)
+			new Attribute("WRONG_REFERENCES_ATTRIBUTES").effectColor(palette.red()).errorStripeColor(palette.red()).effectType(2)
 		);
 	}
 }

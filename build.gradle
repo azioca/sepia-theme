@@ -63,7 +63,7 @@ task generateIntelliJTheme(group: "theme") {
 task generateIntelliJScheme(group: "theme") {
 	outputs.upToDateWhen { false }
 	doLast {
-		File file = file("$projectDir/src/main/resources/generated.intellij.scheme.xml")
+		File file = file("$projectDir/src/main/resources/intellij.scheme.xml")
 		file.setText(new Xml(new plugin.Plugin().scheme()).text(), StandardCharsets.UTF_8.name())
 	}
 }
