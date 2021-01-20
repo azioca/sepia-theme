@@ -1,8 +1,7 @@
-package theme;
+package plugin.domain;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -13,8 +12,9 @@ class Text {
 
 	public Text(ObjectMapper objectMapper, Object object) {
 		this.objectMapper = objectMapper
-			.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.NON_PRIVATE)
-			.setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NON_PRIVATE)
+			.disable(MapperFeature.AUTO_DETECT_FIELDS)
+			.disable(MapperFeature.AUTO_DETECT_GETTERS)
+			.disable(MapperFeature.AUTO_DETECT_IS_GETTERS)
 			.enable(SerializationFeature.INDENT_OUTPUT);
 		this.object = object;
 	}

@@ -1,4 +1,4 @@
-package theme;
+package plugin.domain;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 

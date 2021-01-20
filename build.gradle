@@ -1,5 +1,6 @@
-import theme.Json
-import theme.Xml
+import plugin.domain.Json
+import plugin.domain.Map
+import plugin.domain.Xml
 
 import java.nio.charset.StandardCharsets
 
@@ -47,7 +48,7 @@ publishPlugin {
 task generatePluginXml(type: Copy, group: "theme") {
 	outputs.upToDateWhen { false }
 	from "$projectDir/src/main/templates/"
-	expand(new theme.Map(new theme.Plugin()).string())
+	expand(new Map(new plugin.Plugin()).string())
 	into "$projectDir/src/main/resources/"
 }
 
@@ -55,7 +56,7 @@ task generateIntelliJTheme(group: "theme") {
 	outputs.upToDateWhen { false }
 	doLast {
 		File file = file("$projectDir/src/main/resources/intellij.theme.json")
-		file.setText(new Json(new theme.Plugin().theme).text(), StandardCharsets.UTF_8.name())
+		file.setText(new Json(new plugin.Plugin().theme()).text(), StandardCharsets.UTF_8.name())
 	}
 }
 
@@ -63,7 +64,7 @@ task generateIntelliJScheme(group: "theme") {
 	outputs.upToDateWhen { false }
 	doLast {
 		File file = file("$projectDir/src/main/resources/generated.intellij.scheme.xml")
-		file.setText(new Xml(new theme.Plugin().scheme).text(), StandardCharsets.UTF_8.name())
+		file.setText(new Xml(new plugin.Plugin().scheme()).text(), StandardCharsets.UTF_8.name())
 	}
 }
 

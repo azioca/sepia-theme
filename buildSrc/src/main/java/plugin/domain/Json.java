@@ -1,4 +1,4 @@
-package theme;
+package plugin.domain;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.PrettyPrinter;
