@@ -25,21 +25,43 @@ public class Color {
 		this.transparency = transparency;
 		this.presentAsHex = presentAsHex;
 	}
+
+	public Color darker(int times) {
+		Color darker = darker();
+		for (int i = 0; i < times - 1; i++) {
+			darker = darker.darker();
+		}
+		return darker;
+	}
+
 	public Color darker() {
 		return new Color(slider.slideToDarker(), transparency, presentAsHex);
 	}
+
+	public Color brighter(int times) {
+		Color brighter = brighter();
+		for (int i = 0; i < times - 1; i++) {
+			brighter = brighter.brighter();
+		}
+		return brighter;
+	}
+
 	public Color brighter() {
 		return new Color(slider.slideToBrighter(), transparency, presentAsHex);
 	}
+
 	public Color transparent(String transparency) {
 		return new Color(slider, new Transparency(transparency), presentAsHex);
 	}
+
 	public Color hex() {
 		return new Color(slider, transparency, true);
 	}
+
 	public Color plain() {
 		return new Color(slider, transparency, false);
 	}
+
 	@JsonValue
 	String asString() {
 		return (presentAsHex ? "#" : "") + slider.chosen().asString() + transparency.asString();

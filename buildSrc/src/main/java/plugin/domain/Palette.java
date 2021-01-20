@@ -75,7 +75,7 @@ public interface Palette {
 
 		private final Palette palette;
 
-		Plain(Palette palette) {this.palette = palette;}
+		public Plain(Palette palette) {this.palette = palette;}
 
 		@Override
 		public Color sepia() {

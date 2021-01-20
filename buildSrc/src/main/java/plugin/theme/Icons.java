@@ -18,13 +18,6 @@ class Icons {
 
 	@JsonProperty ColorPalette ColorPalette() { return new ColorPalette(); }
 
-	static class Dark {
-		@JsonProperty Color Dark;
-		Dark(Color dark) {
-			Dark = java.util.Objects.requireNonNull(dark);
-		}
-	}
-
 	@JsonPropertyOrder({"Actions", "Objects", "Checkboxes"})
 	class ColorPalette {
 		@JsonProperty Actions Actions() { return new Actions(); }

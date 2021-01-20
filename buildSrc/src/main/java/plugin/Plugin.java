@@ -24,7 +24,7 @@ public class Plugin {
 	}
 
 	public Scheme scheme() {
-		return new Scheme(name, palette);
+		return new Scheme(name, palette, background, foreground);
 	}
 
 	private String toCamelCase() {
