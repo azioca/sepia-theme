@@ -10,8 +10,8 @@ public class Plugin {
 
 	private final String name = "Gruvbox Light Hard Black";
 	private final Palette palette = new GruvBoxPallete();
-	private final Color background = palette.sepia().brighter().brighter().brighter();
-	private final Color foreground = palette.black().darker().darker();
+	private final Color background = palette.sepia().brighter(3);
+	private final Color foreground = palette.black().darker(2);
 
 	@JsonProperty public String id() { return "com.github.adamwojszczyk." + toCamelCase() + "Theme"; }
 	@JsonProperty public String name() { return name + " Theme"; }
