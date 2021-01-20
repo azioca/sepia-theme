@@ -27,13 +27,13 @@ public class Json extends Text {
 		}
 
 		@Override
-		public void writeObjectFieldValueSeparator(JsonGenerator g) throws IOException {
-			g.writeRaw(_separators.getObjectFieldValueSeparator() + " ");
+		public DefaultPrettyPrinter createInstance() {
+			return new SingleSpacePrettyPrinter(this);
 		}
 
 		@Override
-		public DefaultPrettyPrinter createInstance() {
-			return new SingleSpacePrettyPrinter(this);
+		public void writeObjectFieldValueSeparator(JsonGenerator g) throws IOException {
+			g.writeRaw(_separators.getObjectFieldValueSeparator() + " ");
 		}
 	}
 }
