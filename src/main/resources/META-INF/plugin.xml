@@ -1,10 +1,10 @@
 <idea-plugin>
-	<id>com.github.adamwojszczyk.gruvboxLightHardBlackTheme</id>
-	<name>Gruvbox Light Hard Black Theme</name>
-	<vendor email="adam.wojszczyk@gmail.com">Adam Wojszczyk</vendor>
-	<depends>com.intellij.modules.platform</depends>
-	<extensions defaultExtensionNs="com.intellij">
-		<themeProvider id="f20d8fb3-da86-46ac-8621-661b16f0d135" path="/intellij.theme.json"/>
-	</extensions>
-	<actions/>
+  <id>com.github.adamwojszczyk.gruvboxLightHardBlack</id>
+  <name>Gruvbox Light Hard Black Theme</name>
+  <vendor email="adam.wojszczyk@gmail.com">Adam Wojszczyk</vendor>
+  <depends>com.intellij.modules.platform</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="f20d8fb3-da86-46ac-8621-661b16f0d135" path="/intellij.theme.json"/>
+  </extensions>
+  <actions/>
 </idea-plugin>
