@@ -46,21 +46,6 @@
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
-    <option name="BASH.EXTERNAL_COMMAND">
-      <value>
-        <option name="FOREGROUND" value="79740e" />
-      </value>
-    </option>
-    <option name="BASH.FUNCTION_DEF_NAME">
-      <value>
-        <option name="FOREGROUND" value="79740e" />
-      </value>
-    </option>
-    <option name="BASH.INTERNAL_COMMAND">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
     <option name="BOOKMARKS_ATTRIBUTES">
       <value>
         <option name="ERROR_STRIPE_COLOR" value="79740e" />
@@ -74,11 +59,6 @@
     <option name="Block comment">
       <value>
         <option name="FOREGROUND" value="83786e" />
-      </value>
-    </option>
-    <option name="COFFEESCRIPT.CLASS_NAME">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
       </value>
     </option>
     <option name="CONSOLE_BLACK_OUTPUT">
@@ -451,14 +431,6 @@
         <option name="FOREGROUND" value="665c54" />
       </value>
     </option>
-    <option name="ELIXIR_BIT">
-      <value />
-    </option>
-    <option name="ELIXIR_MACRO_CALL">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
     <option name="ERRORS_ATTRIBUTES">
       <value>
         <option name="EFFECT_COLOR" value="cc241d" />
@@ -484,43 +456,6 @@
         <option name="EFFECT_COLOR" value="cc241d" />
         <option name="ERROR_STRIPE_COLOR" value="cc241d" />
         <option name="EFFECT_TYPE" value="5" />
-      </value>
-    </option>
-    <option name="HANDLEBARS.DATA_PREFIX">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="HANDLEBARS.IDENTIFIERS">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="HANDLEBARS.MUSTACHES">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="HTML_TAG_NAME">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="HYPERLINK_ATTRIBUTES">
-      <value>
-        <option name="FOREGROUND" value="bdae93" />
-        <option name="EFFECT_COLOR" value="76678" />
-        <option name="EFFECT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="Head symbol">
-      <value>
-        <option name="FOREGROUND" value="79740e" />
-      </value>
-    </option>
-    <option name="Head symbol from clojure.core">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
       </value>
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
@@ -550,36 +485,6 @@
       </value>
     </option>
     <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD" />
-    <option name="KOTLIN_ANNOTATION">
-      <value>
-        <option name="FOREGROUND" value="83786e" />
-      </value>
-    </option>
-    <option name="KOTLIN_LABEL">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="KOTLIN_MUTABLE_VARIABLE">
-      <value>
-        <option name="EFFECT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="KOTLIN_NAMED_ARGUMENT">
-      <value>
-        <option name="FOREGROUND" value="83a598" />
-      </value>
-    </option>
-    <option name="KOTLIN_SMART_CAST_VALUE">
-      <value>
-        <option name="FONT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="KOTLIN_TYPE_PARAMETER">
-      <value>
-        <option name="FOREGROUND" value="83a598" />
-      </value>
-    </option>
     <option name="LOG_ERROR_OUTPUT">
       <value>
         <option name="FOREGROUND" value="9d0006" />
@@ -614,167 +519,7 @@
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
-    <option name="OC.CONDITIONALLY_NOT_COMPILED">
-      <value>
-        <option name="FOREGROUND" value="928374" />
-      </value>
-    </option>
-    <option name="OC.LABEL">
-      <value>
-        <option name="FOREGROUND" value="8f3f71" />
-      </value>
-    </option>
-    <option name="OC.MACRONAME">
-      <value>
-        <option name="FOREGROUND" value="8f3f71" />
-        <option name="FONT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="OC.OVERLOADED_OPERATOR">
-      <value />
-    </option>
-    <option name="OC.STRUCT_FIELD">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="OC.STRUCT_LIKE">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-      </value>
-    </option>
-    <option name="OC.TYPEDEF">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-      </value>
-    </option>
     <option name="PROPERTIES.KEY">
-      <value>
-        <option name="FOREGROUND" value="8f3f71" />
-      </value>
-    </option>
-    <option name="PY.BUILTIN_NAME">
-      <value>
-        <option name="FOREGROUND" value="af3a03" />
-      </value>
-    </option>
-    <option name="PY.CLASS_DEFINITION">
-      <value>
-        <option name="FOREGROUND" value="689d6a" />
-        <option name="EFFECT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="PY.DECORATOR">
-      <value>
-        <option name="FOREGROUND" value="d65d0e" />
-      </value>
-    </option>
-    <option name="PY.FUNC_DEFINITION">
-      <value>
-        <option name="FOREGROUND" value="689d6a" />
-        <option name="EFFECT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="PY.KEYWORD_ARGUMENT">
-      <value />
-    </option>
-    <option name="PY.PREDEFINED_DEFINITION">
-      <value>
-        <option name="FOREGROUND" value="689d6a" />
-      </value>
-    </option>
-    <option name="PY.PREDEFINED_USAGE">
-      <value>
-        <option name="FOREGROUND" value="8f3f71" />
-      </value>
-    </option>
-    <option name="PY.SELF_PARAMETER">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="RDOC_DIRECTIVE">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
-    <option name="RDOC_EMAIL">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="RDOC_HEADINGS">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-      </value>
-    </option>
-    <option name="RDOC_IDENTIFIER">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="RDOC_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
-    <option name="RDOC_URL">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="RHTML_OMIT_NEW_LINE_ID">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="RUBY_CONSTANT">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-      </value>
-    </option>
-    <option name="RUBY_CONSTANT_DECLARATION">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-      </value>
-    </option>
-    <option name="RUBY_EXPR_IN_STRING">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="RUBY_HASH_ASSOC">
-      <value>
-        <option name="FOREGROUND" value="282828" />
-        <option name="FONT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="RUBY_HEREDOC_CONTENT">
-      <value>
-        <option name="FOREGROUND" value="79740e" />
-      </value>
-    </option>
-    <option name="RUBY_HEREDOC_ID">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
-    <option name="RUBY_PARAMDEF_CALL">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
-    <option name="RUBY_REGEXP">
-      <value>
-        <option name="FOREGROUND" value="79740e" />
-      </value>
-    </option>
-    <option name="RUBY_SPECIFIC_CALL">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
-    <option name="RUBY_SYMBOL">
       <value>
         <option name="FOREGROUND" value="8f3f71" />
       </value>
@@ -786,96 +531,11 @@
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
-    <option name="Rainbow Parens Level 1 (outermost)">
-      <value>
-        <option name="FOREGROUND" value="928374" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 2">
-      <value>
-        <option name="FOREGROUND" value="cc241d" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 3">
-      <value>
-        <option name="FOREGROUND" value="d65d0e" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 4">
-      <value>
-        <option name="FOREGROUND" value="98971a" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 5">
-      <value>
-        <option name="FOREGROUND" value="b16286" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 6">
-      <value>
-        <option name="FOREGROUND" value="458588" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 7">
-      <value>
-        <option name="FOREGROUND" value="689d6a" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 8">
-      <value>
-        <option name="FOREGROUND" value="d79921" />
-      </value>
-    </option>
-    <option name="Rainbow Parens Level 9">
-      <value>
-        <option name="FOREGROUND" value="1d2021" />
-      </value>
-    </option>
-    <option name="SASS_MIXIN">
-      <value>
-        <option name="FOREGROUND" value="9d0006" />
-      </value>
-    </option>
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="3c3836" />
         <option name="BACKGROUND" value="83a598" />
         <option name="ERROR_STRIPE_COLOR" value="83a598" />
-      </value>
-    </option>
-    <option name="SPY-JS.EXCEPTION">
-      <value>
-        <option name="BACKGROUND" value="4f1b14" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="SPY-JS.FUNCTION_SCOPE">
-      <value>
-        <option name="BACKGROUND" value="ebdbb2" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="SPY-JS.PATH_LEVEL_ONE">
-      <value>
-        <option name="BACKGROUND" value="d5c4a1" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="SPY-JS.PATH_LEVEL_TWO">
-      <value>
-        <option name="BACKGROUND" value="bdae93" />
-        <option name="EFFECT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="SPY-JS.PROGRAM_SCOPE">
-      <value>
-        <option name="BACKGROUND" value="f2e5bc" />
-        <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="SPY-JS.VALUE_HINT">
-      <value>
-        <option name="EFFECT_COLOR" value="3c3836" />
       </value>
     </option>
     <option name="STATIC_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_STATIC_FIELD" />
@@ -903,17 +563,6 @@
         <option name="FOREGROUND" value="79740e" />
         <option name="FONT_TYPE" value="2" />
         <option name="ERROR_STRIPE_COLOR" value="79740e" />
-      </value>
-    </option>
-    <option name="TS.MODULE_NAME">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-      </value>
-    </option>
-    <option name="TS.TYPE_PARAMETER">
-      <value>
-        <option name="FOREGROUND" value="b57614" />
-        <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="TYPE_PARAMETER_NAME_ATTRIBUTES" baseAttributes="DEFAULT_PARAMETER" />
@@ -956,17 +605,6 @@
         <option name="EFFECT_COLOR" value="cc241d" />
         <option name="ERROR_STRIPE_COLOR" value="cc241d" />
         <option name="EFFECT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="XML_PROLOGUE" baseAttributes="TEXT" />
-    <option name="XML_TAG_NAME">
-      <value>
-        <option name="FOREGROUND" value="76678" />
-      </value>
-    </option>
-    <option name="YAML_SCALAR_KEY">
-      <value>
-        <option name="FOREGROUND" value="76678" />
       </value>
     </option>
   </attributes>
