@@ -11,8 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @JacksonXmlRootElement(localName = "scheme")
-public
-class Scheme {
+public class Scheme {
 	private final Plugin plugin;
 	private final Palette palette;
 
