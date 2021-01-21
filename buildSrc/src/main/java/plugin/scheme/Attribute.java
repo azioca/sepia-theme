@@ -2,6 +2,7 @@ package plugin.scheme;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import plugin.domain.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,11 @@ class Attribute {
 		return new Attribute(name, baseAttributes, value);
 	}
 
-	Attribute foreground(plugin.domain.Color foreground) {
+	Attribute foreground(Color foreground) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().foreground(foreground));
 	}
 
-	Attribute background(plugin.domain.Color background) {
+	Attribute background(Color background) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().background(background));
 	}
 
@@ -48,36 +49,36 @@ class Attribute {
 		return new Attribute(name, baseAttributes, value.fontType(atLeastEmptyValue().fontType() != null ? value.fontType() + fontType : fontType));
 	}
 
-	Attribute errorStripeColor(plugin.domain.Color errorStripeColor) {
+	Attribute errorStripeColor(Color errorStripeColor) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().errorStripeColor(errorStripeColor));
 	}
 
-	Attribute effectColor(plugin.domain.Color effectColor) {
+	private Attribute effectColor(Color effectColor) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectColor(effectColor));
 	}
 
-	Attribute underscored() {
-		return effectType(0);
+	Attribute underscored(Color effectColor) {
+		return effectType(0).effectColor(effectColor);
 	}
 
-	Attribute boldUnderscored() {
-		return effectType(1);
+	Attribute boldUnderscored(Color effectColor) {
+		return effectType(1).effectColor(effectColor);
 	}
 
-	Attribute underwaved() {
-		return effectType(2);
+	Attribute underwaved(Color effectColor) {
+		return effectType(2).effectColor(effectColor);
 	}
 
-	Attribute bordered() {
-		return effectType(3);
+	Attribute bordered(Color effectColor) {
+		return effectType(3).effectColor(effectColor);
 	}
 
-	Attribute strikeout() {
-		return effectType(4);
+	Attribute strikeout(Color effectColor) {
+		return effectType(4).effectColor(effectColor);
 	}
 
-	Attribute dottedLine() {
-		return effectType(5);
+	Attribute dottedLine(Color effectColor) {
+		return effectType(5).effectColor(effectColor);
 	}
 
 	Attribute effectType(Integer effectType) {
@@ -94,16 +95,16 @@ class Attribute {
 
 	private static class Value {
 
-		plugin.domain.Color foreground;
-		plugin.domain.Color background;
+		Color foreground;
+		Color background;
 		Integer fontType;
-		plugin.domain.Color errorStripeColor;
-		plugin.domain.Color effectColor;
+		Color errorStripeColor;
+		Color effectColor;
 		Integer effectType;
 
 		Value() {}
 
-		Value(plugin.domain.Color foreground, plugin.domain.Color background, Integer fontType, plugin.domain.Color errorStripeColor, plugin.domain.Color effectColor, Integer effectType) {
+		Value(Color foreground, Color background, Integer fontType, Color errorStripeColor, Color effectColor, Integer effectType) {
 			this.foreground = foreground;
 			this.background = background;
 			this.fontType = fontType;
@@ -112,11 +113,11 @@ class Attribute {
 			this.effectType = effectType;
 		}
 
-		Value foreground(plugin.domain.Color foreground) {
+		Value foreground(Color foreground) {
 			return new Value(foreground, this.background, this.fontType, this.errorStripeColor, this.effectColor, this.effectType);
 		}
 
-		Value background(plugin.domain.Color background) {
+		Value background(Color background) {
 			return new Value(foreground, background, this.fontType, this.errorStripeColor, this.effectColor, this.effectType);
 		}
 
@@ -124,11 +125,11 @@ class Attribute {
 			return new Value(foreground, this.background, fontType, this.errorStripeColor, this.effectColor, this.effectType);
 		}
 
-		Value errorStripeColor(plugin.domain.Color errorStripeColor) {
+		Value errorStripeColor(Color errorStripeColor) {
 			return new Value(foreground, this.background, this.fontType, errorStripeColor, this.effectColor, this.effectType);
 		}
 
-		Value effectColor(plugin.domain.Color effectColor) {
+		Value effectColor(Color effectColor) {
 			return new Value(foreground, this.background, this.fontType, this.errorStripeColor, effectColor, this.effectType);
 		}
 
