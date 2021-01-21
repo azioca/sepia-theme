@@ -53,7 +53,7 @@
 		},
 		"ToolWindow": {
 			"Header": {
-				"inactiveBackground": "#f2e5bc",
+				"inactiveBackground": "#fbf1c7",
 				"background": "#ebdbb2"
 			},
 			"HeaderTab": {

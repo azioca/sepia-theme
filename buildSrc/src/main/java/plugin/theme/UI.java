@@ -69,8 +69,8 @@ class UI {
 		@JsonProperty ToolWindow.HeaderTab HeaderTab = new ToolWindow.HeaderTab();
 
 		class Header {
-			@JsonProperty Color inactiveBackground = UI.this.background.darker(2);
-			@JsonProperty Color background = inactiveBackground.darker(1);
+			@JsonProperty Color inactiveBackground = UI.this.background.darker();
+			@JsonProperty Color background = inactiveBackground.darker(2);
 		}
 
 		class HeaderTab {
