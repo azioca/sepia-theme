@@ -40,7 +40,7 @@ class UI {
 		@JsonProperty Color selectionInactiveBackground = background.darker(2);
 		@JsonProperty Color selectedInactiveBackground = background.darker();
 		@JsonProperty Color selectedBackgroundInactive = background.darker();
-		@JsonProperty Color selectedBackground = background.darker(3);
+		@JsonProperty Color selectedBackground = background.darker(2);
 		@JsonProperty Color selectedForeground = foreground;
 		@JsonProperty Color hoverBackground = background.darker();
 		@JsonProperty Color borderColor = background.darker(2);
@@ -69,8 +69,8 @@ class UI {
 		@JsonProperty ToolWindow.HeaderTab HeaderTab = new ToolWindow.HeaderTab();
 
 		class Header {
-			@JsonProperty Color background = palette.sepia().brighter();
-			@JsonProperty Color inactiveBackground = UI.this.background;
+			@JsonProperty Color inactiveBackground = UI.this.background.darker(2);
+			@JsonProperty Color background = inactiveBackground.darker(1);
 		}
 
 		class HeaderTab {

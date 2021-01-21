@@ -15,7 +15,7 @@
 			"selectionInactiveBackground": "#f2e5bc",
 			"selectedInactiveBackground": "#fbf1c7",
 			"selectedBackgroundInactive": "#fbf1c7",
-			"selectedBackground": "#ebdbb2",
+			"selectedBackground": "#f2e5bc",
 			"selectedForeground": "#282828",
 			"hoverBackground": "#fbf1c7",
 			"borderColor": "#f2e5bc",
@@ -53,8 +53,8 @@
 		},
 		"ToolWindow": {
 			"Header": {
-				"background": "#f2e5bc",
-				"inactiveBackground": "#f9f5d7"
+				"inactiveBackground": "#f2e5bc",
+				"background": "#ebdbb2"
 			},
 			"HeaderTab": {
 				"selectedInactiveBackground": "#f9f5d7",
