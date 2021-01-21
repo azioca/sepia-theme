@@ -143,7 +143,7 @@ public class Scheme {
 			new Attribute("DELETED_TEXT_ATTRIBUTES"),
 			new Attribute("DEPRECATED_ATTRIBUTES").foreground(palette.gray()).italic().strikeout(palette.gray()),
 			new Attribute("DOC_COMMENT_TAG_VALUE").baseAttributes("DEFAULT_DOC_COMMENT_TAG_VALUE"),
-			new Attribute("ERRORS_ATTRIBUTES").foreground(palette.red().darker()).errorStripeColor(palette.red().darker()).underwaved(palette.red().darker()),
+			new Attribute("ERRORS_ATTRIBUTES").errorStripeColor(palette.red().darker()).underwaved(palette.red().darker()),
 			new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()),
 			new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(palette.blue()).boldUnderscored(palette.blue()),
 			new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripeColor(palette.red()).dottedLine(palette.red()),

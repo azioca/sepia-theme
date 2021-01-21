@@ -346,7 +346,6 @@
     <option name="DOC_COMMENT_TAG_VALUE" baseAttributes="DEFAULT_DOC_COMMENT_TAG_VALUE"/>
     <option name="ERRORS_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="9d0006"/>
         <option name="ERROR_STRIPE_COLOR" value="9d0006"/>
         <option name="EFFECT_COLOR" value="9d0006"/>
         <option name="EFFECT_TYPE" value="2"/>
