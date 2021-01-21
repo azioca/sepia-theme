@@ -78,7 +78,7 @@ public class Scheme {
 	class Attributes {
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Attribute> option = List.of(
-			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()).bold(),
+			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
 			new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
 			new Attribute("BAD_CHARACTER").effectColor(palette.red()).underwaved(),
 			new Attribute("BOOKMARKS_ATTRIBUTES").errorStripeColor(palette.green().darker()),
