@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import plugin.domain.Color;
 import plugin.domain.Palette;
 
 import java.util.List;
@@ -14,14 +15,16 @@ import java.util.Objects;
 public class Scheme {
 	private final String name;
 	private final Palette palette;
-	private final plugin.domain.Color background;
-	private final plugin.domain.Color foreground;
+	private final Color background;
+	private final Color foreground;
+	private final Color selectedLineBackground;
 
-	public Scheme(String name, Palette palette, plugin.domain.Color background, plugin.domain.Color foreground) {
+	public Scheme(String name, Palette palette, Color background, Color foreground, Color selectedLineBackground) {
 		this.name = Objects.requireNonNull(name);
 		this.palette = new Palette.Plain(Objects.requireNonNull(palette));
 		this.background = Objects.requireNonNull(background).plain();
 		this.foreground = Objects.requireNonNull(foreground).plain();
+		this.selectedLineBackground = Objects.requireNonNull(selectedLineBackground);
 	}
 
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
@@ -46,7 +49,7 @@ public class Scheme {
 			new Option.Color("ADDED_LINES_COLOR", palette.green().brighter()),
 			new Option.Color("ANNOTATIONS_COLOR", foreground),
 			new Option.Color("CARET_COLOR", foreground),
-			new Option.Color("CARET_ROW_COLOR", background.darker(2)),
+			new Option.Color("CARET_ROW_COLOR", selectedLineBackground),
 			new Option.Color("CONSOLE_BACKGROUND_KEY", background),
 			new Option.Color("DELETED_LINES_COLOR", palette.gray()),
 			new Option.Color("DOCUMENTATION_COLOR", background),

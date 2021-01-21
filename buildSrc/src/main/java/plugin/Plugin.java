@@ -12,6 +12,7 @@ public class Plugin {
 	private final Palette palette = new GruvBoxPallete();
 	private final Color background = palette.sepia().brighter(3);
 	private final Color foreground = palette.black().darker(2);
+	private final Color selectedLineBackground = background.darker(3);
 
 	@JsonProperty public String id() { return "com.github.adamwojszczyk." + toCamelCase() + "Theme"; }
 	@JsonProperty public String name() { return name + " Theme"; }
@@ -20,11 +21,11 @@ public class Plugin {
 	@JsonProperty public String themeProviderId() { return "f20d8fb3-da86-46ac-8621-661b16f0d135"; }
 
 	public Theme theme() {
-		return new Theme(palette, background, foreground, name + " Theme", vendor());
+		return new Theme(name + " Theme", vendor(), palette, background, foreground, selectedLineBackground);
 	}
 
 	public Scheme scheme() {
-		return new Scheme(name, palette, background, foreground);
+		return new Scheme(name, palette, background, foreground, selectedLineBackground);
 	}
 
 	private String toCamelCase() {

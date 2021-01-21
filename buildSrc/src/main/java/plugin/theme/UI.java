@@ -12,11 +12,13 @@ class UI {
 	private final Palette palette;
 	private final Color background;
 	private final Color foreground;
+	private final Color selectedLineBackground;
 
-	UI(Palette palette, Color background, Color foreground) {
+	UI(Palette palette, Color background, Color foreground, Color selectedLineBackground) {
 		this.palette = Objects.requireNonNull(palette);
 		this.background = Objects.requireNonNull(background);
 		this.foreground = Objects.requireNonNull(foreground);
+		this.selectedLineBackground = Objects.requireNonNull(selectedLineBackground);
 	}
 
 	@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
@@ -33,11 +35,11 @@ class UI {
 		@JsonProperty Color background = UI.this.background;
 		@JsonProperty Color foreground = UI.this.foreground;
 		@JsonProperty Color infoForeground = foreground;
-		@JsonProperty Color lightSelectionBackground = background.darker();
-		@JsonProperty Color selectionBackground = background.darker(3);
+		@JsonProperty Color selectionBackground = selectedLineBackground;
+		@JsonProperty Color lightSelectionBackground = selectionBackground.brighter();
 		@JsonProperty Color selectionForeground = foreground;
-		@JsonProperty Color selectionBackgroundInactive = background.darker();
-		@JsonProperty Color selectionInactiveBackground = background.darker(2);
+		@JsonProperty Color selectionBackgroundInactive = selectionBackground.brighter();
+		@JsonProperty Color selectionInactiveBackground = selectionBackground.brighter();
 		@JsonProperty Color selectedInactiveBackground = background.darker();
 		@JsonProperty Color selectedBackgroundInactive = background.darker();
 		@JsonProperty Color selectedBackground = background.darker(2);
