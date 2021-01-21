@@ -78,6 +78,7 @@ public class Scheme {
 	}
 
 	class Attributes {
+		private final Color deprecated = foreground.brighter(3);
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Attribute> option = List.of(
 			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
@@ -143,7 +144,7 @@ public class Scheme {
 			new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(foreground.brighter(3)),
 			new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua()).bold(),
 			new Attribute("DELETED_TEXT_ATTRIBUTES"),
-			new Attribute("DEPRECATED_ATTRIBUTES").foreground(palette.gray()).italic().strikeout(palette.gray()),
+			new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
 			new Attribute("DOC_COMMENT_TAG_VALUE").baseAttributes("DEFAULT_DOC_COMMENT_TAG_VALUE"),
 			new Attribute("ERRORS_ATTRIBUTES").errorStripeColor(palette.red().darker()).underwaved(palette.red().darker()),
 			new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()),
@@ -161,7 +162,7 @@ public class Scheme {
 			new Attribute("LOG_WARNING_OUTPUT").foreground(palette.yellow().brighter()),
 
 			new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),
-			new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES").strikeout(palette.red().darker()),
+			new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
 			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(foreground).bold(),
 			new Attribute("NOT_USED_ELEMENT_ATTRIBUTES").foreground(palette.gray()),
 			new Attribute("RUNTIME_ERROR").errorStripeColor(palette.red().brighter()).underwaved(palette.red().brighter()),

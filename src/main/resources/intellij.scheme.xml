@@ -164,7 +164,7 @@
       <value>
         <option name="FOREGROUND" value="076678"/>
         <option name="EFFECT_COLOR" value="076678"/>
-        <option name="EFFECT_TYPE" value="1"/>
+        <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
     <option name="DEFAULT_ATTRIBUTE">
@@ -290,7 +290,7 @@
       <value>
         <option name="FOREGROUND" value="b16286"/>
         <option name="EFFECT_COLOR" value="b16286"/>
-        <option name="EFFECT_TYPE" value="1"/>
+        <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
     <option name="DEFAULT_REASSIGNED_PARAMETER">
@@ -298,7 +298,7 @@
         <option name="FOREGROUND" value="b16286"/>
         <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="b16286"/>
-        <option name="EFFECT_TYPE" value="1"/>
+        <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
     <option name="DEFAULT_STATIC_FIELD">
@@ -337,10 +337,10 @@
     <option name="DELETED_TEXT_ATTRIBUTES"/>
     <option name="DEPRECATED_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="928374"/>
+        <option name="FOREGROUND" value="504945"/>
         <option name="FONT_TYPE" value="2"/>
-        <option name="EFFECT_COLOR" value="928374"/>
-        <option name="EFFECT_TYPE" value="4"/>
+        <option name="EFFECT_COLOR" value="504945"/>
+        <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
     <option name="DOC_COMMENT_TAG_VALUE" baseAttributes="DEFAULT_DOC_COMMENT_TAG_VALUE"/>
@@ -361,7 +361,7 @@
       <value>
         <option name="FOREGROUND" value="458588"/>
         <option name="EFFECT_COLOR" value="458588"/>
-        <option name="EFFECT_TYPE" value="1"/>
+        <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
     <option name="DELETED_TEXT_ATTRIBUTES">
@@ -416,8 +416,10 @@
     <option name="List/map to object conversion" baseAttributes="JAVA_NUMBER"/>
     <option name="MARKED_FOR_REMOVAL_ATTRIBUTES">
       <value>
-        <option name="EFFECT_COLOR" value="9d0006"/>
-        <option name="EFFECT_TYPE" value="4"/>
+        <option name="FOREGROUND" value="504945"/>
+        <option name="FONT_TYPE" value="2"/>
+        <option name="EFFECT_COLOR" value="504945"/>
+        <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">

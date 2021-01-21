@@ -58,11 +58,11 @@ class Attribute {
 	}
 
 	Attribute underscored(Color effectColor) {
-		return effectType(0).effectColor(effectColor);
+		return effectType(1).effectColor(effectColor);
 	}
 
 	Attribute boldUnderscored(Color effectColor) {
-		return effectType(1).effectColor(effectColor);
+		return effectType(4).effectColor(effectColor);
 	}
 
 	Attribute underwaved(Color effectColor) {
@@ -70,11 +70,11 @@ class Attribute {
 	}
 
 	Attribute bordered(Color effectColor) {
-		return effectType(3).effectColor(effectColor);
+		return effectType(6).effectColor(effectColor);
 	}
 
 	Attribute strikeout(Color effectColor) {
-		return effectType(4).effectColor(effectColor);
+		return effectType(3).effectColor(effectColor);
 	}
 
 	Attribute dottedLine(Color effectColor) {
