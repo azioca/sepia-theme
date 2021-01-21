@@ -26,9 +26,6 @@
       <option name="MAX_LINES_AROUND_BLOCK_ELEMENTS" value="0" />
       <option name="MAX_LINES_BETWEEN_PARAGRAPHS" value="0" />
     </Markdown>
-    <XML>
-      <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
-    </XML>
     <editorconfig>
       <option name="ENABLED" value="false" />
     </editorconfig>
