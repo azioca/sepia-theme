@@ -10,7 +10,7 @@ import plugin.domain.Palette;
 import java.util.List;
 import java.util.Objects;
 
-@JsonPropertyOrder({"metaInfo", "colors"})
+@JsonPropertyOrder({"metaInfo", "colors", "attributes"})
 @JacksonXmlRootElement(localName = "scheme")
 public class Scheme {
 	private final String name;
