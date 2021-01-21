@@ -19,8 +19,8 @@
     <option name="INDENT_GUIDE" value="bdae93"/>
     <option name="LINE_NUMBERS_COLOR" value="bdae93"/>
     <option name="MODIFIED_LINES_COLOR" value="83a598"/>
-    <option name="RIGHT_MARGIN_COLOR" value="f2e5bc"/>
     <option name="READONLY_BACKGROUND" value="f2e5bc"/>
+    <option name="RIGHT_MARGIN_COLOR" value="f2e5bc"/>
     <option name="SELECTED_INDENT_GUIDE" value="282828"/>
     <option name="SELECTED_TEARLINE_COLOR" value="282828"/>
     <option name="SELECTION_BACKGROUND" value="d5c4a1"/>
@@ -335,7 +335,13 @@
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
-    <option name="DELETED_TEXT_ATTRIBUTES"/>
+    <option name="DELETED_TEXT_ATTRIBUTES">
+      <value>
+        <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
+        <option name="EFFECT_COLOR" value="cc241d"/>
+        <option name="EFFECT_TYPE" value="5"/>
+      </value>
+    </option>
     <option name="DEPRECATED_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="504945"/>
@@ -363,13 +369,6 @@
         <option name="FOREGROUND" value="458588"/>
         <option name="EFFECT_COLOR" value="458588"/>
         <option name="EFFECT_TYPE" value="4"/>
-      </value>
-    </option>
-    <option name="DELETED_TEXT_ATTRIBUTES">
-      <value>
-        <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
-        <option name="EFFECT_COLOR" value="cc241d"/>
-        <option name="EFFECT_TYPE" value="5"/>
       </value>
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
