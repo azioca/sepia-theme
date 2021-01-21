@@ -79,6 +79,7 @@ public class Scheme {
 
 	class Attributes {
 		private final Color deprecated = foreground.brighter(3);
+
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Attribute> option = List.of(
 			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
