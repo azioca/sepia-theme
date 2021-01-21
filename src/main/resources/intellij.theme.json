@@ -8,19 +8,19 @@
 			"background": "#f9f5d7",
 			"foreground": "#282828",
 			"infoForeground": "#282828",
-			"lightSelectionBackground": "#f2e5bc",
-			"selectionBackground": "#f2e5bc",
+			"lightSelectionBackground": "#fbf1c7",
+			"selectionBackground": "#ebdbb2",
 			"selectionForeground": "#282828",
-			"selectionBackgroundInactive": "#f2e5bc",
+			"selectionBackgroundInactive": "#fbf1c7",
 			"selectionInactiveBackground": "#f2e5bc",
-			"selectedInactiveBackground": "#f2e5bc",
-			"selectedBackgroundInactive": "#f2e5bc",
-			"selectedBackground": "#f9f5d7",
+			"selectedInactiveBackground": "#fbf1c7",
+			"selectedBackgroundInactive": "#fbf1c7",
+			"selectedBackground": "#ebdbb2",
 			"selectedForeground": "#282828",
 			"hoverBackground": "#fbf1c7",
-			"borderColor": "#d5c4a1",
-			"disabledBorderColor": "#f9f5d7",
-			"separatorColor": "#d5c4a1"
+			"borderColor": "#f2e5bc",
+			"disabledBorderColor": "#fbf1c7",
+			"separatorColor": "#f2e5bc"
 		},
 		"ActionButton": {
 			"hoverBackground": "#d5c4a1"
@@ -69,7 +69,7 @@
 			"lightSelectionInactiveBackground": "#f9f5d7"
 		},
 		"FileColor": {
-			"Yellow": "#fabd2f15",
+			"Yellow": "#fabd2f10",
 			"Green": "#b8bb2630",
 			"Blue": "#83a598",
 			"Violet": "#d3869b",

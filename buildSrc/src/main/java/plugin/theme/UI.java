@@ -32,20 +32,20 @@ class UI {
 	class Asterisk {
 		@JsonProperty Color background = UI.this.background;
 		@JsonProperty Color foreground = UI.this.foreground;
-		@JsonProperty Color infoForeground = UI.this.foreground;
-		@JsonProperty Color lightSelectionBackground = palette.sepia().brighter();
-		@JsonProperty Color selectionBackground = palette.sepia().brighter();
-		@JsonProperty Color selectionForeground = UI.this.foreground;
-		@JsonProperty Color selectionBackgroundInactive = palette.sepia().brighter();
-		@JsonProperty Color selectionInactiveBackground = palette.sepia().brighter();
-		@JsonProperty Color selectedInactiveBackground = palette.sepia().brighter();
-		@JsonProperty Color selectedBackgroundInactive = palette.sepia().brighter();
-		@JsonProperty Color selectedBackground = UI.this.background;
-		@JsonProperty Color selectedForeground = UI.this.foreground;
-		@JsonProperty Color hoverBackground = palette.sepia().brighter().brighter();
-		@JsonProperty Color borderColor = palette.sepia().darker();
-		@JsonProperty Color disabledBorderColor = UI.this.background;
-		@JsonProperty Color separatorColor = palette.sepia().darker();
+		@JsonProperty Color infoForeground = foreground;
+		@JsonProperty Color lightSelectionBackground = background.darker();
+		@JsonProperty Color selectionBackground = background.darker(3);
+		@JsonProperty Color selectionForeground = foreground;
+		@JsonProperty Color selectionBackgroundInactive = background.darker();
+		@JsonProperty Color selectionInactiveBackground = background.darker(2);
+		@JsonProperty Color selectedInactiveBackground = background.darker();
+		@JsonProperty Color selectedBackgroundInactive = background.darker();
+		@JsonProperty Color selectedBackground = background.darker(3);
+		@JsonProperty Color selectedForeground = foreground;
+		@JsonProperty Color hoverBackground = background.darker();
+		@JsonProperty Color borderColor = background.darker(2);
+		@JsonProperty Color disabledBorderColor = background.darker();
+		@JsonProperty Color separatorColor = background.darker(2);
 	}
 
 	class ComboBox {
@@ -88,7 +88,7 @@ class UI {
 	}
 
 	class FileColor {
-		@JsonProperty Color Yellow = palette.yellow().brighter().transparent("15");
+		@JsonProperty Color Yellow = palette.yellow().brighter().transparent("10");
 		@JsonProperty Color Green = palette.green().brighter().transparent("30");
 		@JsonProperty Color Blue = palette.blue().brighter();
 		@JsonProperty Color Violet = palette.purple().brighter();
