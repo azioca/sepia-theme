@@ -36,6 +36,7 @@
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="b16286" />
+        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="ANNOTATION_NAME_ATTRIBUTES" baseAttributes="DEFAULT_METADATA" />
@@ -337,9 +338,9 @@
     <option name="DELETED_TEXT_ATTRIBUTES" />
     <option name="DEPRECATED_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="9d0006" />
+        <option name="FOREGROUND" value="928374" />
         <option name="FONT_TYPE" value="2" />
-        <option name="EFFECT_TYPE" value="1" />
+        <option name="EFFECT_TYPE" value="4" />
       </value>
     </option>
     <option name="DOC_COMMENT_TAG_VALUE" baseAttributes="DEFAULT_DOC_COMMENT_TAG_VALUE" />
@@ -347,6 +348,7 @@
       <value>
         <option name="FOREGROUND" value="cc241d" />
         <option name="ERROR_STRIPE_COLOR" value="cc241d" />
+        <option name="EFFECT_COLOR" value="cc241d" />
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
@@ -416,7 +418,7 @@
     <option name="MARKED_FOR_REMOVAL_ATTRIBUTES">
       <value>
         <option name="EFFECT_COLOR" value="9d0006" />
-        <option name="EFFECT_TYPE" value="3" />
+        <option name="EFFECT_TYPE" value="4" />
       </value>
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">

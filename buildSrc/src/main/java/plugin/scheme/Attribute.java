@@ -35,8 +35,17 @@ class Attribute {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().background(background));
 	}
 
+	Attribute bold() {
+		return fontType(1);
+	}
+
+	Attribute italic() {
+		return fontType(2);
+	}
+
 	Attribute fontType(Integer fontType) {
-		return new Attribute(name, baseAttributes, atLeastEmptyValue().fontType(fontType));
+		Value value = atLeastEmptyValue();
+		return new Attribute(name, baseAttributes, value.fontType(atLeastEmptyValue().fontType() != null ? value.fontType() + fontType : fontType));
 	}
 
 	Attribute errorStripeColor(plugin.domain.Color errorStripeColor) {
@@ -45,6 +54,30 @@ class Attribute {
 
 	Attribute effectColor(plugin.domain.Color effectColor) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectColor(effectColor));
+	}
+
+	Attribute underscored() {
+		return effectType(0);
+	}
+
+	Attribute boldUnderscored() {
+		return effectType(1);
+	}
+
+	Attribute underwaved() {
+		return effectType(2);
+	}
+
+	Attribute bordered() {
+		return effectType(3);
+	}
+
+	Attribute strikeout() {
+		return effectType(4);
+	}
+
+	Attribute dottedLine() {
+		return effectType(5);
 	}
 
 	Attribute effectType(Integer effectType) {
@@ -101,6 +134,10 @@ class Attribute {
 
 		Value effectType(Integer effectType) {
 			return new Value(foreground, this.background, this.fontType, this.errorStripeColor, this.effectColor, effectType);
+		}
+
+		private Integer fontType() {
+			return fontType;
 		}
 
 		@JacksonXmlElementWrapper(useWrapping = false)
