@@ -290,16 +290,12 @@
     <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
       <value>
         <option name="FOREGROUND" value="b16286"/>
-        <option name="EFFECT_COLOR" value="b16286"/>
-        <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
     <option name="DEFAULT_REASSIGNED_PARAMETER">
       <value>
         <option name="FOREGROUND" value="b16286"/>
         <option name="FONT_TYPE" value="1"/>
-        <option name="EFFECT_COLOR" value="b16286"/>
-        <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
     <option name="DEFAULT_STATIC_FIELD">
