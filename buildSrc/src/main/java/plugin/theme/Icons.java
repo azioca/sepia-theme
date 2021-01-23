@@ -27,25 +27,24 @@ class Icons {
 
 		class Actions {
 			@JsonProperty Color Grey = palette.gray();
-			@JsonProperty Color Red = palette.red().darker();
-			@JsonProperty Color Yellow = palette.yellow().darker();
+			@JsonProperty Color Red = palette.red();
+			@JsonProperty Color Yellow = palette.yellow();
 			@JsonProperty Color Green = palette.green();
 			@JsonProperty Color Blue = palette.blue();
-			@JsonUnwrapped(prefix = "GreyInline.") @JsonProperty Color GreyInline = foreground;
+			@JsonProperty("GreyInline.Dark") Color GreyInlineDark = palette.gray().darker();
 		}
 
 		class Objects {
 			@JsonProperty Color Grey = palette.gray();
-			@JsonProperty Color RedStatus = palette.red().darker();
-			@JsonProperty Color Red = palette.red().darker();
+			@JsonProperty Color RedStatus = palette.red();
+			@JsonProperty Color Red = palette.red();
 			@JsonProperty Color Pink = palette.purple().darker();
 			@JsonProperty Color Yellow = palette.yellow();
 			@JsonProperty Color Green = palette.green();
 			@JsonProperty Color Blue = palette.blue();
 			@JsonProperty Color Purple = palette.purple();
 			@JsonProperty Color BlackText = foreground;
-			@JsonProperty Color YellowDark = palette.yellow();
-			@JsonProperty Color GreenAndroid = palette.green().darker();
+			@JsonProperty Color YellowDark = palette.yellow().darker();
 		}
 
 		class Checkboxes {
