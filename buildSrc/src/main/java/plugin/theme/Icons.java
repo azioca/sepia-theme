@@ -21,9 +21,9 @@ class Icons {
 	@JsonProperty ColorPalette ColorPalette() { return new ColorPalette(); }
 
 	class ColorPalette {
-		@JsonUnwrapped(prefix = "Actions.") @JsonProperty Actions Actions() { return new Actions(); }
-		@JsonUnwrapped(prefix = "Objects.") @JsonProperty Objects Objects() { return new Objects(); }
-		@JsonUnwrapped(prefix = "Checkboxes.") @JsonProperty Checkboxes Checkboxes() { return new Checkboxes(); }
+		@JsonUnwrapped(prefix = "Actions.") @JsonProperty Actions Actions = new Actions();
+		@JsonUnwrapped(prefix = "Objects.") @JsonProperty Objects Objects = new Objects();
+		@JsonUnwrapped(prefix = "Checkboxes.") @JsonProperty Checkboxes Checkboxes = new Checkboxes();
 
 		class Actions {
 			@JsonProperty Color Grey = palette.gray();

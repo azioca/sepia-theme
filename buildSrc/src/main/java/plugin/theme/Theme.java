@@ -21,7 +21,7 @@ public class Theme {
 		this.author = Objects.requireNonNull(author);
 		this.palette = new Palette.Hex(Objects.requireNonNull(palette));
 		this.background = Objects.requireNonNull(background.hex());
-		this.schemeBackground = Objects.requireNonNull(schemeBackground);
+		this.schemeBackground = Objects.requireNonNull(schemeBackground.hex());
 		this.foreground = Objects.requireNonNull(foreground.hex());
 	}
 
@@ -29,6 +29,6 @@ public class Theme {
 	@JsonProperty String author() { return author; }
 	@JsonProperty boolean dark() { return false; }
 	@JsonProperty String editorScheme() { return "/intellij.scheme.xml"; }
-	@JsonProperty UI ui() { return new UI(palette, schemeBackground, background, foreground); }
+	@JsonProperty UI ui() { return new UI(palette, background, schemeBackground, foreground); }
 	@JsonProperty Icons icons() { return new Icons(palette, background, foreground); }
 }

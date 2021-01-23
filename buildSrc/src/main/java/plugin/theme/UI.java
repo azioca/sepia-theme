@@ -14,15 +14,19 @@ class UI {
 	private final Color hoverBackground;
 	private final Color selectedInactiveBackground;
 	private final Color selectedBackground;
+	private final Color nonProjectFilesBackground;
+	private final Color testFilesBackground;
 
-	UI(Palette palette, Color schemeBackground, Color background, Color foreground) {
+	UI(Palette palette, Color background, Color schemeBackground, Color foreground) {
 		this.palette = Objects.requireNonNull(palette);
-		this.schemeBackground = Objects.requireNonNull(schemeBackground);
 		this.background = Objects.requireNonNull(background);
+		this.schemeBackground = Objects.requireNonNull(schemeBackground);
 		this.foreground = Objects.requireNonNull(foreground);
-		this.hoverBackground = background.darker();
+		this.hoverBackground = this.background.darker();
 		this.selectedInactiveBackground = hoverBackground.darker();
 		this.selectedBackground = selectedInactiveBackground.darker();
+		this.nonProjectFilesBackground = palette.yellow().brighter().transparent("10");
+		this.testFilesBackground = palette.green().brighter().transparent("30");
 	}
 
 	@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
@@ -56,13 +60,13 @@ class UI {
 		@JsonProperty Color selectedForeground = UI.this.foreground;
 		@JsonProperty Color infoForeground = UI.this.foreground;
 
-		@JsonProperty Color borderColor = UI.this.background.darker(4);
+		@JsonProperty Color borderColor = UI.this.background.darker(3);
 		@JsonProperty Color disabledBorderColor = borderColor.brighter();
 		@JsonProperty Color separatorColor = borderColor;
 	}
 
 	class ActionButton {
-		@JsonProperty Color hoverBackground = background.darker(3);
+		@JsonProperty Color hoverBackground;
 	}
 
 	class Button {
@@ -110,8 +114,8 @@ class UI {
 	}
 
 	class FileColor {
-		@JsonProperty Color Yellow = palette.yellow().brighter().transparent("10");
-		@JsonProperty Color Green = palette.green().brighter().transparent("30");
+		@JsonProperty Color Yellow = nonProjectFilesBackground;
+		@JsonProperty Color Green = testFilesBackground;
 		@JsonProperty Color Blue = palette.blue().brighter();
 		@JsonProperty Color Violet = palette.purple().brighter();
 		@JsonProperty Color Orange = palette.orange().brighter();
@@ -162,10 +166,11 @@ class UI {
 	}
 
 	class VersionControl {
+		@JsonProperty("FileHistory.Commit.selectedBranchBackground") Color selectedBranchBackground = selectedBackground;
+
 		@JsonProperty GitLog GitLog = new GitLog();
 		@JsonProperty Log Log = new Log();
 		@JsonProperty RefLabel RefLabel = new RefLabel();
-		@JsonProperty("FileHistory.Commit.selectedBranchBackground") Color selectedBranchBackground() { return selectedBackground; }
 
 		class GitLog {
 			@JsonProperty Color headIconColor;
@@ -176,11 +181,11 @@ class UI {
 		}
 
 		class Log {
-			@JsonProperty Commit Commit() { return new Commit(); }
+			@JsonProperty Commit Commit = new Commit();
 
 			class Commit {
 				@JsonProperty Color currentBranchBackground = background.darker();
-				@JsonProperty Color hoveredBackground = hoverBackground;
+				@JsonProperty Color hoveredBackground = currentBranchBackground.darker();
 				@JsonProperty Color unmatchedForeground;
 			}
 		}

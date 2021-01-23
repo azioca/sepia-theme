@@ -35,8 +35,8 @@
 	"ui": {
 		"*": {
 			"background": "#fbf1c7",
-			"borderColor": "#bdae93",
-			"disabledBorderColor": "#d5c4a1",
+			"borderColor": "#d5c4a1",
+			"disabledBorderColor": "#ebdbb2",
 			"foreground": "#282828",
 			"hoverBackground": "#f2e5bc",
 			"infoForeground": "#282828",
@@ -49,11 +49,9 @@
 			"selectionBackgroundInactive": "#ebdbb2",
 			"selectionForeground": "#282828",
 			"selectionInactiveBackground": "#ebdbb2",
-			"separatorColor": "#bdae93"
+			"separatorColor": "#d5c4a1"
 		},
-		"ActionButton": {
-			"hoverBackground": "#d5c4a1"
-		},
+		"ActionButton": {},
 		"Button": {
 			"default": {
 				"endBackground": "#f2e5bc",
@@ -122,7 +120,7 @@
 			"Log": {
 				"Commit": {
 					"currentBranchBackground": "#f2e5bc",
-					"hoveredBackground": "#f2e5bc"
+					"hoveredBackground": "#ebdbb2"
 				}
 			},
 			"RefLabel": {
