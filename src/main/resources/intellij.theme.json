@@ -59,11 +59,14 @@
 		},
 		"ComboBox": {
 			"ArrowButton": {
-				"disabledIconColor": "#282828",
+				"background": "#f2e5bc",
+				"disabledIconColor": "#32302f",
 				"iconColor": "#282828",
-				"nonEditableBackground": "#fbf1c7"
+				"nonEditableBackground": "#f2e5bc"
 			},
-			"nonEditableBackground": "#f2e5bc"
+			"background": "#f2e5bc",
+			"nonEditableBackground": "#f2e5bc",
+			"selectionBackground": "#d5c4a1"
 		},
 		"EditorTabs": {
 			"background": "#ebdbb2",

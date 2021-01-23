@@ -87,14 +87,22 @@ class UI {
 	}
 
 	class ComboBox {
-		@JsonProperty Color nonEditableBackground = background.darker();
+		@JsonProperty Color selectionForeground = UI.this.foreground;
+		@JsonProperty Color foreground = UI.this.foreground;
+		@JsonProperty Color disabledForeground;
+		@JsonProperty Color modifiedItemForeground;
+		@JsonProperty Color background = UI.this.background.darker();
+		@JsonProperty Color nonEditableBackground = background;
+		@JsonProperty Color selectionBackground = UI.this.selectedBackground;
 
 		@JsonProperty ComboBox.ArrowButton ArrowButton = new ComboBox.ArrowButton();
 
 		class ArrowButton {
-			@JsonProperty Color iconColor = foreground;
-			@JsonProperty Color disabledIconColor = foreground;
-			@JsonProperty Color nonEditableBackground = background;
+			@JsonProperty Color iconColor = UI.this.foreground;
+			@JsonProperty Color disabledIconColor = iconColor.brighter();
+
+			@JsonProperty Color background = ComboBox.this.background;
+			@JsonProperty Color nonEditableBackground = ComboBox.this.nonEditableBackground;
 		}
 	}
 
