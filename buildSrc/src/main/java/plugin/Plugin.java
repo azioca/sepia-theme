@@ -14,7 +14,7 @@ public class Plugin {
 	private final Color schemeBackground = background.darker();
 	private final Color foreground = palette.black().darker(2);
 
-	@JsonProperty String id = "com.github.adamwojszczyk." + toCamelCase() + "Theme";
+	@JsonProperty String id = "com.github.adamwojszczyk." + toCamelCase(name) + "Theme";
 	@JsonProperty String pluginName = name + " Theme";
 	@JsonProperty String email = "adam.wojszczyk@gmail.com";
 	@JsonProperty String vendor = "Adam Wojszczyk";
@@ -28,7 +28,7 @@ public class Plugin {
 		return new Scheme(name, palette, background, foreground);
 	}
 
-	private String toCamelCase() {
+	private static String toCamelCase(String name) {
 		final String first = name.substring(0, 1);
 		return name.replace(" ", "").replaceAll("(.)(.*)", first.toLowerCase() + "$2");
 	}
