@@ -11,16 +11,17 @@ public class Plugin {
 	private final String name = "Gruvbox Light Hard Black";
 	private final Palette palette = new GruvBoxPallete();
 	private final Color background = palette.sepia().brighter(3);
+	private final Color schemeBackground = background.darker();
 	private final Color foreground = palette.black().darker(2);
 
-	@JsonProperty public String id() { return "com.github.adamwojszczyk." + toCamelCase() + "Theme"; }
-	@JsonProperty public String name() { return name + " Theme"; }
-	@JsonProperty public String email() { return "adam.wojszczyk@gmail.com"; }
-	@JsonProperty public String vendor() { return "Adam Wojszczyk"; }
-	@JsonProperty public String themeProviderId() { return "f20d8fb3-da86-46ac-8621-661b16f0d135"; }
+	@JsonProperty String id = "com.github.adamwojszczyk." + toCamelCase() + "Theme";
+	@JsonProperty String pluginName = name + " Theme";
+	@JsonProperty String email = "adam.wojszczyk@gmail.com";
+	@JsonProperty String vendor = "Adam Wojszczyk";
+	@JsonProperty String themeProviderId = "f20d8fb3-da86-46ac-8621-661b16f0d135";
 
 	public Theme theme() {
-		return new Theme(name + " Theme", vendor(), palette, background.darker(), background, foreground);
+		return new Theme(name + " Theme", vendor, palette, schemeBackground, background, foreground);
 	}
 
 	public Scheme scheme() {

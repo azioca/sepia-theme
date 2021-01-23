@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>$id</id>
-  <name>$name</name>
+  <name>$pluginName</name>
   <vendor email="$email">$vendor</vendor>
   <depends>com.intellij.modules.platform</depends>
   <extensions defaultExtensionNs="com.intellij">

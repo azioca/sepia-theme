@@ -70,8 +70,8 @@ class UI {
 	}
 
 	class Button {
-		@JsonProperty Color startBackground = background;
-		@JsonProperty Color endBackground = background;
+		@JsonProperty Color startBackground = UI.this.background;
+		@JsonProperty Color endBackground = UI.this.background;
 		@JsonProperty Color startBorderColor = palette.sepia().darker();
 		@JsonProperty Color endBorderColor = palette.sepia().darker();
 		@JsonProperty("default") Button.Default defaultt = new Button.Default();
@@ -82,7 +82,7 @@ class UI {
 			@JsonProperty Color endBackground = palette.sepia().brighter();
 			@JsonProperty Color startBorderColor = palette.black().brighter().brighter();
 			@JsonProperty Color endBorderColor = palette.black().brighter().brighter();
-			@JsonProperty Color focusedBorderColor = background;
+			@JsonProperty Color focusedBorderColor = UI.this.background;
 		}
 	}
 
@@ -122,8 +122,8 @@ class UI {
 	}
 
 	class FileColor {
-		@JsonProperty Color Yellow = nonProjectFilesBackground;
-		@JsonProperty Color Green = testFilesBackground;
+		@JsonProperty Color Yellow = UI.this.nonProjectFilesBackground;
+		@JsonProperty Color Green = UI.this.testFilesBackground;
 		@JsonProperty Color Blue = palette.blue().brighter();
 		@JsonProperty Color Violet = palette.purple().brighter();
 		@JsonProperty Color Orange = palette.orange().brighter();
@@ -147,10 +147,10 @@ class UI {
 
 	class Table {
 		@JsonProperty Color stripeColor;
-		@JsonProperty Color lightSelectionForeground = foreground;
-		@JsonProperty Color lightSelectionInactiveForeground = foreground;
-		@JsonProperty Color lightSelectionBackground = selectedBackground;
-		@JsonProperty Color lightSelectionInactiveBackground = selectedInactiveBackground;
+		@JsonProperty Color lightSelectionForeground = UI.this.foreground;
+		@JsonProperty Color lightSelectionInactiveForeground = UI.this.foreground;
+		@JsonProperty Color lightSelectionBackground = UI.this.selectedBackground;
+		@JsonProperty Color lightSelectionInactiveBackground = UI.this.selectedInactiveBackground;
 	}
 
 	class Link {
@@ -174,7 +174,7 @@ class UI {
 	}
 
 	class VersionControl {
-		@JsonProperty("FileHistory.Commit.selectedBranchBackground") Color selectedBranchBackground = selectedBackground;
+		@JsonProperty("FileHistory.Commit.selectedBranchBackground") Color selectedBranchBackground;
 
 		@JsonProperty GitLog GitLog = new GitLog();
 		@JsonProperty Log Log = new Log();
@@ -192,7 +192,7 @@ class UI {
 			@JsonProperty Commit Commit = new Commit();
 
 			class Commit {
-				@JsonProperty Color currentBranchBackground = background.darker();
+				@JsonProperty Color currentBranchBackground = UI.this.background.darker();
 				@JsonProperty Color hoveredBackground = currentBranchBackground.darker();
 				@JsonProperty Color unmatchedForeground;
 			}

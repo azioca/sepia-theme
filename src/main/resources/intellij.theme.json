@@ -65,8 +65,10 @@
 				"nonEditableBackground": "#f2e5bc"
 			},
 			"background": "#f2e5bc",
+			"foreground": "#282828",
 			"nonEditableBackground": "#f2e5bc",
-			"selectionBackground": "#d5c4a1"
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828"
 		},
 		"EditorTabs": {
 			"background": "#ebdbb2",
@@ -109,7 +111,6 @@
 			}
 		},
 		"VersionControl": {
-			"FileHistory.Commit.selectedBranchBackground": "#d5c4a1",
 			"GitLog": {},
 			"Log": {
 				"Commit": {
