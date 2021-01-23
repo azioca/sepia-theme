@@ -13,10 +13,10 @@ public class GruvBoxPallete implements Palette {
 		);
 	}
 	public Color gray() {
-		return new Color(2,
-			"665c54", "7c6f64",
+		return new Color(3,
+			"504945", "665c54", "7c6f64",
 			"928374",
-			"a89984", "bdae93"
+			"a89984", "bdae93", "d5c4a1"
 		);
 	}
 	public Color sepia() {
