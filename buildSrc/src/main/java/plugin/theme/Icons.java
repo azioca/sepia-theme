@@ -54,27 +54,38 @@ class Icons {
 			@JsonUnwrapped(prefix = "Focus.") @JsonProperty Focus Focus = new Focus();
 
 			class Foreground {
-				@JsonProperty("Selected.Dark") Color Selected = foreground;
-				@JsonProperty("Disabled.Dark") Color Disabled = palette.gray().darker();
+				@JsonProperty("Selected") Color Selected;
+				@JsonProperty("Selected.Dark") Color SelectedDark;
+				@JsonProperty("Disabled") Color Disabled;
+				@JsonProperty("Disabled.Dark") Color DisabledDark;
 			}
 
 			class Background {
-				@JsonProperty("Default.Dark") Color Defaultt = palette.sepia().brighter(2);
-				@JsonProperty("Disabled.Dark") Color Disabled = palette.sepia().brighter(2);
+				@JsonProperty("Default") Color Defaultt;
+				@JsonProperty("Default.Dark") Color DefaultDark;
+				@JsonProperty("Disabled") Color Disabled;
+				@JsonProperty("Disabled.Dark") Color DisabledDark;
+				@JsonProperty("Selected") Color Selected;
+				@JsonProperty("Selected.Dark") Color SelectedDark;
 			}
 
 			class Border {
-				@JsonProperty("Default.Dark") Color Defaultt = foreground;
-				@JsonProperty("Disabled.Dark") Color Disabled = (palette.gray().darker());
+				@JsonProperty("Default") Color Defaultt;
+				@JsonProperty("Default.Dark") Color DefaultDark;
+				@JsonProperty("Disabled") Color Disabled;
+				@JsonProperty("Disabled.Dark") Color DisabledDark;
 			}
 
 			class Focus {
-				@JsonProperty("Wide.Dark") Color Wide = palette.blue();
+				@JsonProperty("Wide") Color Wide;
+				@JsonProperty("Wide.Dark") Color WideDark;
 				@JsonUnwrapped(prefix = "Thin.") @JsonProperty Checkboxes.Focus.Thin Thin = new Checkboxes.Focus.Thin();
 
 				class Thin {
-					@JsonProperty("Default.Dark") Color Defaultt = palette.blue();
-					@JsonProperty("Selected.Dark") Color Selected = palette.gray().darker();
+					@JsonProperty("Default") Color Defaultt;
+					@JsonProperty("Default.Dark") Color DefaultDark;
+					@JsonProperty("Selected") Color Selected;
+					@JsonProperty("Selected.Dark") Color SelectedDark;
 				}
 			}
 		}
