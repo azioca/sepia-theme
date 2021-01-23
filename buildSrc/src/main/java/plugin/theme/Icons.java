@@ -1,7 +1,6 @@
 package plugin.theme;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import plugin.domain.Color;
 import plugin.domain.Palette;
@@ -10,16 +9,17 @@ import java.util.Objects;
 
 class Icons {
 	private final Palette palette;
+	private final Color background;
 	private final Color foreground;
 
-	Icons(Palette palette, Color foreground) {
+	Icons(Palette palette, Color background, Color foreground) {
 		this.palette = Objects.requireNonNull(palette);
+		this.background = Objects.requireNonNull(background);
 		this.foreground = Objects.requireNonNull(foreground);
 	}
 
 	@JsonProperty ColorPalette ColorPalette() { return new ColorPalette(); }
 
-	@JsonPropertyOrder({"Actions", "Objects", "Checkboxes"})
 	class ColorPalette {
 		@JsonUnwrapped(prefix = "Actions.") @JsonProperty Actions Actions() { return new Actions(); }
 		@JsonUnwrapped(prefix = "Objects.") @JsonProperty Objects Objects() { return new Objects(); }

@@ -3,113 +3,128 @@
 	"author": "Adam Wojszczyk",
 	"dark": false,
 	"editorScheme": "/intellij.scheme.xml",
-	"ui": {
-		"*": {
-			"background": "#f9f5d7",
-			"foreground": "#282828",
-			"infoForeground": "#282828",
-			"selectionBackground": "#ebdbb2",
-			"lightSelectionBackground": "#f2e5bc",
-			"selectionForeground": "#282828",
-			"selectionBackgroundInactive": "#f2e5bc",
-			"selectionInactiveBackground": "#f2e5bc",
-			"selectedInactiveBackground": "#fbf1c7",
-			"selectedBackgroundInactive": "#fbf1c7",
-			"selectedBackground": "#f2e5bc",
-			"selectedForeground": "#282828",
-			"hoverBackground": "#fbf1c7",
-			"borderColor": "#f2e5bc",
-			"disabledBorderColor": "#fbf1c7",
-			"separatorColor": "#f2e5bc"
-		},
-		"ActionButton": {
-			"hoverBackground": "#d5c4a1"
-		},
-		"Button": {
-			"startBackground": "#f9f5d7",
-			"endBackground": "#f9f5d7",
-			"startBorderColor": "#d5c4a1",
-			"endBorderColor": "#d5c4a1",
-			"default": {
-				"foreground": "#282828",
-				"startBackground": "#f2e5bc",
-				"endBackground": "#f2e5bc",
-				"startBorderColor": "#665c54",
-				"endBorderColor": "#665c54",
-				"focusedBorderColor": "#f9f5d7"
-			}
-		},
-		"ComboBox": {
-			"nonEditableBackground": "#f9f5d7",
-			"ArrowButton": {
-				"iconColor": "#282828",
-				"disabledIconColor": "#282828",
-				"nonEditableBackground": "#f9f5d7"
-			}
-		},
-		"EditorTabs": {
-			"underlinedTabBackground": "#f9f5d7",
-			"underlineColor": "#076678"
-		},
-		"ToolWindow": {
-			"Header": {
-				"inactiveBackground": "#fbf1c7",
-				"background": "#ebdbb2"
-			},
-			"HeaderTab": {
-				"selectedInactiveBackground": "#f9f5d7",
-				"hoverInactiveBackground": "#f9f5d7"
-			}
-		},
-		"Table": {
-			"stripeColor": "#f2e5bc",
-			"lightSelectionForeground": "#282828",
-			"lightSelectionInactiveForeground": "#7c6f64",
-			"lightSelectionBackground": "#f2e5bc",
-			"lightSelectionInactiveBackground": "#f9f5d7"
-		},
-		"FileColor": {
-			"Yellow": "#fabd2f10",
-			"Green": "#b8bb2630",
-			"Blue": "#83a598",
-			"Violet": "#d3869b",
-			"Orange": "#fe8019",
-			"Rose": "#fb4934"
-		},
-		"Link": {
-			"activeForeground": "#076678",
-			"hoverForeground": "#076678",
-			"pressedForeground": "#076678",
-			"visitedForeground": "#076678"
-		}
-	},
 	"icons": {
 		"ColorPalette": {
+			"Actions.Blue": "#458588",
+			"Actions.Green": "#98971a",
 			"Actions.Grey": "#928374",
+			"Actions.GreyInline.Dark": "#7c6f64",
 			"Actions.Red": "#cc241d",
 			"Actions.Yellow": "#d79921",
-			"Actions.Green": "#98971a",
-			"Actions.Blue": "#458588",
-			"Actions.GreyInline.Dark": "#7c6f64",
-			"Objects.Grey": "#928374",
-			"Objects.RedStatus": "#cc241d",
-			"Objects.Red": "#cc241d",
-			"Objects.Pink": "#8f3f71",
-			"Objects.Yellow": "#d79921",
-			"Objects.Green": "#98971a",
-			"Objects.Blue": "#458588",
-			"Objects.Purple": "#b16286",
-			"Objects.BlackText": "#282828",
-			"Objects.YellowDark": "#b57614",
-			"Checkboxes.Foreground.Selected.Dark": "#282828",
-			"Checkboxes.Foreground.Disabled.Dark": "#7c6f64",
 			"Checkboxes.Background.Default.Dark": "#fbf1c7",
 			"Checkboxes.Background.Disabled.Dark": "#fbf1c7",
 			"Checkboxes.Border.Default.Dark": "#282828",
 			"Checkboxes.Border.Disabled.Dark": "#7c6f64",
 			"Checkboxes.Focus.Thin.Default.Dark": "#458588",
 			"Checkboxes.Focus.Thin.Selected.Dark": "#7c6f64",
-			"Checkboxes.Focus.Wide.Dark": "#458588"
+			"Checkboxes.Focus.Wide.Dark": "#458588",
+			"Checkboxes.Foreground.Disabled.Dark": "#7c6f64",
+			"Checkboxes.Foreground.Selected.Dark": "#282828",
+			"Objects.BlackText": "#282828",
+			"Objects.Blue": "#458588",
+			"Objects.Green": "#98971a",
+			"Objects.Grey": "#928374",
+			"Objects.Pink": "#8f3f71",
+			"Objects.Purple": "#b16286",
+			"Objects.Red": "#cc241d",
+			"Objects.RedStatus": "#cc241d",
+			"Objects.Yellow": "#d79921",
+			"Objects.YellowDark": "#b57614"
+		}
+	},
+	"ui": {
+		"*": {
+			"background": "#fbf1c7",
+			"borderColor": "#bdae93",
+			"disabledBorderColor": "#d5c4a1",
+			"foreground": "#282828",
+			"hoverBackground": "#f2e5bc",
+			"infoForeground": "#282828",
+			"lightSelectionBackground": "#d5c4a1",
+			"selectedBackground": "#d5c4a1",
+			"selectedBackgroundInactive": "#ebdbb2",
+			"selectedForeground": "#282828",
+			"selectedInactiveBackground": "#ebdbb2",
+			"selectionBackground": "#d5c4a1",
+			"selectionBackgroundInactive": "#ebdbb2",
+			"selectionForeground": "#282828",
+			"selectionInactiveBackground": "#ebdbb2",
+			"separatorColor": "#bdae93"
+		},
+		"ActionButton": {
+			"hoverBackground": "#d5c4a1"
+		},
+		"Button": {
+			"default": {
+				"endBackground": "#f2e5bc",
+				"endBorderColor": "#665c54",
+				"focusedBorderColor": "#fbf1c7",
+				"foreground": "#282828",
+				"startBackground": "#f2e5bc",
+				"startBorderColor": "#665c54"
+			},
+			"endBackground": "#fbf1c7",
+			"endBorderColor": "#d5c4a1",
+			"startBackground": "#fbf1c7",
+			"startBorderColor": "#d5c4a1"
+		},
+		"ComboBox": {
+			"ArrowButton": {
+				"disabledIconColor": "#282828",
+				"iconColor": "#282828",
+				"nonEditableBackground": "#fbf1c7"
+			},
+			"nonEditableBackground": "#f2e5bc"
+		},
+		"EditorTabs": {
+			"underlineColor": "#076678",
+			"underlinedTabBackground": "#fbf1c7"
+		},
+		"FileColor": {
+			"Blue": "#83a598",
+			"Green": "#b8bb2630",
+			"Orange": "#fe8019",
+			"Rose": "#fb4934",
+			"Violet": "#d3869b",
+			"Yellow": "#fabd2f10"
+		},
+		"Link": {
+			"activeForeground": "#98971a",
+			"hoverForeground": "#98971a",
+			"pressedForeground": "#98971a",
+			"visitedForeground": "#98971a"
+		},
+		"List": {},
+		"Table": {
+			"lightSelectionBackground": "#d5c4a1",
+			"lightSelectionForeground": "#282828",
+			"lightSelectionInactiveBackground": "#ebdbb2",
+			"lightSelectionInactiveForeground": "#282828"
+		},
+		"ToolWindow": {
+			"Header": {
+				"background": "#d5c4a1",
+				"inactiveBackground": "#ebdbb2"
+			},
+			"HeaderTab": {
+				"hoverInactiveBackground": "#f2e5bc",
+				"selectedInactiveBackground": "#ebdbb2"
+			}
+		},
+		"VersionControl": {
+			"FileHistory.Commit.selectedBranchBackground": "#d5c4a1",
+			"GitLog": {},
+			"Log": {
+				"Commit": {
+					"currentBranchBackground": "#f2e5bc",
+					"hoveredBackground": "#f2e5bc"
+				}
+			},
+			"RefLabel": {
+				"backgroundBase": "#458588",
+				"backgroundBrightness": 0.5,
+				"foreground": "#282828"
+			}
 		}
 	}
 }

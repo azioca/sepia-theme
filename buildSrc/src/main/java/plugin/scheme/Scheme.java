@@ -21,12 +21,12 @@ public class Scheme {
 	private final Color foreground;
 	private final Color selectedLineBackground;
 
-	public Scheme(String name, Palette palette, Color background, Color foreground, Color selectedLineBackground) {
+	public Scheme(String name, Palette palette, Color background, Color foreground) {
 		this.name = Objects.requireNonNull(name);
 		this.palette = new Palette.Plain(Objects.requireNonNull(palette));
 		this.background = Objects.requireNonNull(background).plain();
 		this.foreground = Objects.requireNonNull(foreground).plain();
-		this.selectedLineBackground = Objects.requireNonNull(selectedLineBackground);
+		this.selectedLineBackground = background.darker(3);
 	}
 
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }

@@ -4,14 +4,22 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.PrettyPrinter;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.IOException;
 
 public class Json extends Text {
 
 	public Json(Object object) {
-		super(new ObjectMapper().setDefaultPrettyPrinter(prettyPrinter()), object);
+		super(
+			new ObjectMapper()
+				.enable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+				.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS)
+				.setDefaultPrettyPrinter(prettyPrinter()),
+			object
+		);
 	}
 
 	private static PrettyPrinter prettyPrinter() {
