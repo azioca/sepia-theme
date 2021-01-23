@@ -77,8 +77,13 @@
 			"nonEditableBackground": "#f2e5bc"
 		},
 		"EditorTabs": {
-			"underlineColor": "#076678",
-			"underlinedTabBackground": "#fbf1c7"
+			"background": "#ebdbb2",
+			"borderColor": "#f9f5d7",
+			"hoverBackground": "#f9f5d7",
+			"tabInsets": false,
+			"underlineHeight": 0,
+			"underlinedTabBackground": "#f9f5d7",
+			"underlinedTabForeground": "#282828"
 		},
 		"FileColor": {
 			"Blue": "#83a598",

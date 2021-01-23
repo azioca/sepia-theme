@@ -9,18 +9,20 @@ import java.util.Objects;
 class UI {
 	private final Palette palette;
 	private final Color background;
+	private final Color schemeBackground;
 	private final Color foreground;
 	private final Color hoverBackground;
 	private final Color selectedInactiveBackground;
 	private final Color selectedBackground;
 
-	UI(Palette palette, Color background, Color foreground) {
+	UI(Palette palette, Color schemeBackground, Color background, Color foreground) {
 		this.palette = Objects.requireNonNull(palette);
+		this.schemeBackground = Objects.requireNonNull(schemeBackground);
 		this.background = Objects.requireNonNull(background);
 		this.foreground = Objects.requireNonNull(foreground);
 		this.hoverBackground = background.darker();
-		this.selectedInactiveBackground = background.darker(2);
-		this.selectedBackground = background.darker(3);
+		this.selectedInactiveBackground = hoverBackground.darker();
+		this.selectedBackground = selectedInactiveBackground.darker();
 	}
 
 	@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
@@ -93,8 +95,18 @@ class UI {
 	}
 
 	class EditorTabs {
-		@JsonProperty Color underlinedTabBackground = background;
-		@JsonProperty Color underlineColor = palette.blue().darker();
+		@JsonProperty Color underlinedTabForeground = UI.this.foreground;
+		@JsonProperty Color underlinedTabBackground = UI.this.schemeBackground;
+		@JsonProperty Color hoverBackground = underlinedTabBackground;
+		@JsonProperty Color background = hoverBackground.darker(3);
+		@JsonProperty Color borderColor = underlinedTabBackground;
+
+		@JsonProperty int underlineHeight = 0;
+		@JsonProperty Color underlineColor;
+		@JsonProperty Color inactiveUnderlineColor;
+
+		@JsonProperty boolean tabInsets;
+		@JsonProperty Color inactiveColoredFileBackground;
 	}
 
 	class FileColor {
