@@ -16,6 +16,8 @@ class UI {
 	private final Color selectedBackground;
 	private final Color nonProjectFilesBackground;
 	private final Color testFilesBackground;
+	private final Color borderColor;
+	private final Color marker;
 
 	UI(Palette palette, Color foreground, Color background, Color schemeBackground, Color readOnlyBackground) {
 		this.palette = requireNonNull(palette);
@@ -27,6 +29,8 @@ class UI {
 		this.selectedBackground = selectedInactiveBackground.darker();
 		this.nonProjectFilesBackground = requireNonNull(readOnlyBackground);
 		this.testFilesBackground = palette.green().brighter().transparent("30");
+		this.borderColor = this.background.darker(3);
+		this.marker = this.palette.red();
 	}
 
 	@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
@@ -60,30 +64,48 @@ class UI {
 		@JsonProperty Color selectedForeground = UI.this.foreground;
 		@JsonProperty Color infoForeground = UI.this.foreground;
 
-		@JsonProperty Color borderColor = UI.this.background.darker(3);
+		@JsonProperty Color borderColor = UI.this.borderColor;
 		@JsonProperty Color disabledBorderColor = borderColor.brighter();
 		@JsonProperty Color separatorColor = borderColor;
 	}
 
 	class ActionButton {
 		@JsonProperty Color hoverBackground;
+		@JsonProperty Color hoverBorderColor;
+		@JsonProperty Color pressedBackground;
+		@JsonProperty Color pressedBorderColor;
 	}
 
 	class Button {
-		@JsonProperty Color startBackground = UI.this.background;
-		@JsonProperty Color endBackground = UI.this.background;
-		@JsonProperty Color startBorderColor = palette.sepia().darker();
-		@JsonProperty Color endBorderColor = palette.sepia().darker();
+		private final Color ordinaryBackground = UI.this.background.darker();
+
+		@JsonProperty Integer ark;
+		@JsonProperty Color background;
+		@JsonProperty Color disabledBorderColor;
+		@JsonProperty Color disabledText;
+		@JsonProperty Color foreground = UI.this.foreground;
+		@JsonProperty Color shadowColor;
+		@JsonProperty Integer shadowWidth;
+
+		@JsonProperty Color startBackground = ordinaryBackground;
+		@JsonProperty Color endBackground = startBackground;
+		@JsonProperty Color startBorderColor = UI.this.borderColor;
+		@JsonProperty Color endBorderColor = startBorderColor;
 
 		@JsonProperty("default") Button.Default defaultt = new Button.Default();
 
 		class Default {
+			private final Color defaultBackground = ordinaryBackground.darker(2);
+
 			@JsonProperty Color foreground = UI.this.foreground;
-			@JsonProperty Color startBackground = palette.sepia().brighter();
-			@JsonProperty Color endBackground = palette.sepia().brighter();
-			@JsonProperty Color startBorderColor = palette.black().brighter().brighter();
-			@JsonProperty Color endBorderColor = palette.black().brighter().brighter();
-			@JsonProperty Color focusedBorderColor = UI.this.background;
+
+			@JsonProperty Color startBackground = defaultBackground;
+			@JsonProperty Color endBackground = defaultBackground;
+			@JsonProperty Color startBorderColor = defaultBackground;
+			@JsonProperty Color endBorderColor = defaultBackground;
+
+			@JsonProperty Color focusColor = marker;
+			@JsonProperty Color focusedBorderColor = defaultBackground.darker(2);
 		}
 	}
 
