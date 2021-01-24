@@ -12,7 +12,7 @@ public class Plugin {
 	private final Palette palette = new GruvBoxPallete();
 	private final Color editorBackground = palette.sepia().brighter(3);
 	private final Color uiBackground = editorBackground.darker();
-	private final Color readOnlyBackground = palette.yellow().brighter().transparent("10");
+	private final Color readOnlyBackground = palette.yellow().brighter().opacity(0.07);
 	private final Color foreground = palette.black().darker(2);
 
 	@JsonProperty String id = "com.github.adamwojszczyk." + toCamelCase(name) + "Theme";

@@ -32,6 +32,6 @@ public interface Option {
 		}
 
 		@JacksonXmlProperty(isAttribute = true) public String name() { return name; }
-		@JacksonXmlProperty(isAttribute = true) public String value() { return color.asString(); }
+		@JacksonXmlProperty(isAttribute = true) public String value() { return color.string(); }
 	}
 }

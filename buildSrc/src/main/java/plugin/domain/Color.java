@@ -2,15 +2,17 @@ package plugin.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import plugin.AsString;
+import plugin.Check;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Color {
 
 	private final Slider slider;
-	private final Transparency transparency;
+	private final Opacity opacity;
 	private final boolean presentAsHex;
 
 	public Color(String hue) {
@@ -22,12 +24,12 @@ public class Color {
 	}
 
 	private Color(int chosen, List<Slider.Hue> hues) {
-		this(new Slider(chosen, hues), Transparency.opaque, true);
+		this(new Slider(chosen, hues), Opacity.opaque, true);
 	}
 
-	private Color(Slider slider, Transparency transparency, boolean presentAsHex) {
+	private Color(Slider slider, Opacity opacity, boolean presentAsHex) {
 		this.slider = slider;
-		this.transparency = transparency;
+		this.opacity = opacity;
 		this.presentAsHex = presentAsHex;
 	}
 
@@ -40,7 +42,7 @@ public class Color {
 	}
 
 	public Color darker() {
-		return new Color(slider.slideToDarker(), transparency, presentAsHex);
+		return new Color(slider.slideToDarker(), opacity, presentAsHex);
 	}
 
 	public Color brighter(int times) {
@@ -52,37 +54,54 @@ public class Color {
 	}
 
 	public Color brighter() {
-		return new Color(slider.slideToBrighter(), transparency, presentAsHex);
+		return new Color(slider.slideToBrighter(), opacity, presentAsHex);
 	}
 
-	public Color transparent(String transparency) {
-		return new Color(slider, new Transparency(transparency), presentAsHex);
+	public Color opacity(double opacity) {
+		return new Color(slider, new Opacity(opacity), presentAsHex);
 	}
 
 	public Color hex() {
-		return new Color(slider, transparency, true);
+		return new Color(slider, opacity, true);
 	}
 
 	public Color plain() {
-		return new Color(slider, transparency, false);
+		return new Color(slider, opacity, false);
 	}
 
 	@JsonValue
-	public String asString() {
-		return (presentAsHex ? "#" : "") + slider.chosen().asString() + transparency.asString();
+	public String string() {
+		return (presentAsHex ? "#" : "") + slider.chosen().string() + opacity.string();
 	}
 
-	public static class Transparency extends StringValue {
+	private static class Opacity {
+		static final Opacity opaque = new Opacity(1);
 
-		static Transparency opaque = new Transparency("");
+		private final double opacity;
 
-		Transparency(String id) {
-			super(id);
+		Opacity(double opacity) {
+			this.opacity = Check.argument(opacity, o -> o >= 0 && o <= 1, "Should be in range [0, 1]");
+		}
+
+		String string() {
+			return String.format("%02X", (int) (opacity * 255));
+		}
+
+		@Override public boolean equals(Object o) {
+			if (this == o) return true;
+			if (!(o instanceof Opacity)) return false;
+			Opacity opacity1 = (Opacity) o;
+			return opacity == opacity1.opacity;
+		}
+		@Override public int hashCode() {
+			return Objects.hash(opacity);
+		}
+		@Override public String toString() {
+			return new AsString(this).string();
 		}
 	}
 
 	private static class Slider {
-
 		private final int chosen;
 		private final List<Hue> hues;
 

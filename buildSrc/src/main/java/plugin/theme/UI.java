@@ -28,7 +28,7 @@ class UI {
 		this.selectedInactiveBackground = hoverBackground.darker();
 		this.selectedBackground = selectedInactiveBackground.darker();
 		this.nonProjectFilesBackground = requireNonNull(readOnlyBackground);
-		this.testFilesBackground = palette.green().brighter().transparent("30");
+		this.testFilesBackground = palette.green().brighter().opacity(0.19);
 		this.borderColor = this.background.darker(3);
 		this.marker = this.palette.red();
 	}

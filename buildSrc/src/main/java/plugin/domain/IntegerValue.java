@@ -4,23 +4,23 @@ import plugin.AsString;
 
 import java.util.Objects;
 
-abstract class StringValue {
+abstract class IntegerValue {
 
-	private final String value;
+	private final int value;
 
-	protected StringValue(String value) {
-		this.value = Objects.requireNonNull(value);
+	protected IntegerValue(int value) {
+		this.value = value;
 	}
 
 	public String string() {
-		return value;
+		return Integer.toString(value);
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (!(o instanceof StringValue)) return false;
-		StringValue that = (StringValue) o;
+		if (!(o instanceof IntegerValue)) return false;
+		IntegerValue that = (IntegerValue) o;
 		return Objects.equals(value, that.value);
 	}
 

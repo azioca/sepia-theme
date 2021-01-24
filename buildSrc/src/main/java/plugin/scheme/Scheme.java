@@ -84,7 +84,7 @@ public class Scheme {
 			new Option.Color("INDENT_GUIDE", guidesAndLineNumbers),
 			new Option.Color("LINE_NUMBERS_COLOR", guidesAndLineNumbers),
 			new Option.Color("RIGHT_MARGIN_COLOR", background.darker(2)),
-			new Option.Color("READONLY_BACKGROUND", palette.yellow().brighter().transparent("10")),
+			new Option.Color("READONLY_BACKGROUND", palette.yellow().brighter().opacity(0.07)),
 			new Option.Color("SELECTED_INDENT_GUIDE", foreground),
 			new Option.Color("SELECTED_TEARLINE_COLOR", foreground),
 			new Option.Color("TEARLINE_COLOR", guidesAndLineNumbers),
