@@ -13,6 +13,10 @@ public class Color {
 	private final Transparency transparency;
 	private final boolean presentAsHex;
 
+	public Color(String hue) {
+		this(0, hue);
+	}
+
 	public Color(int chosen, String... hues) {
 		this(chosen, Arrays.stream(hues).map(Slider.Hue::new).collect(Collectors.toList()));
 	}
