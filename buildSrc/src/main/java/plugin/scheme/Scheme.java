@@ -72,8 +72,8 @@ public class Scheme {
 
 			new Option.Color("DELETED_LINES_COLOR", deleted),
 			new Option.Color("IGNORED_DELETED_LINES_BORDER_COLOR", deleted),
-			// new Option.Color("FILESTATUS_DELETED", deleted),
-			// new Option.Color("FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM", deleted),
+			new Option.Color("FILESTATUS_DELETED", deleted),
+			new Option.Color("FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM", deleted),
 
 			new Option.Color("ANNOTATIONS_COLOR", foreground),
 			new Option.Color("CARET_COLOR", foreground),

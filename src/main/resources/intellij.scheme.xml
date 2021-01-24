@@ -12,6 +12,8 @@
     <option name="CONSOLE_BACKGROUND_KEY" value="f9f5d7"/>
     <option name="DELETED_LINES_COLOR" value="928374"/>
     <option name="DOCUMENTATION_COLOR" value="f9f5d7"/>
+    <option name="FILESTATUS_DELETED" value="928374"/>
+    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="928374"/>
     <option name="GUTTER_BACKGROUND" value="f9f5d7"/>
     <option name="IGNORED_ADDED_LINES_BORDER_COLOR" value="b8bb26"/>
     <option name="IGNORED_DELETED_LINES_BORDER_COLOR" value="928374"/>
