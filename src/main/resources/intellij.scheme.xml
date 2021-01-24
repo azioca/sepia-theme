@@ -493,8 +493,8 @@
     <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>
     <option name="WARNING_ATTRIBUTES">
       <value>
-        <option name="ERROR_STRIPE_COLOR" value="d79921FF"/>
-        <option name="EFFECT_COLOR" value="d79921FF"/>
+        <option name="ERROR_STRIPE_COLOR" value="fabd2fFF"/>
+        <option name="EFFECT_COLOR" value="fabd2fFF"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>

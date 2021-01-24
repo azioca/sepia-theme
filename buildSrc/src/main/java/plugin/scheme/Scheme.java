@@ -175,7 +175,7 @@ public class Scheme {
 			new Attribute("INFO_ATTRIBUTES").errorStripeColor(palette.yellow().darker()).dottedLine(palette.yellow().darker()),
 
 			new Attribute("ERRORS_ATTRIBUTES").underwaved(palette.red().darker()).errorStripeColorAsEffect(),
-			new Attribute("WARNING_ATTRIBUTES").underwaved(palette.yellow()).errorStripeColorAsEffect(),
+			new Attribute("WARNING_ATTRIBUTES").underwaved(palette.yellow().brighter()).errorStripeColorAsEffect(),
 			new Attribute("BAD_CHARACTER").underwaved(palette.red().darker()),
 			new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(palette.red()).errorStripeColorAsEffect(),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
