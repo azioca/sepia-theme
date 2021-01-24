@@ -142,7 +142,7 @@ public class Scheme {
 			new Attribute("DEFAULT_LINE_COMMENT").foreground(palette.gray()).italic(),
 			new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
 			new Attribute("DEFAULT_METADATA").foreground(palette.green()),
-			new Attribute("DEFAULT_NUMBER").foreground(palette.blue()),
+			new Attribute("DEFAULT_NUMBER").foreground(palette.blue()).bold(),
 			new Attribute("DEFAULT_OPERATION_SIGN"),
 			new Attribute("DEFAULT_PARAMETER").foreground(palette.purple()).bold(),
 			new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()),

@@ -280,6 +280,7 @@
     <option name="DEFAULT_NUMBER">
       <value>
         <option name="FOREGROUND" value="458588FF"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_OPERATION_SIGN"/>
