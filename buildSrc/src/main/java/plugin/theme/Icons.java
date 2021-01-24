@@ -38,11 +38,11 @@ class Icons {
 			@JsonProperty Color Grey = palette.gray();
 			@JsonProperty Color RedStatus = palette.red();
 			@JsonProperty Color Red = palette.red();
-			@JsonProperty Color Pink = palette.purple().darker();
+			@JsonProperty Color Pink = palette.purple();
 			@JsonProperty Color Yellow = palette.yellow();
 			@JsonProperty Color Green = palette.green().brighter();
 			@JsonProperty Color Blue = palette.blue().brighter();
-			@JsonProperty Color Purple = palette.purple();
+			@JsonProperty Color Purple = palette.purple().brighter();
 			@JsonProperty Color BlackText = foreground;
 			@JsonProperty Color YellowDark = palette.yellow().darker();
 		}
