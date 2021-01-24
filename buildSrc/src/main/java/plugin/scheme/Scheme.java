@@ -116,6 +116,9 @@ public class Scheme {
 			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(searchBackground).errorStripeColorAsBackground(),
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(searchWriteBackground).errorStripeColorAsBackground(),
 
+			new Attribute("DEFAULT_PARAMETER").foreground(palette.purple()).bold(),
+			new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(foreground).bold(),
+
 			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
 			new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
 			new Attribute("BAD_CHARACTER").underwaved(palette.red()),
@@ -169,7 +172,6 @@ public class Scheme {
 			new Attribute("DEFAULT_METADATA").foreground(palette.green()),
 			new Attribute("DEFAULT_NUMBER").foreground(palette.blue()),
 			new Attribute("DEFAULT_OPERATION_SIGN"),
-			new Attribute("DEFAULT_PARAMETER").foreground(palette.purple()).bold(),
 			new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()),
 			new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold(),
 			new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().darker()).bold().italic(),
@@ -203,7 +205,6 @@ public class Scheme {
 			new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
 			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(foreground.brighter(3)),
 			new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeColor(palette.green().darker()),
-			new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").baseAttributes("DEFAULT_PARAMETER"),
 			new Attribute("TYPO").underwaved(palette.gray().brighter()),
 			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(palette.red().brighter()).errorStripeColor(palette.red().brighter()),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
