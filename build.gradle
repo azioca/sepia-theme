@@ -16,21 +16,17 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
-	compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
-}
-
 intellij {
 	version '2020.3'
 }
 
 patchPluginXml {
 	pluginDescription = """
-    	<h3>Eye-Friendly Sepia Theme</h3>
+    	<h3>Sepia Theme</h3>
     	<br>
-    	<a href="https://github.com/adamwojszczyk/eye-friendly-sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/eye-friendly-sepia-theme/issues">Report an issue</a>
+    	<a href="https://github.com/adamwojszczyk/sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/sepia-theme/issues">Report an issue</a>
     	<br><br><br>
-    	<img src="https://raw.githubusercontent.com/adamwojszczyk/eye-friendly-sepia-theme/master/screenshots/main-window.png" border="0" alt="Main window screenshot">
+    	<img src="https://raw.githubusercontent.com/adamwojszczyk/sepia-theme/master/screenshots/main-window.png" border="0" alt="Main window screenshot">
 	"""
 	changeNotes = """
 		<i><b>0.0.1</b></i>

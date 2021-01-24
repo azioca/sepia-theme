@@ -8,7 +8,7 @@ import plugin.theme.Theme;
 
 public class Plugin {
 
-	private final String name = "Eye-Friendly Sepia";
+	private final String name = "Sepia";
 	private final Palette palette = new GruvBoxPallete();
 	private final Color editorBackground = palette.sepia().brighter(3);
 	private final Color uiBackground = editorBackground.darker();

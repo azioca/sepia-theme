@@ -1,6 +1,6 @@
 <idea-plugin>
-  <id>com.github.adamwojszczyk.eyeFriendlySepiaTheme</id>
-  <name>Eye-Friendly Sepia Theme</name>
+  <id>com.github.adamwojszczyk.sepiaTheme</id>
+  <name>Sepia Theme</name>
   <vendor email="adam.wojszczyk@gmail.com">Adam Wojszczyk</vendor>
   <depends>com.intellij.modules.platform</depends>
   <extensions defaultExtensionNs="com.intellij">
