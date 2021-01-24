@@ -8,7 +8,7 @@ import plugin.theme.Theme;
 
 public class Plugin {
 
-	private final String name = "Gruvbox Light Hard Black";
+	private final String name = "Eye-Friendly Sepia";
 	private final Palette palette = new GruvBoxPallete();
 	private final Color editorBackground = palette.sepia().brighter(3);
 	private final Color uiBackground = editorBackground.darker();
@@ -19,7 +19,7 @@ public class Plugin {
 	@JsonProperty String pluginName = name + " Theme";
 	@JsonProperty String email = "adam.wojszczyk@gmail.com";
 	@JsonProperty String vendor = "Adam Wojszczyk";
-	@JsonProperty String themeProviderId = "f20d8fb3-da86-46ac-8621-661b16f0d135";
+	@JsonProperty String themeProviderId = "be9ee20a-ea64-4eac-b420-29191a79191d";
 
 	public Theme theme() {
 		return new Theme(name + " Theme", vendor, palette, foreground, uiBackground, editorBackground, readOnlyBackground);
@@ -31,6 +31,6 @@ public class Plugin {
 
 	private static String toCamelCase(String name) {
 		final String first = name.substring(0, 1);
-		return name.replace(" ", "").replaceAll("(.)(.*)", first.toLowerCase() + "$2");
+		return name.replace(" ", "").replace("-", "").replaceAll("(.)(.*)", first.toLowerCase() + "$2");
 	}
 }

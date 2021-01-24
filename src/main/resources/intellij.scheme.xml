@@ -1,8 +1,8 @@
-<scheme name="Gruvbox Light Hard Black" version="142" parent_scheme="Default">
+<scheme name="Eye-Friendly Sepia" version="142" parent_scheme="Default">
   <metaInfo>
     <property name="ide">Idea</property>
     <property name="ideVersion">2020.3.1.0.0</property>
-    <property name="originalScheme">Gruvbox Light Hard Black</property>
+    <property name="originalScheme">Eye-Friendly Sepia</property>
   </metaInfo>
   <colors>
     <option name="ADDED_LINES_COLOR" value="b8bb26"/>
