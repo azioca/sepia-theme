@@ -97,12 +97,12 @@ public class Color {
 
 		Slider slideToDarker() {
 			int chosen = this.chosen - 1;
-			if (chosen < 0) throw new IllegalStateException("Slider doesn't have such a dark element. " + this);
+			if (chosen < 0) throw new IndexOutOfBoundsException("No such dark hue defined. " + this);
 			return new Slider(chosen, hues);
 		}
 
 		Slider slideToBrighter() {
-			if (chosen >= hues.size()) throw new IllegalStateException("Slider doesn't have such a bright element. " + this);
+			if (chosen >= hues.size()) throw new IndexOutOfBoundsException("No such bright hue defined. " + this);
 			return new Slider(chosen + 1, hues);
 		}
 
