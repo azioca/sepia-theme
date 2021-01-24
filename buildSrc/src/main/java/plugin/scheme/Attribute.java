@@ -44,17 +44,21 @@ class Attribute {
 		return fontType(2);
 	}
 
-	Attribute fontType(Integer fontType) {
+	private Attribute fontType(Integer fontType) {
 		Value value = atLeastEmptyValue();
 		return new Attribute(name, baseAttributes, value.fontType(atLeastEmptyValue().fontType() != null ? value.fontType() + fontType : fontType));
 	}
 
-	Attribute errorStripeColor(Color errorStripeColor) {
-		return new Attribute(name, baseAttributes, atLeastEmptyValue().errorStripeColor(errorStripeColor));
+	Attribute errorStripeColorAsForeground() {
+		return errorStripeColor(value().foreground());
 	}
 
-	private Attribute effectColor(Color effectColor) {
-		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectColor(effectColor));
+	Attribute errorStripeColorAsBackground() {
+		return errorStripeColor(value().background());
+	}
+
+	Attribute errorStripeColor(Color errorStripeColor) {
+		return new Attribute(name, baseAttributes, atLeastEmptyValue().errorStripeColor(errorStripeColor));
 	}
 
 	Attribute underscored(Color effectColor) {
@@ -81,8 +85,12 @@ class Attribute {
 		return effectType(5).effectColor(effectColor);
 	}
 
-	Attribute effectType(Integer effectType) {
+	private Attribute effectType(Integer effectType) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectType(effectType));
+	}
+
+	private Attribute effectColor(Color effectColor) {
+		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectColor(effectColor));
 	}
 
 	private Value atLeastEmptyValue() {
@@ -95,14 +103,21 @@ class Attribute {
 
 	private static class Value {
 
-		Color foreground;
-		Color background;
-		Integer fontType;
-		Color errorStripeColor;
-		Color effectColor;
-		Integer effectType;
+		private final Color foreground;
+		private final Color background;
+		private final Integer fontType;
+		private final Color errorStripeColor;
+		private final Color effectColor;
+		private final Integer effectType;
 
-		Value() {}
+		Value() {
+			this.foreground = null;
+			this.background = null;
+			this.fontType = null;
+			this.errorStripeColor = null;
+			this.effectColor = null;
+			this.effectType = null;
+		}
 
 		Value(Color foreground, Color background, Integer fontType, Color errorStripeColor, Color effectColor, Integer effectType) {
 			this.foreground = foreground;
@@ -137,9 +152,12 @@ class Attribute {
 			return new Value(foreground, this.background, this.fontType, this.errorStripeColor, this.effectColor, effectType);
 		}
 
-		private Integer fontType() {
-			return fontType;
-		}
+		private Color foreground() { return foreground; }
+		private Color background() { return background; }
+		private Integer fontType() { return fontType; }
+		private Color errorStripeColor() { return errorStripeColor; }
+		private Color effectColor() { return effectColor; }
+		private Integer effectType() { return effectType; }
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Object> option() {

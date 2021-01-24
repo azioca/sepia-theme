@@ -53,6 +53,9 @@ public class Scheme {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
+			new Option.Color("SELECTION_FOREGROUND", foreground),
+			new Option.Color("SELECTION_BACKGROUND", palette.blue().brighter()),
+
 			new Option.Color("ADDED_LINES_COLOR", added),
 			new Option.Color("IGNORED_ADDED_LINES_BORDER_COLOR", added),
 			// new Option.Color("FILESTATUS_ADDED", added.darker()),
@@ -84,8 +87,6 @@ public class Scheme {
 			new Option.Color("READONLY_BACKGROUND", palette.yellow().brighter().transparent("10")),
 			new Option.Color("SELECTED_INDENT_GUIDE", foreground),
 			new Option.Color("SELECTED_TEARLINE_COLOR", foreground),
-			new Option.Color("SELECTION_BACKGROUND", background.darker(4)),
-			new Option.Color("SELECTION_FOREGROUND", foreground),
 			new Option.Color("TEARLINE_COLOR", guidesAndLineNumbers),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_1", background),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_2", background.darker()),
@@ -98,8 +99,23 @@ public class Scheme {
 	class Attributes {
 		private final Color deprecated = foreground.brighter(3);
 
+		private final Color underCaretBackground = selectedLineBackground.darker();
+		private final Color underCaretWriteBackground = underCaretBackground.darker(2);
+
+		private final Color searchBackground = palette.aqua().brighter();
+		private final Color searchWriteBackground = searchBackground.darker();
+
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Attribute> option = List.of(
+			new Attribute("TEXT").foreground(foreground).background(background),
+
+			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(foreground).background(underCaretBackground).errorStripeColorAsBackground(),
+			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(foreground).background(underCaretWriteBackground).errorStripeColorAsBackground(),
+
+			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(searchBackground).errorStripeColorAsBackground(),
+			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(searchBackground).errorStripeColorAsBackground(),
+			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(searchWriteBackground).errorStripeColorAsBackground(),
+
 			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
 			new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
 			new Attribute("BAD_CHARACTER").underwaved(palette.red()),
@@ -168,7 +184,6 @@ public class Scheme {
 			new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()),
 			new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(palette.blue()).boldUnderscored(palette.blue()),
 			new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripeColor(palette.red()).dottedLine(palette.red()),
-			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(foreground).background(palette.blue().brighter()).errorStripeColor(palette.blue().brighter()),
 			new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").baseAttributes("CLASS_NAME_ATTRIBUTES"),
 			new Attribute("INFO_ATTRIBUTES").errorStripeColor(palette.yellow().darker()).dottedLine(palette.yellow().darker()),
 			new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(foreground.darker()),
@@ -184,20 +199,15 @@ public class Scheme {
 			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(foreground).bold(),
 			new Attribute("NOT_USED_ELEMENT_ATTRIBUTES").foreground(palette.gray()),
 			new Attribute("RUNTIME_ERROR").errorStripeColor(palette.red().brighter()).underwaved(palette.red().brighter()),
-			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(palette.blue().brighter()).errorStripeColor(palette.blue().brighter()),
 			new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
 			new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
 			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(foreground.brighter(3)),
-			new Attribute("TEXT").foreground(foreground).background(background),
-			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(palette.blue().brighter()).errorStripeColor(palette.blue().brighter()),
 			new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeColor(palette.green().darker()),
 			new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").baseAttributes("DEFAULT_PARAMETER"),
 			new Attribute("TYPO").underwaved(palette.gray().brighter()),
 			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(palette.red().brighter()).errorStripeColor(palette.red().brighter()),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
 			new Attribute("WARNING_ATTRIBUTES").errorStripeColor(palette.yellow().darker()).underwaved(palette.yellow().darker()),
-			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()).errorStripeColor(palette.aqua().brighter()),
-			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(foreground).background(palette.aqua().brighter()).errorStripeColor(palette.aqua().brighter()),
 			new Attribute("WRONG_REFERENCES_ATTRIBUTES").errorStripeColor(palette.red()).underwaved(palette.red())
 		).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
 	}

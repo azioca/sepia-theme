@@ -29,7 +29,7 @@ class Icons {
 			@JsonProperty Color Grey = palette.gray();
 			@JsonProperty Color Red = palette.red();
 			@JsonProperty Color Yellow = palette.yellow();
-			@JsonProperty Color Green = palette.green();
+			@JsonProperty Color Green = palette.aqua().brighter();
 			@JsonProperty Color Blue = palette.blue();
 			@JsonProperty("GreyInline.Dark") Color GreyInlineDark = palette.gray().darker();
 		}
