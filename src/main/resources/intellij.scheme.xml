@@ -494,8 +494,8 @@
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="282828"/>
-        <option name="BACKGROUND" value="#a89984"/>
-        <option name="ERROR_STRIPE_COLOR" value="#a89984"/>
+        <option name="BACKGROUND" value="#bdae93"/>
+        <option name="ERROR_STRIPE_COLOR" value="#bdae93"/>
       </value>
     </option>
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
