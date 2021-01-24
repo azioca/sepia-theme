@@ -44,13 +44,13 @@
     <option name="ANNOTATION_NAME_ATTRIBUTES" baseAttributes="DEFAULT_METADATA"/>
     <option name="BAD_CHARACTER">
       <value>
-        <option name="EFFECT_COLOR" value="cc241dFF"/>
+        <option name="EFFECT_COLOR" value="9d0006FF"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
     <option name="BOOKMARKS_ATTRIBUTES">
       <value>
-        <option name="ERROR_STRIPE_COLOR" value="79740eFF"/>
+        <option name="ERROR_STRIPE_COLOR" value="282828FF"/>
       </value>
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
@@ -167,7 +167,7 @@
       <value>
         <option name="FOREGROUND" value="076678FF"/>
         <option name="EFFECT_COLOR" value="076678FF"/>
-        <option name="EFFECT_TYPE" value="4"/>
+        <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_ATTRIBUTE">
@@ -493,8 +493,8 @@
     <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>
     <option name="WARNING_ATTRIBUTES">
       <value>
-        <option name="ERROR_STRIPE_COLOR" value="b57614FF"/>
-        <option name="EFFECT_COLOR" value="b57614FF"/>
+        <option name="ERROR_STRIPE_COLOR" value="d79921FF"/>
+        <option name="EFFECT_COLOR" value="d79921FF"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>

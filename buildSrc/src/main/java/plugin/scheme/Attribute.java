@@ -57,6 +57,10 @@ class Attribute {
 		return errorStripeColor(value().background());
 	}
 
+	Attribute errorStripeColorAsEffect() {
+		return errorStripeColor(value().effectColor());
+	}
+
 	Attribute errorStripeColor(Color errorStripeColor) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().errorStripeColor(errorStripeColor));
 	}
