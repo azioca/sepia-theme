@@ -1,7 +1,8 @@
 package plugin.domain;
 
+import plugin.ToString;
+
 import java.util.Objects;
-import java.util.StringJoiner;
 
 abstract class StringValue {
 
@@ -30,8 +31,6 @@ abstract class StringValue {
 
 	@Override
 	public String toString() {
-		return new StringJoiner(", ", StringValue.class.getSimpleName() + "[", "]")
-			.add("id='" + id + "'")
-			.toString();
+		return ToString.toString(this);
 	}
 }

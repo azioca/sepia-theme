@@ -4,28 +4,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import plugin.domain.Color;
 import plugin.domain.Palette;
 
-import java.util.Objects;
+import static java.util.Objects.requireNonNull;
 
 class UI {
 	private final Palette palette;
+	private final Color foreground;
 	private final Color background;
 	private final Color schemeBackground;
-	private final Color foreground;
 	private final Color hoverBackground;
 	private final Color selectedInactiveBackground;
 	private final Color selectedBackground;
 	private final Color nonProjectFilesBackground;
 	private final Color testFilesBackground;
 
-	UI(Palette palette, Color background, Color schemeBackground, Color foreground) {
-		this.palette = Objects.requireNonNull(palette);
-		this.background = Objects.requireNonNull(background);
-		this.schemeBackground = Objects.requireNonNull(schemeBackground);
-		this.foreground = Objects.requireNonNull(foreground);
+	UI(Palette palette, Color foreground, Color background, Color schemeBackground, Color readOnlyBackground) {
+		this.palette = requireNonNull(palette);
+		this.foreground = requireNonNull(foreground);
+		this.background = requireNonNull(background);
+		this.schemeBackground = requireNonNull(schemeBackground);
 		this.hoverBackground = this.background.darker();
 		this.selectedInactiveBackground = hoverBackground.darker();
 		this.selectedBackground = selectedInactiveBackground.darker();
-		this.nonProjectFilesBackground = palette.yellow().brighter().transparent("10");
+		this.nonProjectFilesBackground = requireNonNull(readOnlyBackground);
 		this.testFilesBackground = palette.green().brighter().transparent("30");
 	}
 
@@ -74,6 +74,7 @@ class UI {
 		@JsonProperty Color endBackground = UI.this.background;
 		@JsonProperty Color startBorderColor = palette.sepia().darker();
 		@JsonProperty Color endBorderColor = palette.sepia().darker();
+
 		@JsonProperty("default") Button.Default defaultt = new Button.Default();
 
 		class Default {

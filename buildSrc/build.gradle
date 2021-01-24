@@ -9,4 +9,5 @@ repositories {
 dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.1'
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.12.1'
+	implementation 'org.apache.commons:commons-lang3:3.11'
 }

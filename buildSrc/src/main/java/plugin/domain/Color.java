@@ -1,6 +1,7 @@
 package plugin.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import plugin.ToString;
 
 import java.util.Arrays;
 import java.util.List;
@@ -92,11 +93,18 @@ public class Color {
 
 		Slider slideToDarker() {
 			int chosen = this.chosen - 1;
+			if (chosen < 0) throw new IllegalStateException("Slider doesn't have such a dark element. " + this);
 			return new Slider(chosen, hues);
 		}
 
 		Slider slideToBrighter() {
+			if (chosen >= hues.size()) throw new IllegalStateException("Slider doesn't have such a bright element. " + this);
 			return new Slider(chosen + 1, hues);
+		}
+
+		@Override
+		public String toString() {
+			return ToString.toString(this);
 		}
 
 		private static class Hue extends StringValue {
