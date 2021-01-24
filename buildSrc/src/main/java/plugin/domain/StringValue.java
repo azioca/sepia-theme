@@ -1,6 +1,6 @@
 package plugin.domain;
 
-import plugin.ToString;
+import plugin.AsString;
 
 import java.util.Objects;
 
@@ -31,6 +31,6 @@ abstract class StringValue {
 
 	@Override
 	public String toString() {
-		return ToString.toString(this);
+		return new AsString(this).string();
 	}
 }

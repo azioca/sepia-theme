@@ -1,7 +1,7 @@
 package plugin.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import plugin.ToString;
+import plugin.AsString;
 
 import java.util.Arrays;
 import java.util.List;
@@ -108,7 +108,7 @@ public class Color {
 
 		@Override
 		public String toString() {
-			return ToString.toString(this);
+			return new AsString(this).string();
 		}
 
 		private static class Hue extends StringValue {
