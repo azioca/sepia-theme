@@ -100,7 +100,7 @@ public class Scheme {
 		private final Color deprecated = foreground.brighter(3);
 
 		private final Color underCaretBackground = selectedLineBackground.darker();
-		private final Color underCaretWriteBackground = underCaretBackground.darker();
+		private final Color underCaretWriteBackground = underCaretBackground.darker(2);
 
 		private final Color searchBackground = palette.aqua().brighter();
 		private final Color searchWriteBackground = searchBackground.darker();
