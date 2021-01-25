@@ -97,6 +97,7 @@ class UI {
 
 		class Default {
 			private final Color defaultBackground = ordinaryBackground.darker(2);
+			private final Color intellijFocusedBorderColor = new Color("87afda");
 
 			@JsonProperty Color foreground = UI.this.foreground;
 
@@ -106,7 +107,7 @@ class UI {
 			@JsonProperty Color endBorderColor = defaultBackground;
 
 			@JsonProperty Color focusColor = marker;
-			@JsonProperty Color focusedBorderColor = defaultBackground.darker(2);
+			@JsonProperty Color focusedBorderColor = intellijFocusedBorderColor;
 		}
 	}
 
