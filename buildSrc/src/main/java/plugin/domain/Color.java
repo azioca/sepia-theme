@@ -84,7 +84,11 @@ public class Color {
 		}
 
 		String string() {
-			return String.format("%02X", (int) (opacity * 255));
+			if (opaque.equals(this)) {
+				return "";
+			} else {
+				return String.format("%02X", (int) (opacity * 255));
+			}
 		}
 
 		@Override public boolean equals(Object o) {

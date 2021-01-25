@@ -5,95 +5,95 @@
 	"editorScheme": "/intellij.scheme.xml",
 	"icons": {
 		"ColorPalette": {
-			"Actions.Blue": "#458588FF",
-			"Actions.Green": "#8ec07cFF",
-			"Actions.Grey": "#928374FF",
-			"Actions.GreyInline.Dark": "#7c6f64FF",
-			"Actions.Red": "#cc241dFF",
-			"Actions.Yellow": "#d79921FF",
-			"Objects.BlackText": "#282828FF",
-			"Objects.Blue": "#83a598FF",
-			"Objects.Green": "#b8bb26FF",
-			"Objects.Grey": "#928374FF",
-			"Objects.Pink": "#b16286FF",
-			"Objects.Purple": "#d3869bFF",
-			"Objects.Red": "#cc241dFF",
-			"Objects.RedStatus": "#cc241dFF",
-			"Objects.Yellow": "#d79921FF",
-			"Objects.YellowDark": "#b57614FF"
+			"Actions.Blue": "#458588",
+			"Actions.Green": "#8ec07c",
+			"Actions.Grey": "#928374",
+			"Actions.GreyInline.Dark": "#7c6f64",
+			"Actions.Red": "#cc241d",
+			"Actions.Yellow": "#d79921",
+			"Objects.BlackText": "#282828",
+			"Objects.Blue": "#83a598",
+			"Objects.Green": "#b8bb26",
+			"Objects.Grey": "#928374",
+			"Objects.Pink": "#b16286",
+			"Objects.Purple": "#d3869b",
+			"Objects.Red": "#cc241d",
+			"Objects.RedStatus": "#cc241d",
+			"Objects.Yellow": "#d79921",
+			"Objects.YellowDark": "#b57614"
 		}
 	},
 	"ui": {
 		"*": {
-			"background": "#fbf1c7FF",
-			"borderColor": "#d5c4a1FF",
-			"disabledBorderColor": "#ebdbb2FF",
-			"foreground": "#282828FF",
-			"hoverBackground": "#f2e5bcFF",
-			"infoForeground": "#282828FF",
-			"lightSelectionBackground": "#d5c4a1FF",
-			"selectedBackground": "#d5c4a1FF",
-			"selectedBackgroundInactive": "#ebdbb2FF",
-			"selectedForeground": "#282828FF",
-			"selectedInactiveBackground": "#ebdbb2FF",
-			"selectionBackground": "#d5c4a1FF",
-			"selectionBackgroundInactive": "#ebdbb2FF",
-			"selectionForeground": "#282828FF",
-			"selectionInactiveBackground": "#ebdbb2FF",
-			"separatorColor": "#d5c4a1FF"
+			"background": "#fbf1c7",
+			"borderColor": "#d5c4a1",
+			"disabledBorderColor": "#ebdbb2",
+			"foreground": "#282828",
+			"hoverBackground": "#f2e5bc",
+			"infoForeground": "#282828",
+			"lightSelectionBackground": "#d5c4a1",
+			"selectedBackground": "#d5c4a1",
+			"selectedBackgroundInactive": "#ebdbb2",
+			"selectedForeground": "#282828",
+			"selectedInactiveBackground": "#ebdbb2",
+			"selectionBackground": "#d5c4a1",
+			"selectionBackgroundInactive": "#ebdbb2",
+			"selectionForeground": "#282828",
+			"selectionInactiveBackground": "#ebdbb2",
+			"separatorColor": "#d5c4a1"
 		},
 		"ActionButton": {},
 		"Button": {
 			"default": {
-				"endBackground": "#d5c4a1FF",
-				"endBorderColor": "#d5c4a1FF",
-				"focusColor": "#cc241dFF",
-				"focusedBorderColor": "#87afdaFF",
-				"foreground": "#282828FF",
-				"startBackground": "#d5c4a1FF",
-				"startBorderColor": "#d5c4a1FF"
+				"endBackground": "#d5c4a1",
+				"endBorderColor": "#d5c4a1",
+				"focusColor": "#cc241d",
+				"focusedBorderColor": "#87afda",
+				"foreground": "#282828",
+				"startBackground": "#d5c4a1",
+				"startBorderColor": "#d5c4a1"
 			},
-			"endBackground": "#f2e5bcFF",
-			"endBorderColor": "#d5c4a1FF",
-			"foreground": "#282828FF",
-			"startBackground": "#f2e5bcFF",
-			"startBorderColor": "#d5c4a1FF"
+			"endBackground": "#f2e5bc",
+			"endBorderColor": "#d5c4a1",
+			"foreground": "#282828",
+			"startBackground": "#f2e5bc",
+			"startBorderColor": "#d5c4a1"
 		},
 		"ComboBox": {
 			"ArrowButton": {
-				"background": "#f2e5bcFF",
-				"disabledIconColor": "#32302fFF",
-				"iconColor": "#282828FF",
-				"nonEditableBackground": "#f2e5bcFF"
+				"background": "#f2e5bc",
+				"disabledIconColor": "#32302f",
+				"iconColor": "#282828",
+				"nonEditableBackground": "#f2e5bc"
 			},
-			"background": "#f2e5bcFF",
-			"foreground": "#282828FF",
-			"nonEditableBackground": "#f2e5bcFF",
-			"selectionBackground": "#d5c4a1FF",
-			"selectionForeground": "#282828FF"
+			"background": "#f2e5bc",
+			"foreground": "#282828",
+			"nonEditableBackground": "#f2e5bc",
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828"
 		},
 		"EditorTabs": {
-			"background": "#ebdbb2FF",
-			"borderColor": "#f9f5d7FF",
-			"hoverBackground": "#f9f5d7FF",
+			"background": "#ebdbb2",
+			"borderColor": "#f9f5d7",
+			"hoverBackground": "#f9f5d7",
 			"tabInsets": false,
 			"underlineHeight": 0,
-			"underlinedTabBackground": "#f9f5d7FF",
-			"underlinedTabForeground": "#282828FF"
+			"underlinedTabBackground": "#f9f5d7",
+			"underlinedTabForeground": "#282828"
 		},
 		"FileColor": {
-			"Blue": "#83a598FF",
+			"Blue": "#83a598",
 			"Green": "#b8bb2621",
-			"Orange": "#fe8019FF",
-			"Rose": "#fb4934FF",
-			"Violet": "#d3869bFF",
+			"Orange": "#fe8019",
+			"Rose": "#fb4934",
+			"Violet": "#d3869b",
 			"Yellow": "#fabd2f11"
 		},
 		"Link": {
-			"activeForeground": "#98971aFF",
-			"hoverForeground": "#98971aFF",
-			"pressedForeground": "#98971aFF",
-			"visitedForeground": "#98971aFF"
+			"activeForeground": "#98971a",
+			"hoverForeground": "#98971a",
+			"pressedForeground": "#98971a",
+			"visitedForeground": "#98971a"
 		},
 		"List": {},
 		"ScrollBar": {
@@ -117,33 +117,33 @@
 			}
 		},
 		"Table": {
-			"lightSelectionBackground": "#d5c4a1FF",
-			"lightSelectionForeground": "#282828FF",
-			"lightSelectionInactiveBackground": "#ebdbb2FF",
-			"lightSelectionInactiveForeground": "#282828FF"
+			"lightSelectionBackground": "#d5c4a1",
+			"lightSelectionForeground": "#282828",
+			"lightSelectionInactiveBackground": "#ebdbb2",
+			"lightSelectionInactiveForeground": "#282828"
 		},
 		"ToolWindow": {
 			"Header": {
-				"background": "#d5c4a1FF",
-				"inactiveBackground": "#ebdbb2FF"
+				"background": "#d5c4a1",
+				"inactiveBackground": "#ebdbb2"
 			},
 			"HeaderTab": {
-				"hoverInactiveBackground": "#f2e5bcFF",
-				"selectedInactiveBackground": "#ebdbb2FF"
+				"hoverInactiveBackground": "#f2e5bc",
+				"selectedInactiveBackground": "#ebdbb2"
 			}
 		},
 		"VersionControl": {
 			"GitLog": {},
 			"Log": {
 				"Commit": {
-					"currentBranchBackground": "#f2e5bcFF",
-					"hoveredBackground": "#ebdbb2FF"
+					"currentBranchBackground": "#f2e5bc",
+					"hoveredBackground": "#ebdbb2"
 				}
 			},
 			"RefLabel": {
-				"backgroundBase": "#458588FF",
+				"backgroundBase": "#458588",
 				"backgroundBrightness": 0.5,
-				"foreground": "#282828FF"
+				"foreground": "#282828"
 			}
 		}
 	}
