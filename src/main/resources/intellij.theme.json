@@ -96,6 +96,26 @@
 			"visitedForeground": "#98971aFF"
 		},
 		"List": {},
+		"ScrollBar": {
+			"Mac": {
+				"Transparent": {
+					"hoverThumbBorderColor": "#d5c4a1FF",
+					"hoverThumbColor": "#d5c4a1FF",
+					"hoverTrackColor": "#f2e5bcFF",
+					"thumbBorderColor": "#d5c4a14C",
+					"thumbColor": "#d5c4a14C",
+					"trackColor": "#f2e5bc4C"
+				}
+			},
+			"Transparent": {
+				"hoverThumbBorderColor": "#d5c4a1FF",
+				"hoverThumbColor": "#d5c4a1FF",
+				"hoverTrackColor": "#f2e5bcFF",
+				"thumbBorderColor": "#d5c4a14C",
+				"thumbColor": "#d5c4a14C",
+				"trackColor": "#f2e5bc4C"
+			}
+		},
 		"Table": {
 			"lightSelectionBackground": "#d5c4a1FF",
 			"lightSelectionForeground": "#282828FF",

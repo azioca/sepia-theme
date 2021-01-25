@@ -43,6 +43,7 @@ class UI {
 	@JsonProperty public FileColor FileColor() { return new FileColor(); }
 	@JsonProperty public Link Link() { return new Link(); }
 	@JsonProperty public List List() { return new List(); }
+	@JsonProperty public ScrollBar ScrollBar() { return new ScrollBar(); }
 	@JsonProperty public VersionControl VersionControl() { return new VersionControl(); }
 
 	class Asterisk {
@@ -194,6 +195,43 @@ class UI {
 		@JsonProperty Color selectionForeground;
 		@JsonProperty Color selectionInactiveBackground;
 		@JsonProperty Color selectionInactiveForeground;
+	}
+
+	class ScrollBar {
+		@JsonProperty Color track;
+		@JsonProperty Color trackColor;
+		@JsonProperty Color background;
+		@JsonProperty Color hoverThumbBorderColor;
+		@JsonProperty Color hoverThumbColor;
+		@JsonProperty Color hoverTrackColor;
+		@JsonProperty Color thumb;
+		@JsonProperty Color thumbBorderColor;
+		@JsonProperty Color thumbColor;
+		@JsonProperty Color thumbDarkShadow;
+		@JsonProperty Color thumbHighlight;
+		@JsonProperty Color thumbShadow;
+		@JsonProperty Color trackHighlight;
+
+		@JsonProperty Mac Mac = new Mac();
+		@JsonProperty Transparent Transparent = new Transparent();
+
+		class Mac {
+			@JsonProperty Color hoverThumbBorderColor;
+			@JsonProperty Color hoverThumbColor;
+			@JsonProperty Color hoverTrackColor;
+			@JsonProperty Color thumbBorderColor;
+			@JsonProperty Color thumbColor;
+			@JsonProperty Transparent Transparent = new Transparent();
+		}
+
+		class Transparent {
+			@JsonProperty Color trackColor = UI.this.background.darker(1).opacity(0.30);
+			@JsonProperty Color thumbColor = trackColor.darker(2);
+			@JsonProperty Color thumbBorderColor = thumbColor;
+			@JsonProperty Color hoverTrackColor = trackColor.opacity(1);
+			@JsonProperty Color hoverThumbColor = thumbColor.opacity(1);
+			@JsonProperty Color hoverThumbBorderColor = thumbBorderColor.opacity(1);
+		}
 	}
 
 	class VersionControl {
