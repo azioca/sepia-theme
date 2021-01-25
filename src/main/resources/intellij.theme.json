@@ -99,21 +99,21 @@
 		"ScrollBar": {
 			"Mac": {
 				"Transparent": {
-					"hoverThumbBorderColor": "#d5c4a1FF",
-					"hoverThumbColor": "#d5c4a1FF",
-					"hoverTrackColor": "#f2e5bcFF",
-					"thumbBorderColor": "#d5c4a14C",
-					"thumbColor": "#d5c4a14C",
-					"trackColor": "#f2e5bc4C"
+					"hoverThumbBorderColor": "#d5c4a1A5",
+					"hoverThumbColor": "#d5c4a1A5",
+					"hoverTrackColor": "#fbf1c700",
+					"thumbBorderColor": "#d5c4a166",
+					"thumbColor": "#d5c4a166",
+					"trackColor": "#fbf1c700"
 				}
 			},
 			"Transparent": {
-				"hoverThumbBorderColor": "#d5c4a1FF",
-				"hoverThumbColor": "#d5c4a1FF",
-				"hoverTrackColor": "#f2e5bcFF",
-				"thumbBorderColor": "#d5c4a14C",
-				"thumbColor": "#d5c4a14C",
-				"trackColor": "#f2e5bc4C"
+				"hoverThumbBorderColor": "#d5c4a1A5",
+				"hoverThumbColor": "#d5c4a1A5",
+				"hoverTrackColor": "#fbf1c700",
+				"thumbBorderColor": "#d5c4a166",
+				"thumbColor": "#d5c4a166",
+				"trackColor": "#fbf1c700"
 			}
 		},
 		"Table": {

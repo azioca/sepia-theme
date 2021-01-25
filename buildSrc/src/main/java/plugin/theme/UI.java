@@ -226,12 +226,12 @@ class UI {
 		}
 
 		class Transparent {
-			@JsonProperty Color trackColor = UI.this.background.darker(1).opacity(0.30);
-			@JsonProperty Color thumbColor = trackColor.darker(2);
+			@JsonProperty Color trackColor = UI.this.background.opacity(0);
+			@JsonProperty Color thumbColor = trackColor.opacity(0.4).darker(3);
 			@JsonProperty Color thumbBorderColor = thumbColor;
-			@JsonProperty Color hoverTrackColor = trackColor.opacity(1);
-			@JsonProperty Color hoverThumbColor = thumbColor.opacity(1);
-			@JsonProperty Color hoverThumbBorderColor = thumbBorderColor.opacity(1);
+			@JsonProperty Color hoverTrackColor = trackColor;
+			@JsonProperty Color hoverThumbColor = thumbColor.opacity(0.65);
+			@JsonProperty Color hoverThumbBorderColor = hoverThumbColor;
 		}
 	}
 
