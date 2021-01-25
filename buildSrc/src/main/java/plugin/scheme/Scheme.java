@@ -20,13 +20,15 @@ public class Scheme {
 	private final Color background;
 	private final Color foreground;
 	private final Color selectedLineBackground;
+	private final Color readOnlyBackground;
 
-	public Scheme(String name, Palette palette, Color background, Color foreground) {
+	public Scheme(String name, Palette palette, Color foreground, Color background, Color readOnlyBackground) {
 		this.name = Objects.requireNonNull(name);
 		this.palette = new Palette.Plain(Objects.requireNonNull(palette));
 		this.background = Objects.requireNonNull(background).plain();
 		this.foreground = Objects.requireNonNull(foreground).plain();
 		this.selectedLineBackground = background.darker(3);
+		this.readOnlyBackground = Objects.requireNonNull(readOnlyBackground);
 	}
 
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
@@ -84,7 +86,7 @@ public class Scheme {
 			new Option.Color("INDENT_GUIDE", guidesAndLineNumbers),
 			new Option.Color("LINE_NUMBERS_COLOR", guidesAndLineNumbers),
 			new Option.Color("RIGHT_MARGIN_COLOR", background.darker(2)),
-			new Option.Color("READONLY_BACKGROUND", palette.yellow().brighter().opacity(0.07)),
+			new Option.Color("READONLY_BACKGROUND", readOnlyBackground),
 			new Option.Color("SELECTED_INDENT_GUIDE", foreground),
 			new Option.Color("SELECTED_TEARLINE_COLOR", foreground),
 			new Option.Color("TEARLINE_COLOR", guidesAndLineNumbers),
