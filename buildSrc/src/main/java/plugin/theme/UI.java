@@ -30,7 +30,7 @@ class UI {
 		this.schemeBackground = requireNonNull(schemeBackground);
 		this.scrollbar = Objects.requireNonNull(scrollbar);
 		this.hoverBackground = this.background.darker();
-		this.selectedInactiveBackground = hoverBackground.darker();
+		this.selectedInactiveBackground = hoverBackground;
 		this.selectedBackground = selectedInactiveBackground.darker();
 		this.nonProjectFilesBackground = requireNonNull(readOnlyBackground);
 		this.testFilesBackground = palette.green().brighter().opacity(0.13);
@@ -102,7 +102,7 @@ class UI {
 		@JsonProperty("default") Button.Default defaultt = new Button.Default();
 
 		class Default {
-			private final Color defaultBackground = ordinaryButtonBackground.darker(2);
+			private final Color defaultBackground = ordinaryButtonBackground.darker();
 			private final Color intellijFocusedBorderColor = new Color("87afda");
 
 			@JsonProperty Color foreground = UI.this.foreground;
