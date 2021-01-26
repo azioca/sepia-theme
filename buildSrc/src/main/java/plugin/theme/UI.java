@@ -43,8 +43,9 @@ class UI {
 	@JsonProperty public Button Button() { return new Button(); }
 	@JsonProperty public ComboBox ComboBox() { return new ComboBox(); }
 	@JsonProperty public EditorTabs EditorTabs() { return new EditorTabs(); }
-	@JsonProperty public ToolWindow ToolWindow() { return new ToolWindow(); }
 	@JsonProperty public Table Table() { return new Table(); }
+	@JsonProperty public TabbedPane TabbedPane() { return new TabbedPane(); }
+	@JsonProperty public ToolWindow ToolWindow() { return new ToolWindow(); }
 	@JsonProperty public FileColor FileColor() { return new FileColor(); }
 	@JsonProperty public Link Link() { return new Link(); }
 	@JsonProperty public List List() { return new List(); }
@@ -166,13 +167,33 @@ class UI {
 
 		class Header {
 			@JsonProperty Color inactiveBackground = UI.this.selectedInactiveBackground;
+			@JsonProperty Color borderColor = UI.this.background;
 			@JsonProperty Color background = UI.this.selectedBackground;
 		}
 
 		class HeaderTab {
-			@JsonProperty Color hoverInactiveBackground = UI.this.hoverBackground;
-			@JsonProperty Color selectedInactiveBackground = UI.this.selectedInactiveBackground;
+			@JsonProperty Color hoverBackground = UI.this.background;
+			@JsonProperty Color hoverInactiveBackground = UI.this.background;
+			@JsonProperty Color inactiveUnderlineColor;
+			@JsonProperty Color selectedInactiveBackground;
+			@JsonProperty Color underlineColor;
+			@JsonProperty Color underlinedTabBackground = UI.this.background;
+			@JsonProperty Color underlinedTabInactiveBackground = UI.this.background;
+			@JsonProperty int underlineHeight = 0;
 		}
+	}
+
+	class TabbedPane {
+		@JsonProperty Color background;
+		@JsonProperty Color contentAreaColor;
+		@JsonProperty Color disabledForeground;
+		@JsonProperty Color disabledUnderlineColor;
+		@JsonProperty Color focus;
+		@JsonProperty Color focusColor;
+		@JsonProperty Color foreground;
+		@JsonProperty Color hoverColor;
+		@JsonProperty int tabSelectionHeight;
+		@JsonProperty Color underlineColor;
 	}
 
 	class Table {

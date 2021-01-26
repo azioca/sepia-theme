@@ -116,6 +116,9 @@
 				"trackColor": "#fbf1c700"
 			}
 		},
+		"TabbedPane": {
+			"tabSelectionHeight": 0
+		},
 		"Table": {
 			"lightSelectionBackground": "#d5c4a1",
 			"lightSelectionForeground": "#282828",
@@ -125,11 +128,15 @@
 		"ToolWindow": {
 			"Header": {
 				"background": "#d5c4a1",
+				"borderColor": "#fbf1c7",
 				"inactiveBackground": "#ebdbb2"
 			},
 			"HeaderTab": {
-				"hoverInactiveBackground": "#f2e5bc",
-				"selectedInactiveBackground": "#ebdbb2"
+				"hoverBackground": "#fbf1c7",
+				"hoverInactiveBackground": "#fbf1c7",
+				"underlineHeight": 0,
+				"underlinedTabBackground": "#fbf1c7",
+				"underlinedTabInactiveBackground": "#fbf1c7"
 			}
 		},
 		"VersionControl": {
