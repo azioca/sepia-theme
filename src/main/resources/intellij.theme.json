@@ -54,10 +54,10 @@
 				"startBorderColor": "#ebdbb2"
 			},
 			"endBackground": "#f2e5bc",
-			"endBorderColor": "#d5c4a1",
+			"endBorderColor": "#f2e5bc",
 			"foreground": "#282828",
 			"startBackground": "#f2e5bc",
-			"startBorderColor": "#d5c4a1"
+			"startBorderColor": "#f2e5bc"
 		},
 		"ComboBox": {
 			"ArrowButton": {

@@ -96,7 +96,7 @@ class UI {
 
 		@JsonProperty Color startBackground = ordinaryButtonBackground;
 		@JsonProperty Color endBackground = startBackground;
-		@JsonProperty Color startBorderColor = UI.this.borderColor;
+		@JsonProperty Color startBorderColor = startBackground;
 		@JsonProperty Color endBorderColor = startBorderColor;
 
 		@JsonProperty("default") Button.Default defaultt = new Button.Default();
