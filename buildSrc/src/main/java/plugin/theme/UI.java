@@ -1,8 +1,11 @@
 package plugin.theme;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import plugin.Scrollbar;
 import plugin.domain.Color;
 import plugin.domain.Palette;
+
+import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
@@ -11,6 +14,7 @@ class UI {
 	private final Color foreground;
 	private final Color background;
 	private final Color schemeBackground;
+	private final Scrollbar scrollbar;
 	private final Color hoverBackground;
 	private final Color selectedInactiveBackground;
 	private final Color selectedBackground;
@@ -19,11 +23,12 @@ class UI {
 	private final Color borderColor;
 	private final Color marker;
 
-	UI(Palette palette, Color foreground, Color background, Color schemeBackground, Color readOnlyBackground) {
+	UI(Palette palette, Color foreground, Color background, Color schemeBackground, Color readOnlyBackground, Scrollbar scrollbar) {
 		this.palette = requireNonNull(palette);
 		this.foreground = requireNonNull(foreground);
 		this.background = requireNonNull(background);
 		this.schemeBackground = requireNonNull(schemeBackground);
+		this.scrollbar = Objects.requireNonNull(scrollbar);
 		this.hoverBackground = this.background.darker();
 		this.selectedInactiveBackground = hoverBackground.darker();
 		this.selectedBackground = selectedInactiveBackground.darker();
@@ -226,12 +231,12 @@ class UI {
 		}
 
 		class Transparent {
-			@JsonProperty Color trackColor = UI.this.background.opacity(0);
-			@JsonProperty Color thumbColor = trackColor.opacity(0.4).darker(3);
-			@JsonProperty Color thumbBorderColor = thumbColor;
-			@JsonProperty Color hoverTrackColor = trackColor;
-			@JsonProperty Color hoverThumbColor = thumbColor.opacity(0.65);
-			@JsonProperty Color hoverThumbBorderColor = hoverThumbColor;
+			@JsonProperty Color trackColor = UI.this.scrollbar.trackColor();
+			@JsonProperty Color thumbColor = UI.this.scrollbar.thumbColor();
+			@JsonProperty Color thumbBorderColor = UI.this.scrollbar.thumbBorderColor();
+			@JsonProperty Color hoverTrackColor = UI.this.scrollbar.hoverTrackColor();
+			@JsonProperty Color hoverThumbColor = UI.this.scrollbar.hoverThumbColor();
+			@JsonProperty Color hoverThumbBorderColor = UI.this.scrollbar.hoverThumbBorderColor();
 		}
 	}
 

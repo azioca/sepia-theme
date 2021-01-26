@@ -14,6 +14,7 @@ public class Plugin {
 	private final Color uiBackground = editorBackground.darker();
 	private final Color readOnlyBackground = uiBackground.darker();
 	private final Color foreground = palette.black().darker(2);
+	private final Scrollbar scrollbar = new Scrollbar(uiBackground.opacity(0));
 
 	@JsonProperty String id = "com.github.adamwojszczyk." + toCamelCase(name) + "Theme";
 	@JsonProperty String pluginName = name + " Theme";
@@ -22,11 +23,11 @@ public class Plugin {
 	@JsonProperty String themeProviderId = "be9ee20a-ea64-4eac-b420-29191a79191d";
 
 	public Theme theme() {
-		return new Theme(name + " Theme", vendor, palette, foreground, uiBackground, editorBackground, readOnlyBackground);
+		return new Theme(name + " Theme", vendor, palette, foreground, uiBackground, editorBackground, readOnlyBackground, scrollbar);
 	}
 
 	public Scheme scheme() {
-		return new Scheme(name, palette, foreground, editorBackground, readOnlyBackground);
+		return new Scheme(name, palette, foreground, editorBackground, readOnlyBackground, scrollbar);
 	}
 
 	private static String toCamelCase(String name) {

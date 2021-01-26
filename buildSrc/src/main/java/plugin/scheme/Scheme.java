@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import plugin.Scrollbar;
 import plugin.domain.Color;
 import plugin.domain.Palette;
 
@@ -21,14 +22,16 @@ public class Scheme {
 	private final Color foreground;
 	private final Color selectedLineBackground;
 	private final Color readOnlyBackground;
+	private final Scrollbar scrollbar;
 
-	public Scheme(String name, Palette palette, Color foreground, Color background, Color readOnlyBackground) {
+	public Scheme(String name, Palette palette, Color foreground, Color background, Color readOnlyBackground, Scrollbar scrollbar) {
 		this.name = Objects.requireNonNull(name);
 		this.palette = new Palette.Plain(Objects.requireNonNull(palette));
 		this.background = Objects.requireNonNull(background).plain();
 		this.foreground = Objects.requireNonNull(foreground).plain();
 		this.selectedLineBackground = background.darker(3);
 		this.readOnlyBackground = Objects.requireNonNull(readOnlyBackground);
+		this.scrollbar = Objects.requireNonNull(scrollbar);
 	}
 
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
@@ -55,8 +58,11 @@ public class Scheme {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
+			new Option.Color("CARET_COLOR", foreground),
+			new Option.Color("CARET_ROW_COLOR", selectedLineBackground),
 			new Option.Color("SELECTION_FOREGROUND", foreground),
 			new Option.Color("SELECTION_BACKGROUND", palette.blue().brighter()),
+			new Option.Color("READONLY_BACKGROUND", readOnlyBackground),
 
 			new Option.Color("ADDED_LINES_COLOR", added),
 			new Option.Color("IGNORED_ADDED_LINES_BORDER_COLOR", added),
@@ -66,7 +72,7 @@ public class Scheme {
 
 			new Option.Color("MODIFIED_LINES_COLOR", modified),
 			new Option.Color("IGNORED_MODIFIED_LINES_BORDER_COLOR", modified),
-			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", background.darker(3)),
+			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", background.darker(4)),
 			// new Option.Color("FILESTATUS_MODIFIED", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker()),
@@ -77,19 +83,31 @@ public class Scheme {
 			new Option.Color("FILESTATUS_DELETED", deleted),
 			new Option.Color("FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM", deleted),
 
+			new Option.Color("ScrollBar.Transparent.trackColor", scrollbar.trackColor()),
+			new Option.Color("ScrollBar.Transparent.thumbColor", scrollbar.thumbColor()),
+			new Option.Color("ScrollBar.Transparent.thumbBorderColor", scrollbar.thumbBorderColor()),
+			new Option.Color("ScrollBar.Transparent.hoverTrackColor", scrollbar.hoverTrackColor()),
+			new Option.Color("ScrollBar.Transparent.hoverThumbColor", scrollbar.hoverThumbColor()),
+			new Option.Color("ScrollBar.Transparent.hoverThumbBorderColor", scrollbar.hoverThumbBorderColor()),
+
+			new Option.Color("ScrollBar.Mac.Transparent.trackColor", scrollbar.trackColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.thumbColor", scrollbar.thumbColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.thumbBorderColor", scrollbar.thumbBorderColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.hoverTrackColor", scrollbar.hoverTrackColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbColor", scrollbar.hoverThumbColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbBorderColor", scrollbar.hoverThumbBorderColor()),
+
 			new Option.Color("ANNOTATIONS_COLOR", foreground),
-			new Option.Color("CARET_COLOR", foreground),
-			new Option.Color("CARET_ROW_COLOR", selectedLineBackground),
 			new Option.Color("CONSOLE_BACKGROUND_KEY", background),
 			new Option.Color("DOCUMENTATION_COLOR", background),
 			new Option.Color("GUTTER_BACKGROUND", background),
 			new Option.Color("INDENT_GUIDE", guidesAndLineNumbers),
 			new Option.Color("LINE_NUMBERS_COLOR", guidesAndLineNumbers),
 			new Option.Color("RIGHT_MARGIN_COLOR", background.darker(2)),
-			new Option.Color("READONLY_BACKGROUND", readOnlyBackground),
 			new Option.Color("SELECTED_INDENT_GUIDE", foreground),
 			new Option.Color("SELECTED_TEARLINE_COLOR", foreground),
 			new Option.Color("TEARLINE_COLOR", guidesAndLineNumbers),
+
 			new Option.Color("VCS_ANNOTATIONS_COLOR_1", background),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_2", background.darker()),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_3", background.darker(2)),
