@@ -23,7 +23,7 @@ class Icons {
 	class ColorPalette {
 		@JsonUnwrapped(prefix = "Actions.") @JsonProperty Actions Actions = new Actions();
 		@JsonUnwrapped(prefix = "Objects.") @JsonProperty Objects Objects = new Objects();
-		@JsonUnwrapped(prefix = "Checkboxes.") @JsonProperty Checkboxes Checkboxes = new Checkboxes();
+		@JsonUnwrapped(prefix = "Checkbox.") @JsonProperty Checkbox Checkbox = new Checkbox();
 
 		class Actions {
 			@JsonProperty Color Grey = palette.gray();
@@ -47,7 +47,7 @@ class Icons {
 			@JsonProperty Color YellowDark = palette.yellow().darker();
 		}
 
-		class Checkboxes {
+		class Checkbox {
 			@JsonUnwrapped(prefix = "Foreground.") @JsonProperty Foreground Foreground = new Foreground();
 			@JsonUnwrapped(prefix = "Background.") @JsonProperty Background Background = new Background();
 			@JsonUnwrapped(prefix = "Border.") @JsonProperty Border Border = new Border();
@@ -79,7 +79,7 @@ class Icons {
 			class Focus {
 				@JsonProperty("Wide") Color Wide;
 				@JsonProperty("Wide.Dark") Color WideDark;
-				@JsonUnwrapped(prefix = "Thin.") @JsonProperty Checkboxes.Focus.Thin Thin = new Checkboxes.Focus.Thin();
+				@JsonUnwrapped(prefix = "Thin.") @JsonProperty Checkbox.Focus.Thin Thin = new Checkbox.Focus.Thin();
 
 				class Thin {
 					@JsonProperty("Default") Color Defaultt;
