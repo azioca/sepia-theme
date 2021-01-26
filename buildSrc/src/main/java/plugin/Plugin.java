@@ -14,7 +14,7 @@ public class Plugin {
 	private final Color uiBackground = editorBackground.darker();
 	private final Color readOnlyBackground = uiBackground.darker();
 	private final Color foreground = palette.black().darker(2);
-	private final Scrollbar scrollbar = new Scrollbar(uiBackground.opacity(0));
+	private final Scrollbar scrollbar = new Scrollbar(readOnlyBackground.opacity(0));
 
 	@JsonProperty String id = "com.github.adamwojszczyk." + toCamelCase(name) + "Theme";
 	@JsonProperty String pluginName = name + " Theme";

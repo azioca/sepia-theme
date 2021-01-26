@@ -27,18 +27,18 @@
     <option name="SELECTED_TEARLINE_COLOR" value="282828"/>
     <option name="SELECTION_BACKGROUND" value="83a598"/>
     <option name="SELECTION_FOREGROUND" value="282828"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="#d5c4a100"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="#d5c4a1A5"/>
-    <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="#fbf1c700"/>
-    <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="#d5c4a100"/>
-    <option name="ScrollBar.Mac.Transparent.thumbColor" value="#d5c4a166"/>
-    <option name="ScrollBar.Mac.Transparent.trackColor" value="#fbf1c700"/>
-    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="#d5c4a100"/>
-    <option name="ScrollBar.Transparent.hoverThumbColor" value="#d5c4a1A5"/>
-    <option name="ScrollBar.Transparent.hoverTrackColor" value="#fbf1c700"/>
-    <option name="ScrollBar.Transparent.thumbBorderColor" value="#d5c4a100"/>
-    <option name="ScrollBar.Transparent.thumbColor" value="#d5c4a166"/>
-    <option name="ScrollBar.Transparent.trackColor" value="#fbf1c700"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="#bdae9300"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="#bdae9399"/>
+    <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="#f2e5bc00"/>
+    <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="#bdae9300"/>
+    <option name="ScrollBar.Mac.Transparent.thumbColor" value="#bdae9366"/>
+    <option name="ScrollBar.Mac.Transparent.trackColor" value="#f2e5bc00"/>
+    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="#bdae9300"/>
+    <option name="ScrollBar.Transparent.hoverThumbColor" value="#bdae9399"/>
+    <option name="ScrollBar.Transparent.hoverTrackColor" value="#f2e5bc00"/>
+    <option name="ScrollBar.Transparent.thumbBorderColor" value="#bdae9300"/>
+    <option name="ScrollBar.Transparent.thumbColor" value="#bdae9366"/>
+    <option name="ScrollBar.Transparent.trackColor" value="#f2e5bc00"/>
     <option name="TEARLINE_COLOR" value="bdae93"/>
     <option name="VCS_ANNOTATIONS_COLOR_1" value="f9f5d7"/>
     <option name="VCS_ANNOTATIONS_COLOR_2" value="fbf1c7"/>
