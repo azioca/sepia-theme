@@ -84,7 +84,7 @@ class UI {
 	}
 
 	class Button {
-		private final Color ordinaryBackground = UI.this.background.darker();
+		private final Color ordinaryButtonBackground = UI.this.background.darker();
 
 		@JsonProperty Integer ark;
 		@JsonProperty Color background;
@@ -94,7 +94,7 @@ class UI {
 		@JsonProperty Color shadowColor;
 		@JsonProperty Integer shadowWidth;
 
-		@JsonProperty Color startBackground = ordinaryBackground;
+		@JsonProperty Color startBackground = ordinaryButtonBackground;
 		@JsonProperty Color endBackground = startBackground;
 		@JsonProperty Color startBorderColor = UI.this.borderColor;
 		@JsonProperty Color endBorderColor = startBorderColor;
@@ -102,7 +102,7 @@ class UI {
 		@JsonProperty("default") Button.Default defaultt = new Button.Default();
 
 		class Default {
-			private final Color defaultBackground = ordinaryBackground.darker(2);
+			private final Color defaultBackground = ordinaryButtonBackground.darker(2);
 			private final Color intellijFocusedBorderColor = new Color("87afda");
 
 			@JsonProperty Color foreground = UI.this.foreground;
