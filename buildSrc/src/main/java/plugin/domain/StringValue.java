@@ -1,6 +1,6 @@
 package plugin.domain;
 
-import plugin.AsString;
+import plugin.lang.AsString;
 
 import java.util.Objects;
 

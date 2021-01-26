@@ -8,7 +8,7 @@
     <option name="ADDED_LINES_COLOR" value="b8bb26"/>
     <option name="ANNOTATIONS_COLOR" value="282828"/>
     <option name="CARET_COLOR" value="282828"/>
-    <option name="CARET_ROW_COLOR" value="#ebdbb2"/>
+    <option name="CARET_ROW_COLOR" value="ebdbb2"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="f9f5d7"/>
     <option name="DELETED_LINES_COLOR" value="928374"/>
     <option name="DOCUMENTATION_COLOR" value="f9f5d7"/>
@@ -21,31 +21,31 @@
     <option name="INDENT_GUIDE" value="bdae93"/>
     <option name="LINE_NUMBERS_COLOR" value="bdae93"/>
     <option name="MODIFIED_LINES_COLOR" value="83a598"/>
-    <option name="READONLY_BACKGROUND" value="#f2e5bc"/>
+    <option name="READONLY_BACKGROUND" value="f2e5bc"/>
     <option name="RIGHT_MARGIN_COLOR" value="f2e5bc"/>
     <option name="SELECTED_INDENT_GUIDE" value="282828"/>
     <option name="SELECTED_TEARLINE_COLOR" value="282828"/>
     <option name="SELECTION_BACKGROUND" value="83a598"/>
     <option name="SELECTION_FOREGROUND" value="282828"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="#d5c4a1A5"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="#d5c4a1A5"/>
-    <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="#fbf1c700"/>
-    <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="#d5c4a166"/>
-    <option name="ScrollBar.Mac.Transparent.thumbColor" value="#d5c4a166"/>
-    <option name="ScrollBar.Mac.Transparent.trackColor" value="#fbf1c700"/>
-    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="#d5c4a1A5"/>
-    <option name="ScrollBar.Transparent.hoverThumbColor" value="#d5c4a1A5"/>
-    <option name="ScrollBar.Transparent.hoverTrackColor" value="#fbf1c700"/>
-    <option name="ScrollBar.Transparent.thumbBorderColor" value="#d5c4a166"/>
-    <option name="ScrollBar.Transparent.thumbColor" value="#d5c4a166"/>
-    <option name="ScrollBar.Transparent.trackColor" value="#fbf1c700"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="d5c4a1A5"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="d5c4a1A5"/>
+    <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="fbf1c700"/>
+    <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="d5c4a166"/>
+    <option name="ScrollBar.Mac.Transparent.thumbColor" value="d5c4a166"/>
+    <option name="ScrollBar.Mac.Transparent.trackColor" value="fbf1c700"/>
+    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="d5c4a1A5"/>
+    <option name="ScrollBar.Transparent.hoverThumbColor" value="d5c4a1A5"/>
+    <option name="ScrollBar.Transparent.hoverTrackColor" value="fbf1c700"/>
+    <option name="ScrollBar.Transparent.thumbBorderColor" value="d5c4a166"/>
+    <option name="ScrollBar.Transparent.thumbColor" value="d5c4a166"/>
+    <option name="ScrollBar.Transparent.trackColor" value="fbf1c700"/>
     <option name="TEARLINE_COLOR" value="bdae93"/>
     <option name="VCS_ANNOTATIONS_COLOR_1" value="f9f5d7"/>
     <option name="VCS_ANNOTATIONS_COLOR_2" value="fbf1c7"/>
     <option name="VCS_ANNOTATIONS_COLOR_3" value="f2e5bc"/>
     <option name="VCS_ANNOTATIONS_COLOR_4" value="ebdbb2"/>
     <option name="VCS_ANNOTATIONS_COLOR_5" value="d5c4a1"/>
-    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="#d5c4a1"/>
+    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="d5c4a1"/>
   </colors>
   <attributes>
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
@@ -385,8 +385,8 @@
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="282828"/>
-        <option name="BACKGROUND" value="#d5c4a1"/>
-        <option name="ERROR_STRIPE_COLOR" value="#d5c4a1"/>
+        <option name="BACKGROUND" value="d5c4a1"/>
+        <option name="ERROR_STRIPE_COLOR" value="d5c4a1"/>
       </value>
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
@@ -514,8 +514,8 @@
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="282828"/>
-        <option name="BACKGROUND" value="#a89984"/>
-        <option name="ERROR_STRIPE_COLOR" value="#a89984"/>
+        <option name="BACKGROUND" value="a89984"/>
+        <option name="ERROR_STRIPE_COLOR" value="a89984"/>
       </value>
     </option>
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">

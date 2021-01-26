@@ -1,4 +1,4 @@
-package plugin;
+package plugin.lang;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

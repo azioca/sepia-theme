@@ -3,7 +3,7 @@ package plugin;
 import plugin.domain.Color;
 import plugin.domain.Palette;
 
-public class GruvBoxPallete implements Palette {
+public class GruvBoxPalette implements Palette {
 
 	public Color black() {
 		return new Color(3,

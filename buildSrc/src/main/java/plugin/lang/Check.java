@@ -1,4 +1,4 @@
-package plugin;
+package plugin.lang;
 
 import java.util.function.Predicate;
 

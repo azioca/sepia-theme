@@ -1,8 +1,8 @@
 package plugin.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import plugin.AsString;
-import plugin.Check;
+import plugin.lang.AsString;
+import plugin.lang.Check;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Color {
 	}
 
 	private Color(int chosen, List<Slider.Hue> hues) {
-		this(new Slider(chosen, hues), Opacity.opaque, true);
+		this(new Slider(chosen, hues), Opacity.opaque, false);
 	}
 
 	private Color(Slider slider, Opacity opacity, boolean presentAsHex) {

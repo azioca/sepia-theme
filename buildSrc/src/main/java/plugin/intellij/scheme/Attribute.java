@@ -1,4 +1,4 @@
-package plugin.scheme;
+package plugin.intellij.scheme;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

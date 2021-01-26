@@ -48,7 +48,7 @@
 				"endBackground": "#ebdbb2",
 				"endBorderColor": "#ebdbb2",
 				"focusColor": "#cc241d",
-				"focusedBorderColor": "#87afda",
+				"focusedBorderColor": "87afda",
 				"foreground": "#282828",
 				"startBackground": "#ebdbb2",
 				"startBorderColor": "#ebdbb2"
@@ -90,10 +90,10 @@
 			"Yellow": "#f2e5bc"
 		},
 		"Link": {
-			"activeForeground": "#98971a",
-			"hoverForeground": "#98971a",
-			"pressedForeground": "#98971a",
-			"visitedForeground": "#98971a"
+			"activeForeground": "#458588",
+			"hoverForeground": "#458588",
+			"pressedForeground": "#458588",
+			"visitedForeground": "#458588"
 		},
 		"List": { },
 		"ScrollBar": {
