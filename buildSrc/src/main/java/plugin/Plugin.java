@@ -23,7 +23,7 @@ public class Plugin {
 	@JsonProperty String themeProviderId = "be9ee20a-ea64-4eac-b420-29191a79191d";
 
 	public Theme theme() {
-		return new Theme(name + " Theme", vendor, palette, foreground, uiBackground, editorBackground, readOnlyBackground, scrollbar);
+		return new Theme(name, vendor, palette, foreground, uiBackground, editorBackground, readOnlyBackground, scrollbar);
 	}
 
 	public Scheme scheme() {
