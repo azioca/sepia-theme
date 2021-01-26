@@ -100,7 +100,7 @@
 			"Mac": {
 				"Transparent": {
 					"hoverThumbBorderColor": "#bdae9300",
-					"hoverThumbColor": "#bdae9399",
+					"hoverThumbColor": "#bdae93A5",
 					"hoverTrackColor": "#f2e5bc00",
 					"thumbBorderColor": "#bdae9300",
 					"thumbColor": "#bdae9366",
@@ -109,7 +109,7 @@
 			},
 			"Transparent": {
 				"hoverThumbBorderColor": "#bdae9300",
-				"hoverThumbColor": "#bdae9399",
+				"hoverThumbColor": "#bdae93A5",
 				"hoverTrackColor": "#f2e5bc00",
 				"thumbBorderColor": "#bdae9300",
 				"thumbColor": "#bdae9366",

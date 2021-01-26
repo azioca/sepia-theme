@@ -28,13 +28,13 @@
     <option name="SELECTION_BACKGROUND" value="83a598"/>
     <option name="SELECTION_FOREGROUND" value="282828"/>
     <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="#bdae9300"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="#bdae9399"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="#bdae93A5"/>
     <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="#f2e5bc00"/>
     <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="#bdae9300"/>
     <option name="ScrollBar.Mac.Transparent.thumbColor" value="#bdae9366"/>
     <option name="ScrollBar.Mac.Transparent.trackColor" value="#f2e5bc00"/>
     <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="#bdae9300"/>
-    <option name="ScrollBar.Transparent.hoverThumbColor" value="#bdae9399"/>
+    <option name="ScrollBar.Transparent.hoverThumbColor" value="#bdae93A5"/>
     <option name="ScrollBar.Transparent.hoverTrackColor" value="#f2e5bc00"/>
     <option name="ScrollBar.Transparent.thumbBorderColor" value="#bdae9300"/>
     <option name="ScrollBar.Transparent.thumbColor" value="#bdae9366"/>
@@ -45,7 +45,7 @@
     <option name="VCS_ANNOTATIONS_COLOR_3" value="f2e5bc"/>
     <option name="VCS_ANNOTATIONS_COLOR_4" value="ebdbb2"/>
     <option name="VCS_ANNOTATIONS_COLOR_5" value="d5c4a1"/>
-    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="d5c4a1"/>
+    <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="#d5c4a1"/>
   </colors>
   <attributes>
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">

@@ -72,7 +72,7 @@ public class Scheme {
 
 			new Option.Color("MODIFIED_LINES_COLOR", modified),
 			new Option.Color("IGNORED_MODIFIED_LINES_BORDER_COLOR", modified),
-			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", background.darker(4)),
+			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", selectedLineBackground.darker()),
 			// new Option.Color("FILESTATUS_MODIFIED", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker()),
