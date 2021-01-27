@@ -52,6 +52,7 @@ public class Theme {
 		@JsonProperty public ActionButton ActionButton() { return new ActionButton(); }
 		@JsonProperty public Button Button() { return new Button(); }
 		@JsonProperty public ComboBox ComboBox() { return new ComboBox(); }
+		@JsonProperty public CompletionPopup CompletionPopup() { return new CompletionPopup(); }
 		@JsonProperty public EditorTabs EditorTabs() { return new EditorTabs(); }
 		@JsonProperty public Table Table() { return new Table(); }
 		@JsonProperty public TabbedPane TabbedPane() { return new TabbedPane(); }
@@ -145,6 +146,14 @@ public class Theme {
 				@JsonProperty Color background = ComboBox.this.background;
 				@JsonProperty Color nonEditableBackground = ComboBox.this.nonEditableBackground;
 			}
+		}
+
+		class CompletionPopup {
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color matchForeground = style.background().editor().selectedText().darker().darker();
+			@JsonProperty Color nonFocusedMask = Color.transparent();
+			@JsonProperty Color selectionBackground = style.background().editor().selectedLine();
+			@JsonProperty Color selectionInactiveBackground = selectionBackground.brighter();
 		}
 
 		class EditorTabs {

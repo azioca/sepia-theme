@@ -1,18 +1,21 @@
 package plugin.style;
 
 import plugin.domain.Color;
+import plugin.domain.Palette;
 
 import static java.util.Objects.requireNonNull;
 
 public class Background {
+	private final Palette palette;
 	private final Color editor;
 
-	public Background(Color editorBackground) {
+	public Background(Palette palette, Color editorBackground) {
+		this.palette = requireNonNull(palette);
 		this.editor = requireNonNull(editorBackground);
 	}
 
 	public Editor editor() {
-		return new Editor(editor);
+		return new Editor(palette, editor);
 	}
 
 	public UI ui() {
@@ -24,10 +27,12 @@ public class Background {
 	}
 
 	public static class Editor {
+		private final Palette palette;
 		private final Color base;
 
-		public Editor(Color base) {
-			this.base = base;
+		public Editor(Palette palette, Color base) {
+			this.palette = requireNonNull(palette);
+			this.base = requireNonNull(base);
 		}
 
 		public Color base() {
@@ -44,6 +49,10 @@ public class Background {
 
 		public Color underCaretWrite() {
 			return underCaret().darker(2);
+		}
+
+		public Color selectedText() {
+			return palette.blue().brighter();
 		}
 	}
 

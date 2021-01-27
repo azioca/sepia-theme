@@ -15,6 +15,10 @@ public class Color {
 	private final Opacity opacity;
 	private final boolean presentAsHex;
 
+	public static Color transparent() {
+		return new Color("0").opacity(1);
+	}
+
 	public Color(String hue) {
 		this(0, hue);
 	}

@@ -72,6 +72,13 @@
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
 		},
+		"CompletionPopup": {
+			"foreground": "#282828",
+			"matchForeground": "#076678",
+			"nonFocusedMask": "0",
+			"selectionBackground": "#ebdbb2",
+			"selectionInactiveBackground": "#f2e5bc"
+		},
 		"EditorTabs": {
 			"background": "#ebdbb2",
 			"borderColor": "#f9f5d7",
