@@ -20,7 +20,7 @@ public class Plugin {
 	@JsonProperty String name() { return name + " Theme"; }
 	@JsonProperty String email() { return "adam.wojszczyk@gmail.com"; }
 	@JsonProperty String vendor() { return "Adam Wojszczyk"; }
-	@JsonProperty String themeProviderId() { return "be9ee20a-ea64-4eac-b420-29191a79191d"; }
+	@JsonProperty String themeProviderId() { return "be9ee20a-ea64-4eac-b420-29191a79191e"; }
 
 	public Theme theme() {
 		return new Theme(name, vendor(), palette, new Style(new Palette.Hex(palette)));
