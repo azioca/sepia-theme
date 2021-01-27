@@ -121,8 +121,8 @@ public class Scheme {
 		List<Attribute> option = List.of(
 			new Attribute("TEXT").foreground(style.foreground()).background(style.background().editor().base()),
 
-			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(underCaretBackground).errorStripeColorAsBackground(),
-			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(underCaretWriteBackground).errorStripeColorAsBackground(),
+			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(underCaretBackground).errorStripeColorAsForeground(),
+			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(underCaretWriteBackground).errorStripeColorAsForeground(),
 			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
 			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeColorAsBackground(),

@@ -386,7 +386,7 @@
       <value>
         <option name="FOREGROUND" value="282828"/>
         <option name="BACKGROUND" value="d5c4a1"/>
-        <option name="ERROR_STRIPE_COLOR" value="d5c4a1"/>
+        <option name="ERROR_STRIPE_COLOR" value="282828"/>
       </value>
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
@@ -515,7 +515,7 @@
       <value>
         <option name="FOREGROUND" value="282828"/>
         <option name="BACKGROUND" value="a89984"/>
-        <option name="ERROR_STRIPE_COLOR" value="a89984"/>
+        <option name="ERROR_STRIPE_COLOR" value="282828"/>
       </value>
     </option>
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
