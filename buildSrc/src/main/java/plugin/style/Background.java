@@ -37,6 +37,14 @@ public class Background {
 		public Color selectedLine() {
 			return base().darker(3);
 		}
+
+		public Color underCaret() {
+			return selectedLine().darker();
+		}
+
+		public Color underCaretWrite() {
+			return underCaret().darker(2);
+		}
 	}
 
 	public static class UI {
@@ -53,7 +61,7 @@ public class Background {
 		}
 
 		public Color selectedInactive() {
-			return hover();
+			return hover().darker();
 		}
 
 		public Color selected() {

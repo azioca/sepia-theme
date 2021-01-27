@@ -111,9 +111,6 @@ public class Scheme {
 	class Attributes {
 		private final Color deprecated = style.foreground().brighter(3);
 
-		private final Color underCaretBackground = style.background().editor().selectedLine().darker();
-		private final Color underCaretWriteBackground = underCaretBackground.darker(2);
-
 		private final Color searchBackground = palette.aqua().brighter();
 		private final Color searchWriteBackground = searchBackground.darker();
 
@@ -121,8 +118,8 @@ public class Scheme {
 		List<Attribute> option = List.of(
 			new Attribute("TEXT").foreground(style.foreground()).background(style.background().editor().base()),
 
-			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(underCaretBackground).errorStripeColorAsForeground(),
-			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(underCaretWriteBackground).errorStripeColorAsForeground(),
+			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaret()).errorStripeColorAsForeground(),
+			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaretWrite()).errorStripeColorAsForeground(),
 			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
 			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeColorAsBackground(),
@@ -130,7 +127,7 @@ public class Scheme {
 			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.foreground()).bold(),
 			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(palette.red().brighter()).errorStripeColorAsBackground(),
 
-			new Attribute("CTRL_CLICKABLE").foreground(palette.blue().darker()).underscored(palette.blue().darker()),
+			new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link()),
 
 			new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
 			new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),

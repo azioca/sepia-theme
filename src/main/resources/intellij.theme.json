@@ -31,15 +31,15 @@
 			"foreground": "#282828",
 			"hoverBackground": "#f2e5bc",
 			"infoForeground": "#282828",
-			"lightSelectionBackground": "#ebdbb2",
-			"selectedBackground": "#ebdbb2",
-			"selectedBackgroundInactive": "#f2e5bc",
+			"lightSelectionBackground": "#d5c4a1",
+			"selectedBackground": "#d5c4a1",
+			"selectedBackgroundInactive": "#ebdbb2",
 			"selectedForeground": "#282828",
-			"selectedInactiveBackground": "#f2e5bc",
-			"selectionBackground": "#ebdbb2",
-			"selectionBackgroundInactive": "#f2e5bc",
+			"selectedInactiveBackground": "#ebdbb2",
+			"selectionBackground": "#d5c4a1",
+			"selectionBackgroundInactive": "#ebdbb2",
 			"selectionForeground": "#282828",
-			"selectionInactiveBackground": "#f2e5bc",
+			"selectionInactiveBackground": "#ebdbb2",
 			"separatorColor": "#d5c4a1"
 		},
 		"ActionButton": { },
@@ -69,7 +69,7 @@
 			"background": "#f2e5bc",
 			"foreground": "#282828",
 			"nonEditableBackground": "#f2e5bc",
-			"selectionBackground": "#ebdbb2",
+			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
 		},
 		"EditorTabs": {
@@ -120,16 +120,16 @@
 			"tabSelectionHeight": 0
 		},
 		"Table": {
-			"lightSelectionBackground": "#ebdbb2",
+			"lightSelectionBackground": "#d5c4a1",
 			"lightSelectionForeground": "#282828",
-			"lightSelectionInactiveBackground": "#f2e5bc",
+			"lightSelectionInactiveBackground": "#ebdbb2",
 			"lightSelectionInactiveForeground": "#282828"
 		},
 		"ToolWindow": {
 			"Header": {
-				"background": "#ebdbb2",
+				"background": "#d5c4a1",
 				"borderColor": "#fbf1c7",
-				"inactiveBackground": "#f2e5bc"
+				"inactiveBackground": "#ebdbb2"
 			},
 			"HeaderTab": {
 				"hoverBackground": "#fbf1c7",
