@@ -112,7 +112,7 @@ public class Theme {
 			@JsonProperty("default") Default defaultt = new Default();
 
 			class Default {
-				private final Color defaultBackground = ordinaryButtonBackground.darker();
+				private final Color defaultBackground = ordinaryButtonBackground.darker(2);
 				private final Color intellijFocusedBorderColor = new Color("87afda");
 
 				@JsonProperty Color foreground = style.foreground();
