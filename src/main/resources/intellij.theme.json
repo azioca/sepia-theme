@@ -168,6 +168,10 @@
 			"selectionInactiveBackground": "#ebdbb2",
 			"selectionInactiveForeground": "#282828"
 		},
+		"MemoryIndicator": {
+			"allocatedBackground": "#f2e5bc",
+			"usedBackground": "#d5c4a1"
+		},
 		"Menu": {
 			"acceleratorForeground": "#282828",
 			"acceleratorSelectionForeground": "#282828",
