@@ -163,8 +163,8 @@ public class Theme {
 		}
 
 		class Component {
-			@JsonProperty Color focusedBorderColor;
-			@JsonProperty Color borderColor;
+			@JsonProperty Color focusedBorderColor = style.borderColor();
+			@JsonProperty Color borderColor = style.borderColor();
 			@JsonProperty Integer focusWidth;
 			@JsonProperty Integer arc;
 			@JsonProperty Color disabledBorderColor;
@@ -292,25 +292,27 @@ public class Theme {
 		}
 
 		class Popup {
-			@JsonProperty Color borderColor;
-			@JsonProperty Color inactiveBorderColor;
-			@JsonProperty Color innerBorderColor;
+			@JsonProperty Color borderColor = style.borderColor();
+			@JsonProperty Color inactiveBorderColor = style.borderColor();
+			@JsonProperty Color innerBorderColor = style.borderColor();
 			@JsonProperty boolean paintBorder; // on Mac
-			@JsonProperty Color separatorColor;
-			@JsonProperty Color separatorForeground;
+			@JsonProperty Color separatorColor = style.borderColor();
+			@JsonProperty Color separatorForeground = style.foreground();
 
-			@JsonProperty Header header = new Header();
+			@JsonProperty Header Header = new Header();
+			@JsonProperty Advertiser Advertiser = new Advertiser();
+			@JsonProperty Toolbar Toolbar = new Toolbar();
 
 			class Header {
-				@JsonProperty Color inactiveBackground;
-				@JsonProperty Color activeBackground;
+				@JsonProperty Color inactiveBackground = style.background().ui().base().darker();
+				@JsonProperty Color activeBackground = style.background().ui().base().darker(2);
 			}
 
 			class Advertiser {
 				@JsonProperty Color background = style.background().ui().base();
 				@JsonProperty Color borderColor = style.borderColor();
 				@JsonProperty Integer borderInsets;
-				@JsonProperty Color borderForeground = style.foreground();
+				@JsonProperty Color foreground = style.foreground();
 			}
 
 			class Toolbar {
