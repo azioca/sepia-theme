@@ -52,11 +52,15 @@ public class Theme {
 		@JsonProperty Component Component() { return new Component(); }
 		@JsonProperty CheckBox CheckBox() { return new CheckBox(); }
 		@JsonProperty Editor Editor() { return new Editor(); }
+		@JsonProperty EditorPane EditorPane() { return new EditorPane(); }
 		@JsonProperty EditorTabs EditorTabs() { return new EditorTabs(); }
 		@JsonProperty Group Group() { return new Group(); }
+		@JsonProperty Panel Panel() { return new Panel(); }
+		@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
 		@JsonProperty Table Table() { return new Table(); }
 		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 		@JsonProperty Tree Tree() { return new Tree(); }
+		@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
 		@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
 		@JsonProperty TextField TextField() { return new TextField(); }
 		@JsonProperty FileColor FileColor() { return new FileColor(); }
@@ -69,6 +73,7 @@ public class Theme {
 		@JsonProperty Separator Separator() { return new Separator(); }
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 		@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
+		@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
 
 		class Asterisk {
 			@JsonProperty Color background = style.background().ui().base();
@@ -200,6 +205,16 @@ public class Theme {
 			@JsonProperty Color shortcutForeground = style.link();
 		}
 
+		class EditorPane {
+			@JsonProperty Color background = style.background().editor().base();
+			@JsonProperty Color caretForeground = style.foreground();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color inactiveBackground = style.background().editor().base(); // descriptions
+			@JsonProperty Color inactiveForeground = style.foreground();
+			@JsonProperty Color selectionBackground = style.background().editor().selectedText();
+			@JsonProperty Color selectionForeground = style.foreground();
+		}
+
 		class EditorTabs {
 			@JsonProperty Color underlinedTabForeground = style.foreground();
 			@JsonProperty Color underlinedTabBackground = style.background().editor().base();
@@ -220,6 +235,53 @@ public class Theme {
 			@JsonProperty Color separatorColor = style.borderColor();
 		}
 
+		class Panel {
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color foreground = style.foreground();
+		}
+
+		class SidePanel {
+			@JsonProperty Color background = style.background().ui().base().darker();
+		}
+
+		class WelcomeScreen {
+			@JsonProperty Color borderColor = style.borderColor();
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color captionBackground = palette.red();
+			@JsonProperty Color captionForeground = style.foreground();
+			@JsonProperty Color footerBackground;
+			@JsonProperty Color footerForeground = style.foreground();
+			@JsonProperty Color groupIconBorderColor = style.borderColor();
+			@JsonProperty Color headerBackground;
+			@JsonProperty Color headerForeground = style.foreground();
+			@JsonProperty Color separatorColor = style.borderColor();
+
+			@JsonProperty Details Details = new Details();
+			@JsonProperty Projects Projects = new Projects();
+			@JsonProperty SidePanel SidePanel = new SidePanel();
+
+			class Details {
+				@JsonProperty Color background = style.background().ui().base();
+			}
+
+			class Projects {
+				@JsonProperty Color background = style.background().ui().base();
+				@JsonProperty Color selectionBackground = style.background().ui().selected();
+				@JsonProperty Color selectionInactiveBackground = style.background().ui().selectedInactive();
+
+				@JsonProperty Actions actions = new Actions();
+
+				class Actions {
+					@JsonProperty Color background = style.background().ui().base();
+					@JsonProperty Color selectionBackground = style.background().ui().selected();
+				}
+			}
+
+			class SidePanel {
+				@JsonProperty Color background = style.background().ui().base().darker();
+			}
+		}
+
 		class FileColor {
 			@JsonProperty Color Yellow = style.background().readOnly();
 			@JsonProperty Color Green = palette.green().brighter().opacity(0.13);
@@ -227,6 +289,18 @@ public class Theme {
 			@JsonProperty Color Violet = palette.purple().brighter();
 			@JsonProperty Color Orange = palette.orange().brighter();
 			@JsonProperty Color Rose = palette.red().brighter();
+		}
+
+		class ToolBar { // unknown effect
+			@JsonProperty Color background;
+			@JsonProperty Color borderHandleColor;
+			@JsonProperty Color darkShadow;
+			@JsonProperty("Floating.background") Color floatingBackground;
+			@JsonProperty Color floatingForeground;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color hightlight;
+			@JsonProperty Color light;
+			@JsonProperty Color shadow;
 		}
 
 		class ToolWindow {
