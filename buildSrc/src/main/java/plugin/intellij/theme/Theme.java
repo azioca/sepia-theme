@@ -181,7 +181,7 @@ public class Theme {
 		class CheckBox {
 			@JsonProperty Color background = style.checkbox().textBackground();
 			@JsonProperty Color foreground = style.checkbox().textForeground();
-			@JsonProperty Color select; // unknown effect
+			@JsonProperty Color select; // no effect
 			@JsonProperty Color disabledText = style.checkbox().disabledBorder();
 		}
 
@@ -192,12 +192,12 @@ public class Theme {
 			@JsonProperty Color background = hoverBackground.darker(3);
 			@JsonProperty Color borderColor = underlinedTabBackground;
 
-			@JsonProperty int underlineHeight = 0;
-			@JsonProperty Color underlineColor;
-			@JsonProperty Color inactiveUnderlineColor;
+			@JsonProperty int underlineHeight = 2;
+			@JsonProperty Color underlineColor = style.background().editor().selectedText();
+			@JsonProperty Color inactiveUnderlineColor = underlineColor;
 
-			@JsonProperty boolean tabInsets;
-			@JsonProperty Color inactiveColoredFileBackground;
+			@JsonProperty boolean tabInsets; // no effect
+			@JsonProperty Color inactiveColoredFileBackground; // masks
 		}
 
 		class FileColor {

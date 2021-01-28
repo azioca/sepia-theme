@@ -105,8 +105,10 @@
 			"background": "#ebdbb2",
 			"borderColor": "#f9f5d7",
 			"hoverBackground": "#f9f5d7",
+			"inactiveUnderlineColor": "#83a598",
 			"tabInsets": false,
-			"underlineHeight": 0,
+			"underlineColor": "#83a598",
+			"underlineHeight": 2,
 			"underlinedTabBackground": "#f9f5d7",
 			"underlinedTabForeground": "#282828"
 		},
