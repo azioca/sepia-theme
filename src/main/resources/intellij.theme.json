@@ -34,7 +34,6 @@
 	},
 	"ui": {
 		"*": {
-			"background": "#fbf1c7",
 			"borderColor": "#d5c4a1",
 			"disabledBorderColor": "#ebdbb2",
 			"foreground": "#282828",
@@ -140,6 +139,12 @@
 			"Rose": "#fb4934",
 			"Violet": "#d3869b",
 			"Yellow": "#f2e5bc"
+		},
+		"FormattedTextField": {
+			"background": "#f9f5d7",
+			"foreground": "#282828",
+			"inactiveBackground": "#f9f5d7",
+			"inactiveForeground": "#928374"
 		},
 		"Group": {
 			"disabledSeparatorColor": "#d5c4a1",

@@ -46,37 +46,38 @@ public class Theme {
 		@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 		@JsonProperty Borders Borders() { return new Borders(); }
 		@JsonProperty Button Button() { return new Button(); }
+		@JsonProperty CheckBox CheckBox() { return new CheckBox(); }
 		@JsonProperty ComboBox ComboBox() { return new ComboBox(); }
 		@JsonProperty ComboBoxButton ComboBoxButton() { return new ComboBoxButton(); }
 		@JsonProperty CompletionPopup CompletionPopup() { return new CompletionPopup(); }
 		@JsonProperty Component Component() { return new Component(); }
-		@JsonProperty CheckBox CheckBox() { return new CheckBox(); }
 		@JsonProperty Editor Editor() { return new Editor(); }
 		@JsonProperty EditorPane EditorPane() { return new EditorPane(); }
 		@JsonProperty EditorTabs EditorTabs() { return new EditorTabs(); }
-		@JsonProperty Group Group() { return new Group(); }
-		@JsonProperty Panel Panel() { return new Panel(); }
-		@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
-		@JsonProperty Table Table() { return new Table(); }
-		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
-		@JsonProperty Tree Tree() { return new Tree(); }
-		@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
-		@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
-		@JsonProperty TextField TextField() { return new TextField(); }
 		@JsonProperty FileColor FileColor() { return new FileColor(); }
+		@JsonProperty FormattedTextField FormattedTextField() { return new FormattedTextField(); }
+		@JsonProperty Group Group() { return new Group(); }
 		@JsonProperty Link Link() { return new Link(); }
 		@JsonProperty List List() { return new List(); }
 		@JsonProperty Menu Menu() { return new Menu(); }
 		@JsonProperty MenuBar MenuBar() { return new MenuBar(); }
 		@JsonProperty MenuItem MenuItem() { return new MenuItem(); }
+		@JsonProperty Panel Panel() { return new Panel(); }
 		@JsonProperty Popup Popup() { return new Popup(); }
-		@JsonProperty Separator Separator() { return new Separator(); }
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
+		@JsonProperty Separator Separator() { return new Separator(); }
+		@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
+		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
+		@JsonProperty Table Table() { return new Table(); }
+		@JsonProperty TextField TextField() { return new TextField(); }
+		@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
+		@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
+		@JsonProperty Tree Tree() { return new Tree(); }
 		@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 		@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
 
 		class Asterisk {
-			@JsonProperty Color background = style.background().ui().base();
+			// @JsonProperty Color background = style.background().ui().base();
 
 			@JsonProperty Color hoverBackground = style.background().ui().hover();
 
