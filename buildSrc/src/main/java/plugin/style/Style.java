@@ -25,8 +25,16 @@ public class Style {
 		return background().ui().base().darker(3);
 	}
 
+	public Color lines() {
+		return palette.gray().brighter(2);
+	}
+
 	public Color error() {
 		return palette.red();
+	}
+
+	public Color warning() {
+		return palette.yellow().brighter();
 	}
 
 	public Checkbox checkbox() {

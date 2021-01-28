@@ -5,6 +5,20 @@ import plugin.domain.Palette;
 
 public class GruvBoxPalette implements Palette {
 
+	// todo before using Color.darkest()/.brightest() methods need to be removed
+	private final String[] spectrum = new String[]{
+		// 3: black
+		"1d2021", "282828", "32302f",
+		"3c3836",
+		"504945", "665c54", "7c6f64",
+		// 7: gray
+		"928374",
+		// 11: sepia
+		"a89984", "bdae93", "d5c4a1",
+		"ebdbb2",
+		"f2e5bc", "fbf1c7", "f9f5d7"
+	};
+
 	public Color black() {
 		return new Color(3,
 			"1d2021", "282828", "32302f",

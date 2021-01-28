@@ -101,7 +101,9 @@
 		"Component": {
 			"borderColor": "#d5c4a1",
 			"focusColor": "#83a598",
-			"focusedBorderColor": "#d5c4a1"
+			"focusedBorderColor": "#d5c4a1",
+			"infoForeground": "#282828",
+			"warningFocusColor": "#fabd2f"
 		},
 		"EditorTabs": {
 			"background": "#ebdbb2",
@@ -200,6 +202,16 @@
 				"underlinedTabBackground": "#fbf1c7",
 				"underlinedTabInactiveBackground": "#fbf1c7"
 			}
+		},
+		"Tree": {
+			"background": "#fbf1c7",
+			"foreground": "#282828",
+			"hash": "#d5c4a1",
+			"hoverBackground": "#f2e5bc",
+			"hoverInactiveBackground": "#f2e5bc",
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828",
+			"selectionInactiveBackground": "#ebdbb2"
 		},
 		"VersionControl": {
 			"GitLog": { },

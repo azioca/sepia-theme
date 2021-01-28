@@ -55,6 +55,7 @@ public class Theme {
 		@JsonProperty public EditorTabs EditorTabs() { return new EditorTabs(); }
 		@JsonProperty public Table Table() { return new Table(); }
 		@JsonProperty public TabbedPane TabbedPane() { return new TabbedPane(); }
+		@JsonProperty public Tree Tree() { return new Tree(); }
 		@JsonProperty public ToolWindow ToolWindow() { return new ToolWindow(); }
 		@JsonProperty public TextField TextField() { return new TextField(); }
 		@JsonProperty public FileColor FileColor() { return new FileColor(); }
@@ -174,8 +175,8 @@ public class Theme {
 			@JsonProperty Color iconColor;
 			@JsonProperty Color inactiveErrorFocusColor;
 			@JsonProperty Color inactiveWarningFocusColor;
-			@JsonProperty Color infoForeground;
-			@JsonProperty Color warningFocusColor;
+			@JsonProperty Color infoForeground = style.foreground();
+			@JsonProperty Color warningFocusColor = style.warning();
 		}
 
 		class CheckBox {
@@ -231,7 +232,7 @@ public class Theme {
 			}
 		}
 
-		class TabbedPane {
+		class TabbedPane { // example: editor -> code style
 			@JsonProperty Color background;
 			@JsonProperty Color contentAreaColor;
 			@JsonProperty Color disabledForeground;
@@ -242,6 +243,21 @@ public class Theme {
 			@JsonProperty Color hoverColor;
 			@JsonProperty int tabSelectionHeight;
 			@JsonProperty Color underlineColor;
+		}
+
+		class Tree {
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color errorForeground;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color hash = style.lines().brighter();
+			@JsonProperty Color hoverBackground = style.background().ui().hover();
+			@JsonProperty Color hoverInactiveBackground = hoverBackground;
+			@JsonProperty Color modifiedItemForeground;
+			@JsonProperty Color paintLines;
+			@JsonProperty Color rowHeight;
+			@JsonProperty Color selectionBackground = style.background().ui().selected();
+			@JsonProperty Color selectionForeground = style.foreground();
+			@JsonProperty Color selectionInactiveBackground = style.background().ui().selectedInactive();
 		}
 
 		class Table {

@@ -46,7 +46,6 @@ public class Scheme {
 		private final Color added = palette.green().brighter();
 		private final Color modified = palette.blue().brighter();
 		private final Color deleted = palette.gray();
-		private final Color guidesAndLineNumbers = palette.gray().brighter(2);
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
@@ -89,16 +88,17 @@ public class Scheme {
 			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbColor", (style.scrollbar()).hoverThumbColor()),
 			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbBorderColor", (style.scrollbar()).hoverThumbBorderColor()),
 
+			new Option.Color("SELECTED_INDENT_GUIDE", style.foreground()),
+			new Option.Color("SELECTED_TEARLINE_COLOR", style.foreground()),
+			new Option.Color("INDENT_GUIDE", style.lines()),
+			new Option.Color("TEARLINE_COLOR", style.lines()),
+			new Option.Color("LINE_NUMBERS_COLOR", style.lines()),
+			new Option.Color("RIGHT_MARGIN_COLOR", style.lines()),
+
 			new Option.Color("ANNOTATIONS_COLOR", style.foreground()),
 			new Option.Color("CONSOLE_BACKGROUND_KEY", style.background().editor().base()),
 			new Option.Color("DOCUMENTATION_COLOR", style.background().editor().base()),
 			new Option.Color("GUTTER_BACKGROUND", style.background().editor().base()),
-			new Option.Color("INDENT_GUIDE", guidesAndLineNumbers),
-			new Option.Color("LINE_NUMBERS_COLOR", guidesAndLineNumbers),
-			new Option.Color("RIGHT_MARGIN_COLOR", style.background().editor().base().darker(2)),
-			new Option.Color("SELECTED_INDENT_GUIDE", style.foreground()),
-			new Option.Color("SELECTED_TEARLINE_COLOR", style.foreground()),
-			new Option.Color("TEARLINE_COLOR", guidesAndLineNumbers),
 
 			new Option.Color("VCS_ANNOTATIONS_COLOR_1", style.background().editor().base()),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_2", style.background().editor().base().darker()),
@@ -184,10 +184,10 @@ public class Scheme {
 
 			new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.foreground().darker()),
 			new Attribute("INLINE_PARAMETER_HINT").foreground(style.foreground()).background(palette.aqua().darker()),
-			new Attribute("INFO_ATTRIBUTES").errorStripeColor(palette.yellow().darker()).dottedLine(palette.yellow().darker()),
+			new Attribute("INFO_ATTRIBUTES").errorStripeColor(style.warning()).dottedLine(style.warning()),
 
 			new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error().darker()).errorStripeColorAsEffect(),
-			new Attribute("WARNING_ATTRIBUTES").underwaved(palette.yellow().brighter()).errorStripeColorAsEffect(),
+			new Attribute("WARNING_ATTRIBUTES").underwaved(style.warning()).errorStripeColorAsEffect(),
 			new Attribute("BAD_CHARACTER").underwaved(style.error().darker()),
 			new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(style.error()).errorStripeColorAsEffect(),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
@@ -203,7 +203,7 @@ public class Scheme {
 
 			new Attribute("LOG_ERROR_OUTPUT").foreground(style.error().darker()),
 			new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray()),
-			new Attribute("LOG_WARNING_OUTPUT").foreground(palette.yellow().brighter()),
+			new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning()),
 
 			new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.foreground()),
 			new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT").foreground(palette.blue().brighter()),
