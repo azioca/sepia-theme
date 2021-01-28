@@ -16,7 +16,7 @@ public class Color {
 	private final boolean presentAsHex;
 
 	public static Color transparent() {
-		return new Color("0").opacity(1);
+		return new Color("000000").opacity(0);
 	}
 
 	public Color(String hue) {
@@ -37,6 +37,10 @@ public class Color {
 		this.presentAsHex = presentAsHex;
 	}
 
+	public Color darkest() {
+		return new Color(slider.slideToDarkest(), opacity, presentAsHex);
+	}
+
 	public Color darker(int times) {
 		Color darker = darker();
 		for (int i = 0; i < times - 1; i++) {
@@ -47,6 +51,10 @@ public class Color {
 
 	public Color darker() {
 		return new Color(slider.slideToDarker(), opacity, presentAsHex);
+	}
+
+	public Color brightest() {
+		return new Color(slider.slideToBrightest(), opacity, presentAsHex);
 	}
 
 	public Color brighter(int times) {
@@ -72,6 +80,7 @@ public class Color {
 	public Color plain() {
 		return new Color(slider, opacity, false);
 	}
+
 
 	@JsonValue
 	public String string() {
@@ -128,9 +137,17 @@ public class Color {
 			return new Slider(chosen, hues);
 		}
 
+		public Slider slideToDarkest() {
+			return new Slider(0, hues);
+		}
+
 		Slider slideToBrighter() {
 			if (chosen >= hues.size()) throw new IndexOutOfBoundsException("No such bright hue defined. " + this);
 			return new Slider(chosen + 1, hues);
+		}
+
+		public Slider slideToBrightest() {
+			return new Slider(hues.size() - 1, hues);
 		}
 
 		@Override

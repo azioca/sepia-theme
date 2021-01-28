@@ -11,6 +11,15 @@
 			"Actions.GreyInline.Dark": "#7c6f64",
 			"Actions.Red": "#cc241d",
 			"Actions.Yellow": "#d79921",
+			"Checkbox.Background.Default": "#f9f5d7",
+			"Checkbox.Background.Disabled": "#fbf1c7",
+			"Checkbox.Background.Selected": "#a89984",
+			"Checkbox.Border.Default": "#a89984",
+			"Checkbox.Border.Disabled": "#bdae93",
+			"Checkbox.Border.Selected": "#a89984",
+			"Checkbox.Focus.Thin.Default": "#bdae93",
+			"Checkbox.Focus.Thin.Selected": "#bdae93",
+			"Checkbox.Focus.Wide": "#bdae93",
 			"Objects.BlackText": "#282828",
 			"Objects.Blue": "#83a598",
 			"Objects.Green": "#b8bb26",
@@ -47,8 +56,7 @@
 			"default": {
 				"endBackground": "#d5c4a1",
 				"endBorderColor": "#d5c4a1",
-				"focusColor": "#cc241d",
-				"focusedBorderColor": "87afda",
+				"focusedBorderColor": "#83a598",
 				"foreground": "#282828",
 				"startBackground": "#d5c4a1",
 				"startBorderColor": "#d5c4a1"
@@ -56,28 +64,38 @@
 			"endBackground": "#f2e5bc",
 			"endBorderColor": "#f2e5bc",
 			"foreground": "#282828",
+			"shadowWidth": 0,
 			"startBackground": "#f2e5bc",
 			"startBorderColor": "#f2e5bc"
 		},
+		"CheckBox": {
+			"background": "#fbf1c7",
+			"disabledText": "#bdae93",
+			"foreground": "#282828"
+		},
 		"ComboBox": {
 			"ArrowButton": {
-				"background": "#f2e5bc",
-				"disabledIconColor": "#32302f",
+				"background": "#fbf1c7",
+				"disabledIconColor": "#928374",
 				"iconColor": "#282828",
-				"nonEditableBackground": "#f2e5bc"
+				"nonEditableBackground": "#fbf1c7"
 			},
-			"background": "#f2e5bc",
+			"background": "#fbf1c7",
+			"disabledForeground": "#928374",
 			"foreground": "#282828",
-			"nonEditableBackground": "#f2e5bc",
+			"nonEditableBackground": "#fbf1c7",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
 		},
 		"CompletionPopup": {
 			"foreground": "#282828",
 			"matchForeground": "#076678",
-			"nonFocusedMask": "0",
+			"nonFocusedMask": "00000000",
 			"selectionBackground": "#ebdbb2",
 			"selectionInactiveBackground": "#f2e5bc"
+		},
+		"Component": {
+			"focusColor": "#83a598"
 		},
 		"EditorTabs": {
 			"background": "#ebdbb2",
@@ -131,6 +149,14 @@
 			"lightSelectionForeground": "#282828",
 			"lightSelectionInactiveBackground": "#ebdbb2",
 			"lightSelectionInactiveForeground": "#282828"
+		},
+		"TextField": {
+			"background": "#f9f5d7",
+			"caretForeground": "#282828",
+			"foreground": "#282828",
+			"inactiveForeground": "#928374",
+			"selectionBackground": "#83a598",
+			"selectionForeground": "#282828"
 		},
 		"ToolWindow": {
 			"Header": {

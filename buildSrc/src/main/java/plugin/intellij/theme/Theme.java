@@ -31,20 +31,16 @@ public class Theme {
 	@JsonProperty boolean dark() { return false; }
 	@JsonProperty String editorScheme() { return "/intellij.scheme.xml"; }
 	@JsonProperty UI ui() { return new UI(palette, style); }
-	@JsonProperty Icons icons() { return new Icons(palette, style.foreground()); }
+	@JsonProperty Icons icons() { return new Icons(palette, style); }
 
 	static class UI {
 		private final Palette palette;
 		private final Style style;
-
-		private final Color borderColor;
 		private final Color marker;
 
 		UI(Palette palette, Style style) {
 			this.palette = requireNonNull(palette);
 			this.style = Objects.requireNonNull(style);
-
-			this.borderColor = style.background().ui().base().darker(3);
 			this.marker = this.palette.red();
 		}
 
@@ -53,10 +49,13 @@ public class Theme {
 		@JsonProperty public Button Button() { return new Button(); }
 		@JsonProperty public ComboBox ComboBox() { return new ComboBox(); }
 		@JsonProperty public CompletionPopup CompletionPopup() { return new CompletionPopup(); }
+		@JsonProperty public Component Component() { return new Component(); }
+		@JsonProperty public CheckBox CheckBox() { return new CheckBox(); }
 		@JsonProperty public EditorTabs EditorTabs() { return new EditorTabs(); }
 		@JsonProperty public Table Table() { return new Table(); }
 		@JsonProperty public TabbedPane TabbedPane() { return new TabbedPane(); }
 		@JsonProperty public ToolWindow ToolWindow() { return new ToolWindow(); }
+		@JsonProperty public TextField TextField() { return new TextField(); }
 		@JsonProperty public FileColor FileColor() { return new FileColor(); }
 		@JsonProperty public Link Link() { return new Link(); }
 		@JsonProperty public List List() { return new List(); }
@@ -82,7 +81,7 @@ public class Theme {
 			@JsonProperty Color selectedForeground = style.foreground();
 			@JsonProperty Color infoForeground = style.foreground();
 
-			@JsonProperty Color borderColor = UI.this.borderColor;
+			@JsonProperty Color borderColor = style.borderColor();
 			@JsonProperty Color disabledBorderColor = borderColor.brighter();
 			@JsonProperty Color separatorColor = borderColor;
 		}
@@ -103,7 +102,8 @@ public class Theme {
 			@JsonProperty Color disabledText;
 			@JsonProperty Color foreground = style.foreground();
 			@JsonProperty Color shadowColor;
-			@JsonProperty Integer shadowWidth;
+			@JsonProperty Integer shadowWidth = 0;
+			@JsonProperty Color focusedBorderColor;
 
 			@JsonProperty Color startBackground = ordinaryButtonBackground;
 			@JsonProperty Color endBackground = startBackground;
@@ -114,7 +114,6 @@ public class Theme {
 
 			class Default {
 				private final Color defaultBackground = ordinaryButtonBackground.darker(2);
-				private final Color intellijFocusedBorderColor = new Color("87afda");
 
 				@JsonProperty Color foreground = style.foreground();
 
@@ -123,17 +122,17 @@ public class Theme {
 				@JsonProperty Color startBorderColor = defaultBackground;
 				@JsonProperty Color endBorderColor = defaultBackground;
 
-				@JsonProperty Color focusColor = marker;
-				@JsonProperty Color focusedBorderColor = intellijFocusedBorderColor;
+				@JsonProperty Color focusColor; // only for dark theme, even for dark theme I don't see an effect
+				@JsonProperty Color focusedBorderColor = style.background().editor().selectedText();
 			}
 		}
 
 		class ComboBox {
-			@JsonProperty Color selectionForeground = style.foreground();
 			@JsonProperty Color foreground = style.foreground();
-			@JsonProperty Color disabledForeground;
+			@JsonProperty Color selectionForeground = style.foreground();
+			@JsonProperty Color disabledForeground = palette.gray();
 			@JsonProperty Color modifiedItemForeground;
-			@JsonProperty Color background = style.background().ui().base().darker();
+			@JsonProperty Color background = style.background().ui().base();
 			@JsonProperty Color nonEditableBackground = background;
 			@JsonProperty Color selectionBackground = style.background().ui().selected();
 
@@ -141,7 +140,7 @@ public class Theme {
 
 			class ArrowButton {
 				@JsonProperty Color iconColor = style.foreground();
-				@JsonProperty Color disabledIconColor = iconColor.brighter();
+				@JsonProperty Color disabledIconColor = palette.gray();
 
 				@JsonProperty Color background = ComboBox.this.background;
 				@JsonProperty Color nonEditableBackground = ComboBox.this.nonEditableBackground;
@@ -154,6 +153,29 @@ public class Theme {
 			@JsonProperty Color nonFocusedMask = Color.transparent();
 			@JsonProperty Color selectionBackground = style.background().editor().selectedLine();
 			@JsonProperty Color selectionInactiveBackground = selectionBackground.brighter();
+		}
+
+		class Component {
+			@JsonProperty Color focusedBorderColor;
+			@JsonProperty Color borderColor;
+			@JsonProperty Integer focusWidth;
+			@JsonProperty Integer arc;
+			@JsonProperty Color disabledBorderColor;
+			@JsonProperty Color errorFocusColor;
+			@JsonProperty Color focusColor = style.background().editor().selectedText();
+			@JsonProperty Color hoverIconColor;
+			@JsonProperty Color iconColor;
+			@JsonProperty Color inactiveErrorFocusColor;
+			@JsonProperty Color inactiveWarningFocusColor;
+			@JsonProperty Color infoForeground;
+			@JsonProperty Color warningFocusColor;
+		}
+
+		class CheckBox {
+			@JsonProperty Color background = style.checkbox().textBackground();
+			@JsonProperty Color foreground = style.checkbox().textForeground();
+			@JsonProperty Color select; // unknown effect
+			@JsonProperty Color disabledText = style.checkbox().disabledBorder();
 		}
 
 		class EditorTabs {
@@ -221,6 +243,25 @@ public class Theme {
 			@JsonProperty Color lightSelectionInactiveForeground = style.foreground();
 			@JsonProperty Color lightSelectionBackground = style.background().ui().selected();
 			@JsonProperty Color lightSelectionInactiveBackground = style.background().ui().selectedInactive();
+		}
+
+		class TextField {
+			@JsonProperty Color background = style.background().editor().base();
+			@JsonProperty Color caretForeground = style.foreground();
+			@JsonProperty Color darkShadow;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color highlight;
+			@JsonProperty Color inactiveForeground = palette.gray();
+			@JsonProperty Color selectionBackground = style.background().editor().selectedText();
+			@JsonProperty Color selectionForeground = style.foreground();
+		}
+
+		class FormattedTextField {
+			@JsonProperty Color background = style.background().ui().base().brighter();
+			@JsonProperty Color caretForeground;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color inactiveBackground = background;
+			@JsonProperty Color inactiveForeground = palette.gray();
 		}
 
 		class Link {
@@ -315,11 +356,11 @@ public class Theme {
 
 	static class Icons {
 		private final Palette palette;
-		private final Color foreground;
+		private final Style style;
 
-		Icons(Palette palette, Color foreground) {
+		Icons(Palette palette, Style style) {
 			this.palette = requireNonNull(palette);
-			this.foreground = requireNonNull(foreground);
+			this.style = requireNonNull(style);
 		}
 
 		@JsonProperty ColorPalette ColorPalette() { return new ColorPalette(); }
@@ -347,7 +388,7 @@ public class Theme {
 				@JsonProperty Color Green = palette.green().brighter();
 				@JsonProperty Color Blue = palette.blue().brighter();
 				@JsonProperty Color Purple = palette.purple().brighter();
-				@JsonProperty Color BlackText = foreground;
+				@JsonProperty Color BlackText = style.foreground();
 				@JsonProperty Color YellowDark = palette.yellow().darker();
 			}
 
@@ -358,37 +399,39 @@ public class Theme {
 				@JsonUnwrapped(prefix = "Focus.") @JsonProperty ColorPalette.Checkbox.Focus Focus = new Focus();
 
 				class Foreground {
+					@JsonProperty("Default") Color Defaultt;
 					@JsonProperty("Selected") Color Selected;
-					@JsonProperty("Selected.Dark") Color SelectedDark;
 					@JsonProperty("Disabled") Color Disabled;
+					@JsonProperty("Selected.Dark") Color SelectedDark;
 					@JsonProperty("Disabled.Dark") Color DisabledDark;
 				}
 
 				class Background {
-					@JsonProperty("Default") Color Defaultt;
+					@JsonProperty("Default") Color Defaultt = style.checkbox().hook();
+					@JsonProperty("Disabled") Color Disabled = style.checkbox().disabledBoxBackground();
+					@JsonProperty("Selected") Color Selected = style.checkbox().selectedBoxBackground();
 					@JsonProperty("Default.Dark") Color DefaultDark;
-					@JsonProperty("Disabled") Color Disabled;
 					@JsonProperty("Disabled.Dark") Color DisabledDark;
-					@JsonProperty("Selected") Color Selected;
 					@JsonProperty("Selected.Dark") Color SelectedDark;
 				}
 
 				class Border {
-					@JsonProperty("Default") Color Defaultt;
+					@JsonProperty("Default") Color Defaultt = style.checkbox().border();
+					@JsonProperty("Disabled") Color Disabled = style.checkbox().disabledBorder();
+					@JsonProperty("Selected") Color Selected = Defaultt;
 					@JsonProperty("Default.Dark") Color DefaultDark;
-					@JsonProperty("Disabled") Color Disabled;
 					@JsonProperty("Disabled.Dark") Color DisabledDark;
 				}
 
 				class Focus {
-					@JsonProperty("Wide") Color Wide;
+					@JsonProperty("Wide") Color Wide = style.checkbox().focus();
 					@JsonProperty("Wide.Dark") Color WideDark;
 					@JsonUnwrapped(prefix = "Thin.") @JsonProperty ColorPalette.Checkbox.Focus.Thin Thin = new Thin();
 
 					class Thin {
-						@JsonProperty("Default") Color Defaultt;
+						@JsonProperty("Default") Color Defaultt = style.checkbox().focus();
+						@JsonProperty("Selected") Color Selected = style.checkbox().focus();
 						@JsonProperty("Default.Dark") Color DefaultDark;
-						@JsonProperty("Selected") Color Selected;
 						@JsonProperty("Selected.Dark") Color SelectedDark;
 					}
 				}

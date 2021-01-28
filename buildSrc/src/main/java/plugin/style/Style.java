@@ -21,6 +21,14 @@ public class Style {
 		return new Background(palette, palette.sepia().brighter(3));
 	}
 
+	public Color borderColor() {
+		return background().ui().base().darker(3);
+	}
+
+	public Checkbox checkbox() {
+		return new Checkbox(this);
+	}
+
 	public Scrollbar scrollbar() {
 		return new Scrollbar(background().ui().base());
 	}
