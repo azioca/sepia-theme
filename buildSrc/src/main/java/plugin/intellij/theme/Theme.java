@@ -42,7 +42,7 @@ public class Theme {
 			this.style = Objects.requireNonNull(style);
 		}
 
-		@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
+		@JsonProperty("*") Asterisk asterisk() { return new Asterisk(); }
 		@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 		@JsonProperty Borders Borders() { return new Borders(); }
 		@JsonProperty Button Button() { return new Button(); }
@@ -60,7 +60,11 @@ public class Theme {
 		@JsonProperty FileColor FileColor() { return new FileColor(); }
 		@JsonProperty Link Link() { return new Link(); }
 		@JsonProperty List List() { return new List(); }
+		@JsonProperty Menu Menu() { return new Menu(); }
+		@JsonProperty MenuBar MenuBar() { return new MenuBar(); }
+		@JsonProperty MenuItem MenuItem() { return new MenuItem(); }
 		@JsonProperty Popup Popup() { return new Popup(); }
+		@JsonProperty Separator Separator() { return new Separator(); }
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 		@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 
@@ -300,15 +304,48 @@ public class Theme {
 		}
 
 		class List {
-			@JsonProperty Color background;
-			@JsonProperty Color dropLineColor;
-			@JsonProperty Color foreground;
-			@JsonProperty Color hoverBackground;
-			@JsonProperty Color hoverInactiveBackground;
-			@JsonProperty Color selectionBackground;
-			@JsonProperty Color selectionForeground;
-			@JsonProperty Color selectionInactiveBackground;
-			@JsonProperty Color selectionInactiveForeground;
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color dropLineColor = style.borderColor();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color hoverBackground = style.background().ui().hover();
+			@JsonProperty Color hoverInactiveBackground = style.background().ui().hover();
+			@JsonProperty Color selectionBackground = style.background().ui().selected();
+			@JsonProperty Color selectionForeground = style.foreground();
+			@JsonProperty Color selectionInactiveBackground = style.background().ui().selectedInactive();
+			@JsonProperty Color selectionInactiveForeground = style.foreground();
+		}
+
+		class Menu {
+			@JsonProperty Color borderColor = style.borderColor();
+			@JsonProperty Color acceleratorForeground = style.foreground();
+			@JsonProperty Color acceleratorSelectionForeground = style.foreground();
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color disabledBackground;
+			@JsonProperty Color disabledForeground;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color selectionForeground = style.foreground();
+			@JsonProperty Color separatorColor = style.borderColor(); // * color works as supposed, this one changes color but not exactly as expected
+		}
+
+		class MenuBar {
+			@JsonProperty Color borderColor = style.borderColor();
+			@JsonProperty Color disabledBackground = style.background().ui().base();
+			@JsonProperty Color disabledForeground = palette.gray();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color hightlight; // unknown effect
+			@JsonProperty Color selectionBackground = style.background().ui().selected();
+			@JsonProperty Color selectionForeground = style.foreground();
+			@JsonProperty Color shadow;
+		}
+
+		class MenuItem {
+			@JsonProperty Color acceleratorForeground = palette.gray();
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color disabledBackground = style.background().ui().base();
+			@JsonProperty Color disabledForeground = palette.gray();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color selectionBackground = style.background().ui().selected();
+			@JsonProperty Color selectionForeground = style.foreground();
 		}
 
 		class Popup {
@@ -339,6 +376,10 @@ public class Theme {
 				@JsonProperty Color background = style.background().ui().base();
 				@JsonProperty Color borderColor = style.borderColor();
 			}
+		}
+
+		class Separator {
+			@JsonProperty Color separatorColor = style.borderColor();
 		}
 
 		class ScrollBar {

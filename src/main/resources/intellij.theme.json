@@ -135,7 +135,43 @@
 			"pressedForeground": "#458588",
 			"visitedForeground": "#458588"
 		},
-		"List": { },
+		"List": {
+			"background": "#fbf1c7",
+			"dropLineColor": "#d5c4a1",
+			"foreground": "#282828",
+			"hoverBackground": "#f2e5bc",
+			"hoverInactiveBackground": "#f2e5bc",
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828",
+			"selectionInactiveBackground": "#ebdbb2",
+			"selectionInactiveForeground": "#282828"
+		},
+		"Menu": {
+			"acceleratorForeground": "#282828",
+			"acceleratorSelectionForeground": "#282828",
+			"background": "#fbf1c7",
+			"borderColor": "#d5c4a1",
+			"foreground": "#282828",
+			"selectionForeground": "#282828",
+			"separatorColor": "#d5c4a1"
+		},
+		"MenuBar": {
+			"borderColor": "#d5c4a1",
+			"disabledBackground": "#fbf1c7",
+			"disabledForeground": "#928374",
+			"foreground": "#282828",
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828"
+		},
+		"MenuItem": {
+			"acceleratorForeground": "#928374",
+			"background": "#fbf1c7",
+			"disabledBackground": "#fbf1c7",
+			"disabledForeground": "#928374",
+			"foreground": "#282828",
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828"
+		},
 		"Popup": {
 			"Advertiser": {
 				"background": "#fbf1c7",
@@ -176,6 +212,9 @@
 				"thumbColor": "#d5c4a166",
 				"trackColor": "#fbf1c700"
 			}
+		},
+		"Separator": {
+			"separatorColor": "#d5c4a1"
 		},
 		"TabbedPane": {
 			"background": "#d5c4a1",
