@@ -3,6 +3,8 @@ package plugin.style;
 import plugin.domain.Color;
 import plugin.domain.Palette;
 
+import java.util.Objects;
+
 import static java.util.Objects.requireNonNull;
 
 public class Style {
@@ -47,5 +49,46 @@ public class Style {
 
 	public Color link() {
 		return palette.blue();
+	}
+
+	public Tab tab() {
+		return new Tab(background());
+	}
+
+	public static class Tab {
+
+		private final Background background;
+
+		public Tab(Background background) {
+			this.background = Objects.requireNonNull(background);
+		}
+
+		public Color selected() {
+			return background.ui().base();
+		}
+
+		public Color hover() {
+			return selected();
+		}
+
+		public Color inBackground() {
+			return selected().darker(3);
+		}
+
+		public Color inBackgroundInactive() {
+			return inBackground().brighter();
+		}
+
+		public Color borderColor() {
+			return selected();
+		}
+
+		public Color underline() {
+			return background.editor().selectedText();
+		}
+
+		public Integer underlineHeight() {
+			return 2;
+		}
 	}
 }

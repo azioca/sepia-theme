@@ -114,10 +114,10 @@ public class Theme {
 			@JsonProperty Color startBackground = ordinaryButtonBackground;
 			@JsonProperty Color endBackground = startBackground;
 			@JsonProperty Color startBorderColor = startBackground;
-
 			@JsonProperty Color endBorderColor = startBorderColor;
 
 			@JsonProperty("default") Default defaultt = new Default();
+
 			class Default {
 
 				private final Color defaultBackground = ordinaryButtonBackground.darker(2);
@@ -126,7 +126,6 @@ public class Theme {
 				@JsonProperty Color startBackground = defaultBackground;
 				@JsonProperty Color endBackground = defaultBackground;
 				@JsonProperty Color startBorderColor = defaultBackground;
-
 				@JsonProperty Color endBorderColor = defaultBackground;
 				@JsonProperty Color focusColor; // only for dark theme, even for dark theme I don't see an effect
 				@JsonProperty Color focusedBorderColor = style.background().editor().selectedText();
@@ -213,34 +212,34 @@ public class Theme {
 			@JsonProperty ToolWindow.HeaderTab HeaderTab = new HeaderTab();
 
 			class Header {
-				@JsonProperty Color inactiveBackground = style.background().ui().selectedInactive();
-				@JsonProperty Color borderColor = style.background().ui().base();
-				@JsonProperty Color background = style.background().ui().selected();
+				@JsonProperty Color inactiveBackground = style.tab().inBackgroundInactive();
+				@JsonProperty Color borderColor = style.tab().borderColor();
+				@JsonProperty Color background = style.tab().inBackground();
 			}
 
 			class HeaderTab {
-				@JsonProperty Color hoverBackground = style.background().ui().base();
-				@JsonProperty Color hoverInactiveBackground = style.background().ui().base();
+				@JsonProperty Color hoverBackground = style.tab().hover();
+				@JsonProperty Color hoverInactiveBackground = hoverBackground;
 				@JsonProperty Color inactiveUnderlineColor;
-				@JsonProperty Color selectedInactiveBackground;
+				@JsonProperty Color selectedInactiveBackground = style.tab().selected();
 				@JsonProperty Color underlineColor;
-				@JsonProperty Color underlinedTabBackground = style.background().ui().base();
-				@JsonProperty Color underlinedTabInactiveBackground = style.background().ui().base();
+				@JsonProperty Color underlinedTabBackground = style.tab().selected();
+				@JsonProperty Color underlinedTabInactiveBackground = style.tab().selected();
 				@JsonProperty int underlineHeight = 0;
 			}
 		}
 
 		class TabbedPane { // example: editor -> code style
-			@JsonProperty Color background;
-			@JsonProperty Color contentAreaColor;
-			@JsonProperty Color disabledForeground;
-			@JsonProperty Color disabledUnderlineColor;
-			@JsonProperty Color focus;
-			@JsonProperty Color focusColor;
-			@JsonProperty Color foreground;
-			@JsonProperty Color hoverColor;
-			@JsonProperty int tabSelectionHeight;
+			@JsonProperty Color background = style.tab().inBackground();
+			@JsonProperty Color contentAreaColor = style.background().ui().base();
+			@JsonProperty Color disabledForeground = style.foreground();
+			@JsonProperty Color focus = style.tab().selected();
+			@JsonProperty Color focusColor = style.tab().selected();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color hoverColor = style.tab().hover();
+			@JsonProperty int tabSelectionHeight = 0;
 			@JsonProperty Color underlineColor;
+			@JsonProperty Color disabledUnderlineColor;
 		}
 
 		class Tree {
