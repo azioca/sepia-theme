@@ -343,7 +343,7 @@ public class Theme {
 			@JsonProperty Color background = style.background().ui().base();
 			@JsonProperty Color errorForeground;
 			@JsonProperty Color foreground = style.foreground();
-			@JsonProperty Color hash = style.lines().brighter();
+			@JsonProperty Color hash = style.background().ui().base().darker(2);
 			@JsonProperty Color hoverBackground = style.background().ui().hover();
 			@JsonProperty Color hoverInactiveBackground = hoverBackground;
 			@JsonProperty Color modifiedItemForeground;
