@@ -47,11 +47,13 @@ public class Theme {
 		@JsonProperty Borders Borders() { return new Borders(); }
 		@JsonProperty Button Button() { return new Button(); }
 		@JsonProperty ComboBox ComboBox() { return new ComboBox(); }
+		@JsonProperty ComboBoxButton ComboBoxButton() { return new ComboBoxButton(); }
 		@JsonProperty CompletionPopup CompletionPopup() { return new CompletionPopup(); }
 		@JsonProperty Component Component() { return new Component(); }
 		@JsonProperty CheckBox CheckBox() { return new CheckBox(); }
 		@JsonProperty Editor Editor() { return new Editor(); }
 		@JsonProperty EditorTabs EditorTabs() { return new EditorTabs(); }
+		@JsonProperty Group Group() { return new Group(); }
 		@JsonProperty Table Table() { return new Table(); }
 		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 		@JsonProperty Tree Tree() { return new Tree(); }
@@ -157,6 +159,10 @@ public class Theme {
 			}
 		}
 
+		class ComboBoxButton {
+			@JsonProperty Color background = style.background().ui().base();
+		}
+
 		class CompletionPopup {
 			@JsonProperty Color foreground = style.foreground();
 			@JsonProperty Color matchForeground = style.background().editor().selectedText().darker().darker();
@@ -207,6 +213,11 @@ public class Theme {
 
 			@JsonProperty boolean tabInsets; // no effect
 			@JsonProperty Color inactiveColoredFileBackground; // masks
+		}
+
+		class Group {
+			@JsonProperty Color disabledSeparatorColor = style.borderColor();
+			@JsonProperty Color separatorColor = style.borderColor();
 		}
 
 		class FileColor {

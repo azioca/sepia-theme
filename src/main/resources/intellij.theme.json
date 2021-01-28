@@ -91,6 +91,9 @@
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
 		},
+		"ComboBoxButton": {
+			"background": "#fbf1c7"
+		},
 		"CompletionPopup": {
 			"foreground": "#282828",
 			"matchForeground": "#076678",
@@ -128,6 +131,10 @@
 			"Rose": "#fb4934",
 			"Violet": "#d3869b",
 			"Yellow": "#f2e5bc"
+		},
+		"Group": {
+			"disabledSeparatorColor": "#d5c4a1",
+			"separatorColor": "#d5c4a1"
 		},
 		"Link": {
 			"activeForeground": "#458588",
