@@ -193,8 +193,16 @@
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
-    <option name="DEFAULT_BRACES"/>
-    <option name="DEFAULT_BRACKETS"/>
+    <option name="DEFAULT_BRACES">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
+    <option name="DEFAULT_BRACKETS">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
     <option name="DEFAULT_CONSTANT">
       <value>
         <option name="FOREGROUND" value="d3869b"/>
@@ -221,7 +229,11 @@
         <option name="FOREGROUND" value="665c54"/>
       </value>
     </option>
-    <option name="DEFAULT_DOT"/>
+    <option name="DEFAULT_DOT">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
     <option name="DEFAULT_ENTITY">
       <value>
         <option name="FOREGROUND" value="d79921"/>
@@ -295,7 +307,11 @@
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
-    <option name="DEFAULT_OPERATION_SIGN"/>
+    <option name="DEFAULT_OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
     <option name="DEFAULT_PARAMETER">
       <value>
         <option name="FOREGROUND" value="b16286"/>
@@ -328,6 +344,7 @@
     <option name="DEFAULT_STRING">
       <value>
         <option name="FOREGROUND" value="689d6a"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_TAG">

@@ -46,6 +46,7 @@ public class Theme {
 
 		@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
 		@JsonProperty public ActionButton ActionButton() { return new ActionButton(); }
+		@JsonProperty public Borders Borders() { return new Borders(); }
 		@JsonProperty public Button Button() { return new Button(); }
 		@JsonProperty public ComboBox ComboBox() { return new ComboBox(); }
 		@JsonProperty public CompletionPopup CompletionPopup() { return new CompletionPopup(); }
@@ -59,6 +60,7 @@ public class Theme {
 		@JsonProperty public FileColor FileColor() { return new FileColor(); }
 		@JsonProperty public Link Link() { return new Link(); }
 		@JsonProperty public List List() { return new List(); }
+		@JsonProperty public Popup Popup() { return new Popup(); }
 		@JsonProperty public ScrollBar ScrollBar() { return new ScrollBar(); }
 		@JsonProperty public VersionControl VersionControl() { return new VersionControl(); }
 
@@ -93,9 +95,14 @@ public class Theme {
 			@JsonProperty Color pressedBorderColor;
 		}
 
-		class Button {
-			private final Color ordinaryButtonBackground = style.background().ui().base().darker();
+		class Borders {
+			@JsonProperty Color color = style.borderColor();
+			@JsonProperty Color ContrastBorderColor = style.borderColor();
+		}
 
+		class Button {
+
+			private final Color ordinaryButtonBackground = style.background().ui().base().darker();
 			@JsonProperty Integer ark;
 			@JsonProperty Color background;
 			@JsonProperty Color disabledBorderColor;
@@ -103,25 +110,25 @@ public class Theme {
 			@JsonProperty Color foreground = style.foreground();
 			@JsonProperty Color shadowColor;
 			@JsonProperty Integer shadowWidth = 0;
-			@JsonProperty Color focusedBorderColor;
 
+			@JsonProperty Color focusedBorderColor;
 			@JsonProperty Color startBackground = ordinaryButtonBackground;
 			@JsonProperty Color endBackground = startBackground;
 			@JsonProperty Color startBorderColor = startBackground;
+
 			@JsonProperty Color endBorderColor = startBorderColor;
 
 			@JsonProperty("default") Default defaultt = new Default();
-
 			class Default {
+
 				private final Color defaultBackground = ordinaryButtonBackground.darker(2);
 
 				@JsonProperty Color foreground = style.foreground();
-
 				@JsonProperty Color startBackground = defaultBackground;
 				@JsonProperty Color endBackground = defaultBackground;
 				@JsonProperty Color startBorderColor = defaultBackground;
-				@JsonProperty Color endBorderColor = defaultBackground;
 
+				@JsonProperty Color endBorderColor = defaultBackground;
 				@JsonProperty Color focusColor; // only for dark theme, even for dark theme I don't see an effect
 				@JsonProperty Color focusedBorderColor = style.background().editor().selectedText();
 			}
@@ -282,6 +289,34 @@ public class Theme {
 			@JsonProperty Color selectionForeground;
 			@JsonProperty Color selectionInactiveBackground;
 			@JsonProperty Color selectionInactiveForeground;
+		}
+
+		class Popup {
+			@JsonProperty Color borderColor;
+			@JsonProperty Color inactiveBorderColor;
+			@JsonProperty Color innerBorderColor;
+			@JsonProperty boolean paintBorder; // on Mac
+			@JsonProperty Color separatorColor;
+			@JsonProperty Color separatorForeground;
+
+			@JsonProperty Header header = new Header();
+
+			class Header {
+				@JsonProperty Color inactiveBackground;
+				@JsonProperty Color activeBackground;
+			}
+
+			class Advertiser {
+				@JsonProperty Color background = style.background().ui().base();
+				@JsonProperty Color borderColor = style.borderColor();
+				@JsonProperty Integer borderInsets;
+				@JsonProperty Color borderForeground = style.foreground();
+			}
+
+			class Toolbar {
+				@JsonProperty Color background = style.background().ui().base();
+				@JsonProperty Color borderColor = style.borderColor();
+			}
 		}
 
 		class ScrollBar {

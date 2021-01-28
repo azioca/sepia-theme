@@ -25,6 +25,10 @@ public class Style {
 		return background().ui().base().darker(3);
 	}
 
+	public Color error() {
+		return palette.red();
+	}
+
 	public Checkbox checkbox() {
 		return new Checkbox(this);
 	}

@@ -52,6 +52,10 @@
 			"separatorColor": "#d5c4a1"
 		},
 		"ActionButton": { },
+		"Borders": {
+			"ContrastBorderColor": "#d5c4a1",
+			"color": "#d5c4a1"
+		},
 		"Button": {
 			"default": {
 				"endBackground": "#d5c4a1",
@@ -121,6 +125,10 @@
 			"visitedForeground": "#458588"
 		},
 		"List": { },
+		"Popup": {
+			"header": { },
+			"paintBorder": false
+		},
 		"ScrollBar": {
 			"Mac": {
 				"Transparent": {
