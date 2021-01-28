@@ -36,12 +36,10 @@ public class Theme {
 	static class UI {
 		private final Palette palette;
 		private final Style style;
-		private final Color marker;
 
 		UI(Palette palette, Style style) {
 			this.palette = requireNonNull(palette);
 			this.style = Objects.requireNonNull(style);
-			this.marker = this.palette.red();
 		}
 
 		@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
