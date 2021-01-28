@@ -77,7 +77,7 @@ public class Theme {
 		@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
 
 		class Asterisk {
-			// @JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color background = style.background().ui().base();
 
 			@JsonProperty Color hoverBackground = style.background().ui().hover();
 

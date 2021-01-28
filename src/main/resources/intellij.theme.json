@@ -34,6 +34,7 @@
 	},
 	"ui": {
 		"*": {
+			"background": "#fbf1c7",
 			"borderColor": "#d5c4a1",
 			"disabledBorderColor": "#ebdbb2",
 			"foreground": "#282828",
