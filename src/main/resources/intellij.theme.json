@@ -105,6 +105,11 @@
 			"infoForeground": "#282828",
 			"warningFocusColor": "#fabd2f"
 		},
+		"Editor": {
+			"background": "#fbf1c7",
+			"foreground": "#282828",
+			"shortcutForeground": "#458588"
+		},
 		"EditorTabs": {
 			"background": "#ebdbb2",
 			"borderColor": "#f9f5d7",

@@ -43,25 +43,26 @@ public class Theme {
 		}
 
 		@JsonProperty("*") public Asterisk asterisk() { return new Asterisk(); }
-		@JsonProperty public ActionButton ActionButton() { return new ActionButton(); }
-		@JsonProperty public Borders Borders() { return new Borders(); }
-		@JsonProperty public Button Button() { return new Button(); }
-		@JsonProperty public ComboBox ComboBox() { return new ComboBox(); }
-		@JsonProperty public CompletionPopup CompletionPopup() { return new CompletionPopup(); }
-		@JsonProperty public Component Component() { return new Component(); }
-		@JsonProperty public CheckBox CheckBox() { return new CheckBox(); }
-		@JsonProperty public EditorTabs EditorTabs() { return new EditorTabs(); }
-		@JsonProperty public Table Table() { return new Table(); }
-		@JsonProperty public TabbedPane TabbedPane() { return new TabbedPane(); }
-		@JsonProperty public Tree Tree() { return new Tree(); }
-		@JsonProperty public ToolWindow ToolWindow() { return new ToolWindow(); }
-		@JsonProperty public TextField TextField() { return new TextField(); }
-		@JsonProperty public FileColor FileColor() { return new FileColor(); }
-		@JsonProperty public Link Link() { return new Link(); }
-		@JsonProperty public List List() { return new List(); }
-		@JsonProperty public Popup Popup() { return new Popup(); }
-		@JsonProperty public ScrollBar ScrollBar() { return new ScrollBar(); }
-		@JsonProperty public VersionControl VersionControl() { return new VersionControl(); }
+		@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
+		@JsonProperty Borders Borders() { return new Borders(); }
+		@JsonProperty Button Button() { return new Button(); }
+		@JsonProperty ComboBox ComboBox() { return new ComboBox(); }
+		@JsonProperty CompletionPopup CompletionPopup() { return new CompletionPopup(); }
+		@JsonProperty Component Component() { return new Component(); }
+		@JsonProperty CheckBox CheckBox() { return new CheckBox(); }
+		@JsonProperty Editor Editor() { return new Editor(); }
+		@JsonProperty EditorTabs EditorTabs() { return new EditorTabs(); }
+		@JsonProperty Table Table() { return new Table(); }
+		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
+		@JsonProperty Tree Tree() { return new Tree(); }
+		@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
+		@JsonProperty TextField TextField() { return new TextField(); }
+		@JsonProperty FileColor FileColor() { return new FileColor(); }
+		@JsonProperty Link Link() { return new Link(); }
+		@JsonProperty List List() { return new List(); }
+		@JsonProperty Popup Popup() { return new Popup(); }
+		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
+		@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 
 		class Asterisk {
 			@JsonProperty Color background = style.background().ui().base();
@@ -181,6 +182,12 @@ public class Theme {
 			@JsonProperty Color foreground = style.checkbox().textForeground();
 			@JsonProperty Color select; // no effect
 			@JsonProperty Color disabledText = style.checkbox().disabledBorder();
+		}
+
+		class Editor {
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color shortcutForeground = style.link();
 		}
 
 		class EditorTabs {
