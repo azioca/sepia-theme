@@ -253,6 +253,10 @@
 		"SidePanel": {
 			"background": "#f2e5bc"
 		},
+		"StatusBar": {
+			"borderColor": "#d5c4a1",
+			"hoverBackground": "#f2e5bc"
+		},
 		"TabbedPane": {
 			"background": "#d5c4a1",
 			"contentAreaColor": "#fbf1c7",

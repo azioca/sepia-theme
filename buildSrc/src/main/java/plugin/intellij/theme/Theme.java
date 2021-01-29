@@ -68,6 +68,7 @@ public class Theme {
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 		@JsonProperty Separator Separator() { return new Separator(); }
 		@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
+		@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
 		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 		@JsonProperty Table Table() { return new Table(); }
 		@JsonProperty TextField TextField() { return new TextField(); }
@@ -385,6 +386,11 @@ public class Theme {
 
 		class SidePanel {
 			@JsonProperty Color background = style.background().ui().base().darker();
+		}
+
+		class StatusBar {
+			@JsonProperty Color borderColor = style.borderColor();
+			@JsonProperty Color hoverBackground = style.background().ui().hover();
 		}
 
 		class TabbedPane { // example: editor -> code style
