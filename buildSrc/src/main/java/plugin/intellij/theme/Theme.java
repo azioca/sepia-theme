@@ -66,6 +66,7 @@ public class Theme {
 		@JsonProperty Panel Panel() { return new Panel(); }
 		@JsonProperty Popup Popup() { return new Popup(); }
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
+		@JsonProperty SearchEverywhere SearchEverywhere() { return new SearchEverywhere(); }
 		@JsonProperty Separator Separator() { return new Separator(); }
 		@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
 		@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
@@ -377,6 +378,36 @@ public class Theme {
 				@JsonProperty Color hoverTrackColor = style.scrollbar().hoverTrackColor();
 				@JsonProperty Color hoverThumbColor = style.scrollbar().hoverThumbColor();
 				@JsonProperty Color hoverThumbBorderColor = style.scrollbar().hoverThumbBorderColor();
+			}
+		}
+
+		class SearchEverywhere {
+			@JsonProperty Advertiser Advertiser = new Advertiser();
+			@JsonProperty Header Header = new Header();
+			@JsonProperty List List = new List();
+			@JsonProperty SearchField SearchField = new SearchField();
+			@JsonProperty Tab Tab = new Tab();
+
+			class Advertiser {
+				@JsonProperty Color background = style.background().ui().base();
+				@JsonProperty Integer borderInsets;
+				@JsonProperty Color foreground = style.foreground();
+			}
+			class Header {
+				@JsonProperty Color background = style.background().ui().base().darker();
+			}
+			class List {
+				@JsonProperty Color separatorColor = style.lines();
+				@JsonProperty Color separatorForeground = style.foreground();
+			}
+			class SearchField {
+				@JsonProperty Color background = style.background().ui().base();
+				@JsonProperty Color borderColor = style.borderColor();
+				@JsonProperty Color infoForeground = style.foreground();
+			}
+			class Tab {
+				@JsonProperty Color selectedBackground = style.background().ui().selected();
+				@JsonProperty Color selectedForeground = style.foreground();
 			}
 		}
 
