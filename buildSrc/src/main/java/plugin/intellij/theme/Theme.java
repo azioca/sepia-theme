@@ -65,6 +65,8 @@ public class Theme {
 		@JsonProperty MemoryIndicator MemoryIndicator() { return new MemoryIndicator(); }
 		@JsonProperty Panel Panel() { return new Panel(); }
 		@JsonProperty Popup Popup() { return new Popup(); }
+		@JsonProperty PopupMenu PopupMenu() { return new PopupMenu(); }
+		@JsonProperty PopupMenuSeparator PopupMenuSeparator() { return new PopupMenuSeparator(); }
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 		@JsonProperty SearchEverywhere SearchEverywhere() { return new SearchEverywhere(); }
 		@JsonProperty Separator Separator() { return new Separator(); }
@@ -343,6 +345,22 @@ public class Theme {
 				@JsonProperty Color background = style.background().ui().base();
 				@JsonProperty Color borderColor = style.borderColor();
 			}
+		}
+
+		class PopupMenu {
+			@JsonProperty Color background = style.background().ui().base(); // menu separators
+			@JsonProperty Integer borderInsets;
+			@JsonProperty Integer borderWidth = 0;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color selectionBackground = style.background().ui().selected();
+			@JsonProperty Color selectionForeground = style.foreground();
+			@JsonProperty Color translucentBackgroun;
+		}
+
+		class PopupMenuSeparator {
+			@JsonProperty Integer height;
+			@JsonProperty Integer stripeIndent;
+			@JsonProperty Integer stripeWidth;
 		}
 
 		class ScrollBar {
