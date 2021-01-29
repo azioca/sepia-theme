@@ -3,8 +3,6 @@ package plugin.style;
 import plugin.domain.Color;
 import plugin.domain.Palette;
 
-import java.util.Objects;
-
 import static java.util.Objects.requireNonNull;
 
 public class Style {
@@ -17,6 +15,10 @@ public class Style {
 
 	public Color foreground() {
 		return palette.black().darker(2);
+	}
+
+	public Color disabledText() {
+		return palette.gray().brighter();
 	}
 
 	public Background background() {
@@ -39,6 +41,10 @@ public class Style {
 		return palette.yellow().brighter();
 	}
 
+	public Button button() {
+		return new Button(this);
+	}
+
 	public Checkbox checkbox() {
 		return new Checkbox(this);
 	}
@@ -53,42 +59,5 @@ public class Style {
 
 	public Tab tab() {
 		return new Tab(background());
-	}
-
-	public static class Tab {
-
-		private final Background background;
-
-		public Tab(Background background) {
-			this.background = Objects.requireNonNull(background);
-		}
-
-		public Color selected() {
-			return background.ui().base();
-		}
-
-		public Color hover() {
-			return selected();
-		}
-
-		public Color inBackground() {
-			return selected().darker(3);
-		}
-
-		public Color inBackgroundInactive() {
-			return inBackground().brighter();
-		}
-
-		public Color borderColor() {
-			return selected();
-		}
-
-		public Color underline() {
-			return background.editor().selectedText();
-		}
-
-		public Integer underlineHeight() {
-			return 2;
-		}
 	}
 }

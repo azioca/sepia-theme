@@ -57,20 +57,24 @@
 			"color": "#d5c4a1"
 		},
 		"Button": {
+			"background": "#fbf1c7",
 			"default": {
 				"endBackground": "#d5c4a1",
-				"endBorderColor": "#d5c4a1",
+				"endBorderColor": "#bdae93",
 				"focusedBorderColor": "#83a598",
 				"foreground": "#282828",
 				"startBackground": "#d5c4a1",
-				"startBorderColor": "#d5c4a1"
+				"startBorderColor": "#bdae93"
 			},
+			"disabledBorderColor": "#ebdbb2",
+			"disabledText": "#a89984",
 			"endBackground": "#f2e5bc",
-			"endBorderColor": "#f2e5bc",
+			"endBorderColor": "#d5c4a1",
+			"focusedBorderColor": "#d5c4a1",
 			"foreground": "#282828",
 			"shadowWidth": 0,
 			"startBackground": "#f2e5bc",
-			"startBorderColor": "#f2e5bc"
+			"startBorderColor": "#d5c4a1"
 		},
 		"CheckBox": {
 			"background": "#fbf1c7",

@@ -114,35 +114,30 @@ public class Theme {
 		}
 
 		class Button {
-
-			private final Color ordinaryButtonBackground = style.background().ui().base().darker();
 			@JsonProperty Integer ark;
-			@JsonProperty Color background;
-			@JsonProperty Color disabledBorderColor;
-			@JsonProperty Color disabledText;
 			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color background = style.button().around();
+			@JsonProperty Color disabledText = style.disabledText();
 			@JsonProperty Color shadowColor;
 			@JsonProperty Integer shadowWidth = 0;
 
-			@JsonProperty Color focusedBorderColor;
-			@JsonProperty Color startBackground = ordinaryButtonBackground;
-			@JsonProperty Color endBackground = startBackground;
-			@JsonProperty Color startBorderColor = startBackground;
-			@JsonProperty Color endBorderColor = startBorderColor;
+			@JsonProperty Color startBackground = style.button().ordinary().background();
+			@JsonProperty Color endBackground = style.button().ordinary().background();
+			@JsonProperty Color startBorderColor = style.button().ordinary().border();
+			@JsonProperty Color endBorderColor = style.button().ordinary().border();
+			@JsonProperty Color disabledBorderColor = style.button().ordinary().disabledBorder();
+			@JsonProperty Color focusedBorderColor = style.button().ordinary().focusedBorder();
 
-			@JsonProperty("default") Default defaultt = new Default();
+			@JsonProperty("default") Default Default = new Default();
 
 			class Default {
-
-				private final Color defaultBackground = ordinaryButtonBackground.darker(2);
-
 				@JsonProperty Color foreground = style.foreground();
-				@JsonProperty Color startBackground = defaultBackground;
-				@JsonProperty Color endBackground = defaultBackground;
-				@JsonProperty Color startBorderColor = defaultBackground;
-				@JsonProperty Color endBorderColor = defaultBackground;
+				@JsonProperty Color startBackground = style.button().Default().background();
+				@JsonProperty Color endBackground = style.button().Default().background();
+				@JsonProperty Color startBorderColor = style.button().Default().border();
+				@JsonProperty Color endBorderColor = style.button().Default().border();
+				@JsonProperty Color focusedBorderColor = style.button().Default().focusedBorder();
 				@JsonProperty Color focusColor; // only for dark theme, even for dark theme I don't see an effect
-				@JsonProperty Color focusedBorderColor = style.background().editor().selectedText();
 			}
 		}
 
@@ -589,7 +584,7 @@ public class Theme {
 				@JsonUnwrapped(prefix = "Focus.") @JsonProperty ColorPalette.Checkbox.Focus Focus = new Focus();
 
 				class Foreground {
-					@JsonProperty("Default") Color Defaultt;
+					@JsonProperty("Default") Color Default;
 					@JsonProperty("Selected") Color Selected;
 					@JsonProperty("Disabled") Color Disabled;
 					@JsonProperty("Selected.Dark") Color SelectedDark;
@@ -597,7 +592,7 @@ public class Theme {
 				}
 
 				class Background {
-					@JsonProperty("Default") Color Defaultt = style.checkbox().hook();
+					@JsonProperty("Default") Color Default = style.checkbox().hook();
 					@JsonProperty("Disabled") Color Disabled = style.checkbox().disabledBoxBackground();
 					@JsonProperty("Selected") Color Selected = style.checkbox().selectedBoxBackground();
 					@JsonProperty("Default.Dark") Color DefaultDark;
@@ -606,9 +601,9 @@ public class Theme {
 				}
 
 				class Border {
-					@JsonProperty("Default") Color Defaultt = style.checkbox().border();
+					@JsonProperty("Default") Color Default = style.checkbox().border();
 					@JsonProperty("Disabled") Color Disabled = style.checkbox().disabledBorder();
-					@JsonProperty("Selected") Color Selected = Defaultt;
+					@JsonProperty("Selected") Color Selected = Default;
 					@JsonProperty("Default.Dark") Color DefaultDark;
 					@JsonProperty("Disabled.Dark") Color DisabledDark;
 				}
@@ -619,7 +614,7 @@ public class Theme {
 					@JsonUnwrapped(prefix = "Thin.") @JsonProperty ColorPalette.Checkbox.Focus.Thin Thin = new Thin();
 
 					class Thin {
-						@JsonProperty("Default") Color Defaultt = style.checkbox().focus();
+						@JsonProperty("Default") Color Default = style.checkbox().focus();
 						@JsonProperty("Selected") Color Selected = style.checkbox().focus();
 						@JsonProperty("Default.Dark") Color DefaultDark;
 						@JsonProperty("Selected.Dark") Color SelectedDark;
