@@ -480,8 +480,15 @@ public class Theme {
 		}
 
 		class ToolWindow {
-			@JsonProperty ToolWindow.Header Header = new Header();
-			@JsonProperty ToolWindow.HeaderTab HeaderTab = new HeaderTab();
+			@JsonProperty Button Button = new Button();
+			@JsonProperty Header Header = new Header();
+			@JsonProperty HeaderTab HeaderTab = new HeaderTab();
+
+			class Button {
+				@JsonProperty Color hoverBackground = style.background().ui().hover();
+				@JsonProperty Color selectedBackground = style.background().ui().selected();
+				@JsonProperty Color selectedForeground = style.foreground();
+			}
 
 			class Header {
 				@JsonProperty Color inactiveBackground = style.tab().inBackgroundInactive();
