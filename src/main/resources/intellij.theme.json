@@ -295,6 +295,15 @@
 			"lightSelectionInactiveBackground": "#ebdbb2",
 			"lightSelectionInactiveForeground": "#282828"
 		},
+		"TextArea": {
+			"background": "#f9f5d7",
+			"caretForeground": "#282828",
+			"foreground": "#282828",
+			"inactiveBackground": "#f9f5d7",
+			"inactiveForeground": "#282828",
+			"selectionBackground": "#83a598",
+			"selectionForeground": "#282828"
+		},
 		"TextField": {
 			"background": "#f9f5d7",
 			"caretForeground": "#282828",

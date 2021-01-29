@@ -72,6 +72,7 @@ public class Theme {
 		@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
 		@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 		@JsonProperty Table Table() { return new Table(); }
+		@JsonProperty TextArea TextArea() { return new TextArea(); }
 		@JsonProperty TextField TextField() { return new TextField(); }
 		@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
 		@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
@@ -443,6 +444,16 @@ public class Theme {
 			@JsonProperty Color lightSelectionInactiveForeground = style.foreground();
 			@JsonProperty Color lightSelectionBackground = style.background().ui().selected();
 			@JsonProperty Color lightSelectionInactiveBackground = style.background().ui().selectedInactive();
+		}
+
+		class TextArea {
+			@JsonProperty Color background = style.background().editor().base();
+			@JsonProperty Color caretForeground = style.foreground();
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color inactiveBackground = style.background().editor().base();
+			@JsonProperty Color inactiveForeground = style.foreground();
+			@JsonProperty Color selectionBackground = style.background().editor().selectedText();
+			@JsonProperty Color selectionForeground = style.foreground();
 		}
 
 		class TextField {
