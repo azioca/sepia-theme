@@ -118,24 +118,25 @@ public class Scheme {
 		List<Attribute> option = List.of(
 			new Attribute("TEXT").foreground(style.foreground()).background(style.background().editor().base()),
 
-			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaret()).errorStripeColorAsForeground(),
-			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaretWrite()).errorStripeColorAsForeground(),
-			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
-			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
-			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeColorAsBackground(),
+			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaret()).errorStripeAsForeground(),
+			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaretWrite()).errorStripeAsForeground(),
+
+			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
+			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
+			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeAsBackground(),
 
 			new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(style.foreground().darkest()),
 			new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.disabledForeground()),
 			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
 
 			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.foreground()).bold(),
-			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeColorAsBackground(),
+			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeAsBackground(),
 
 			new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link()),
 
 			new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),
-			new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua()).bold(),
-			new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(palette.aqua()).underwaved(style.error()),
+			new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua().darker()).bold(),
+			new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(style.error()).underwaved(style.error()).bold(),
 
 			new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
 			new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
@@ -173,7 +174,7 @@ public class Scheme {
 			new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.foreground()).bold(),
 			new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
 			new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link()),
-			new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripeColor(style.error()).dottedLine(style.error()),
+			new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
 			new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").baseAttributes("CLASS_NAME_ATTRIBUTES"),
 			new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
 			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
@@ -183,23 +184,23 @@ public class Scheme {
 
 			new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.foreground()).background(palette.aqua().brighter()),
 			new Attribute("Block comment").foreground(palette.gray()),
-			new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeColorAsForeground(),
+			new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeAsForeground(),
 
 			new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.foreground().darker()),
 			new Attribute("INLINE_PARAMETER_HINT").foreground(style.foreground()).background(palette.aqua().darker()),
-			new Attribute("INFO_ATTRIBUTES").errorStripeColor(style.warning()).dottedLine(style.warning()),
+			new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),
 
-			new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error()).errorStripeColorAsEffect(),
-			new Attribute("WARNING_ATTRIBUTES").underwaved(style.warning()).errorStripeColorAsEffect(),
+			new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error()).errorStripeAsEffect(),
+			new Attribute("WARNING_ATTRIBUTES").underwaved(style.warning()).errorStripeAsEffect(),
 			new Attribute("BAD_CHARACTER").underwaved(style.error()),
-			new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(style.error()).errorStripeColorAsEffect(),
+			new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(style.error()).errorStripeAsEffect(),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
 			new Attribute("NOT_USED_ELEMENT_ATTRIBUTES").foreground(palette.gray()),
-			new Attribute("RUNTIME_ERROR").underwaved(style.error()).errorStripeColorAsEffect(),
+			new Attribute("RUNTIME_ERROR").underwaved(style.error()).errorStripeAsEffect(),
 			new Attribute("TYPO").underwaved(palette.gray().brighter()),
 			new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
 
-			new Attribute("BOOKMARKS_ATTRIBUTES").errorStripeColor(style.foreground()),
+			new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.foreground()),
 			new Attribute("BREAKPOINT_ATTRIBUTES").background(style.background().editor().base().darker(3)),
 
 			new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),

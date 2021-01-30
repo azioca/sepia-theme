@@ -268,7 +268,8 @@
     </option>
     <option name="DEFAULT_INVALID_STRING_ESCAPE">
       <value>
-        <option name="FOREGROUND" value="689d6a"/>
+        <option name="FOREGROUND" value="cc241d"/>
+        <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="cc241d"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
@@ -359,7 +360,7 @@
     </option>
     <option name="DEFAULT_VALID_STRING_ESCAPE">
       <value>
-        <option name="FOREGROUND" value="689d6a"/>
+        <option name="FOREGROUND" value="427b58"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>

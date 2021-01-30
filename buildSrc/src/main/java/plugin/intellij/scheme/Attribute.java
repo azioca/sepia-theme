@@ -49,19 +49,19 @@ class Attribute {
 		return new Attribute(name, baseAttributes, value.fontType(atLeastEmptyValue().fontType() != null ? value.fontType() + fontType : fontType));
 	}
 
-	Attribute errorStripeColorAsForeground() {
-		return errorStripeColor(value().foreground());
+	Attribute errorStripeAsForeground() {
+		return errorStripe(value().foreground());
 	}
 
-	Attribute errorStripeColorAsBackground() {
-		return errorStripeColor(value().background());
+	Attribute errorStripeAsBackground() {
+		return errorStripe(value().background());
 	}
 
-	Attribute errorStripeColorAsEffect() {
-		return errorStripeColor(value().effectColor());
+	Attribute errorStripeAsEffect() {
+		return errorStripe(value().effectColor());
 	}
 
-	Attribute errorStripeColor(Color errorStripeColor) {
+	Attribute errorStripe(Color errorStripeColor) {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().errorStripeColor(errorStripeColor));
 	}
 
