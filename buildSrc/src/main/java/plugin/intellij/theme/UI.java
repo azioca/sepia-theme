@@ -41,6 +41,7 @@ class UI {
 	@JsonProperty MenuItem MenuItem() { return new MenuItem(); }
 	@JsonProperty MemoryIndicator MemoryIndicator() { return new MemoryIndicator(); }
 	@JsonProperty Notification Notification() { return new Notification(); }
+	@JsonProperty OptionPane OptionPane() { return new OptionPane(); }
 	@JsonProperty Panel Panel() { return new Panel(); }
 	@JsonProperty ParameterInfo ParameterInfo() { return new ParameterInfo(); }
 	@JsonProperty Popup Popup() { return new Popup(); }
@@ -57,6 +58,7 @@ class UI {
 	@JsonProperty Table Table() { return new Table(); }
 	@JsonProperty TextArea TextArea() { return new TextArea(); }
 	@JsonProperty TextField TextField() { return new TextField(); }
+	@JsonProperty TextPane TextPane() { return new TextPane(); }
 	@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
 	@JsonProperty ToolTip ToolTip() { return new ToolTip(); }
 	@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
@@ -335,6 +337,12 @@ class UI {
 		}
 	}
 
+	class OptionPane {
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color messageForeground = style.foreground();
+	}
+
 	class Panel {
 		@JsonProperty Color background = style.background().ui().base();
 		@JsonProperty Color foreground = style.foreground();
@@ -532,6 +540,16 @@ class UI {
 		@JsonProperty Color highlight;
 		@JsonProperty Color inactiveForeground = style.disabledForeground();
 		@JsonProperty Color selectionBackground = style.background().editor().selectedText();
+		@JsonProperty Color selectionForeground = style.foreground();
+	}
+
+	class TextPane {
+		@JsonProperty Color background = style.background().editor().base();
+		@JsonProperty Color caretForeground = style.foreground();
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color inactiveBackground = style.background().readOnly();
+		@JsonProperty Color inactiveForeground = style.foreground();
+		@JsonProperty Color selectionBackground = style.background().editor().selectedLine();
 		@JsonProperty Color selectionForeground = style.foreground();
 	}
 
