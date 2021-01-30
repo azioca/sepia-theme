@@ -327,11 +327,13 @@
 			"background": "#d5c4a1",
 			"contentAreaColor": "#fbf1c7",
 			"disabledForeground": "#282828",
+			"disabledUnderlineColor": "#83a598",
 			"focus": "#fbf1c7",
 			"focusColor": "#fbf1c7",
 			"foreground": "#282828",
 			"hoverColor": "#fbf1c7",
-			"tabSelectionHeight": 0
+			"tabSelectionHeight": 3,
+			"underlineColor": "#83a598"
 		},
 		"Table": {
 			"lightSelectionBackground": "#d5c4a1",

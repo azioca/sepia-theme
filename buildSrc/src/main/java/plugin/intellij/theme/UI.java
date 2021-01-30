@@ -206,8 +206,8 @@ class UI {
 		@JsonProperty Color background = hoverBackground.darker(3);
 		@JsonProperty Color borderColor = underlinedTabBackground;
 
-		@JsonProperty int underlineHeight = 2;
-		@JsonProperty Color underlineColor = style.background().editor().selectedText();
+		@JsonProperty int underlineHeight = style.tab().editorUnderlineHeight();
+		@JsonProperty Color underlineColor = style.tab().underline();
 		@JsonProperty Color inactiveUnderlineColor = underlineColor;
 
 		@JsonProperty boolean tabInsets; // no effect
@@ -500,9 +500,9 @@ class UI {
 		@JsonProperty Color focusColor = style.tab().selected();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color hoverColor = style.tab().hover();
-		@JsonProperty int tabSelectionHeight = 0;
-		@JsonProperty Color underlineColor;
-		@JsonProperty Color disabledUnderlineColor;
+		@JsonProperty int tabSelectionHeight = style.tab().uiUnderlineHeight();
+		@JsonProperty Color underlineColor = style.tab().underline();
+		@JsonProperty Color disabledUnderlineColor = underlineColor;
 	}
 
 	class Table {
@@ -587,12 +587,12 @@ class UI {
 		class HeaderTab {
 			@JsonProperty Color hoverBackground = style.tab().hover();
 			@JsonProperty Color hoverInactiveBackground = hoverBackground;
-			@JsonProperty Color inactiveUnderlineColor;
 			@JsonProperty Color selectedInactiveBackground = style.tab().selected();
-			@JsonProperty Color underlineColor;
 			@JsonProperty Color underlinedTabBackground = style.tab().selected();
 			@JsonProperty Color underlinedTabInactiveBackground = style.tab().selected();
 			@JsonProperty int underlineHeight = 0;
+			@JsonProperty Color underlineColor;
+			@JsonProperty Color inactiveUnderlineColor;
 		}
 	}
 

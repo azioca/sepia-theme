@@ -36,7 +36,11 @@ public class Tab {
 		return background.editor().selectedText();
 	}
 
-	public Integer underlineHeight() {
+	public Integer editorUnderlineHeight() {
 		return 2;
+	}
+
+	public Integer uiUnderlineHeight() {
+		return 3;
 	}
 }
