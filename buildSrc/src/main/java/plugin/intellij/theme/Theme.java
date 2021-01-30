@@ -57,6 +57,7 @@ public class Theme {
 		@JsonProperty FileColor FileColor() { return new FileColor(); }
 		@JsonProperty FormattedTextField FormattedTextField() { return new FormattedTextField(); }
 		@JsonProperty Group Group() { return new Group(); }
+		@JsonProperty Label Label() { return new Label(); }
 		@JsonProperty Link Link() { return new Link(); }
 		@JsonProperty List List() { return new List(); }
 		@JsonProperty Menu Menu() { return new Menu(); }
@@ -67,6 +68,7 @@ public class Theme {
 		@JsonProperty Popup Popup() { return new Popup(); }
 		@JsonProperty PopupMenu PopupMenu() { return new PopupMenu(); }
 		@JsonProperty PopupMenuSeparator PopupMenuSeparator() { return new PopupMenuSeparator(); }
+		@JsonProperty RadioButton RadioButton() { return new RadioButton(); }
 		@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 		@JsonProperty SearchEverywhere SearchEverywhere() { return new SearchEverywhere(); }
 		@JsonProperty Separator Separator() { return new Separator(); }
@@ -254,6 +256,16 @@ public class Theme {
 			@JsonProperty Color separatorColor = style.borderColor();
 		}
 
+		class Label {
+			@JsonProperty Color background; // unknown effect
+			@JsonProperty Color disabledText; // unknown effect
+			@JsonProperty Color disabledForeground; // unknown effect
+			@JsonProperty Color errorForeground; // unknown effect
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color infoForeground = palette.gray();
+			@JsonProperty Color selectedForeground; // unknown effect
+		}
+
 		class Link {
 			private final Color foreground = style.link();
 			@JsonProperty Color activeForeground = foreground;
@@ -361,6 +373,13 @@ public class Theme {
 			@JsonProperty Integer height;
 			@JsonProperty Integer stripeIndent;
 			@JsonProperty Integer stripeWidth;
+		}
+
+		class RadioButton {
+			@JsonProperty Color background = style.checkbox().textBackground();
+			@JsonProperty Color foreground = style.checkbox().textForeground();
+			@JsonProperty Color select; // unknown effect
+			@JsonProperty Color disabledText = style.checkbox().disabledBorder();
 		}
 
 		class ScrollBar {
@@ -500,6 +519,7 @@ public class Theme {
 		class ToolWindow {
 			@JsonProperty Button Button = new Button();
 			@JsonProperty Header Header = new Header();
+			@JsonProperty HeaderCloseButton HeaderCloseButton = new HeaderCloseButton();
 			@JsonProperty HeaderTab HeaderTab = new HeaderTab();
 
 			class Button {
@@ -512,6 +532,10 @@ public class Theme {
 				@JsonProperty Color inactiveBackground = style.tab().inBackgroundInactive();
 				@JsonProperty Color borderColor = style.tab().borderColor();
 				@JsonProperty Color background = style.tab().inBackground();
+			}
+
+			class HeaderCloseButton {
+				@JsonProperty Color background; // unknown effect
 			}
 
 			class HeaderTab {

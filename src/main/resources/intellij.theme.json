@@ -155,6 +155,10 @@
 			"disabledSeparatorColor": "#d5c4a1",
 			"separatorColor": "#d5c4a1"
 		},
+		"Label": {
+			"foreground": "#282828",
+			"infoForeground": "#928374"
+		},
 		"Link": {
 			"activeForeground": "#458588",
 			"hoverForeground": "#458588",
@@ -235,6 +239,11 @@
 			"selectionForeground": "#282828"
 		},
 		"PopupMenuSeparator": { },
+		"RadioButton": {
+			"background": "#fbf1c7",
+			"disabledText": "#bdae93",
+			"foreground": "#282828"
+		},
 		"ScrollBar": {
 			"Mac": {
 				"Transparent": {
@@ -334,6 +343,7 @@
 				"borderColor": "#fbf1c7",
 				"inactiveBackground": "#ebdbb2"
 			},
+			"HeaderCloseButton": { },
 			"HeaderTab": {
 				"hoverBackground": "#fbf1c7",
 				"hoverInactiveBackground": "#fbf1c7",
