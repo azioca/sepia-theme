@@ -56,7 +56,7 @@
     <option name="ANNOTATION_NAME_ATTRIBUTES" baseAttributes="DEFAULT_METADATA"/>
     <option name="BAD_CHARACTER">
       <value>
-        <option name="EFFECT_COLOR" value="9d0006"/>
+        <option name="EFFECT_COLOR" value="cc241d"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
@@ -107,7 +107,7 @@
     </option>
     <option name="CONSOLE_ERROR_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="9d0006"/>
+        <option name="FOREGROUND" value="cc241d"/>
       </value>
     </option>
     <option name="CONSOLE_GRAY_OUTPUT">
@@ -381,8 +381,8 @@
     <option name="DOC_COMMENT_TAG_VALUE" baseAttributes="DEFAULT_DOC_COMMENT_TAG_VALUE"/>
     <option name="ERRORS_ATTRIBUTES">
       <value>
-        <option name="ERROR_STRIPE_COLOR" value="9d0006"/>
-        <option name="EFFECT_COLOR" value="9d0006"/>
+        <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
+        <option name="EFFECT_COLOR" value="cc241d"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
@@ -428,7 +428,7 @@
     <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
     <option name="LOG_ERROR_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="9d0006"/>
+        <option name="FOREGROUND" value="cc241d"/>
       </value>
     </option>
     <option name="LOG_EXPIRED_ENTRY">
@@ -463,8 +463,8 @@
     </option>
     <option name="RUNTIME_ERROR">
       <value>
-        <option name="ERROR_STRIPE_COLOR" value="fb4934"/>
-        <option name="EFFECT_COLOR" value="fb4934"/>
+        <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
+        <option name="EFFECT_COLOR" value="cc241d"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
     </option>
@@ -516,8 +516,8 @@
     </option>
     <option name="UNMATCHED_BRACE_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="fb4934"/>
-        <option name="ERROR_STRIPE_COLOR" value="fb4934"/>
+        <option name="BACKGROUND" value="cc241d"/>
+        <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
       </value>
     </option>
     <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>

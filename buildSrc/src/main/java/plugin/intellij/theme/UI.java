@@ -40,6 +40,7 @@ class UI {
 	@JsonProperty MenuBar MenuBar() { return new MenuBar(); }
 	@JsonProperty MenuItem MenuItem() { return new MenuItem(); }
 	@JsonProperty MemoryIndicator MemoryIndicator() { return new MemoryIndicator(); }
+	@JsonProperty Notification Notification() { return new Notification(); }
 	@JsonProperty Panel Panel() { return new Panel(); }
 	@JsonProperty Popup Popup() { return new Popup(); }
 	@JsonProperty PopupMenu PopupMenu() { return new PopupMenu(); }
@@ -101,7 +102,7 @@ class UI {
 		@JsonProperty Integer ark;
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color background = style.button().around();
-		@JsonProperty Color disabledText = style.disabledText();
+		@JsonProperty Color disabledText = style.disabledForeground();
 		@JsonProperty Color shadowColor;
 		@JsonProperty Integer shadowWidth = 0;
 
@@ -135,7 +136,7 @@ class UI {
 	class ComboBox {
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color selectionForeground = style.foreground();
-		@JsonProperty Color disabledForeground = palette.gray();
+		@JsonProperty Color disabledForeground = style.disabledForeground();
 		@JsonProperty Color modifiedItemForeground;
 		@JsonProperty Color background = style.background().ui().base();
 		@JsonProperty Color nonEditableBackground = background;
@@ -145,7 +146,7 @@ class UI {
 
 		class ArrowButton {
 			@JsonProperty Color iconColor = style.foreground();
-			@JsonProperty Color disabledIconColor = palette.gray();
+			@JsonProperty Color disabledIconColor = style.disabledForeground();
 
 			@JsonProperty Color background = ComboBox.this.background;
 			@JsonProperty Color nonEditableBackground = ComboBox.this.nonEditableBackground;
@@ -225,7 +226,7 @@ class UI {
 		@JsonProperty Color caretForeground;
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color inactiveBackground = background;
-		@JsonProperty Color inactiveForeground = palette.gray();
+		@JsonProperty Color inactiveForeground = style.disabledForeground();
 	}
 
 	class Group {
@@ -283,7 +284,7 @@ class UI {
 	class MenuBar {
 		@JsonProperty Color borderColor = style.borderColor();
 		@JsonProperty Color disabledBackground = style.background().ui().base();
-		@JsonProperty Color disabledForeground = palette.gray();
+		@JsonProperty Color disabledForeground = style.disabledForeground();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color hightlight; // unknown effect
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
@@ -292,13 +293,43 @@ class UI {
 	}
 
 	class MenuItem {
-		@JsonProperty Color acceleratorForeground = palette.gray();
+		@JsonProperty Color acceleratorForeground = style.disabledForeground();
 		@JsonProperty Color background = style.background().ui().base();
 		@JsonProperty Color disabledBackground = style.background().ui().base();
-		@JsonProperty Color disabledForeground = palette.gray();
+		@JsonProperty Color disabledForeground = style.disabledForeground();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
 		@JsonProperty Color selectionForeground = style.foreground();
+	}
+
+	class Notification {
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color borderColor = style.borderColor();
+		@JsonProperty Color errorBackground = style.error();
+		@JsonProperty Color errorBorderColor = style.borderColor();
+		@JsonProperty Color errorForeground = style.foreground();
+		@JsonProperty Color foreground = style.foreground();
+
+		@JsonProperty MoreButton MoreButton = new MoreButton();
+		@JsonProperty ToolWindow ToolWindow = new ToolWindow();
+
+		class MoreButton {
+			@JsonProperty Color background = Notification.this.background.darker();
+			@JsonProperty Color foreground = style.disabledForeground();
+			@JsonProperty Color innerBorderColor = background.darker(2);
+		}
+
+		class ToolWindow {
+			@JsonProperty Color errorBackground = style.error().brightest();
+			@JsonProperty Color errorBorderColor = errorBackground.darker();
+			@JsonProperty Color errorForeground = style.foreground();
+			@JsonProperty Color informativeBackground = style.info().brightest();
+			@JsonProperty Color informativeBorderColor = informativeBackground.darker();
+			@JsonProperty Color informativeForeground = style.foreground();
+			@JsonProperty Color warningBackground = style.warning().brightest();
+			@JsonProperty Color warningBorderColor = warningBackground.darker();
+			@JsonProperty Color warningForeground = style.foreground();
+		}
 	}
 
 	class Panel {
@@ -480,7 +511,7 @@ class UI {
 		@JsonProperty Color darkShadow;
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color highlight;
-		@JsonProperty Color inactiveForeground = palette.gray();
+		@JsonProperty Color inactiveForeground = style.disabledForeground();
 		@JsonProperty Color selectionBackground = style.background().editor().selectedText();
 		@JsonProperty Color selectionForeground = style.foreground();
 	}
@@ -503,7 +534,7 @@ class UI {
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color infoForeground = style.infoForeground();
 		@JsonProperty Boolean paintBorder = false;
-		@JsonProperty Color shortcutForeground = palette.gray();
+		@JsonProperty Color shortcutForeground = style.disabledForeground();
 
 		@JsonProperty ToolTip.Actions Actions = new ToolTip.Actions();
 

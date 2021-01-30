@@ -21,7 +21,7 @@ public class Style {
 		return palette.gray();
 	}
 
-	public Color disabledText() {
+	public Color disabledForeground() {
 		return palette.gray().brighter();
 	}
 
@@ -37,12 +37,16 @@ public class Style {
 		return palette.gray().brighter(2);
 	}
 
-	public Color error() {
-		return palette.red();
+	public Color info() {
+		return palette.green().brighter();
 	}
 
 	public Color warning() {
 		return palette.yellow().brighter();
+	}
+
+	public Color error() {
+		return palette.red();
 	}
 
 	public Button button() {

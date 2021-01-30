@@ -125,7 +125,7 @@ public class Scheme {
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeColorAsBackground(),
 
 			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.foreground()).bold(),
-			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error().brighter()).errorStripeColorAsBackground(),
+			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeColorAsBackground(),
 
 			new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link()),
 
@@ -186,13 +186,13 @@ public class Scheme {
 			new Attribute("INLINE_PARAMETER_HINT").foreground(style.foreground()).background(palette.aqua().darker()),
 			new Attribute("INFO_ATTRIBUTES").errorStripeColor(style.warning()).dottedLine(style.warning()),
 
-			new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error().darker()).errorStripeColorAsEffect(),
+			new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error()).errorStripeColorAsEffect(),
 			new Attribute("WARNING_ATTRIBUTES").underwaved(style.warning()).errorStripeColorAsEffect(),
-			new Attribute("BAD_CHARACTER").underwaved(style.error().darker()),
+			new Attribute("BAD_CHARACTER").underwaved(style.error()),
 			new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(style.error()).errorStripeColorAsEffect(),
 			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
 			new Attribute("NOT_USED_ELEMENT_ATTRIBUTES").foreground(palette.gray()),
-			new Attribute("RUNTIME_ERROR").underwaved(style.error().brighter()).errorStripeColorAsEffect(),
+			new Attribute("RUNTIME_ERROR").underwaved(style.error()).errorStripeColorAsEffect(),
 			new Attribute("TYPO").underwaved(palette.gray().brighter()),
 			new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
 
@@ -201,7 +201,7 @@ public class Scheme {
 
 			new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),
 
-			new Attribute("LOG_ERROR_OUTPUT").foreground(style.error().darker()),
+			new Attribute("LOG_ERROR_OUTPUT").foreground(style.error()),
 			new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray()),
 			new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning()),
 
@@ -211,7 +211,7 @@ public class Scheme {
 			new Attribute("CONSOLE_CYAN_BRIGHT_OUTPUT").foreground(palette.aqua().brighter()),
 			new Attribute("CONSOLE_CYAN_OUTPUT").foreground(palette.aqua()),
 			new Attribute("CONSOLE_DARKGRAY_OUTPUT").foreground(palette.gray().darker()),
-			new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error().darker()),
+			new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error()),
 			new Attribute("CONSOLE_GRAY_OUTPUT").foreground(palette.gray()),
 			new Attribute("CONSOLE_GREEN_BRIGHT_OUTPUT").foreground(palette.green().brighter()),
 			new Attribute("CONSOLE_GREEN_OUTPUT").foreground(palette.green()),

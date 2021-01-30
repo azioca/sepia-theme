@@ -84,12 +84,12 @@
 		"ComboBox": {
 			"ArrowButton": {
 				"background": "#fbf1c7",
-				"disabledIconColor": "#928374",
+				"disabledIconColor": "#a89984",
 				"iconColor": "#282828",
 				"nonEditableBackground": "#fbf1c7"
 			},
 			"background": "#fbf1c7",
-			"disabledForeground": "#928374",
+			"disabledForeground": "#a89984",
 			"foreground": "#282828",
 			"nonEditableBackground": "#fbf1c7",
 			"selectionBackground": "#d5c4a1",
@@ -149,7 +149,7 @@
 			"background": "#f9f5d7",
 			"foreground": "#282828",
 			"inactiveBackground": "#f9f5d7",
-			"inactiveForeground": "#928374"
+			"inactiveForeground": "#a89984"
 		},
 		"Group": {
 			"disabledSeparatorColor": "#d5c4a1",
@@ -194,19 +194,43 @@
 		"MenuBar": {
 			"borderColor": "#d5c4a1",
 			"disabledBackground": "#fbf1c7",
-			"disabledForeground": "#928374",
+			"disabledForeground": "#a89984",
 			"foreground": "#282828",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
 		},
 		"MenuItem": {
-			"acceleratorForeground": "#928374",
+			"acceleratorForeground": "#a89984",
 			"background": "#fbf1c7",
 			"disabledBackground": "#fbf1c7",
-			"disabledForeground": "#928374",
+			"disabledForeground": "#a89984",
 			"foreground": "#282828",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
+		},
+		"Notification": {
+			"MoreButton": {
+				"background": "#f2e5bc",
+				"foreground": "#a89984",
+				"innerBorderColor": "#d5c4a1"
+			},
+			"ToolWindow": {
+				"errorBackground": "#fb4934",
+				"errorBorderColor": "#cc241d",
+				"errorForeground": "#282828",
+				"informativeBackground": "#b8bb26",
+				"informativeBorderColor": "#98971a",
+				"informativeForeground": "#282828",
+				"warningBackground": "#fabd2f",
+				"warningBorderColor": "#d79921",
+				"warningForeground": "#282828"
+			},
+			"background": "#fbf1c7",
+			"borderColor": "#d5c4a1",
+			"errorBackground": "#cc241d",
+			"errorBorderColor": "#d5c4a1",
+			"errorForeground": "#282828",
+			"foreground": "#282828"
 		},
 		"Panel": {
 			"background": "#fbf1c7",
@@ -327,7 +351,7 @@
 			"background": "#f9f5d7",
 			"caretForeground": "#282828",
 			"foreground": "#282828",
-			"inactiveForeground": "#928374",
+			"inactiveForeground": "#a89984",
 			"selectionBackground": "#83a598",
 			"selectionForeground": "#282828"
 		},
@@ -343,7 +367,7 @@
 			"foreground": "#282828",
 			"infoForeground": "#928374",
 			"paintBorder": false,
-			"shortcutForeground": "#928374"
+			"shortcutForeground": "#a89984"
 		},
 		"ToolWindow": {
 			"Button": {
