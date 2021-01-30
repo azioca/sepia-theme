@@ -33,24 +33,6 @@
 		}
 	},
 	"ui": {
-		"*": {
-			"background": "#fbf1c7",
-			"borderColor": "#d5c4a1",
-			"disabledBorderColor": "#ebdbb2",
-			"foreground": "#282828",
-			"hoverBackground": "#f2e5bc",
-			"infoForeground": "#928374",
-			"lightSelectionBackground": "#d5c4a1",
-			"selectedBackground": "#d5c4a1",
-			"selectedBackgroundInactive": "#ebdbb2",
-			"selectedForeground": "#282828",
-			"selectedInactiveBackground": "#ebdbb2",
-			"selectionBackground": "#d5c4a1",
-			"selectionBackgroundInactive": "#ebdbb2",
-			"selectionForeground": "#282828",
-			"selectionInactiveBackground": "#ebdbb2",
-			"separatorColor": "#d5c4a1"
-		},
 		"ActionButton": { },
 		"Borders": {
 			"ContrastBorderColor": "#d5c4a1",
@@ -235,6 +217,16 @@
 		"Panel": {
 			"background": "#fbf1c7",
 			"foreground": "#282828"
+		},
+		"ParameterInfo": {
+			"background": "#fbf1c7",
+			"borderColor": "#d5c4a1",
+			"currentOverloadBackground": "#d5c4a1",
+			"currentParameterForeground": "#282828",
+			"disableForeground": "#a89984",
+			"foreground": "#282828",
+			"infoForeground": "#928374",
+			"lineSeparatorColor": "#d5c4a1"
 		},
 		"Popup": {
 			"Advertiser": {

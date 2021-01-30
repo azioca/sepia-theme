@@ -18,7 +18,7 @@ class UI {
 		this.style = Objects.requireNonNull(style);
 	}
 
-	@JsonProperty("*") Asterisk asterisk() { return new Asterisk(); }
+	// @JsonProperty("*") Asterisk asterisk() { return new Asterisk(); }
 	@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 	@JsonProperty Borders Borders() { return new Borders(); }
 	@JsonProperty Button Button() { return new Button(); }
@@ -42,6 +42,7 @@ class UI {
 	@JsonProperty MemoryIndicator MemoryIndicator() { return new MemoryIndicator(); }
 	@JsonProperty Notification Notification() { return new Notification(); }
 	@JsonProperty Panel Panel() { return new Panel(); }
+	@JsonProperty ParameterInfo ParameterInfo() { return new ParameterInfo(); }
 	@JsonProperty Popup Popup() { return new Popup(); }
 	@JsonProperty PopupMenu PopupMenu() { return new PopupMenu(); }
 	@JsonProperty PopupMenuSeparator PopupMenuSeparator() { return new PopupMenuSeparator(); }
@@ -336,6 +337,17 @@ class UI {
 	class Panel {
 		@JsonProperty Color background = style.background().ui().base();
 		@JsonProperty Color foreground = style.foreground();
+	}
+
+	class ParameterInfo {
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color borderColor = style.borderColor();
+		@JsonProperty Color currentOverloadBackground = style.background().ui().selected();
+		@JsonProperty Color currentParameterForeground = style.foreground();
+		@JsonProperty Color disableForeground = style.disabledForeground();
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color infoForeground = style.infoForeground();
+		@JsonProperty Color lineSeparatorColor = style.borderColor();
 	}
 
 	class Popup {
