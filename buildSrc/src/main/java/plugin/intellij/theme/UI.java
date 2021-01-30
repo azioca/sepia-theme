@@ -88,11 +88,11 @@ class UI {
 		@JsonProperty Color separatorColor = borderColor;
 	}
 
-	static class ActionButton {
-		@JsonProperty Color hoverBackground;
-		@JsonProperty Color hoverBorderColor;
-		@JsonProperty Color pressedBackground;
-		@JsonProperty Color pressedBorderColor;
+	class ActionButton {
+		@JsonProperty Color hoverBackground = style.background().ui().hover();
+		@JsonProperty Color hoverBorderColor = hoverBackground.darker();
+		@JsonProperty Color pressedBackground = style.background().ui().selected();
+		@JsonProperty Color pressedBorderColor = pressedBackground.darker();
 	}
 
 	class Borders {
@@ -344,7 +344,7 @@ class UI {
 		@JsonProperty Color borderColor = style.borderColor();
 		@JsonProperty Color currentOverloadBackground = style.background().ui().selected();
 		@JsonProperty Color currentParameterForeground = style.foreground();
-		@JsonProperty Color disableForeground = style.disabledForeground();
+		@JsonProperty Color disabledForeground = style.disabledForeground();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color infoForeground = style.infoForeground();
 		@JsonProperty Color lineSeparatorColor = style.borderColor();

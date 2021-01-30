@@ -33,7 +33,12 @@
 		}
 	},
 	"ui": {
-		"ActionButton": { },
+		"ActionButton": {
+			"hoverBackground": "#f2e5bc",
+			"hoverBorderColor": "#ebdbb2",
+			"pressedBackground": "#d5c4a1",
+			"pressedBorderColor": "#bdae93"
+		},
 		"Borders": {
 			"ContrastBorderColor": "#d5c4a1",
 			"color": "#d5c4a1"
@@ -223,7 +228,7 @@
 			"borderColor": "#d5c4a1",
 			"currentOverloadBackground": "#d5c4a1",
 			"currentParameterForeground": "#282828",
-			"disableForeground": "#a89984",
+			"disabledForeground": "#a89984",
 			"foreground": "#282828",
 			"infoForeground": "#928374",
 			"lineSeparatorColor": "#d5c4a1"
