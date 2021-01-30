@@ -49,6 +49,7 @@ class UI {
 	@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 	@JsonProperty SearchEverywhere SearchEverywhere() { return new SearchEverywhere(); }
 	@JsonProperty Separator Separator() { return new Separator(); }
+	@JsonProperty SearchMatch SearchMatch() { return new SearchMatch(); }
 	@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
 	@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
 	@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
@@ -463,6 +464,11 @@ class UI {
 
 	class Separator {
 		@JsonProperty Color separatorColor = style.borderColor();
+	}
+
+	class SearchMatch {
+		@JsonProperty Color startBackground = style.searchBackground();
+		@JsonProperty Color endBackground = startBackground;
 	}
 
 	class SidePanel {

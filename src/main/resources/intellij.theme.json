@@ -312,6 +312,10 @@
 				"selectedForeground": "#282828"
 			}
 		},
+		"SearchMatch": {
+			"endBackground": "#8ec07c",
+			"startBackground": "#8ec07c"
+		},
 		"Separator": {
 			"separatorColor": "#d5c4a1"
 		},

@@ -21,6 +21,10 @@ public class Style {
 		return palette.gray();
 	}
 
+	public Color searchBackground() {
+		return palette.aqua().brighter();
+	}
+
 	public Color disabledForeground() {
 		return palette.gray().brighter();
 	}

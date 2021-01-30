@@ -111,7 +111,7 @@ public class Scheme {
 	class Attributes {
 		private final Color deprecated = style.foreground().brighter(3);
 
-		private final Color searchBackground = palette.aqua().brighter();
+		private final Color searchBackground = style.searchBackground();
 		private final Color searchWriteBackground = searchBackground.darker();
 
 		@JacksonXmlElementWrapper(useWrapping = false)
