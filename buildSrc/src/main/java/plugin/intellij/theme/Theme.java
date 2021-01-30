@@ -79,6 +79,7 @@ public class Theme {
 		@JsonProperty TextArea TextArea() { return new TextArea(); }
 		@JsonProperty TextField TextField() { return new TextField(); }
 		@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
+		@JsonProperty ToolTip ToolTip() { return new ToolTip(); }
 		@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
 		@JsonProperty Tree Tree() { return new Tree(); }
 		@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
@@ -101,7 +102,7 @@ public class Theme {
 			@JsonProperty Color foreground = style.foreground();
 			@JsonProperty Color selectionForeground = style.foreground();
 			@JsonProperty Color selectedForeground = style.foreground();
-			@JsonProperty Color infoForeground = style.foreground();
+			@JsonProperty Color infoForeground = style.infoForeground();
 
 			@JsonProperty Color borderColor = style.borderColor();
 			@JsonProperty Color disabledBorderColor = borderColor.brighter();
@@ -199,7 +200,7 @@ public class Theme {
 			@JsonProperty Color iconColor;
 			@JsonProperty Color inactiveErrorFocusColor;
 			@JsonProperty Color inactiveWarningFocusColor;
-			@JsonProperty Color infoForeground = style.foreground();
+			@JsonProperty Color infoForeground = style.infoForeground();
 			@JsonProperty Color warningFocusColor = style.warning();
 		}
 
@@ -262,7 +263,7 @@ public class Theme {
 			@JsonProperty Color disabledForeground; // unknown effect
 			@JsonProperty Color errorForeground; // unknown effect
 			@JsonProperty Color foreground = style.foreground();
-			@JsonProperty Color infoForeground = palette.gray();
+			@JsonProperty Color infoForeground = style.infoForeground();
 			@JsonProperty Color selectedForeground; // unknown effect
 		}
 
@@ -441,7 +442,7 @@ public class Theme {
 			class SearchField {
 				@JsonProperty Color background = style.background().ui().base();
 				@JsonProperty Color borderColor = style.borderColor();
-				@JsonProperty Color infoForeground = style.foreground();
+				@JsonProperty Color infoForeground = style.infoForeground();
 			}
 			class Tab {
 				@JsonProperty Color selectedBackground = style.background().ui().selected();
@@ -516,6 +517,23 @@ public class Theme {
 			@JsonProperty Color shadow;
 		}
 
+		class ToolTip {
+			@JsonProperty Color background = style.background().ui().base();
+			@JsonProperty Color borderColor;
+			@JsonProperty Color foreground = style.foreground();
+			@JsonProperty Color infoForeground = style.infoForeground();
+			@JsonProperty Boolean paintBorder = false;
+			@JsonProperty Color shortcutForeground = palette.gray();
+			@JsonProperty Color separatorColor = style.borderColor();
+
+			@JsonProperty Actions Actions = new Actions();
+
+			class Actions {
+				@JsonProperty Color background = ToolTip.this.background.darker();
+				@JsonProperty Color infoForeground = style.infoForeground();
+			}
+		}
+
 		class ToolWindow {
 			@JsonProperty Button Button = new Button();
 			@JsonProperty Header Header = new Header();
@@ -535,7 +553,7 @@ public class Theme {
 			}
 
 			class HeaderCloseButton {
-				@JsonProperty Color background; // unknown effect
+				@JsonProperty Color background = palette.red(); // unknown effect
 			}
 
 			class HeaderTab {

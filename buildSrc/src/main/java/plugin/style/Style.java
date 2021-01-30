@@ -17,6 +17,10 @@ public class Style {
 		return palette.black().darker(2);
 	}
 
+	public Color infoForeground() {
+		return palette.gray();
+	}
+
 	public Color disabledText() {
 		return palette.gray().brighter();
 	}
