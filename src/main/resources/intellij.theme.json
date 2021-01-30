@@ -419,6 +419,10 @@
 				"foreground": "#282828"
 			}
 		},
+		"Viewport": {
+			"background": "#fbf1c7",
+			"foreground": "#282828"
+		},
 		"WelcomeScreen": {
 			"Details": {
 				"background": "#fbf1c7"

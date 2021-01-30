@@ -62,6 +62,7 @@ class UI {
 	@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
 	@JsonProperty Tree Tree() { return new Tree(); }
 	@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
+	@JsonProperty Viewport Viewport() { return new Viewport(); }
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
 
 	class Asterisk {
@@ -641,6 +642,11 @@ class UI {
 			@JsonProperty double backgroundBrightness = 0.50;
 			@JsonProperty Color foreground = style.foreground();
 		}
+	}
+
+	class Viewport {
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color foreground = style.foreground();
 	}
 
 	class WelcomeScreen {
