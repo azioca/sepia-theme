@@ -40,7 +40,7 @@ public class Tab {
 		return 2;
 	}
 
-	public Integer uiUnderlineHeight() {
+	public Integer settingsUnderlineHeight() {
 		return 3;
 	}
 }

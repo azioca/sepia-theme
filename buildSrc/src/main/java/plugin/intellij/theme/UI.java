@@ -500,7 +500,7 @@ class UI {
 		@JsonProperty Color focusColor = style.tab().selected();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color hoverColor = style.tab().hover();
-		@JsonProperty int tabSelectionHeight = style.tab().uiUnderlineHeight();
+		@JsonProperty int tabSelectionHeight = style.tab().settingsUnderlineHeight();
 		@JsonProperty Color underlineColor = style.tab().underline();
 		@JsonProperty Color disabledUnderlineColor = underlineColor;
 	}
