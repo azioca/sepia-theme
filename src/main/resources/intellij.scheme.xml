@@ -27,14 +27,14 @@
     <option name="SELECTED_TEARLINE_COLOR" value="282828"/>
     <option name="SELECTION_BACKGROUND" value="83a598"/>
     <option name="SELECTION_FOREGROUND" value="282828"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="d5c4a1A5"/>
-    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="d5c4a1A5"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbBorderColor" value="d5c4a1a5"/>
+    <option name="ScrollBar.Mac.Transparent.hoverThumbColor" value="d5c4a1a5"/>
     <option name="ScrollBar.Mac.Transparent.hoverTrackColor" value="fbf1c700"/>
     <option name="ScrollBar.Mac.Transparent.thumbBorderColor" value="d5c4a166"/>
     <option name="ScrollBar.Mac.Transparent.thumbColor" value="d5c4a166"/>
     <option name="ScrollBar.Mac.Transparent.trackColor" value="fbf1c700"/>
-    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="d5c4a1A5"/>
-    <option name="ScrollBar.Transparent.hoverThumbColor" value="d5c4a1A5"/>
+    <option name="ScrollBar.Transparent.hoverThumbBorderColor" value="d5c4a1a5"/>
+    <option name="ScrollBar.Transparent.hoverThumbColor" value="d5c4a1a5"/>
     <option name="ScrollBar.Transparent.hoverTrackColor" value="fbf1c700"/>
     <option name="ScrollBar.Transparent.thumbBorderColor" value="d5c4a166"/>
     <option name="ScrollBar.Transparent.thumbColor" value="d5c4a166"/>
@@ -268,7 +268,7 @@
     </option>
     <option name="DEFAULT_INVALID_STRING_ESCAPE">
       <value>
-        <option name="FOREGROUND" value="282828"/>
+        <option name="FOREGROUND" value="689d6a"/>
         <option name="EFFECT_COLOR" value="cc241d"/>
         <option name="EFFECT_TYPE" value="2"/>
       </value>
@@ -426,6 +426,17 @@
       </value>
     </option>
     <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
+    <option name="LIVE_TEMPLATE_ATTRIBUTES">
+      <value>
+        <option name="EFFECT_COLOR" value="1d2021"/>
+        <option name="EFFECT_TYPE" value="6"/>
+      </value>
+    </option>
+    <option name="LIVE_TEMPLATE_INACTIVE_SEGMENT">
+      <value>
+        <option name="FOREGROUND" value="a89984"/>
+      </value>
+    </option>
     <option name="LOG_ERROR_OUTPUT">
       <value>
         <option name="FOREGROUND" value="cc241d"/>
@@ -479,7 +490,7 @@
     <option name="STATIC_FINAL_FIELD_ATTRIBUTES" baseAttributes="STATIC_FIELD_ATTRIBUTES"/>
     <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="504945"/>
+        <option name="FOREGROUND" value="b16286"/>
       </value>
     </option>
     <option name="TEXT">

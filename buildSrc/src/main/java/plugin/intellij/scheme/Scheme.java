@@ -124,6 +124,10 @@ public class Scheme {
 			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeColorAsBackground(),
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeColorAsBackground(),
 
+			new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(style.foreground().darkest()),
+			new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.disabledForeground()),
+			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
+
 			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.foreground()).bold(),
 			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeColorAsBackground(),
 
@@ -131,7 +135,7 @@ public class Scheme {
 
 			new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),
 			new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua()).bold(),
-			new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(style.foreground()).underwaved(style.error()),
+			new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(palette.aqua()).underwaved(style.error()),
 
 			new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
 			new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
@@ -176,7 +180,6 @@ public class Scheme {
 			new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
 			new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
 			new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
-			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(style.foreground().brighter(3)),
 
 			new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.foreground()).background(palette.aqua().brighter()),
 			new Attribute("Block comment").foreground(palette.gray()),

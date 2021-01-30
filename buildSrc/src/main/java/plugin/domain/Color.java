@@ -100,7 +100,7 @@ public class Color {
 			if (opaque.equals(this)) {
 				return "";
 			} else {
-				return String.format("%02X", (int) (opacity * 255));
+				return String.format("%02X", (int) (opacity * 255)).toLowerCase();
 			}
 		}
 

@@ -273,8 +273,8 @@
 		"ScrollBar": {
 			"Mac": {
 				"Transparent": {
-					"hoverThumbBorderColor": "#d5c4a1A5",
-					"hoverThumbColor": "#d5c4a1A5",
+					"hoverThumbBorderColor": "#d5c4a1a5",
+					"hoverThumbColor": "#d5c4a1a5",
 					"hoverTrackColor": "#fbf1c700",
 					"thumbBorderColor": "#d5c4a166",
 					"thumbColor": "#d5c4a166",
@@ -282,8 +282,8 @@
 				}
 			},
 			"Transparent": {
-				"hoverThumbBorderColor": "#d5c4a1A5",
-				"hoverThumbColor": "#d5c4a1A5",
+				"hoverThumbBorderColor": "#d5c4a1a5",
+				"hoverThumbColor": "#d5c4a1a5",
 				"hoverTrackColor": "#fbf1c700",
 				"thumbBorderColor": "#d5c4a166",
 				"thumbColor": "#d5c4a166",
