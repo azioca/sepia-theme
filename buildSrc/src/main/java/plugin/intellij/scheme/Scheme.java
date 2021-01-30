@@ -125,7 +125,7 @@ public class Scheme {
 			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
 			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeAsBackground(),
 
-			new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(style.foreground().darkest()),
+			new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(palette.red().brighter()),
 			new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.disabledForeground()),
 			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
 
