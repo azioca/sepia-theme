@@ -228,7 +228,7 @@ class UI {
 
 	class FormattedTextField {
 		@JsonProperty Color background = style.background().ui().base().brighter();
-		@JsonProperty Color caretForeground;
+		@JsonProperty Color caretForeground = style.foreground();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color inactiveBackground = background;
 		@JsonProperty Color inactiveForeground = style.disabledForeground();
@@ -241,9 +241,9 @@ class UI {
 
 	class Label {
 		@JsonProperty Color background = style.background().ui().base(); // unknown effect
-		@JsonProperty Color disabledText; // unknown effect
-		@JsonProperty Color disabledForeground; // unknown effect
-		@JsonProperty Color errorForeground; // unknown effect
+		@JsonProperty Color disabledText = style.disabledForeground(); // unknown effect
+		@JsonProperty Color disabledForeground = style.disabledForeground(); // unknown effect
+		@JsonProperty Color errorForeground = style.error(); // unknown effect
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color infoForeground = style.infoForeground();
 		@JsonProperty Color selectedForeground = style.foreground(); // unknown effect

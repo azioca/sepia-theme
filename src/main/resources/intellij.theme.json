@@ -134,6 +134,7 @@
 		},
 		"FormattedTextField": {
 			"background": "#f9f5d7",
+			"caretForeground": "#282828",
 			"foreground": "#282828",
 			"inactiveBackground": "#f9f5d7",
 			"inactiveForeground": "#a89984"
@@ -144,6 +145,9 @@
 		},
 		"Label": {
 			"background": "#fbf1c7",
+			"disabledForeground": "#a89984",
+			"disabledText": "#a89984",
+			"errorForeground": "#cc241d",
 			"foreground": "#282828",
 			"infoForeground": "#928374",
 			"selectedForeground": "#282828"
