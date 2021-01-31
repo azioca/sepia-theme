@@ -78,6 +78,7 @@
 			"background": "#fbf1c7",
 			"disabledForeground": "#a89984",
 			"foreground": "#282828",
+			"modifiedItemForeground": "#458588",
 			"nonEditableBackground": "#fbf1c7",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
@@ -415,10 +416,12 @@
 		},
 		"Tree": {
 			"background": "#fbf1c7",
+			"errorForeground": "#cc241d",
 			"foreground": "#282828",
 			"hash": "#ebdbb2",
 			"hoverBackground": "#f2e5bc",
 			"hoverInactiveBackground": "#f2e5bc",
+			"modifiedItemForeground": "#458588",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828",
 			"selectionInactiveBackground": "#ebdbb2"

@@ -143,7 +143,7 @@ class UI {
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color selectionForeground = style.foreground();
 		@JsonProperty Color disabledForeground = style.disabledForeground();
-		@JsonProperty Color modifiedItemForeground;
+		@JsonProperty Color modifiedItemForeground = style.modifiedForeground();
 		@JsonProperty Color background = style.background().ui().base();
 		@JsonProperty Color nonEditableBackground = background;
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
@@ -616,14 +616,14 @@ class UI {
 		}
 	}
 
-	class Tree {
+	class Tree { // settings tree
 		@JsonProperty Color background = style.background().ui().base();
-		@JsonProperty Color errorForeground;
+		@JsonProperty Color errorForeground = style.error();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color hash = style.background().ui().base().darker(2);
 		@JsonProperty Color hoverBackground = style.background().ui().hover();
 		@JsonProperty Color hoverInactiveBackground = hoverBackground;
-		@JsonProperty Color modifiedItemForeground;
+		@JsonProperty Color modifiedItemForeground = style.modifiedForeground();
 		@JsonProperty Color paintLines;
 		@JsonProperty Color rowHeight;
 		@JsonProperty Color selectionBackground = style.background().ui().selected();

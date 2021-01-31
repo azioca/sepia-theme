@@ -29,6 +29,10 @@ public class Style {
 		return palette.gray().brighter();
 	}
 
+	public Color modifiedForeground() {
+		return palette.blue();
+	}
+
 	public Background background() {
 		return new Background(palette, palette.sepia().brighter(3));
 	}
