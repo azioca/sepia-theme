@@ -45,7 +45,7 @@ public class Style {
 		return palette.gray().brighter(3);
 	}
 
-	public Color info() {
+	public Color success() {
 		return palette.green().brighter();
 	}
 

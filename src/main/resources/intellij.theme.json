@@ -282,6 +282,17 @@
 			"selectionForeground": "#282828"
 		},
 		"PopupMenuSeparator": { },
+		"ProgressBar": {
+			"failedColor": "#cc241d",
+			"failedEndColor": "#ebdbb2",
+			"foreground": "#282828",
+			"indeterminateEndColor": "#a89984",
+			"indeterminateStartColor": "#ebdbb2",
+			"passedColor": "#b8bb26",
+			"passedEndColor": "#ebdbb2",
+			"progressColor": "#a89984",
+			"trackColor": "#ebdbb2"
+		},
 		"RadioButton": {
 			"background": "#fbf1c7",
 			"disabledText": "#bdae93",

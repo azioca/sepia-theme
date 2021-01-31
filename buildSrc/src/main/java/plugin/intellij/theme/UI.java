@@ -48,6 +48,7 @@ class UI {
 	@JsonProperty Popup Popup() { return new Popup(); }
 	@JsonProperty PopupMenu PopupMenu() { return new PopupMenu(); }
 	@JsonProperty PopupMenuSeparator PopupMenuSeparator() { return new PopupMenuSeparator(); }
+	@JsonProperty ProgressBar ProgressBar() { return new ProgressBar(); }
 	@JsonProperty RadioButton RadioButton() { return new RadioButton(); }
 	@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 	@JsonProperty SearchEverywhere SearchEverywhere() { return new SearchEverywhere(); }
@@ -342,7 +343,7 @@ class UI {
 			@JsonProperty Color errorBackground = style.error().brightest();
 			@JsonProperty Color errorBorderColor = errorBackground.darker();
 			@JsonProperty Color errorForeground = style.foreground();
-			@JsonProperty Color informativeBackground = style.info().brightest();
+			@JsonProperty Color informativeBackground = style.success().brightest();
 			@JsonProperty Color informativeBorderColor = informativeBackground.darker();
 			@JsonProperty Color informativeForeground = style.foreground();
 			@JsonProperty Color warningBackground = style.warning().brightest();
@@ -417,6 +418,21 @@ class UI {
 		@JsonProperty Integer height;
 		@JsonProperty Integer stripeIndent;
 		@JsonProperty Integer stripeWidth;
+	}
+
+	class ProgressBar {
+		@JsonProperty Color background; // unknown effect
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color trackColor = style.background().ui().base().darker(2);
+		@JsonProperty Color progressColor = trackColor.darker(3);
+		@JsonProperty Color indeterminateStartColor = trackColor;
+		@JsonProperty Color indeterminateEndColor = progressColor;
+		@JsonProperty Color passedColor = style.success();
+		@JsonProperty Color passedEndColor = trackColor;
+		@JsonProperty Color failedColor = style.error();
+		@JsonProperty Color failedEndColor = trackColor;
+		@JsonProperty Color selectionBackground; // unknown effect
+		@JsonProperty Color selectionForeground; // unknown effect
 	}
 
 	class RadioButton {
