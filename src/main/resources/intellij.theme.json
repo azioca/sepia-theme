@@ -423,6 +423,12 @@
 			"selectionForeground": "#282828",
 			"selectionInactiveBackground": "#ebdbb2"
 		},
+		"ValidationTooltip": {
+			"errorBackground": "#cc241d",
+			"errorBorderColor": "#9d0006",
+			"warningBackground": "#fabd2f",
+			"warningBorderColor": "#d79921"
+		},
 		"VersionControl": {
 			"GitLog": { },
 			"Log": {

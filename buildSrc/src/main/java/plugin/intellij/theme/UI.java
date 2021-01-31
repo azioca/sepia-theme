@@ -63,6 +63,7 @@ class UI {
 	@JsonProperty ToolTip ToolTip() { return new ToolTip(); }
 	@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
 	@JsonProperty Tree Tree() { return new Tree(); }
+	@JsonProperty ValidationTooltip ValidationTooltip() { return new ValidationTooltip(); }
 	@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 	@JsonProperty Viewport Viewport() { return new Viewport(); }
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
@@ -537,7 +538,7 @@ class UI {
 		@JsonProperty Color caretForeground = style.foreground();
 		@JsonProperty Color darkShadow;
 		@JsonProperty Color foreground = style.foreground();
-		@JsonProperty Color highlight;
+		@JsonProperty Color highlight; // unknown effect
 		@JsonProperty Color inactiveForeground = style.disabledForeground();
 		@JsonProperty Color selectionBackground = style.background().editor().selectedText();
 		@JsonProperty Color selectionForeground = style.foreground();
@@ -628,6 +629,13 @@ class UI {
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
 		@JsonProperty Color selectionForeground = style.foreground();
 		@JsonProperty Color selectionInactiveBackground = style.background().ui().selectedInactive();
+	}
+
+	class ValidationTooltip {
+		@JsonProperty Color errorBackground = style.error();
+		@JsonProperty Color errorBorderColor = errorBackground.darker();
+		@JsonProperty Color warningBackground = style.warning();
+		@JsonProperty Color warningBorderColor = warningBackground.darker();
 	}
 
 	class VersionControl {
