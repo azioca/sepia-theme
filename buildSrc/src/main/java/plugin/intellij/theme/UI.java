@@ -624,7 +624,7 @@ class UI {
 		@JsonProperty Color hoverBackground = style.background().ui().hover();
 		@JsonProperty Color hoverInactiveBackground = hoverBackground;
 		@JsonProperty Color modifiedItemForeground = style.modifiedForeground();
-		@JsonProperty Color paintLines;
+		@JsonProperty Boolean paintLines;
 		@JsonProperty Color rowHeight;
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
 		@JsonProperty Color selectionForeground = style.foreground();
