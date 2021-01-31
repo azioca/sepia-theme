@@ -205,6 +205,11 @@ public class Scheme {
 
 			new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),
 
+			new Attribute("BREADCRUMBS_DEFAULT").foreground(style.foreground()).background(style.background().editor().base()),
+			new Attribute("BREADCRUMBS_HOVERED").foreground(style.foreground()).background(style.background().editor().base().darker(2)),
+			new Attribute("BREADCRUMBS_CURRENT").foreground(style.foreground()).background(style.background().editor().base().darker(4)),
+			new Attribute("BREADCRUMBS_INACTIVE").foreground(style.foreground()), // unknown effect
+
 			new Attribute("LOG_ERROR_OUTPUT").foreground(style.error()),
 			new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray()),
 			new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning()),
