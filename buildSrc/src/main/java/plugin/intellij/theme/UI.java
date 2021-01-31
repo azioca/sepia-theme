@@ -467,7 +467,7 @@ class UI {
 		}
 
 		class List {
-			@JsonProperty Color separatorColor = style.lines();
+			@JsonProperty Color separatorColor = style.borderColor();
 			@JsonProperty Color separatorForeground = style.foreground();
 		}
 

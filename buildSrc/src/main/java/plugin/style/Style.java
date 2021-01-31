@@ -37,8 +37,8 @@ public class Style {
 		return background().ui().base().darker(3);
 	}
 
-	public Color lines() {
-		return palette.gray().brighter(2);
+	public Color editorLines() {
+		return palette.gray().brighter(3);
 	}
 
 	public Color info() {

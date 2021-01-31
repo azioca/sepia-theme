@@ -90,10 +90,10 @@ public class Scheme {
 
 			new Option.Color("SELECTED_INDENT_GUIDE", style.foreground()),
 			new Option.Color("SELECTED_TEARLINE_COLOR", style.foreground()),
-			new Option.Color("INDENT_GUIDE", style.lines()),
-			new Option.Color("TEARLINE_COLOR", style.lines()),
-			new Option.Color("LINE_NUMBERS_COLOR", style.lines()),
-			new Option.Color("RIGHT_MARGIN_COLOR", style.lines()),
+			new Option.Color("INDENT_GUIDE", style.editorLines()),
+			new Option.Color("RIGHT_MARGIN_COLOR", style.editorLines()),
+			new Option.Color("TEARLINE_COLOR", style.editorLines().darker()),
+			new Option.Color("LINE_NUMBERS_COLOR", style.editorLines().darker()),
 
 			new Option.Color("ANNOTATIONS_COLOR", style.foreground()),
 			new Option.Color("CONSOLE_BACKGROUND_KEY", style.background().editor().base()),
