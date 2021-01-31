@@ -69,6 +69,10 @@ public class Color {
 		return new Color(slider.slideToBrighter(), opacity, presentAsHex);
 	}
 
+	public Color opaque() {
+		return opacity(1);
+	}
+
 	public Color opacity(double opacity) {
 		return new Color(slider, new Opacity(opacity), presentAsHex);
 	}

@@ -57,6 +57,7 @@ class UI {
 	@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
 	@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 	@JsonProperty Table Table() { return new Table(); }
+	@JsonProperty TableHeader TableHeader() { return new TableHeader(); }
 	@JsonProperty TextArea TextArea() { return new TextArea(); }
 	@JsonProperty TextField TextField() { return new TextField(); }
 	@JsonProperty TextPane TextPane() { return new TextPane(); }
@@ -426,29 +427,29 @@ class UI {
 	}
 
 	class ScrollBar {
+		@JsonProperty Color background = style.scrollbar().trackColor().opaque();
 		@JsonProperty Color track;
-		@JsonProperty Color trackColor;
-		@JsonProperty Color background;
-		@JsonProperty Color hoverThumbBorderColor;
-		@JsonProperty Color hoverThumbColor;
-		@JsonProperty Color hoverTrackColor;
+		@JsonProperty Color trackColor = style.scrollbar().trackColor().opaque();
+		@JsonProperty Color hoverTrackColor = trackColor;
+		@JsonProperty Color trackHighlight;
 		@JsonProperty Color thumb;
-		@JsonProperty Color thumbBorderColor;
-		@JsonProperty Color thumbColor;
+		@JsonProperty Color thumbColor = style.scrollbar().thumbColor();
+		@JsonProperty Color thumbBorderColor = thumbColor;
+		@JsonProperty Color hoverThumbColor = thumbColor;
+		@JsonProperty Color hoverThumbBorderColor = thumbBorderColor;
+		@JsonProperty Color thumbShadow;
 		@JsonProperty Color thumbDarkShadow;
 		@JsonProperty Color thumbHighlight;
-		@JsonProperty Color thumbShadow;
-		@JsonProperty Color trackHighlight;
 
 		@JsonProperty ScrollBar.Mac Mac = new ScrollBar.Mac();
 		@JsonProperty ScrollBar.Transparent Transparent = new ScrollBar.Transparent();
 
 		class Mac {
-			@JsonProperty Color hoverThumbBorderColor;
-			@JsonProperty Color hoverThumbColor;
-			@JsonProperty Color hoverTrackColor;
-			@JsonProperty Color thumbBorderColor;
-			@JsonProperty Color thumbColor;
+			@JsonProperty Color hoverThumbBorderColor = ScrollBar.this.hoverThumbBorderColor;
+			@JsonProperty Color hoverThumbColor = ScrollBar.this.hoverThumbColor;
+			@JsonProperty Color hoverTrackColor = ScrollBar.this.hoverTrackColor;
+			@JsonProperty Color thumbBorderColor = ScrollBar.this.thumbBorderColor;
+			@JsonProperty Color thumbColor = ScrollBar.this.thumbColor;
 			@JsonProperty ScrollBar.Transparent Transparent = new ScrollBar.Transparent();
 		}
 
@@ -528,11 +529,35 @@ class UI {
 	}
 
 	class Table {
-		@JsonProperty Color stripeColor;
+		@JsonProperty Color alternativeRowBackground = style.table().alternativeRowBackground();
+		@JsonProperty Color background = style.table().background();
+		@JsonProperty Color dropLineColor; // unknown effect
+		@JsonProperty Color dropLineShortColor; // unknown effect
+		@JsonProperty Color focusCellBackground = style.table().focusBackground();
+		@JsonProperty Color focusCellForeground = style.foreground();
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color gridColor = style.table().grid();
+		@JsonProperty Color hoverBackground = style.table().hoverBackground();
+		@JsonProperty Color hoverInactiveBackground = hoverBackground;
+		@JsonProperty Color lightSelectionBackground = style.table().selectionBackground();
 		@JsonProperty Color lightSelectionForeground = style.foreground();
+		@JsonProperty Color lightSelectionInactiveBackground = style.table().selectionInactiveBackground();
 		@JsonProperty Color lightSelectionInactiveForeground = style.foreground();
-		@JsonProperty Color lightSelectionBackground = style.background().ui().selected();
-		@JsonProperty Color lightSelectionInactiveBackground = style.background().ui().selectedInactive();
+		@JsonProperty Color selectionBackground = style.table().selectionBackground();
+		@JsonProperty Color selectionForeground = style.foreground();
+		@JsonProperty Color selectionInactiveBackground = style.table().selectionInactiveBackground();
+		@JsonProperty Color selectionInactiveForeground = style.foreground();
+		@JsonProperty Color sortIconColor; // unknown effect
+		@JsonProperty Color stripeColor = style.table().stripe();
+	}
+
+	class TableHeader {
+		@JsonProperty Color background = style.table().header().background();
+		@JsonProperty Color bottomSeparatorColor = style.table().header().separator();
+		@JsonProperty Color cellBorder = Color.transparent();
+		@JsonProperty Color focusCellBackground = style.table().header().focusCellBackground();
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color separatorColor = style.table().header().separator();
 	}
 
 	class TextArea {

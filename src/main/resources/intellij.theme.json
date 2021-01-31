@@ -296,7 +296,12 @@
 					"thumbBorderColor": "#d5c4a166",
 					"thumbColor": "#d5c4a166",
 					"trackColor": "#fbf1c700"
-				}
+				},
+				"hoverThumbBorderColor": "#d5c4a166",
+				"hoverThumbColor": "#d5c4a166",
+				"hoverTrackColor": "#fbf1c7",
+				"thumbBorderColor": "#d5c4a166",
+				"thumbColor": "#d5c4a166"
 			},
 			"Transparent": {
 				"hoverThumbBorderColor": "#d5c4a1a5",
@@ -305,7 +310,14 @@
 				"thumbBorderColor": "#d5c4a166",
 				"thumbColor": "#d5c4a166",
 				"trackColor": "#fbf1c700"
-			}
+			},
+			"background": "#fbf1c7",
+			"hoverThumbBorderColor": "#d5c4a166",
+			"hoverThumbColor": "#d5c4a166",
+			"hoverTrackColor": "#fbf1c7",
+			"thumbBorderColor": "#d5c4a166",
+			"thumbColor": "#d5c4a166",
+			"trackColor": "#fbf1c7"
 		},
 		"SearchEverywhere": {
 			"Advertiser": {
@@ -356,10 +368,31 @@
 			"underlineColor": "#83a598"
 		},
 		"Table": {
+			"alternativeRowBackground": "#fbf1c7",
+			"background": "#f9f5d7",
+			"focusCellBackground": "#d5c4a1",
+			"focusCellForeground": "#282828",
+			"foreground": "#282828",
+			"gridColor": "#ebdbb2",
+			"hoverBackground": "#f2e5bc",
+			"hoverInactiveBackground": "#f2e5bc",
 			"lightSelectionBackground": "#d5c4a1",
 			"lightSelectionForeground": "#282828",
 			"lightSelectionInactiveBackground": "#ebdbb2",
-			"lightSelectionInactiveForeground": "#282828"
+			"lightSelectionInactiveForeground": "#282828",
+			"selectionBackground": "#d5c4a1",
+			"selectionForeground": "#282828",
+			"selectionInactiveBackground": "#ebdbb2",
+			"selectionInactiveForeground": "#282828",
+			"stripeColor": "#fbf1c7"
+		},
+		"TableHeader": {
+			"background": "#d5c4a1",
+			"bottomSeparatorColor": "#d5c4a1",
+			"cellBorder": "00000000",
+			"focusCellBackground": "#d5c4a1",
+			"foreground": "#282828",
+			"separatorColor": "#d5c4a1"
 		},
 		"TextArea": {
 			"background": "#f9f5d7",

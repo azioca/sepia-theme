@@ -76,4 +76,8 @@ public class Style {
 	public Tab tab() {
 		return new Tab(background());
 	}
+
+	public Table table() {
+		return new Table(this);
+	}
 }
