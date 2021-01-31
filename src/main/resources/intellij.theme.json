@@ -100,6 +100,16 @@
 			"infoForeground": "#928374",
 			"warningFocusColor": "#fabd2f"
 		},
+		"DefaultTabs": {
+			"background": "#d5c4a1",
+			"borderColor": "#d5c4a1",
+			"hoverBackground": "#fbf1c7",
+			"inactiveUnderlineColor": "#83a598",
+			"underlineColor": "#83a598",
+			"underlineHeight": 3,
+			"underlinedTabBackground": "#fbf1c7",
+			"underlinedTabForeground": "#282828"
+		},
 		"Editor": {
 			"background": "#fbf1c7",
 			"foreground": "#282828",

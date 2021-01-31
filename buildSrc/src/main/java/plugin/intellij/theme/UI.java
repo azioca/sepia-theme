@@ -27,6 +27,7 @@ class UI {
 	@JsonProperty ComboBoxButton ComboBoxButton() { return new ComboBoxButton(); }
 	@JsonProperty CompletionPopup CompletionPopup() { return new CompletionPopup(); }
 	@JsonProperty Component Component() { return new Component(); }
+	@JsonProperty DefaultTabs DefaultTabs() { return new DefaultTabs(); }
 	@JsonProperty Editor Editor() { return new Editor(); }
 	@JsonProperty EditorPane EditorPane() { return new EditorPane(); }
 	@JsonProperty EditorTabs EditorTabs() { return new EditorTabs(); }
@@ -185,6 +186,17 @@ class UI {
 		@JsonProperty Color inactiveWarningFocusColor;
 		@JsonProperty Color infoForeground = style.infoForeground();
 		@JsonProperty Color warningFocusColor = style.warning();
+	}
+
+	class DefaultTabs {
+		@JsonProperty Color background = style.tab().inBackground();
+		@JsonProperty Color borderColor = style.borderColor();
+		@JsonProperty Color hoverBackground = style.tab().hover();
+		@JsonProperty Color inactiveUnderlineColor = style.tab().underline();
+		@JsonProperty Color underlineColor = style.tab().underline();
+		@JsonProperty Color underlinedTabBackground = style.tab().selected();
+		@JsonProperty Color underlinedTabForeground = style.foreground();
+		@JsonProperty Integer underlineHeight = style.tab().settingsUnderlineHeight();
 	}
 
 	class Editor {
