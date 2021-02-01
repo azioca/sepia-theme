@@ -55,6 +55,7 @@ class UI {
 	@JsonProperty Separator Separator() { return new Separator(); }
 	@JsonProperty SearchMatch SearchMatch() { return new SearchMatch(); }
 	@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
+	@JsonProperty Slider Slider() { return new Slider(); }
 	@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
 	@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 	@JsonProperty Table Table() { return new Table(); }
@@ -525,6 +526,18 @@ class UI {
 
 	class SidePanel {
 		@JsonProperty Color background = style.background().ui().base().darker();
+	}
+
+	class Slider {
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color trackColor = background.darker(2);
+		@JsonProperty Color tickColor = trackColor.darker();
+		@JsonProperty Color buttonColor = trackColor.darker();
+		@JsonProperty Color buttonBorderColor = buttonColor.darker();
+		@JsonProperty Color focus; // unknown effect
+		@JsonProperty Color highlight; // unknown effect
+		@JsonProperty Color shadow; // unknown effect
 	}
 
 	class StatusBar {

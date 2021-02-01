@@ -362,6 +362,14 @@
 		"SidePanel": {
 			"background": "#f2e5bc"
 		},
+		"Slider": {
+			"background": "#fbf1c7",
+			"buttonBorderColor": "#bdae93",
+			"buttonColor": "#d5c4a1",
+			"foreground": "#282828",
+			"tickColor": "#d5c4a1",
+			"trackColor": "#ebdbb2"
+		},
 		"StatusBar": {
 			"borderColor": "#d5c4a1",
 			"hoverBackground": "#f2e5bc"
