@@ -398,6 +398,12 @@
 			"tickColor": "#d5c4a1",
 			"trackColor": "#ebdbb2"
 		},
+		"SpeedSearch": {
+			"background": "#f9f5d7",
+			"borderColor": "#d5c4a1",
+			"errorForeground": "#cc241d",
+			"foreground": "#282828"
+		},
 		"StatusBar": {
 			"borderColor": "#d5c4a1",
 			"hoverBackground": "#f2e5bc"

@@ -85,7 +85,6 @@ public class Color {
 		return new Color(slider, opacity, false);
 	}
 
-
 	@JsonValue
 	public String string() {
 		return (presentAsHex ? "#" : "") + slider.chosen().string() + opacity.string();

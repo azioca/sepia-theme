@@ -57,6 +57,7 @@ class UI {
 	@JsonProperty SearchMatch SearchMatch() { return new SearchMatch(); }
 	@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
 	@JsonProperty Slider Slider() { return new Slider(); }
+	@JsonProperty SpeedSearch SpeedSearch() { return new SpeedSearch(); }
 	@JsonProperty StatusBar StatusBar() { return new StatusBar(); }
 	@JsonProperty TabbedPane TabbedPane() { return new TabbedPane(); }
 	@JsonProperty Table Table() { return new Table(); }
@@ -582,6 +583,13 @@ class UI {
 		@JsonProperty Color focus; // unknown effect
 		@JsonProperty Color highlight; // unknown effect
 		@JsonProperty Color shadow; // unknown effect
+	}
+
+	class SpeedSearch {
+		@JsonProperty Color foreground = style.foreground();
+		@JsonProperty Color errorForeground = style.error();
+		@JsonProperty Color background = style.background().ui().input();
+		@JsonProperty Color borderColor = style.borderColor();
 	}
 
 	class StatusBar {

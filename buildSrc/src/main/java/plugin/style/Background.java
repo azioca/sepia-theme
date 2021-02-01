@@ -61,8 +61,12 @@ public class Background {
 
 		UI(Editor editor) { this.editor = editor; }
 
+		public Color input() {
+			return editor.base();
+		}
+
 		public Color base() {
-			return editor.base().darker();
+			return input().darker();
 		}
 
 		public Color hover() {
