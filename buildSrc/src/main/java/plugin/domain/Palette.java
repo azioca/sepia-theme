@@ -3,16 +3,17 @@ package plugin.domain;
 import java.util.Objects;
 
 public interface Palette {
-	Color sepia();
-	Color black();
-	Color gray();
 	Color red();
-	Color green();
+	Color orange();
 	Color yellow();
+	Color green();
+	Color aqua();
 	Color blue();
 	Color purple();
-	Color aqua();
-	Color orange();
+
+	Color black();
+	Color gray();
+	Color sepia();
 
 	class Hex implements Palette {
 
@@ -21,23 +22,18 @@ public interface Palette {
 		public Hex(Palette palette) {this.palette = Objects.requireNonNull(palette);}
 
 		@Override
-		public Color sepia() {
-			return palette.sepia().hex();
-		}
-
-		@Override
-		public Color black() {
-			return palette.black().hex();
-		}
-
-		@Override
-		public Color gray() {
-			return palette.gray().hex();
-		}
-
-		@Override
 		public Color red() {
 			return palette.red().hex();
+		}
+
+		@Override
+		public Color orange() {
+			return palette.orange().hex();
+		}
+
+		@Override
+		public Color yellow() {
+			return palette.yellow().hex();
 		}
 
 		@Override
@@ -46,8 +42,8 @@ public interface Palette {
 		}
 
 		@Override
-		public Color yellow() {
-			return palette.yellow().hex();
+		public Color aqua() {
+			return palette.aqua().hex();
 		}
 
 		@Override
@@ -61,13 +57,18 @@ public interface Palette {
 		}
 
 		@Override
-		public Color aqua() {
-			return palette.aqua().hex();
+		public Color black() {
+			return palette.black().hex();
 		}
 
 		@Override
-		public Color orange() {
-			return palette.orange().hex();
+		public Color gray() {
+			return palette.gray().hex();
+		}
+
+		@Override
+		public Color sepia() {
+			return palette.sepia().hex();
 		}
 	}
 
@@ -78,23 +79,18 @@ public interface Palette {
 		public Plain(Palette palette) {this.palette = palette;}
 
 		@Override
-		public Color sepia() {
-			return palette.sepia().plain();
-		}
-
-		@Override
-		public Color black() {
-			return palette.black().plain();
-		}
-
-		@Override
-		public Color gray() {
-			return palette.gray().plain();
-		}
-
-		@Override
 		public Color red() {
 			return palette.red().plain();
+		}
+
+		@Override
+		public Color orange() {
+			return palette.orange().plain();
+		}
+
+		@Override
+		public Color yellow() {
+			return palette.yellow().plain();
 		}
 
 		@Override
@@ -103,8 +99,8 @@ public interface Palette {
 		}
 
 		@Override
-		public Color yellow() {
-			return palette.yellow().plain();
+		public Color aqua() {
+			return palette.aqua().plain();
 		}
 
 		@Override
@@ -118,13 +114,18 @@ public interface Palette {
 		}
 
 		@Override
-		public Color aqua() {
-			return palette.aqua().plain();
+		public Color sepia() {
+			return palette.sepia().plain();
 		}
 
 		@Override
-		public Color orange() {
-			return palette.orange().plain();
+		public Color gray() {
+			return palette.gray().plain();
+		}
+
+		@Override
+		public Color black() {
+			return palette.black().plain();
 		}
 	}
 }
