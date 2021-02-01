@@ -63,6 +63,7 @@ class UI {
 	@JsonProperty TextField TextField() { return new TextField(); }
 	@JsonProperty TextPane TextPane() { return new TextPane(); }
 	@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
+	@JsonProperty("Toolbar.Floating.background") Color ToolBarFloatingBackground() { return style.background().ui().base().darker(); }
 	@JsonProperty ToolTip ToolTip() { return new ToolTip(); }
 	@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
 	@JsonProperty Tree Tree() { return new Tree(); }
@@ -306,7 +307,7 @@ class UI {
 		@JsonProperty Color disabledBackground = style.background().ui().base();
 		@JsonProperty Color disabledForeground = style.disabledForeground();
 		@JsonProperty Color foreground = style.foreground();
-		@JsonProperty Color hightlight; // unknown effect
+		@JsonProperty Color highlight; // unknown effect
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
 		@JsonProperty Color selectionForeground = style.foreground();
 		@JsonProperty Color shadow;
@@ -607,16 +608,15 @@ class UI {
 		@JsonProperty Color selectionForeground = style.foreground();
 	}
 
-	class ToolBar { // unknown effect
-		@JsonProperty Color background;
-		@JsonProperty Color borderHandleColor;
+	class ToolBar { // Find -> soft wrap preview floating icon
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color borderHandleColor; // unknown effect
 		@JsonProperty Color darkShadow;
-		@JsonProperty("Floating.background") Color floatingBackground;
-		@JsonProperty Color floatingForeground;
 		@JsonProperty Color foreground = style.foreground();
-		@JsonProperty Color hightlight;
+		@JsonProperty Color highlight; // unknown effect
 		@JsonProperty Color light;
 		@JsonProperty Color shadow;
+		@JsonProperty Color floatingForeground = style.foreground();
 	}
 
 	class ToolTip {

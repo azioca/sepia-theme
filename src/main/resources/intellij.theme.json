@@ -432,6 +432,8 @@
 			"selectionForeground": "#282828"
 		},
 		"ToolBar": {
+			"background": "#fbf1c7",
+			"floatingForeground": "#282828",
 			"foreground": "#282828"
 		},
 		"ToolTip": {
@@ -468,6 +470,7 @@
 				"underlinedTabInactiveBackground": "#fbf1c7"
 			}
 		},
+		"Toolbar.Floating.background": "#f2e5bc",
 		"Tree": {
 			"background": "#fbf1c7",
 			"errorForeground": "#cc241d",
