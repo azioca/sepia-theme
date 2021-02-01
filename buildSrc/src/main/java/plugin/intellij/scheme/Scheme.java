@@ -8,9 +8,12 @@ import plugin.domain.Color;
 import plugin.domain.Palette;
 import plugin.style.Style;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @JsonPropertyOrder({"metaInfo", "colors", "attributes"})
@@ -115,125 +118,164 @@ public class Scheme {
 		private final Color searchWriteBackground = searchBackground.darker();
 
 		@JacksonXmlElementWrapper(useWrapping = false)
-		List<Attribute> option = List.of(
-			new Attribute("TEXT").foreground(style.foreground()).background(style.background().editor().base()),
+		public List<Attribute> option() {
+			List<Attribute> option = new ArrayList<>();
+			option.addAll(operations());
+			option.addAll(editor());
+			option.addAll(language());
+			option.addAll(errors());
+			option.addAll(breadcrumbs());
+			option.addAll(log());
+			option.addAll(console());
+			return option.stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
+		}
 
-			new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaret()).errorStripeAsForeground(),
-			new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaretWrite()).errorStripeAsForeground(),
+		private Collection<Attribute> operations() {
+			return Set.of(
+				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaret()).errorStripeAsForeground(),
+				new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.foreground()).background(style.background().editor().underCaretWrite()).errorStripeAsForeground(),
 
-			new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
-			new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
-			new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeAsBackground(),
+				new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
+				new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchBackground).errorStripeAsBackground(),
+				new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.foreground()).background(searchWriteBackground).errorStripeAsBackground(),
 
-			new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(palette.red().brighter()),
-			new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.disabledForeground()),
-			new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
+				new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(palette.red().brighter()),
+				new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.disabledForeground()),
+				new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
 
-			new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.foreground()).bold(),
-			new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeAsBackground(),
+				new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.foreground()).bold(),
+				new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeAsBackground(),
 
-			new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link()),
+				new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link())
+			);
+		}
 
-			new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),
-			new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua().darker()).bold(),
-			new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(style.error()).underwaved(style.error()).bold(),
+		private Collection<Attribute> editor() {
+			return Set.of(
+				new Attribute("TEXT").foreground(style.foreground()).background(style.background().editor().base()),
 
-			new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
-			new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
-			new Attribute("DEFAULT_BRACES").foreground(style.foreground()),
-			new Attribute("DEFAULT_BRACKETS").foreground(style.foreground()),
-			new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.foreground()),
-			new Attribute("DEFAULT_DOT").foreground(style.foreground()),
+				new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
+				new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
+				new Attribute("DEFAULT_BRACES").foreground(style.foreground()),
+				new Attribute("DEFAULT_BRACKETS").foreground(style.foreground()),
+				new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.foreground()),
+				new Attribute("DEFAULT_DOT").foreground(style.foreground()),
 
-			new Attribute("DEFAULT_CONSTANT").foreground(palette.purple().brighter()),
-			new Attribute("DEFAULT_DOC_COMMENT").foreground(palette.gray()),
-			new Attribute("DEFAULT_DOC_COMMENT_TAG").foreground(palette.gray()),
-			new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE").foreground(palette.gray().darker(2)).italic(),
-			new Attribute("DEFAULT_DOC_MARKUP").foreground(palette.gray().darker(2)),
-			new Attribute("DOC_COMMENT_TAG_VALUE").baseAttributes("DEFAULT_DOC_COMMENT_TAG_VALUE"),
-			new Attribute("DEFAULT_LINE_COMMENT").foreground(palette.gray()).italic(),
+				new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeAsForeground(),
+				new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
 
-			new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
-			new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.foreground()),
-			new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.blue().darker()),
-			new Attribute("DEFAULT_IDENTIFIER").foreground(style.foreground()),
-			new Attribute("DEFAULT_INSTANCE_FIELD").foreground(palette.purple().darker()).bold(),
-			new Attribute("DEFAULT_INTERFACE_NAME").foreground(style.foreground()).italic(),
-			new Attribute("DEFAULT_KEYWORD").foreground(palette.blue()).bold(),
-			new Attribute("DEFAULT_LABEL").foreground(palette.blue()).bold(),
-			new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
-			new Attribute("DEFAULT_METADATA").foreground(palette.green()),
-			new Attribute("DEFAULT_NUMBER").foreground(palette.blue()).bold(),
-			new Attribute("DEFAULT_PARAMETER").foreground(palette.purple()).bold(),
-			new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()),
-			new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold(),
-			new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().darker()).bold().italic(),
-			new Attribute("DEFAULT_STATIC_METHOD").foreground(style.foreground()).italic(),
-			new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
-			new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.foreground().brighter(3)),
-			new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.foreground()).bold(),
-			new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
-			new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link()),
-			new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
-			new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").baseAttributes("CLASS_NAME_ATTRIBUTES"),
-			new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
-			new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
-			new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
-			new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
-			new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
+				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.foreground()).background(palette.aqua().brighter()),
+				new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.foreground().darker()),
+				new Attribute("INLINE_PARAMETER_HINT").foreground(style.foreground()).background(palette.aqua().darker()),
+				new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),
 
-			new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.foreground()).background(palette.aqua().brighter()),
-			new Attribute("Block comment").foreground(palette.gray()),
-			new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeAsForeground(),
+				new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.foreground()),
+				new Attribute("BREAKPOINT_ATTRIBUTES").background(style.background().editor().base().darker(3))
+			);
+		}
 
-			new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.foreground().darker()),
-			new Attribute("INLINE_PARAMETER_HINT").foreground(style.foreground()).background(palette.aqua().darker()),
-			new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),
+		private Collection<Attribute> language() {
+			return Set.of(
+				new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),
+				new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua().darker()).bold(),
+				new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(style.error()).underwaved(style.error()).bold(),
 
-			new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error()).errorStripeAsEffect(),
-			new Attribute("WARNING_ATTRIBUTES").underwaved(style.warning()).errorStripeAsEffect(),
-			new Attribute("BAD_CHARACTER").underwaved(style.error()),
-			new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(style.error()).errorStripeAsEffect(),
-			new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
-			new Attribute("NOT_USED_ELEMENT_ATTRIBUTES").foreground(palette.gray()),
-			new Attribute("RUNTIME_ERROR").underwaved(style.error()).errorStripeAsEffect(),
-			new Attribute("TYPO").underwaved(palette.gray().brighter()),
-			new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
+				new Attribute("DEFAULT_CONSTANT").foreground(palette.purple().brighter()),
+				new Attribute("DEFAULT_DOC_COMMENT").foreground(palette.gray()),
+				new Attribute("DEFAULT_DOC_COMMENT_TAG").foreground(palette.gray()),
+				new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE").foreground(palette.gray().darker(2)).italic(),
+				new Attribute("DEFAULT_DOC_MARKUP").foreground(palette.gray().darker(2)),
+				new Attribute("DOC_COMMENT_TAG_VALUE").baseAttributes("DEFAULT_DOC_COMMENT_TAG_VALUE"),
+				new Attribute("DEFAULT_LINE_COMMENT").foreground(palette.gray()).italic(),
+				new Attribute("Block comment").foreground(palette.gray()),
 
-			new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.foreground()),
-			new Attribute("BREAKPOINT_ATTRIBUTES").background(style.background().editor().base().darker(3)),
+				new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
+				new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.foreground()),
+				new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.blue().darker()),
+				new Attribute("DEFAULT_IDENTIFIER").foreground(style.foreground()),
+				new Attribute("DEFAULT_INSTANCE_FIELD").foreground(palette.purple().darker()).bold(),
+				new Attribute("DEFAULT_INTERFACE_NAME").foreground(style.foreground()).italic(),
+				new Attribute("DEFAULT_KEYWORD").foreground(palette.blue()).bold(),
+				new Attribute("DEFAULT_LABEL").foreground(palette.blue()).bold(),
+				new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
+				new Attribute("DEFAULT_METADATA").foreground(palette.green()),
+				new Attribute("DEFAULT_NUMBER").foreground(palette.blue()).bold(),
+				new Attribute("DEFAULT_PARAMETER").foreground(palette.purple()).bold(),
+				new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()),
+				new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold(),
+				new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().darker()).bold().italic(),
+				new Attribute("DEFAULT_STATIC_METHOD").foreground(style.foreground()).italic(),
+				new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
+				new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.foreground().brighter(3)),
+				new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.foreground()).bold(),
+				new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
+				new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link()),
 
-			new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),
+				new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").baseAttributes("CLASS_NAME_ATTRIBUTES"),
+				new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
+				new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
+				new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
+				new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
+				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
 
-			new Attribute("BREADCRUMBS_DEFAULT").foreground(style.foreground()).background(style.background().editor().base()),
-			new Attribute("BREADCRUMBS_HOVERED").foreground(style.foreground()).background(style.background().editor().base().darker(2)),
-			new Attribute("BREADCRUMBS_CURRENT").foreground(style.foreground()).background(style.background().editor().base().darker(4)),
-			new Attribute("BREADCRUMBS_INACTIVE").foreground(style.foreground()), // unknown effect
+				new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER")
+			);
+		}
 
-			new Attribute("LOG_ERROR_OUTPUT").foreground(style.error()),
-			new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray()),
-			new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning()),
+		private Collection<Attribute> errors() {
+			return Set.of(
+				new Attribute("ERRORS_ATTRIBUTES").underwaved(style.error()).errorStripeAsEffect(),
+				new Attribute("WARNING_ATTRIBUTES").underwaved(style.warning()).errorStripeAsEffect(),
+				new Attribute("BAD_CHARACTER").underwaved(style.error()),
+				new Attribute("WRONG_REFERENCES_ATTRIBUTES").underwaved(style.error()).errorStripeAsEffect(),
+				new Attribute("Unresolved reference access").baseAttributes("DEFAULT_IDENTIFIER"),
+				new Attribute("NOT_USED_ELEMENT_ATTRIBUTES").foreground(palette.gray()),
+				new Attribute("RUNTIME_ERROR").underwaved(style.error()).errorStripeAsEffect(),
+				new Attribute("TYPO").underwaved(palette.gray().brighter()),
+				new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated)
+			);
+		}
 
-			new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.foreground()),
-			new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT").foreground(palette.blue().brighter()),
-			new Attribute("CONSOLE_BLUE_OUTPUT").foreground(palette.blue()),
-			new Attribute("CONSOLE_CYAN_BRIGHT_OUTPUT").foreground(palette.aqua().brighter()),
-			new Attribute("CONSOLE_CYAN_OUTPUT").foreground(palette.aqua()),
-			new Attribute("CONSOLE_DARKGRAY_OUTPUT").foreground(palette.gray().darker()),
-			new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error()),
-			new Attribute("CONSOLE_GRAY_OUTPUT").foreground(palette.gray()),
-			new Attribute("CONSOLE_GREEN_BRIGHT_OUTPUT").foreground(palette.green().brighter()),
-			new Attribute("CONSOLE_GREEN_OUTPUT").foreground(palette.green()),
-			new Attribute("CONSOLE_MAGENTA_BRIGHT_OUTPUT").foreground(palette.purple().brighter()),
-			new Attribute("CONSOLE_MAGENTA_OUTPUT").foreground(palette.purple()),
-			new Attribute("CONSOLE_NORMAL_OUTPUT").foreground(style.foreground()),
-			new Attribute("CONSOLE_RED_BRIGHT_OUTPUT").foreground(palette.red().brighter()),
-			new Attribute("CONSOLE_RED_OUTPUT").foreground(palette.red()),
-			new Attribute("CONSOLE_SYSTEM_OUTPUT").foreground(palette.yellow().darker()),
-			new Attribute("CONSOLE_USER_INPUT").foreground(style.foreground()),
-			new Attribute("CONSOLE_WHITE_OUTPUT").foreground(style.foreground()),
-			new Attribute("CONSOLE_YELLOW_BRIGHT_OUTPUT").foreground(palette.yellow().brighter()),
-			new Attribute("CONSOLE_YELLOW_OUTPUT").foreground(palette.yellow())
-		).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
+		private Collection<Attribute> breadcrumbs() {
+			return Set.of(
+				new Attribute("BREADCRUMBS_DEFAULT").foreground(style.foreground()).background(style.background().editor().base()),
+				new Attribute("BREADCRUMBS_HOVERED").foreground(style.foreground()).background(style.background().editor().base().darker(2)),
+				new Attribute("BREADCRUMBS_CURRENT").foreground(style.foreground()).background(style.background().editor().base().darker(4)),
+				new Attribute("BREADCRUMBS_INACTIVE").foreground(style.foreground()) // unknown effect
+			);
+		}
+
+		private Collection<Attribute> log() {
+			return Set.of(
+				new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray()),
+				new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning()),
+				new Attribute("LOG_ERROR_OUTPUT").foreground(style.error())
+			);
+		}
+
+		private Collection<Attribute> console() {
+			return Set.of(
+				new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error()),
+				new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.foreground()),
+				new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT").foreground(palette.blue().brighter()),
+				new Attribute("CONSOLE_BLUE_OUTPUT").foreground(palette.blue()),
+				new Attribute("CONSOLE_CYAN_BRIGHT_OUTPUT").foreground(palette.aqua().brighter()),
+				new Attribute("CONSOLE_CYAN_OUTPUT").foreground(palette.aqua()),
+				new Attribute("CONSOLE_DARKGRAY_OUTPUT").foreground(palette.gray().darker()),
+				new Attribute("CONSOLE_GRAY_OUTPUT").foreground(palette.gray()),
+				new Attribute("CONSOLE_GREEN_BRIGHT_OUTPUT").foreground(palette.green().brighter()),
+				new Attribute("CONSOLE_GREEN_OUTPUT").foreground(palette.green()),
+				new Attribute("CONSOLE_MAGENTA_BRIGHT_OUTPUT").foreground(palette.purple().brighter()),
+				new Attribute("CONSOLE_MAGENTA_OUTPUT").foreground(palette.purple()),
+				new Attribute("CONSOLE_NORMAL_OUTPUT").foreground(style.foreground()),
+				new Attribute("CONSOLE_RED_BRIGHT_OUTPUT").foreground(palette.red().brighter()),
+				new Attribute("CONSOLE_RED_OUTPUT").foreground(palette.red()),
+				new Attribute("CONSOLE_SYSTEM_OUTPUT").foreground(palette.yellow().darker()),
+				new Attribute("CONSOLE_USER_INPUT").foreground(style.foreground()),
+				new Attribute("CONSOLE_WHITE_OUTPUT").foreground(style.foreground()),
+				new Attribute("CONSOLE_YELLOW_BRIGHT_OUTPUT").foreground(palette.yellow().brighter()),
+				new Attribute("CONSOLE_YELLOW_OUTPUT").foreground(palette.yellow())
+			);
+		}
 	}
 }
