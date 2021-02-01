@@ -46,7 +46,7 @@ public class Style {
 	}
 
 	public Color success() {
-		return palette.green().brighter();
+		return palette.aqua().brighter();
 	}
 
 	public Color warning() {

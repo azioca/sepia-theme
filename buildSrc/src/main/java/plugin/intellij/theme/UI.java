@@ -45,6 +45,7 @@ class UI {
 	@JsonProperty OptionPane OptionPane() { return new OptionPane(); }
 	@JsonProperty Panel Panel() { return new Panel(); }
 	@JsonProperty ParameterInfo ParameterInfo() { return new ParameterInfo(); }
+	@JsonProperty Plugins Plugins() { return new Plugins(); }
 	@JsonProperty Popup Popup() { return new Popup(); }
 	@JsonProperty PopupMenu PopupMenu() { return new PopupMenu(); }
 	@JsonProperty PopupMenuSeparator PopupMenuSeparator() { return new PopupMenuSeparator(); }
@@ -374,6 +375,49 @@ class UI {
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color infoForeground = style.infoForeground();
 		@JsonProperty Color lineSeparatorColor = style.borderColor();
+	}
+
+	class Plugins {
+		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color disabledForeground = style.disabledForeground();
+		@JsonProperty Color hoverBackground = style.background().ui().hover();
+		@JsonProperty Color lightSelectionBackground = style.background().ui().selected();
+		@JsonProperty Color tagForeground = background;
+		@JsonProperty Color tagBackground = palette.blue();
+		@JsonProperty Color eapTagBackground = palette.red();
+
+		@JsonProperty Button Button = new Button();
+		@JsonProperty SearchField SearchField = new SearchField();
+		@JsonProperty SectionHeader SectionHeader = new SectionHeader();
+		@JsonProperty Tab Tab = new Tab();
+
+		class Button {
+			@JsonProperty Color installForeground = Plugins.this.background;
+			@JsonProperty Color installBackground = palette.aqua();
+			@JsonProperty Color installFillBackground = installBackground;
+			@JsonProperty Color installFocusedBackground = palette.blue();
+			@JsonProperty Color installBorderColor = installBackground;
+
+			@JsonProperty Color updateForeground = installForeground;
+			@JsonProperty Color updateBackground = installBackground;
+			@JsonProperty Color updateBorderColor = installBorderColor;
+		}
+
+		class SearchField {
+			@JsonProperty Color background = Plugins.this.background.brighter();
+			@JsonProperty Color borderColor = style.borderColor();
+		}
+
+		class SectionHeader {
+			@JsonProperty Color background = Plugins.this.background.darker();
+			@JsonProperty Color foreground = style.foreground();
+		}
+
+		class Tab {
+			@JsonProperty Color selectedForeground; // unknown effect
+			@JsonProperty Color hoverBackground; // unknown effect
+			@JsonProperty Color selectedBackground; // unknown effect
+		}
 	}
 
 	class Popup {

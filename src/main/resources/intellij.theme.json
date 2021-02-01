@@ -220,8 +220,8 @@
 				"errorBackground": "#fb4934",
 				"errorBorderColor": "#cc241d",
 				"errorForeground": "#282828",
-				"informativeBackground": "#b8bb26",
-				"informativeBorderColor": "#98971a",
+				"informativeBackground": "#8ec07c",
+				"informativeBorderColor": "#689d6a",
 				"informativeForeground": "#282828",
 				"warningBackground": "#fabd2f",
 				"warningBorderColor": "#d79921",
@@ -252,6 +252,34 @@
 			"foreground": "#282828",
 			"infoForeground": "#928374",
 			"lineSeparatorColor": "#d5c4a1"
+		},
+		"Plugins": {
+			"Button": {
+				"installBackground": "#689d6a",
+				"installBorderColor": "#689d6a",
+				"installFillBackground": "#689d6a",
+				"installFocusedBackground": "#458588",
+				"installForeground": "#fbf1c7",
+				"updateBackground": "#689d6a",
+				"updateBorderColor": "#689d6a",
+				"updateForeground": "#fbf1c7"
+			},
+			"SearchField": {
+				"background": "#f9f5d7",
+				"borderColor": "#d5c4a1"
+			},
+			"SectionHeader": {
+				"background": "#f2e5bc",
+				"foreground": "#282828"
+			},
+			"Tab": { },
+			"background": "#fbf1c7",
+			"disabledForeground": "#a89984",
+			"eapTagBackground": "#cc241d",
+			"hoverBackground": "#f2e5bc",
+			"lightSelectionBackground": "#d5c4a1",
+			"tagBackground": "#458588",
+			"tagForeground": "#fbf1c7"
 		},
 		"Popup": {
 			"Advertiser": {
@@ -288,7 +316,7 @@
 			"foreground": "#282828",
 			"indeterminateEndColor": "#a89984",
 			"indeterminateStartColor": "#ebdbb2",
-			"passedColor": "#b8bb26",
+			"passedColor": "#8ec07c",
 			"passedEndColor": "#ebdbb2",
 			"progressColor": "#a89984",
 			"trackColor": "#ebdbb2"
