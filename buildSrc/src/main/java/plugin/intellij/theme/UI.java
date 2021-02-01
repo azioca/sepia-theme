@@ -18,7 +18,6 @@ class UI {
 		this.style = Objects.requireNonNull(style);
 	}
 
-	// @JsonProperty("*") Asterisk asterisk() { return new Asterisk(); }
 	@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 	@JsonProperty Borders Borders() { return new Borders(); }
 	@JsonProperty Button Button() { return new Button(); }
@@ -74,30 +73,6 @@ class UI {
 	@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 	@JsonProperty Viewport Viewport() { return new Viewport(); }
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
-
-	class Asterisk {
-		@JsonProperty Color background = style.background().ui().base();
-
-		@JsonProperty Color hoverBackground = style.background().ui().hover();
-
-		@JsonProperty Color selectedBackgroundInactive = style.background().ui().selectedInactive();
-		@JsonProperty Color selectionBackgroundInactive = style.background().ui().selectedInactive();
-		@JsonProperty Color selectionInactiveBackground = style.background().ui().selectedInactive();
-		@JsonProperty Color selectedInactiveBackground = style.background().ui().selectedInactive();
-
-		@JsonProperty Color lightSelectionBackground = style.background().ui().selected();
-		@JsonProperty Color selectedBackground = style.background().ui().selected();
-		@JsonProperty Color selectionBackground = style.background().ui().selected();
-
-		@JsonProperty Color foreground = style.foreground();
-		@JsonProperty Color selectionForeground = style.foreground();
-		@JsonProperty Color selectedForeground = style.foreground();
-		@JsonProperty Color infoForeground = style.infoForeground();
-
-		@JsonProperty Color borderColor = style.borderColor();
-		@JsonProperty Color disabledBorderColor = borderColor.brighter();
-		@JsonProperty Color separatorColor = borderColor;
-	}
 
 	class ActionButton {
 		@JsonProperty Color hoverBackground = style.background().ui().hover();
