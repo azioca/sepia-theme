@@ -33,6 +33,9 @@
 		}
 	},
 	"ui": {
+		"*": {
+			"background": "#fbf1c7"
+		},
 		"ActionButton": {
 			"hoverBackground": "#f2e5bc",
 			"hoverBorderColor": "#ebdbb2",
@@ -95,9 +98,12 @@
 		},
 		"Component": {
 			"borderColor": "#d5c4a1",
+			"disabledBorderColor": "#ebdbb2",
 			"errorFocusColor": "#cc241d",
 			"focusColor": "#83a598",
 			"focusedBorderColor": "#d5c4a1",
+			"inactiveErrorFocusColor": "#cc241d7f",
+			"inactiveWarningFocusColor": "#fabd2f7f",
 			"infoForeground": "#928374",
 			"warningFocusColor": "#fabd2f"
 		},
@@ -308,7 +314,8 @@
 			"borderWidth": 0,
 			"foreground": "#282828",
 			"selectionBackground": "#d5c4a1",
-			"selectionForeground": "#282828"
+			"selectionForeground": "#282828",
+			"translucentBackground": "#fbf1c7b2"
 		},
 		"PopupMenuSeparator": { },
 		"ProgressBar": {

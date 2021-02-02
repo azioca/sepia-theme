@@ -18,7 +18,7 @@ class UI {
 		this.style = Objects.requireNonNull(style);
 	}
 
-	// @JsonProperty("*") Asterisk Asterisk() { return new Asterisk(); }
+	@JsonProperty("*") Asterisk Asterisk() { return new Asterisk(); }
 
 	@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 	@JsonProperty Borders Borders() { return new Borders(); }
@@ -77,6 +77,7 @@ class UI {
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
 
 	class Asterisk {
+		// new file popup text field
 		@JsonProperty Color background = style.background().ui().base();
 	}
 
@@ -164,13 +165,13 @@ class UI {
 		@JsonProperty Color borderColor = style.borderColor();
 		@JsonProperty Integer focusWidth;
 		@JsonProperty Integer arc;
-		@JsonProperty Color disabledBorderColor;
+		@JsonProperty Color disabledBorderColor = borderColor.brighter();
 		@JsonProperty Color errorFocusColor = style.error();
 		@JsonProperty Color focusColor = style.background().editor().selectedText();
 		@JsonProperty Color hoverIconColor;
 		@JsonProperty Color iconColor;
-		@JsonProperty Color inactiveErrorFocusColor;
-		@JsonProperty Color inactiveWarningFocusColor;
+		@JsonProperty Color inactiveErrorFocusColor = style.error().opacity(0.5);
+		@JsonProperty Color inactiveWarningFocusColor = style.warning().opacity(0.5);
 		@JsonProperty Color infoForeground = style.infoForeground();
 		@JsonProperty Color warningFocusColor = style.warning();
 	}
@@ -439,7 +440,7 @@ class UI {
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
 		@JsonProperty Color selectionForeground = style.foreground();
-		@JsonProperty Color translucentBackgroun;
+		@JsonProperty Color translucentBackground = background.opacity(0.7);
 	}
 
 	class PopupMenuSeparator {
