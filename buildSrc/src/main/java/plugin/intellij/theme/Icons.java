@@ -23,6 +23,7 @@ class Icons {
 		@JsonUnwrapped(prefix = "Actions.") @JsonProperty ColorPalette.Actions Actions = new ColorPalette.Actions();
 		@JsonUnwrapped(prefix = "Objects.") @JsonProperty ColorPalette.Objects Objects = new ColorPalette.Objects();
 		@JsonUnwrapped(prefix = "Checkbox.") @JsonProperty ColorPalette.Checkbox Checkbox = new ColorPalette.Checkbox();
+		@JsonProperty("Tree.iconColor") Color treeIcon = style.background().ui().base().darkest();
 
 		class Actions {
 			@JsonProperty Color Grey = palette.gray();

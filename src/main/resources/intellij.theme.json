@@ -29,7 +29,8 @@
 			"Objects.Red": "#cc241d",
 			"Objects.RedStatus": "#cc241d",
 			"Objects.Yellow": "#d79921",
-			"Objects.YellowDark": "#b57614"
+			"Objects.YellowDark": "#b57614",
+			"Tree.iconColor": "#a89984"
 		}
 	},
 	"ui": {
