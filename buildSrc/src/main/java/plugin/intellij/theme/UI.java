@@ -18,6 +18,8 @@ class UI {
 		this.style = Objects.requireNonNull(style);
 	}
 
+	// @JsonProperty("*") Asterisk Asterisk() { return new Asterisk(); }
+
 	@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 	@JsonProperty Borders Borders() { return new Borders(); }
 	@JsonProperty Button Button() { return new Button(); }
@@ -73,6 +75,10 @@ class UI {
 	@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 	@JsonProperty Viewport Viewport() { return new Viewport(); }
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
+
+	class Asterisk {
+		@JsonProperty Color background = style.background().ui().base();
+	}
 
 	class ActionButton {
 		@JsonProperty Color hoverBackground = style.background().ui().hover();
@@ -159,7 +165,7 @@ class UI {
 		@JsonProperty Integer focusWidth;
 		@JsonProperty Integer arc;
 		@JsonProperty Color disabledBorderColor;
-		@JsonProperty Color errorFocusColor;
+		@JsonProperty Color errorFocusColor = style.error();
 		@JsonProperty Color focusColor = style.background().editor().selectedText();
 		@JsonProperty Color hoverIconColor;
 		@JsonProperty Color iconColor;
