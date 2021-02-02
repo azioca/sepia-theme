@@ -34,9 +34,6 @@
 		}
 	},
 	"ui": {
-		"*": {
-			"background": "#fbf1c7"
-		},
 		"ActionButton": {
 			"hoverBackground": "#f2e5bc",
 			"hoverBorderColor": "#ebdbb2",
@@ -217,6 +214,14 @@
 			"foreground": "#282828",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
+		},
+		"NewClass": {
+			"Panel": {
+				"background": "#fbf1c7"
+			},
+			"SearchField": {
+				"background": "#f9f5d7"
+			}
 		},
 		"Notification": {
 			"MoreButton": {

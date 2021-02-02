@@ -18,8 +18,6 @@ class UI {
 		this.style = Objects.requireNonNull(style);
 	}
 
-	@JsonProperty("*") Asterisk Asterisk() { return new Asterisk(); }
-
 	@JsonProperty ActionButton ActionButton() { return new ActionButton(); }
 	@JsonProperty Borders Borders() { return new Borders(); }
 	@JsonProperty Button Button() { return new Button(); }
@@ -42,6 +40,7 @@ class UI {
 	@JsonProperty MenuBar MenuBar() { return new MenuBar(); }
 	@JsonProperty MenuItem MenuItem() { return new MenuItem(); }
 	@JsonProperty MemoryIndicator MemoryIndicator() { return new MemoryIndicator(); }
+	@JsonProperty NewClass NewClass() { return new NewClass(); }
 	@JsonProperty Notification Notification() { return new Notification(); }
 	@JsonProperty OptionPane OptionPane() { return new OptionPane(); }
 	@JsonProperty Panel Panel() { return new Panel(); }
@@ -75,11 +74,6 @@ class UI {
 	@JsonProperty VersionControl VersionControl() { return new VersionControl(); }
 	@JsonProperty Viewport Viewport() { return new Viewport(); }
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
-
-	class Asterisk {
-		// new file popup text field
-		@JsonProperty Color background = style.background().ui().base();
-	}
 
 	class ActionButton {
 		@JsonProperty Color hoverBackground = style.background().ui().hover();
@@ -306,6 +300,21 @@ class UI {
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color selectionBackground = style.background().ui().selected();
 		@JsonProperty Color selectionForeground = style.foreground();
+	}
+
+	class NewClass {
+		@JsonProperty Integer separatorWidth;
+
+		@JsonProperty Panel Panel = new Panel();
+		@JsonProperty SearchField SearchField = new SearchField();
+
+		class Panel {
+			@JsonProperty Color background = style.background().ui().base();
+		}
+
+		class SearchField {
+			@JsonProperty Color background = style.background().ui().input();
+		}
 	}
 
 	class Notification {
