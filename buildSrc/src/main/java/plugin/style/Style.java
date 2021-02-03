@@ -34,7 +34,7 @@ public class Style {
 	}
 
 	public Background background() {
-		return new Background(palette, palette.sepia().brighter(3));
+		return new Background(palette);
 	}
 
 	public Color borderColor() {

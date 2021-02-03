@@ -402,6 +402,11 @@
 		"Separator": {
 			"separatorColor": "#d5c4a1"
 		},
+		"Settings": {
+			"Spotlight": {
+				"borderColor": "#8ec07c"
+			}
+		},
 		"SidePanel": {
 			"background": "#f2e5bc"
 		},

@@ -53,8 +53,9 @@ class UI {
 	@JsonProperty RadioButton RadioButton() { return new RadioButton(); }
 	@JsonProperty ScrollBar ScrollBar() { return new ScrollBar(); }
 	@JsonProperty SearchEverywhere SearchEverywhere() { return new SearchEverywhere(); }
-	@JsonProperty Separator Separator() { return new Separator(); }
 	@JsonProperty SearchMatch SearchMatch() { return new SearchMatch(); }
+	@JsonProperty Separator Separator() { return new Separator(); }
+	@JsonProperty Settings Settings() { return new Settings(); }
 	@JsonProperty SidePanel SidePanel() { return new SidePanel(); }
 	@JsonProperty Slider Slider() { return new Slider(); }
 	@JsonProperty SpeedSearch SpeedSearch() { return new SpeedSearch(); }
@@ -254,7 +255,7 @@ class UI {
 	}
 
 	class List {
-		@JsonProperty Color background = style.background().ui().base();
+		@JsonProperty Color background = style.background().ui().base(); // used also for branch search field
 		@JsonProperty Color dropLineColor = style.borderColor();
 		@JsonProperty Color foreground = style.foreground();
 		@JsonProperty Color hoverBackground = style.background().ui().hover();
@@ -552,13 +553,21 @@ class UI {
 		}
 	}
 
+	class SearchMatch {
+		@JsonProperty Color startBackground = style.searchBackground();
+		@JsonProperty Color endBackground = startBackground;
+	}
+
 	class Separator {
 		@JsonProperty Color separatorColor = style.borderColor();
 	}
 
-	class SearchMatch {
-		@JsonProperty Color startBackground = style.searchBackground();
-		@JsonProperty Color endBackground = startBackground;
+	class Settings {
+		@JsonProperty Spotlight Spotlight = new Spotlight();
+
+		class Spotlight {
+			@JsonProperty Color borderColor = style.searchBackground();
+		}
 	}
 
 	class SidePanel {

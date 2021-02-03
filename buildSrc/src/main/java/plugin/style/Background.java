@@ -7,15 +7,13 @@ import static java.util.Objects.requireNonNull;
 
 public class Background {
 	private final Palette palette;
-	private final Color editor;
 
-	public Background(Palette palette, Color editorBackground) {
+	public Background(Palette palette) {
 		this.palette = requireNonNull(palette);
-		this.editor = requireNonNull(editorBackground);
 	}
 
 	public Editor editor() {
-		return new Editor(palette, editor);
+		return new Editor(palette);
 	}
 
 	public UI ui() {
@@ -28,15 +26,13 @@ public class Background {
 
 	public static class Editor {
 		private final Palette palette;
-		private final Color base;
 
-		public Editor(Palette palette, Color base) {
+		public Editor(Palette palette) {
 			this.palette = requireNonNull(palette);
-			this.base = requireNonNull(base);
 		}
 
 		public Color base() {
-			return base;
+			return palette.sepia().brighter(3);
 		}
 
 		public Color selectedLine() {
