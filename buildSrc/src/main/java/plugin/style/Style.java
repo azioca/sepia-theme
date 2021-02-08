@@ -2,6 +2,13 @@ package plugin.style;
 
 import plugin.domain.Color;
 import plugin.domain.Palette;
+import plugin.style.editor.Editor;
+import plugin.style.ui.Button;
+import plugin.style.ui.Checkbox;
+import plugin.style.ui.Scrollbar;
+import plugin.style.ui.Tab;
+import plugin.style.ui.Table;
+import plugin.style.ui.UI;
 
 import static java.util.Objects.requireNonNull;
 

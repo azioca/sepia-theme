@@ -1,12 +1,13 @@
-package plugin.style;
+package plugin.style.ui;
 
 import plugin.domain.Color;
+import plugin.style.Style;
 
 public class Checkbox {
 
 	private final Style style;
 
-	Checkbox(Style style) {
+	public Checkbox(Style style) {
 		this.style = style;
 	}
 

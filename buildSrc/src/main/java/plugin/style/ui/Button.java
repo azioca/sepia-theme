@@ -1,6 +1,7 @@
-package plugin.style;
+package plugin.style.ui;
 
 import plugin.domain.Color;
+import plugin.style.Style;
 
 import java.util.Objects;
 
