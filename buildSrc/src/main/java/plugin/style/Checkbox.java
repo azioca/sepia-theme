@@ -11,11 +11,11 @@ public class Checkbox {
 	}
 
 	public Color textForeground() {
-		return style.foreground();
+		return style.foreground().base();
 	}
 
 	public Color textBackground() {
-		return style.background().ui().base();
+		return style.ui().background().base();
 	}
 
 	public Color focus() {
@@ -23,15 +23,15 @@ public class Checkbox {
 	}
 
 	public Color hook() {
-		return style.background().ui().base().brightest();
+		return style.ui().background().base().brightest();
 	}
 
 	public Color selectedBoxBackground() {
-		return style.background().ui().base().darkest();
+		return style.ui().background().base().darkest();
 	}
 
 	public Color disabledBoxBackground() {
-		return style.background().ui().base();
+		return style.ui().background().base();
 	}
 
 	public Color border() {

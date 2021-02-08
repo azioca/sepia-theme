@@ -286,7 +286,7 @@
 				"background": "#f2e5bc",
 				"foreground": "#282828"
 			},
-			"Tab": { },
+			"Tab": {},
 			"background": "#fbf1c7",
 			"disabledForeground": "#a89984",
 			"eapTagBackground": "#cc241d",
@@ -324,7 +324,7 @@
 			"selectionForeground": "#282828",
 			"translucentBackground": "#fbf1c7b2"
 		},
-		"PopupMenuSeparator": { },
+		"PopupMenuSeparator": {},
 		"ProgressBar": {
 			"failedColor": "#cc241d",
 			"failedEndColor": "#ebdbb2",
@@ -552,7 +552,7 @@
 			"warningBorderColor": "#d79921"
 		},
 		"VersionControl": {
-			"GitLog": { },
+			"GitLog": {},
 			"Log": {
 				"Commit": {
 					"currentBranchBackground": "#f2e5bc",

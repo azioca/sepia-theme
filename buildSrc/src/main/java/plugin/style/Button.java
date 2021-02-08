@@ -13,7 +13,7 @@ public class Button {
 	}
 
 	public Color around() {
-		return style.background().ui().base();
+		return style.ui().background().base();
 	}
 
 	public Ordinary ordinary() {
@@ -27,7 +27,7 @@ public class Button {
 	public class Ordinary {
 
 		public Color background() {
-			return style.background().ui().base().darker();
+			return style.ui().background().base().darker();
 		}
 
 		public Color border() {
@@ -54,7 +54,7 @@ public class Button {
 		}
 
 		public Color focusedBorder() {
-			return style.background().editor().selectedText();
+			return style.editor().background().selectedText();
 		}
 	}
 }

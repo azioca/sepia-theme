@@ -13,7 +13,7 @@ public class Table {
 	}
 
 	public Color background() {
-		return style.background().ui().base().brighter();
+		return style.ui().background().base().brighter();
 	}
 
 	public Color alternativeRowBackground() {

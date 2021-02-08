@@ -13,32 +13,24 @@ public class Style {
 		this.palette = requireNonNull(palette);
 	}
 
-	public Color foreground() {
-		return palette.black().darker(2);
+	public Foreground foreground() {
+		return new Foreground(palette);
 	}
 
-	public Color infoForeground() {
-		return palette.gray();
+	public UI ui() {
+		return new UI(palette);
+	}
+
+	public Editor editor() {
+		return new Editor(palette);
 	}
 
 	public Color searchBackground() {
 		return palette.aqua().brighter();
 	}
 
-	public Color disabledForeground() {
-		return palette.gray().brighter();
-	}
-
-	public Color modifiedForeground() {
-		return palette.blue();
-	}
-
-	public Background background() {
-		return new Background(palette);
-	}
-
 	public Color borderColor() {
-		return background().ui().base().darker(3);
+		return ui().background().base().darker(3);
 	}
 
 	public Color editorLines() {
@@ -66,7 +58,7 @@ public class Style {
 	}
 
 	public Scrollbar scrollbar() {
-		return new Scrollbar(background().ui().base());
+		return new Scrollbar(ui().background().base());
 	}
 
 	public Color link() {
@@ -74,7 +66,7 @@ public class Style {
 	}
 
 	public Tab tab() {
-		return new Tab(background());
+		return new Tab(this);
 	}
 
 	public Table table() {

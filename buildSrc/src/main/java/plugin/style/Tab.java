@@ -2,18 +2,18 @@ package plugin.style;
 
 import plugin.domain.Color;
 
-import java.util.Objects;
+import static java.util.Objects.requireNonNull;
 
 public class Tab {
 
-	private final Background background;
+	private final Style style;
 
-	public Tab(Background background) {
-		this.background = Objects.requireNonNull(background);
+	public Tab(Style style) {
+		this.style = requireNonNull(style);
 	}
 
 	public Color selected() {
-		return background.ui().base();
+		return style.ui().background().base();
 	}
 
 	public Color hover() {
@@ -33,7 +33,7 @@ public class Tab {
 	}
 
 	public Color underline() {
-		return background.editor().selectedText();
+		return style.editor().background().selectedText();
 	}
 
 	public Integer editorUnderlineHeight() {
