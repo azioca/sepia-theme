@@ -36,7 +36,6 @@ public class Color {
 		this.opacity = opacity;
 		this.presentAsHex = presentAsHex;
 	}
-
 	public Color darkest() {
 		return new Color(slider.slideToDarkest(), opacity, presentAsHex);
 	}
