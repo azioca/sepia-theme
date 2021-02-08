@@ -21,6 +21,7 @@ intellij {
 }
 
 patchPluginXml {
+	untilBuild = '211.*'
 	pluginDescription = """
     	<h3>Sepia Theme</h3>
     	<br>
