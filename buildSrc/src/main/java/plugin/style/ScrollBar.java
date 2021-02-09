@@ -1,14 +1,15 @@
-package plugin.style.theme;
+package plugin.style;
 
 import plugin.domain.Color;
+import plugin.style.theme.Theme;
 
 import static java.util.Objects.requireNonNull;
 
-public class Scrollbar {
+public class ScrollBar {
 
 	private final Theme theme;
 
-	public Scrollbar(Theme theme) {
+	public ScrollBar(Theme theme) {
 		this.theme = requireNonNull(theme);
 	}
 

@@ -23,6 +23,10 @@ public class Style {
 		return new Scheme(palette);
 	}
 
+	public ScrollBar scrollBar() {
+		return new ScrollBar(theme());
+	}
+
 	public Color success() {
 		return palette.aqua().brighter();
 	}

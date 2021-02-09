@@ -41,10 +41,6 @@ public class Theme {
 		return background().base().darker(3);
 	}
 
-	public Scrollbar scrollbar() {
-		return new Scrollbar(this);
-	}
-
 	Color focus() {
 		return palette.blue().brighter();
 	}

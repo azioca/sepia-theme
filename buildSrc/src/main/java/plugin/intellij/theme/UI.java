@@ -489,13 +489,13 @@ class UI {
 	}
 
 	class ScrollBar {
-		@JsonProperty Color background = style.theme().scrollbar().trackColor().opaque();
+		@JsonProperty Color background = style.scrollBar().trackColor().opaque();
 		@JsonProperty Color track;
-		@JsonProperty Color trackColor = style.theme().scrollbar().trackColor().opaque();
+		@JsonProperty Color trackColor = style.scrollBar().trackColor().opaque();
 		@JsonProperty Color hoverTrackColor = trackColor;
 		@JsonProperty Color trackHighlight;
 		@JsonProperty Color thumb;
-		@JsonProperty Color thumbColor = style.theme().scrollbar().thumbColor();
+		@JsonProperty Color thumbColor = style.scrollBar().thumbColor();
 		@JsonProperty Color thumbBorderColor = thumbColor;
 		@JsonProperty Color hoverThumbColor = thumbColor;
 		@JsonProperty Color hoverThumbBorderColor = thumbBorderColor;
@@ -516,12 +516,12 @@ class UI {
 		}
 
 		class Transparent {
-			@JsonProperty Color trackColor = style.theme().scrollbar().trackColor();
-			@JsonProperty Color thumbColor = style.theme().scrollbar().thumbColor();
-			@JsonProperty Color thumbBorderColor = style.theme().scrollbar().thumbBorderColor();
-			@JsonProperty Color hoverTrackColor = style.theme().scrollbar().hoverTrackColor();
-			@JsonProperty Color hoverThumbColor = style.theme().scrollbar().hoverThumbColor();
-			@JsonProperty Color hoverThumbBorderColor = style.theme().scrollbar().hoverThumbBorderColor();
+			@JsonProperty Color trackColor = style.scrollBar().trackColor();
+			@JsonProperty Color thumbColor = style.scrollBar().thumbColor();
+			@JsonProperty Color thumbBorderColor = style.scrollBar().thumbBorderColor();
+			@JsonProperty Color hoverTrackColor = style.scrollBar().hoverTrackColor();
+			@JsonProperty Color hoverThumbColor = style.scrollBar().hoverThumbColor();
+			@JsonProperty Color hoverThumbBorderColor = style.scrollBar().hoverThumbBorderColor();
 		}
 	}
 
