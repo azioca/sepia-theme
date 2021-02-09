@@ -1,10 +1,12 @@
 package plugin.domain.color;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import plugin.lang.Check;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class Color {
 
@@ -16,12 +18,24 @@ public class Color {
 		return new Color("000000").opacity(0);
 	}
 
-	public Color(String value) {
-		this(0, value);
+	public Color(String... values) {
+		this(
+			stream(values)
+				.map(Value::new)
+				.collect(Collectors.toList())
+			);
 	}
 
-	public Color(int chosen, String... hues) {
-		this(chosen, Arrays.stream(hues).map(Value::new).collect(Collectors.toList()));
+	public Color(List<Value> values) {
+		this(middleIndex(hasMiddle(values)), values);
+	}
+
+	private static List<Value> hasMiddle(List<Value> values) {
+		return Check.argument(values, a -> a.size() % 2 == 1, "Values should have middle element: " + values);
+	}
+
+	private static int middleIndex(List<Value> values) {
+		return values.size() / 2;
 	}
 
 	private Color(int chosen, List<Value> values) {
