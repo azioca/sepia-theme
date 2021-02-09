@@ -1,14 +1,14 @@
-package plugin.style.ui;
+package plugin.style.scheme;
 
 import plugin.domain.Palette;
 
 import static java.util.Objects.requireNonNull;
 
-public class UI {
+public class Scheme {
 
 	private final Palette palette;
 
-	public UI(Palette palette) {
+	public Scheme(Palette palette) {
 		this.palette = requireNonNull(palette);
 	}
 
@@ -17,6 +17,6 @@ public class UI {
 	}
 
 	public Background background() {
-		return new Background(palette.sepia().brightest());
+		return new Background(palette);
 	}
 }

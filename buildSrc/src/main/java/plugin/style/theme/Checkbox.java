@@ -1,4 +1,4 @@
-package plugin.style.ui;
+package plugin.style.theme;
 
 import plugin.domain.Color;
 import plugin.style.Style;
@@ -12,11 +12,11 @@ public class Checkbox {
 	}
 
 	public Color textForeground() {
-		return style.ui().foreground().base();
+		return style.theme().foreground().base();
 	}
 
 	public Color textBackground() {
-		return style.ui().background().base();
+		return style.theme().background().base();
 	}
 
 	public Color focus() {
@@ -24,15 +24,15 @@ public class Checkbox {
 	}
 
 	public Color hook() {
-		return style.ui().background().base().brightest();
+		return style.theme().background().base().brightest();
 	}
 
 	public Color selectedBoxBackground() {
-		return style.ui().background().base().darkest();
+		return style.theme().background().base().darkest();
 	}
 
 	public Color disabledBoxBackground() {
-		return style.ui().background().base();
+		return style.theme().background().base();
 	}
 
 	public Color border() {

@@ -2,13 +2,13 @@ package plugin.style;
 
 import plugin.domain.Color;
 import plugin.domain.Palette;
-import plugin.style.editor.Editor;
-import plugin.style.ui.Button;
-import plugin.style.ui.Checkbox;
-import plugin.style.ui.Scrollbar;
-import plugin.style.ui.Tab;
-import plugin.style.ui.Table;
-import plugin.style.ui.UI;
+import plugin.style.scheme.Scheme;
+import plugin.style.theme.Button;
+import plugin.style.theme.Checkbox;
+import plugin.style.theme.Scrollbar;
+import plugin.style.theme.Tab;
+import plugin.style.theme.Table;
+import plugin.style.theme.Theme;
 
 import static java.util.Objects.requireNonNull;
 
@@ -20,12 +20,12 @@ public class Style {
 		this.palette = requireNonNull(palette);
 	}
 
-	public UI ui() {
-		return new UI(palette);
+	public Theme theme() {
+		return new Theme(palette);
 	}
 
-	public Editor editor() {
-		return new Editor(palette);
+	public Scheme scheme() {
+		return new Scheme(palette);
 	}
 
 	public Color searchBackground() {
@@ -33,7 +33,7 @@ public class Style {
 	}
 
 	public Color borderColor() {
-		return ui().background().base().darker(3);
+		return theme().background().base().darker(3);
 	}
 
 	public Color editorLines() {
@@ -61,7 +61,7 @@ public class Style {
 	}
 
 	public Scrollbar scrollbar() {
-		return new Scrollbar(ui().background().base());
+		return new Scrollbar(theme().background().base());
 	}
 
 	public Color link() {

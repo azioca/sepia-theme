@@ -1,10 +1,11 @@
-package plugin.style.ui;
+package plugin.style.scheme;
 
 import plugin.domain.Color;
 import plugin.domain.Palette;
 
 import java.util.Objects;
 
+// todo divide to editor and ui
 public class Foreground {
 
 	private final Palette palette;
@@ -17,15 +18,7 @@ public class Foreground {
 		return palette.black().darker(2);
 	}
 
-	public Color info() {
-		return palette.gray();
-	}
-
 	public Color disabled() {
 		return palette.gray().brighter();
-	}
-
-	public Color modified() {
-		return palette.blue();
 	}
 }

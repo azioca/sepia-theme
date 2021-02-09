@@ -1,4 +1,4 @@
-package plugin.style.editor;
+package plugin.style.scheme;
 
 import plugin.domain.Color;
 import plugin.domain.Palette;

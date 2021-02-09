@@ -1,4 +1,4 @@
-package plugin.style.ui;
+package plugin.style.theme;
 
 import plugin.domain.Color;
 import plugin.style.Style;
@@ -14,7 +14,7 @@ public class Tab {
 	}
 
 	public Color selected() {
-		return style.ui().background().base();
+		return style.theme().background().base();
 	}
 
 	public Color hover() {
@@ -34,7 +34,7 @@ public class Tab {
 	}
 
 	public Color underline() {
-		return style.editor().background().selectedText();
+		return style.scheme().background().selectedText();
 	}
 
 	public Integer editorUnderlineHeight() {

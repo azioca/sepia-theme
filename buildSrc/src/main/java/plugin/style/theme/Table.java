@@ -1,4 +1,4 @@
-package plugin.style.ui;
+package plugin.style.theme;
 
 import plugin.domain.Color;
 import plugin.style.Style;
@@ -14,7 +14,7 @@ public class Table {
 	}
 
 	public Color background() {
-		return style.ui().background().base().brighter();
+		return style.theme().background().base().brighter();
 	}
 
 	public Color alternativeRowBackground() {

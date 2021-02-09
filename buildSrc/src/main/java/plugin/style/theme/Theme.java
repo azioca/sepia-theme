@@ -1,14 +1,14 @@
-package plugin.style.editor;
+package plugin.style.theme;
 
 import plugin.domain.Palette;
 
 import static java.util.Objects.requireNonNull;
 
-public class Editor {
+public class Theme {
 
 	private final Palette palette;
 
-	public Editor(Palette palette) {
+	public Theme(Palette palette) {
 		this.palette = requireNonNull(palette);
 	}
 
@@ -17,6 +17,6 @@ public class Editor {
 	}
 
 	public Background background() {
-		return new Background(palette);
+		return new Background(palette.sepia().brightest());
 	}
 }

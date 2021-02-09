@@ -1,4 +1,4 @@
-package plugin.style.ui;
+package plugin.style.theme;
 
 import plugin.domain.Color;
 

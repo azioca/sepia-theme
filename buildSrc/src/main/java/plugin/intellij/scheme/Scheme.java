@@ -52,11 +52,11 @@ public class Scheme {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
-			new Option.Color("CARET_COLOR", style.editor().foreground().base()),
-			new Option.Color("CARET_ROW_COLOR", style.editor().background().selectedLine()),
-			new Option.Color("SELECTION_FOREGROUND", style.editor().foreground().base()),
-			new Option.Color("SELECTION_BACKGROUND", style.editor().background().selectedText()),
-			new Option.Color("READONLY_BACKGROUND", style.ui().background().readOnly()),
+			new Option.Color("CARET_COLOR", style.scheme().foreground().base()),
+			new Option.Color("CARET_ROW_COLOR", style.scheme().background().selectedLine()),
+			new Option.Color("SELECTION_FOREGROUND", style.scheme().foreground().base()),
+			new Option.Color("SELECTION_BACKGROUND", style.scheme().background().selectedText()),
+			new Option.Color("READONLY_BACKGROUND", style.theme().background().readOnly()),
 
 			new Option.Color("ADDED_LINES_COLOR", added),
 			new Option.Color("IGNORED_ADDED_LINES_BORDER_COLOR", added),
@@ -66,7 +66,7 @@ public class Scheme {
 
 			new Option.Color("MODIFIED_LINES_COLOR", modified),
 			new Option.Color("IGNORED_MODIFIED_LINES_BORDER_COLOR", modified),
-			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", style.editor().background().selectedLine().darker()),
+			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", style.scheme().background().selectedLine().darker()),
 			// new Option.Color("FILESTATUS_MODIFIED", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker()),
@@ -91,28 +91,28 @@ public class Scheme {
 			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbColor", (style.scrollbar()).hoverThumbColor()),
 			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbBorderColor", (style.scrollbar()).hoverThumbBorderColor()),
 
-			new Option.Color("SELECTED_INDENT_GUIDE", style.editor().foreground().base()),
-			new Option.Color("SELECTED_TEARLINE_COLOR", style.editor().foreground().base()),
+			new Option.Color("SELECTED_INDENT_GUIDE", style.scheme().foreground().base()),
+			new Option.Color("SELECTED_TEARLINE_COLOR", style.scheme().foreground().base()),
 			new Option.Color("INDENT_GUIDE", style.editorLines()),
 			new Option.Color("RIGHT_MARGIN_COLOR", style.editorLines()),
 			new Option.Color("TEARLINE_COLOR", style.editorLines().darker()),
 			new Option.Color("LINE_NUMBERS_COLOR", style.editorLines().darker()),
 
-			new Option.Color("ANNOTATIONS_COLOR", style.editor().foreground().base()),
-			new Option.Color("CONSOLE_BACKGROUND_KEY", style.editor().background().base()),
-			new Option.Color("DOCUMENTATION_COLOR", style.editor().background().base()),
-			new Option.Color("GUTTER_BACKGROUND", style.editor().background().base()),
+			new Option.Color("ANNOTATIONS_COLOR", style.scheme().foreground().base()),
+			new Option.Color("CONSOLE_BACKGROUND_KEY", style.scheme().background().base()),
+			new Option.Color("DOCUMENTATION_COLOR", style.scheme().background().base()),
+			new Option.Color("GUTTER_BACKGROUND", style.scheme().background().base()),
 
-			new Option.Color("VCS_ANNOTATIONS_COLOR_1", style.editor().background().base()),
-			new Option.Color("VCS_ANNOTATIONS_COLOR_2", style.editor().background().base().darker()),
-			new Option.Color("VCS_ANNOTATIONS_COLOR_3", style.editor().background().base().darker(2)),
-			new Option.Color("VCS_ANNOTATIONS_COLOR_4", style.editor().background().base().darker(3)),
-			new Option.Color("VCS_ANNOTATIONS_COLOR_5", style.editor().background().base().darker(4))
+			new Option.Color("VCS_ANNOTATIONS_COLOR_1", style.scheme().background().base()),
+			new Option.Color("VCS_ANNOTATIONS_COLOR_2", style.scheme().background().base().darker()),
+			new Option.Color("VCS_ANNOTATIONS_COLOR_3", style.scheme().background().base().darker(2)),
+			new Option.Color("VCS_ANNOTATIONS_COLOR_4", style.scheme().background().base().darker(3)),
+			new Option.Color("VCS_ANNOTATIONS_COLOR_5", style.scheme().background().base().darker(4))
 		).stream().sorted(Comparator.comparing(Option.Color::name)).collect(Collectors.toList());
 	}
 
 	class Attributes {
-		private final Color deprecated = style.editor().foreground().base().brighter(3);
+		private final Color deprecated = style.scheme().foreground().base().brighter(3);
 
 		private final Color searchBackground = style.searchBackground();
 		private final Color searchWriteBackground = searchBackground.darker();
@@ -132,18 +132,18 @@ public class Scheme {
 
 		private Collection<Attribute> operations() {
 			return Set.of(
-				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.editor().foreground().base()).background(style.editor().background().underCaret()).errorStripeAsForeground(),
-				new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.editor().foreground().base()).background(style.editor().background().underCaretWrite()).errorStripeAsForeground(),
+				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(style.scheme().background().underCaret()).errorStripeAsForeground(),
+				new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(style.scheme().background().underCaretWrite()).errorStripeAsForeground(),
 
-				new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.editor().foreground().base()).background(searchBackground).errorStripeAsBackground(),
-				new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.editor().foreground().base()).background(searchBackground).errorStripeAsBackground(),
-				new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.editor().foreground().base()).background(searchWriteBackground).errorStripeAsBackground(),
+				new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchBackground).errorStripeAsBackground(),
+				new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchBackground).errorStripeAsBackground(),
+				new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchWriteBackground).errorStripeAsBackground(),
 
 				new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(palette.red().brighter()),
-				new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.editor().foreground().disabled()),
+				new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.scheme().foreground().disabled()),
 				new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
 
-				new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.editor().foreground().base()).bold(),
+				new Attribute("MATCHED_BRACE_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold(),
 				new Attribute("UNMATCHED_BRACE_ATTRIBUTES").background(style.error()).errorStripeAsBackground(),
 
 				new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link())
@@ -152,25 +152,25 @@ public class Scheme {
 
 		private Collection<Attribute> editor() {
 			return Set.of(
-				new Attribute("TEXT").foreground(style.editor().foreground().base()).background(style.editor().background().base()),
+				new Attribute("TEXT").foreground(style.scheme().foreground().base()).background(style.scheme().background().base()),
 
 				new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
 				new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
-				new Attribute("DEFAULT_BRACES").foreground(style.editor().foreground().base()),
-				new Attribute("DEFAULT_BRACKETS").foreground(style.editor().foreground().base()),
-				new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.editor().foreground().base()),
-				new Attribute("DEFAULT_DOT").foreground(style.editor().foreground().base()),
+				new Attribute("DEFAULT_BRACES").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_BRACKETS").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base()),
 
 				new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeAsForeground(),
 				new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
 
-				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.editor().foreground().base()).background(palette.aqua().brighter()),
-				new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.editor().foreground().base().darker()),
-				new Attribute("INLINE_PARAMETER_HINT").foreground(style.editor().foreground().base()).background(palette.aqua().darker()),
+				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(palette.aqua().brighter()),
+				new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.scheme().foreground().base().darker()),
+				new Attribute("INLINE_PARAMETER_HINT").foreground(style.scheme().foreground().base()).background(palette.aqua().darker()),
 				new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),
 
-				new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.editor().foreground().base()),
-				new Attribute("BREAKPOINT_ATTRIBUTES").background(style.editor().background().base().darker(3))
+				new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.scheme().foreground().base()),
+				new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3))
 			);
 		}
 
@@ -190,11 +190,11 @@ public class Scheme {
 				new Attribute("Block comment").foreground(palette.gray()),
 
 				new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
-				new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.editor().foreground().base()),
+				new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.blue().darker()),
-				new Attribute("DEFAULT_IDENTIFIER").foreground(style.editor().foreground().base()),
+				new Attribute("DEFAULT_IDENTIFIER").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_INSTANCE_FIELD").foreground(palette.purple().darker()).bold(),
-				new Attribute("DEFAULT_INTERFACE_NAME").foreground(style.editor().foreground().base()).italic(),
+				new Attribute("DEFAULT_INTERFACE_NAME").foreground(style.scheme().foreground().base()).italic(),
 				new Attribute("DEFAULT_KEYWORD").foreground(palette.blue()).bold(),
 				new Attribute("DEFAULT_LABEL").foreground(palette.blue()).bold(),
 				new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
@@ -204,10 +204,10 @@ public class Scheme {
 				new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()),
 				new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold(),
 				new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().darker()).bold().italic(),
-				new Attribute("DEFAULT_STATIC_METHOD").foreground(style.editor().foreground().base()).italic(),
+				new Attribute("DEFAULT_STATIC_METHOD").foreground(style.scheme().foreground().base()).italic(),
 				new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
-				new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.editor().foreground().base().brighter(3)),
-				new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.editor().foreground().base()).bold(),
+				new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3)),
+				new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold(),
 				new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
 				new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link()),
 
@@ -238,10 +238,10 @@ public class Scheme {
 
 		private Collection<Attribute> breadcrumbs() {
 			return Set.of(
-				new Attribute("BREADCRUMBS_DEFAULT").foreground(style.editor().foreground().base()).background(style.editor().background().base()),
-				new Attribute("BREADCRUMBS_HOVERED").foreground(style.editor().foreground().base()).background(style.editor().background().base().darker(2)),
-				new Attribute("BREADCRUMBS_CURRENT").foreground(style.editor().foreground().base()).background(style.editor().background().base().darker(4)),
-				new Attribute("BREADCRUMBS_INACTIVE").foreground(style.editor().foreground().base()) // unknown effect
+				new Attribute("BREADCRUMBS_DEFAULT").foreground(style.scheme().foreground().base()).background(style.scheme().background().base()),
+				new Attribute("BREADCRUMBS_HOVERED").foreground(style.scheme().foreground().base()).background(style.scheme().background().base().darker(2)),
+				new Attribute("BREADCRUMBS_CURRENT").foreground(style.scheme().foreground().base()).background(style.scheme().background().base().darker(4)),
+				new Attribute("BREADCRUMBS_INACTIVE").foreground(style.scheme().foreground().base()) // unknown effect
 			);
 		}
 
@@ -256,7 +256,7 @@ public class Scheme {
 		private Collection<Attribute> console() {
 			return Set.of(
 				new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error()),
-				new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.editor().foreground().base()),
+				new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.scheme().foreground().base()),
 				new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT").foreground(palette.blue().brighter()),
 				new Attribute("CONSOLE_BLUE_OUTPUT").foreground(palette.blue()),
 				new Attribute("CONSOLE_CYAN_BRIGHT_OUTPUT").foreground(palette.aqua().brighter()),
@@ -267,12 +267,12 @@ public class Scheme {
 				new Attribute("CONSOLE_GREEN_OUTPUT").foreground(palette.green()),
 				new Attribute("CONSOLE_MAGENTA_BRIGHT_OUTPUT").foreground(palette.purple().brighter()),
 				new Attribute("CONSOLE_MAGENTA_OUTPUT").foreground(palette.purple()),
-				new Attribute("CONSOLE_NORMAL_OUTPUT").foreground(style.editor().foreground().base()),
+				new Attribute("CONSOLE_NORMAL_OUTPUT").foreground(style.scheme().foreground().base()),
 				new Attribute("CONSOLE_RED_BRIGHT_OUTPUT").foreground(palette.red().brighter()),
 				new Attribute("CONSOLE_RED_OUTPUT").foreground(palette.red()),
 				new Attribute("CONSOLE_SYSTEM_OUTPUT").foreground(palette.yellow().darker()),
-				new Attribute("CONSOLE_USER_INPUT").foreground(style.editor().foreground().base()),
-				new Attribute("CONSOLE_WHITE_OUTPUT").foreground(style.editor().foreground().base()),
+				new Attribute("CONSOLE_USER_INPUT").foreground(style.scheme().foreground().base()),
+				new Attribute("CONSOLE_WHITE_OUTPUT").foreground(style.scheme().foreground().base()),
 				new Attribute("CONSOLE_YELLOW_BRIGHT_OUTPUT").foreground(palette.yellow().brighter()),
 				new Attribute("CONSOLE_YELLOW_OUTPUT").foreground(palette.yellow())
 			);

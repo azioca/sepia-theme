@@ -1,4 +1,4 @@
-package plugin.style.ui;
+package plugin.style.theme;
 
 import plugin.domain.Color;
 import plugin.style.Style;
@@ -14,7 +14,7 @@ public class Button {
 	}
 
 	public Color around() {
-		return style.ui().background().base();
+		return style.theme().background().base();
 	}
 
 	public Ordinary ordinary() {
@@ -28,7 +28,7 @@ public class Button {
 	public class Ordinary {
 
 		public Color background() {
-			return style.ui().background().base().darker();
+			return style.theme().background().base().darker();
 		}
 
 		public Color border() {
@@ -55,7 +55,7 @@ public class Button {
 		}
 
 		public Color focusedBorder() {
-			return style.editor().background().selectedText();
+			return style.scheme().background().selectedText();
 		}
 	}
 }

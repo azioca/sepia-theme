@@ -67,7 +67,7 @@ class UI {
 	@JsonProperty TextField TextField() { return new TextField(); }
 	@JsonProperty TextPane TextPane() { return new TextPane(); }
 	@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
-	@JsonProperty("Toolbar.Floating.background") Color ToolBarFloatingBackground() { return style.ui().background().base().darker(); }
+	@JsonProperty("Toolbar.Floating.background") Color ToolBarFloatingBackground() { return style.theme().background().base().darker(); }
 	@JsonProperty ToolTip ToolTip() { return new ToolTip(); }
 	@JsonProperty ToolWindow ToolWindow() { return new ToolWindow(); }
 	@JsonProperty Tree Tree() { return new Tree(); }
@@ -77,9 +77,9 @@ class UI {
 	@JsonProperty WelcomeScreen WelcomeScreen() { return new WelcomeScreen(); }
 
 	class ActionButton {
-		@JsonProperty Color hoverBackground = style.ui().background().hover();
+		@JsonProperty Color hoverBackground = style.theme().background().hover();
 		@JsonProperty Color hoverBorderColor = hoverBackground.darker();
-		@JsonProperty Color pressedBackground = style.ui().background().selected();
+		@JsonProperty Color pressedBackground = style.theme().background().selected();
 		@JsonProperty Color pressedBorderColor = pressedBackground.darker();
 	}
 
@@ -90,9 +90,9 @@ class UI {
 
 	class Button {
 		@JsonProperty Integer ark;
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color background = style.button().around();
-		@JsonProperty Color disabledText = style.ui().foreground().disabled();
+		@JsonProperty Color disabledText = style.theme().foreground().disabled();
 		@JsonProperty Color shadowColor;
 		@JsonProperty Integer shadowWidth = 0;
 
@@ -106,7 +106,7 @@ class UI {
 		@JsonProperty("default") Button.Default Default = new Button.Default();
 
 		class Default {
-			@JsonProperty Color foreground = style.ui().foreground().base();
+			@JsonProperty Color foreground = style.theme().foreground().base();
 			@JsonProperty Color startBackground = style.button().Default().background();
 			@JsonProperty Color endBackground = style.button().Default().background();
 			@JsonProperty Color startBorderColor = style.button().Default().border();
@@ -124,20 +124,20 @@ class UI {
 	}
 
 	class ComboBox {
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
-		@JsonProperty Color disabledForeground = style.ui().foreground().disabled();
-		@JsonProperty Color modifiedItemForeground = style.ui().foreground().modified();
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
+		@JsonProperty Color disabledForeground = style.theme().foreground().disabled();
+		@JsonProperty Color modifiedItemForeground = style.theme().foreground().modified();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color disabledBackground = background; // deprecated but it works, no other ways of setting this value in code
 		@JsonProperty Color nonEditableBackground = background;
-		@JsonProperty Color selectionBackground = style.ui().background().selected();
+		@JsonProperty Color selectionBackground = style.theme().background().selected();
 
 		@JsonProperty ComboBox.ArrowButton ArrowButton = new ComboBox.ArrowButton();
 
 		class ArrowButton {
-			@JsonProperty Color iconColor = style.ui().foreground().base();
-			@JsonProperty Color disabledIconColor = style.ui().foreground().disabled();
+			@JsonProperty Color iconColor = style.theme().foreground().base();
+			@JsonProperty Color disabledIconColor = style.theme().foreground().disabled();
 
 			@JsonProperty Color background = ComboBox.this.background;
 			@JsonProperty Color nonEditableBackground = ComboBox.this.nonEditableBackground;
@@ -145,14 +145,14 @@ class UI {
 	}
 
 	class ComboBoxButton {
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 	}
 
 	class CompletionPopup {
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color matchForeground = style.editor().background().selectedText().darker().darker();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color matchForeground = style.scheme().background().selectedText().darker().darker();
 		@JsonProperty Color nonFocusedMask = Color.transparent();
-		@JsonProperty Color selectionBackground = style.editor().background().selectedLine();
+		@JsonProperty Color selectionBackground = style.scheme().background().selectedLine();
 		@JsonProperty Color selectionInactiveBackground = selectionBackground.brighter();
 	}
 
@@ -163,12 +163,12 @@ class UI {
 		@JsonProperty Integer arc;
 		@JsonProperty Color disabledBorderColor = borderColor.brighter();
 		@JsonProperty Color errorFocusColor = style.error();
-		@JsonProperty Color focusColor = style.editor().background().selectedText();
+		@JsonProperty Color focusColor = style.scheme().background().selectedText();
 		@JsonProperty Color hoverIconColor;
 		@JsonProperty Color iconColor;
 		@JsonProperty Color inactiveErrorFocusColor = style.error().opacity(0.5);
 		@JsonProperty Color inactiveWarningFocusColor = style.warning().opacity(0.5);
-		@JsonProperty Color infoForeground = style.ui().foreground().info();
+		@JsonProperty Color infoForeground = style.theme().foreground().info();
 		@JsonProperty Color warningFocusColor = style.warning();
 	}
 
@@ -179,30 +179,30 @@ class UI {
 		@JsonProperty Color inactiveUnderlineColor = style.tab().underline();
 		@JsonProperty Color underlineColor = style.tab().underline();
 		@JsonProperty Color underlinedTabBackground = style.tab().selected();
-		@JsonProperty Color underlinedTabForeground = style.ui().foreground().base();
+		@JsonProperty Color underlinedTabForeground = style.theme().foreground().base();
 		@JsonProperty Integer underlineHeight = style.tab().settingsUnderlineHeight();
 	}
 
 	class Editor {
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color shortcutForeground = style.link();
 	}
 
 	class EditorPane {
-		@JsonProperty Color background = style.editor().background().base();
-		@JsonProperty Color caretForeground = style.ui().foreground().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color inactiveBackground = style.editor().background().base(); // descriptions
+		@JsonProperty Color background = style.scheme().background().base();
+		@JsonProperty Color caretForeground = style.theme().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color inactiveBackground = style.scheme().background().base(); // descriptions
 
-		@JsonProperty Color inactiveForeground = style.ui().foreground().base();
-		@JsonProperty Color selectionBackground = style.editor().background().selectedText();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color inactiveForeground = style.theme().foreground().base();
+		@JsonProperty Color selectionBackground = style.scheme().background().selectedText();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 	}
 
 	class EditorTabs {
-		@JsonProperty Color underlinedTabForeground = style.ui().foreground().base();
-		@JsonProperty Color underlinedTabBackground = style.editor().background().base();
+		@JsonProperty Color underlinedTabForeground = style.theme().foreground().base();
+		@JsonProperty Color underlinedTabBackground = style.scheme().background().base();
 		@JsonProperty Color hoverBackground = underlinedTabBackground;
 		@JsonProperty Color background = hoverBackground.darker(3);
 		@JsonProperty Color borderColor = underlinedTabBackground;
@@ -216,7 +216,7 @@ class UI {
 	}
 
 	class FileColor {
-		@JsonProperty Color Yellow = style.ui().background().readOnly();
+		@JsonProperty Color Yellow = style.theme().background().readOnly();
 		@JsonProperty Color Green = palette.green().brighter().opacity(0.13);
 		@JsonProperty Color Blue = palette.blue().brighter();
 		@JsonProperty Color Violet = palette.purple().brighter();
@@ -225,11 +225,11 @@ class UI {
 	}
 
 	class FormattedTextField {
-		@JsonProperty Color background = style.ui().background().base().brighter();
-		@JsonProperty Color caretForeground = style.ui().foreground().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color background = style.theme().background().base().brighter();
+		@JsonProperty Color caretForeground = style.theme().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color inactiveBackground = background;
-		@JsonProperty Color inactiveForeground = style.ui().foreground().disabled();
+		@JsonProperty Color inactiveForeground = style.theme().foreground().disabled();
 	}
 
 	class Group {
@@ -238,16 +238,16 @@ class UI {
 	}
 
 	class Label {
-		@JsonProperty Color background = style.ui().background().base(); // unknown effect
+		@JsonProperty Color background = style.theme().background().base(); // unknown effect
 
-		@JsonProperty Color disabledText = style.ui().foreground().disabled(); // unknown effect
+		@JsonProperty Color disabledText = style.theme().foreground().disabled(); // unknown effect
 
-		@JsonProperty Color disabledForeground = style.ui().foreground().disabled(); // unknown effect
+		@JsonProperty Color disabledForeground = style.theme().foreground().disabled(); // unknown effect
 
 		@JsonProperty Color errorForeground = style.error(); // unknown effect
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color infoForeground = style.ui().foreground().info();
-		@JsonProperty Color selectedForeground = style.ui().foreground().base(); // unknown effect
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color infoForeground = style.theme().foreground().info();
+		@JsonProperty Color selectedForeground = style.theme().foreground().base(); // unknown effect
 	}
 
 	class Link {
@@ -259,54 +259,54 @@ class UI {
 	}
 
 	class List {
-		@JsonProperty Color background = style.ui().background().base(); // used also for branch search field
+		@JsonProperty Color background = style.theme().background().base(); // used also for branch search field
 
 		@JsonProperty Color dropLineColor = style.borderColor();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color hoverBackground = style.ui().background().hover();
-		@JsonProperty Color hoverInactiveBackground = style.ui().background().hover();
-		@JsonProperty Color selectionBackground = style.ui().background().selected();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
-		@JsonProperty Color selectionInactiveBackground = style.ui().background().selectedInactive();
-		@JsonProperty Color selectionInactiveForeground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color hoverBackground = style.theme().background().hover();
+		@JsonProperty Color hoverInactiveBackground = style.theme().background().hover();
+		@JsonProperty Color selectionBackground = style.theme().background().selected();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
+		@JsonProperty Color selectionInactiveBackground = style.theme().background().selectedInactive();
+		@JsonProperty Color selectionInactiveForeground = style.theme().foreground().base();
 	}
 
 	class MemoryIndicator {
-		@JsonProperty Color allocatedBackground = style.ui().background().hover();
-		@JsonProperty Color usedBackground = style.ui().background().selected();
+		@JsonProperty Color allocatedBackground = style.theme().background().hover();
+		@JsonProperty Color usedBackground = style.theme().background().selected();
 	}
 
 	class Menu {
 		@JsonProperty Color borderColor = style.borderColor();
-		@JsonProperty Color acceleratorForeground = style.ui().foreground().base();
-		@JsonProperty Color acceleratorSelectionForeground = style.ui().foreground().base();
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color acceleratorForeground = style.theme().foreground().base();
+		@JsonProperty Color acceleratorSelectionForeground = style.theme().foreground().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color disabledBackground;
 		@JsonProperty Color disabledForeground;
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 		@JsonProperty Color separatorColor = style.borderColor(); // * color works as supposed, this one changes color but not exactly as expected
 	}
 
 	class MenuBar {
 		@JsonProperty Color borderColor = style.borderColor();
-		@JsonProperty Color disabledBackground = style.ui().background().base();
-		@JsonProperty Color disabledForeground = style.ui().foreground().disabled();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color disabledBackground = style.theme().background().base();
+		@JsonProperty Color disabledForeground = style.theme().foreground().disabled();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color highlight; // unknown effect
-		@JsonProperty Color selectionBackground = style.ui().background().selected();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color selectionBackground = style.theme().background().selected();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 		@JsonProperty Color shadow;
 	}
 
 	class MenuItem {
-		@JsonProperty Color acceleratorForeground = style.ui().foreground().disabled();
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color disabledBackground = style.ui().background().base();
-		@JsonProperty Color disabledForeground = style.ui().foreground().disabled();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color selectionBackground = style.ui().background().selected();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color acceleratorForeground = style.theme().foreground().disabled();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color disabledBackground = style.theme().background().base();
+		@JsonProperty Color disabledForeground = style.theme().foreground().disabled();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color selectionBackground = style.theme().background().selected();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 	}
 
 	class NewClass {
@@ -316,71 +316,71 @@ class UI {
 		@JsonProperty SearchField SearchField = new SearchField();
 
 		class Panel {
-			@JsonProperty Color background = style.ui().background().base();
+			@JsonProperty Color background = style.theme().background().base();
 		}
 
 		class SearchField {
-			@JsonProperty Color background = style.ui().background().input();
+			@JsonProperty Color background = style.theme().background().input();
 		}
 	}
 
 	class Notification {
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color borderColor = style.borderColor();
 		@JsonProperty Color errorBackground = style.error();
 		@JsonProperty Color errorBorderColor = style.borderColor();
-		@JsonProperty Color errorForeground = style.ui().foreground().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color errorForeground = style.theme().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 
 		@JsonProperty MoreButton MoreButton = new MoreButton();
 		@JsonProperty ToolWindow ToolWindow = new ToolWindow();
 
 		class MoreButton {
 			@JsonProperty Color background = Notification.this.background.darker();
-			@JsonProperty Color foreground = style.ui().foreground().disabled();
+			@JsonProperty Color foreground = style.theme().foreground().disabled();
 			@JsonProperty Color innerBorderColor = background.darker(2);
 		}
 
 		class ToolWindow {
 			@JsonProperty Color errorBackground = style.error().brightest();
 			@JsonProperty Color errorBorderColor = errorBackground.darker();
-			@JsonProperty Color errorForeground = style.ui().foreground().base();
+			@JsonProperty Color errorForeground = style.theme().foreground().base();
 			@JsonProperty Color informativeBackground = style.success().brightest();
 			@JsonProperty Color informativeBorderColor = informativeBackground.darker();
-			@JsonProperty Color informativeForeground = style.ui().foreground().base();
+			@JsonProperty Color informativeForeground = style.theme().foreground().base();
 			@JsonProperty Color warningBackground = style.warning().brightest();
 			@JsonProperty Color warningBorderColor = warningBackground.darker();
-			@JsonProperty Color warningForeground = style.ui().foreground().base();
+			@JsonProperty Color warningForeground = style.theme().foreground().base();
 		}
 	}
 
 	class OptionPane {
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color messageForeground = style.ui().foreground().base();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color messageForeground = style.theme().foreground().base();
 	}
 
 	class Panel {
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 	}
 
 	class ParameterInfo {
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color borderColor = style.borderColor();
-		@JsonProperty Color currentOverloadBackground = style.ui().background().selected();
-		@JsonProperty Color currentParameterForeground = style.ui().foreground().base();
-		@JsonProperty Color disabledForeground = style.ui().foreground().disabled();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color infoForeground = style.ui().foreground().info();
+		@JsonProperty Color currentOverloadBackground = style.theme().background().selected();
+		@JsonProperty Color currentParameterForeground = style.theme().foreground().base();
+		@JsonProperty Color disabledForeground = style.theme().foreground().disabled();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color infoForeground = style.theme().foreground().info();
 		@JsonProperty Color lineSeparatorColor = style.borderColor();
 	}
 
 	class Plugins {
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color disabledForeground = style.ui().foreground().disabled();
-		@JsonProperty Color hoverBackground = style.ui().background().hover();
-		@JsonProperty Color lightSelectionBackground = style.ui().background().selected();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color disabledForeground = style.theme().foreground().disabled();
+		@JsonProperty Color hoverBackground = style.theme().background().hover();
+		@JsonProperty Color lightSelectionBackground = style.theme().background().selected();
 		@JsonProperty Color tagForeground = background;
 		@JsonProperty Color tagBackground = palette.blue();
 		@JsonProperty Color eapTagBackground = palette.red();
@@ -409,7 +409,7 @@ class UI {
 
 		class SectionHeader {
 			@JsonProperty Color background = Plugins.this.background.darker();
-			@JsonProperty Color foreground = style.ui().foreground().base();
+			@JsonProperty Color foreground = style.theme().foreground().base();
 		}
 
 		class Tab {
@@ -425,38 +425,38 @@ class UI {
 		@JsonProperty Color innerBorderColor = style.borderColor();
 		@JsonProperty boolean paintBorder; // on Mac
 		@JsonProperty Color separatorColor = style.borderColor();
-		@JsonProperty Color separatorForeground = style.ui().foreground().base();
+		@JsonProperty Color separatorForeground = style.theme().foreground().base();
 
 		@JsonProperty Popup.Header Header = new Popup.Header();
 		@JsonProperty Popup.Advertiser Advertiser = new Popup.Advertiser();
 		@JsonProperty Popup.Toolbar Toolbar = new Popup.Toolbar();
 
 		class Header {
-			@JsonProperty Color inactiveBackground = style.ui().background().base().darker();
-			@JsonProperty Color activeBackground = style.ui().background().base().darker(2);
+			@JsonProperty Color inactiveBackground = style.theme().background().base().darker();
+			@JsonProperty Color activeBackground = style.theme().background().base().darker(2);
 		}
 
 		class Advertiser {
-			@JsonProperty Color background = style.ui().background().base();
+			@JsonProperty Color background = style.theme().background().base();
 			@JsonProperty Color borderColor = style.borderColor();
 			@JsonProperty Integer borderInsets;
-			@JsonProperty Color foreground = style.ui().foreground().base();
+			@JsonProperty Color foreground = style.theme().foreground().base();
 		}
 
 		class Toolbar {
-			@JsonProperty Color background = style.ui().background().base();
+			@JsonProperty Color background = style.theme().background().base();
 			@JsonProperty Color borderColor = style.borderColor();
 		}
 	}
 
 	class PopupMenu {
-		@JsonProperty Color background = style.ui().background().base(); // menu separators
+		@JsonProperty Color background = style.theme().background().base(); // menu separators
 
 		@JsonProperty Integer borderInsets;
 		@JsonProperty Integer borderWidth = 0;
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color selectionBackground = style.ui().background().selected();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color selectionBackground = style.theme().background().selected();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 		@JsonProperty Color translucentBackground = background.opacity(0.7);
 	}
 
@@ -468,8 +468,8 @@ class UI {
 
 	class ProgressBar {
 		@JsonProperty Color background; // unknown effect
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color trackColor = style.ui().background().base().darker(2);
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color trackColor = style.theme().background().base().darker(2);
 		@JsonProperty Color progressColor = trackColor.darker(3);
 		@JsonProperty Color indeterminateStartColor = trackColor;
 		@JsonProperty Color indeterminateEndColor = progressColor;
@@ -533,29 +533,29 @@ class UI {
 		@JsonProperty SearchEverywhere.Tab Tab = new SearchEverywhere.Tab();
 
 		class Advertiser {
-			@JsonProperty Color background = style.ui().background().base();
+			@JsonProperty Color background = style.theme().background().base();
 			@JsonProperty Integer borderInsets;
-			@JsonProperty Color foreground = style.ui().foreground().base();
+			@JsonProperty Color foreground = style.theme().foreground().base();
 		}
 
 		class Header {
-			@JsonProperty Color background = style.ui().background().base().darker();
+			@JsonProperty Color background = style.theme().background().base().darker();
 		}
 
 		class List {
 			@JsonProperty Color separatorColor = style.borderColor();
-			@JsonProperty Color separatorForeground = style.ui().foreground().base();
+			@JsonProperty Color separatorForeground = style.theme().foreground().base();
 		}
 
 		class SearchField {
-			@JsonProperty Color background = style.ui().background().base();
+			@JsonProperty Color background = style.theme().background().base();
 			@JsonProperty Color borderColor = style.borderColor();
-			@JsonProperty Color infoForeground = style.ui().foreground().info();
+			@JsonProperty Color infoForeground = style.theme().foreground().info();
 		}
 
 		class Tab {
-			@JsonProperty Color selectedBackground = style.ui().background().selected();
-			@JsonProperty Color selectedForeground = style.ui().foreground().base();
+			@JsonProperty Color selectedBackground = style.theme().background().selected();
+			@JsonProperty Color selectedForeground = style.theme().foreground().base();
 		}
 	}
 
@@ -577,12 +577,12 @@ class UI {
 	}
 
 	class SidePanel {
-		@JsonProperty Color background = style.ui().background().base().darker();
+		@JsonProperty Color background = style.theme().background().base().darker();
 	}
 
 	class Slider {
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color trackColor = background.darker(2);
 		@JsonProperty Color tickColor = trackColor.darker();
 		@JsonProperty Color buttonColor = trackColor.darker();
@@ -593,24 +593,24 @@ class UI {
 	}
 
 	class SpeedSearch {
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color errorForeground = style.error();
-		@JsonProperty Color background = style.ui().background().input();
+		@JsonProperty Color background = style.theme().background().input();
 		@JsonProperty Color borderColor = style.borderColor();
 	}
 
 	class StatusBar {
 		@JsonProperty Color borderColor = style.borderColor();
-		@JsonProperty Color hoverBackground = style.ui().background().hover();
+		@JsonProperty Color hoverBackground = style.theme().background().hover();
 	}
 
 	class TabbedPane { // example: editor -> code style
 		@JsonProperty Color background = style.tab().inBackground();
-		@JsonProperty Color contentAreaColor = style.ui().background().base();
-		@JsonProperty Color disabledForeground = style.ui().foreground().base();
+		@JsonProperty Color contentAreaColor = style.theme().background().base();
+		@JsonProperty Color disabledForeground = style.theme().foreground().base();
 		@JsonProperty Color focus = style.tab().selected();
 		@JsonProperty Color focusColor = style.tab().selected();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color hoverColor = style.tab().hover();
 		@JsonProperty int tabSelectionHeight = style.tab().settingsUnderlineHeight();
 		@JsonProperty Color underlineColor = style.tab().underline();
@@ -623,19 +623,19 @@ class UI {
 		@JsonProperty Color dropLineColor; // unknown effect
 		@JsonProperty Color dropLineShortColor; // unknown effect
 		@JsonProperty Color focusCellBackground = style.table().focusBackground();
-		@JsonProperty Color focusCellForeground = style.ui().foreground().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color focusCellForeground = style.theme().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color gridColor = style.table().grid();
 		@JsonProperty Color hoverBackground = style.table().hoverBackground();
 		@JsonProperty Color hoverInactiveBackground = hoverBackground;
 		@JsonProperty Color lightSelectionBackground = style.table().selectionBackground();
-		@JsonProperty Color lightSelectionForeground = style.ui().foreground().base();
+		@JsonProperty Color lightSelectionForeground = style.theme().foreground().base();
 		@JsonProperty Color lightSelectionInactiveBackground = style.table().selectionInactiveBackground();
-		@JsonProperty Color lightSelectionInactiveForeground = style.ui().foreground().base();
+		@JsonProperty Color lightSelectionInactiveForeground = style.theme().foreground().base();
 		@JsonProperty Color selectionBackground = style.table().selectionBackground();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 		@JsonProperty Color selectionInactiveBackground = style.table().selectionInactiveBackground();
-		@JsonProperty Color selectionInactiveForeground = style.ui().foreground().base();
+		@JsonProperty Color selectionInactiveForeground = style.theme().foreground().base();
 		@JsonProperty Color sortIconColor; // unknown effect
 		@JsonProperty Color stripeColor = style.table().stripe();
 	}
@@ -645,65 +645,65 @@ class UI {
 		@JsonProperty Color bottomSeparatorColor = style.table().header().separator();
 		@JsonProperty Color cellBorder = Color.transparent();
 		@JsonProperty Color focusCellBackground = style.table().header().focusCellBackground();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color separatorColor = style.table().header().separator();
 	}
 
 	class TextArea {
-		@JsonProperty Color background = style.editor().background().base();
-		@JsonProperty Color caretForeground = style.ui().foreground().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color inactiveBackground = style.editor().background().base();
-		@JsonProperty Color inactiveForeground = style.ui().foreground().base();
-		@JsonProperty Color selectionBackground = style.editor().background().selectedText();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color background = style.scheme().background().base();
+		@JsonProperty Color caretForeground = style.theme().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color inactiveBackground = style.scheme().background().base();
+		@JsonProperty Color inactiveForeground = style.theme().foreground().base();
+		@JsonProperty Color selectionBackground = style.scheme().background().selectedText();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 	}
 
 	class TextField {
-		@JsonProperty Color background = style.editor().background().base();
-		@JsonProperty Color caretForeground = style.ui().foreground().base();
+		@JsonProperty Color background = style.scheme().background().base();
+		@JsonProperty Color caretForeground = style.theme().foreground().base();
 		@JsonProperty Color darkShadow;
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color highlight; // unknown effect
-		@JsonProperty Color inactiveForeground = style.ui().foreground().disabled();
-		@JsonProperty Color selectionBackground = style.editor().background().selectedText();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color inactiveForeground = style.theme().foreground().disabled();
+		@JsonProperty Color selectionBackground = style.scheme().background().selectedText();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 	}
 
 	class TextPane {
-		@JsonProperty Color background = style.editor().background().base();
-		@JsonProperty Color caretForeground = style.ui().foreground().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color inactiveBackground = style.ui().background().readOnly();
-		@JsonProperty Color inactiveForeground = style.ui().foreground().base();
-		@JsonProperty Color selectionBackground = style.editor().background().selectedLine();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
+		@JsonProperty Color background = style.scheme().background().base();
+		@JsonProperty Color caretForeground = style.theme().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color inactiveBackground = style.theme().background().readOnly();
+		@JsonProperty Color inactiveForeground = style.theme().foreground().base();
+		@JsonProperty Color selectionBackground = style.scheme().background().selectedLine();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 	}
 
 	class ToolBar { // Find -> soft wrap preview floating icon
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color borderHandleColor; // unknown effect
 		@JsonProperty Color darkShadow;
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color highlight; // unknown effect
 		@JsonProperty Color light;
 		@JsonProperty Color shadow;
-		@JsonProperty Color floatingForeground = style.ui().foreground().base();
+		@JsonProperty Color floatingForeground = style.theme().foreground().base();
 	}
 
 	class ToolTip {
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color borderColor;
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color infoForeground = style.ui().foreground().info();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color infoForeground = style.theme().foreground().info();
 		@JsonProperty Boolean paintBorder = false;
-		@JsonProperty Color shortcutForeground = style.ui().foreground().disabled();
+		@JsonProperty Color shortcutForeground = style.theme().foreground().disabled();
 
 		@JsonProperty ToolTip.Actions Actions = new ToolTip.Actions();
 
 		class Actions {
 			@JsonProperty Color background = ToolTip.this.background.darker();
-			@JsonProperty Color infoForeground = style.ui().foreground().info();
+			@JsonProperty Color infoForeground = style.theme().foreground().info();
 		}
 	}
 
@@ -714,9 +714,9 @@ class UI {
 		@JsonProperty ToolWindow.HeaderTab HeaderTab = new ToolWindow.HeaderTab();
 
 		class Button {
-			@JsonProperty Color hoverBackground = style.ui().background().hover();
-			@JsonProperty Color selectedBackground = style.ui().background().selected();
-			@JsonProperty Color selectedForeground = style.ui().foreground().base();
+			@JsonProperty Color hoverBackground = style.theme().background().hover();
+			@JsonProperty Color selectedBackground = style.theme().background().selected();
+			@JsonProperty Color selectedForeground = style.theme().foreground().base();
 		}
 
 		class Header {
@@ -742,18 +742,18 @@ class UI {
 	}
 
 	class Tree { // settings tree
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color errorForeground = style.error();
-		@JsonProperty Color foreground = style.ui().foreground().base();
-		@JsonProperty Color hash = style.ui().background().base().darker(2);
-		@JsonProperty Color hoverBackground = style.ui().background().hover();
+		@JsonProperty Color foreground = style.theme().foreground().base();
+		@JsonProperty Color hash = style.theme().background().base().darker(2);
+		@JsonProperty Color hoverBackground = style.theme().background().hover();
 		@JsonProperty Color hoverInactiveBackground = hoverBackground;
-		@JsonProperty Color modifiedItemForeground = style.ui().foreground().modified();
+		@JsonProperty Color modifiedItemForeground = style.theme().foreground().modified();
 		@JsonProperty Boolean paintLines;
 		@JsonProperty Color rowHeight;
-		@JsonProperty Color selectionBackground = style.ui().background().selected();
-		@JsonProperty Color selectionForeground = style.ui().foreground().base();
-		@JsonProperty Color selectionInactiveBackground = style.ui().background().selectedInactive();
+		@JsonProperty Color selectionBackground = style.theme().background().selected();
+		@JsonProperty Color selectionForeground = style.theme().foreground().base();
+		@JsonProperty Color selectionInactiveBackground = style.theme().background().selectedInactive();
 	}
 
 	class ValidationTooltip {
@@ -782,7 +782,7 @@ class UI {
 			@JsonProperty VersionControl.Log.Commit Commit = new VersionControl.Log.Commit();
 
 			class Commit {
-				@JsonProperty Color currentBranchBackground = style.ui().background().base().darker();
+				@JsonProperty Color currentBranchBackground = style.theme().background().base().darker();
 				@JsonProperty Color hoveredBackground = currentBranchBackground.darker();
 				@JsonProperty Color unmatchedForeground;
 			}
@@ -791,25 +791,25 @@ class UI {
 		class RefLabel {
 			@JsonProperty Color backgroundBase = palette.blue();
 			@JsonProperty double backgroundBrightness = 0.50;
-			@JsonProperty Color foreground = style.ui().foreground().base();
+			@JsonProperty Color foreground = style.theme().foreground().base();
 		}
 	}
 
 	class Viewport {
-		@JsonProperty Color background = style.ui().background().base();
-		@JsonProperty Color foreground = style.ui().foreground().base();
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color foreground = style.theme().foreground().base();
 	}
 
 	class WelcomeScreen {
 		@JsonProperty Color borderColor = style.borderColor();
-		@JsonProperty Color background = style.ui().background().base();
+		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color captionBackground = palette.red();
-		@JsonProperty Color captionForeground = style.ui().foreground().base();
+		@JsonProperty Color captionForeground = style.theme().foreground().base();
 		@JsonProperty Color footerBackground;
-		@JsonProperty Color footerForeground = style.ui().foreground().base();
+		@JsonProperty Color footerForeground = style.theme().foreground().base();
 		@JsonProperty Color groupIconBorderColor = style.borderColor();
 		@JsonProperty Color headerBackground;
-		@JsonProperty Color headerForeground = style.ui().foreground().base();
+		@JsonProperty Color headerForeground = style.theme().foreground().base();
 		@JsonProperty Color separatorColor = style.borderColor();
 
 		@JsonProperty WelcomeScreen.Details Details = new WelcomeScreen.Details();
@@ -817,24 +817,24 @@ class UI {
 		@JsonProperty WelcomeScreen.SidePanel SidePanel = new WelcomeScreen.SidePanel();
 
 		class Details {
-			@JsonProperty Color background = style.ui().background().base();
+			@JsonProperty Color background = style.theme().background().base();
 		}
 
 		class Projects {
-			@JsonProperty Color background = style.ui().background().base();
-			@JsonProperty Color selectionBackground = style.ui().background().selected();
-			@JsonProperty Color selectionInactiveBackground = style.ui().background().selectedInactive();
+			@JsonProperty Color background = style.theme().background().base();
+			@JsonProperty Color selectionBackground = style.theme().background().selected();
+			@JsonProperty Color selectionInactiveBackground = style.theme().background().selectedInactive();
 
 			@JsonProperty WelcomeScreen.Projects.Actions actions = new WelcomeScreen.Projects.Actions();
 
 			class Actions {
-				@JsonProperty Color background = style.ui().background().base();
-				@JsonProperty Color selectionBackground = style.ui().background().selected();
+				@JsonProperty Color background = style.theme().background().base();
+				@JsonProperty Color selectionBackground = style.theme().background().selected();
 			}
 		}
 
 		class SidePanel {
-			@JsonProperty Color background = style.ui().background().base().darker();
+			@JsonProperty Color background = style.theme().background().base().darker();
 		}
 	}
 }
