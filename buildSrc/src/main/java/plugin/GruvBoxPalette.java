@@ -1,6 +1,6 @@
 package plugin;
 
-import plugin.domain.Color;
+import plugin.domain.color.Color;
 import plugin.domain.Palette;
 
 public class GruvBoxPalette implements Palette {

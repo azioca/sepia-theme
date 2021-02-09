@@ -1,6 +1,6 @@
 package plugin.style;
 
-import plugin.domain.Color;
+import plugin.domain.color.Color;
 import plugin.domain.Palette;
 import plugin.style.scheme.Scheme;
 import plugin.style.theme.Theme;

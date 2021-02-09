@@ -1,6 +1,6 @@
 package plugin.style.theme;
 
-import plugin.domain.Color;
+import plugin.domain.color.Color;
 import plugin.domain.Palette;
 
 import java.util.Objects;

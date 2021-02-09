@@ -24,9 +24,9 @@ public interface Option {
 
 	class Color implements Option {
 		private final String name;
-		private final plugin.domain.Color color;
+		private final plugin.domain.color.Color color;
 
-		Color(String name, plugin.domain.Color value) {
+		Color(String name, plugin.domain.color.Color value) {
 			this.name = Objects.requireNonNull(name);
 			this.color = Objects.requireNonNull(value);
 		}

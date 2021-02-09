@@ -1,6 +1,6 @@
 package plugin.style;
 
-import plugin.domain.Color;
+import plugin.domain.color.Color;
 import plugin.style.theme.Theme;
 
 import static java.util.Objects.requireNonNull;

@@ -2,7 +2,7 @@ package plugin.intellij.scheme;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import plugin.domain.Color;
+import plugin.domain.color.Color;
 
 import java.util.ArrayList;
 import java.util.List;

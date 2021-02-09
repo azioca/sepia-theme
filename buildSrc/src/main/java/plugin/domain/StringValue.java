@@ -4,7 +4,7 @@ import plugin.lang.AsString;
 
 import java.util.Objects;
 
-abstract class StringValue {
+public abstract class StringValue {
 
 	private final String value;
 

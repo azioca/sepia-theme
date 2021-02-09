@@ -1,5 +1,7 @@
 package plugin.domain;
 
+import plugin.domain.color.Color;
+
 import java.util.Objects;
 
 public interface Palette {
