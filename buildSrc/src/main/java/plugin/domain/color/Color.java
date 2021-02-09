@@ -19,11 +19,7 @@ public class Color {
 	}
 
 	public Color(String... values) {
-		this(
-			stream(values)
-				.map(Value::new)
-				.collect(Collectors.toList())
-			);
+		this(stream(values).map(Value::new).collect(Collectors.toList()));
 	}
 
 	public Color(List<Value> values) {
