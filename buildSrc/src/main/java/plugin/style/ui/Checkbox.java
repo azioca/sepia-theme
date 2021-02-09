@@ -12,7 +12,7 @@ public class Checkbox {
 	}
 
 	public Color textForeground() {
-		return style.foreground().base();
+		return style.ui().foreground().base();
 	}
 
 	public Color textBackground() {

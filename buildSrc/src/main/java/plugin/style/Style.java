@@ -20,10 +20,6 @@ public class Style {
 		this.palette = requireNonNull(palette);
 	}
 
-	public Foreground foreground() {
-		return new Foreground(palette);
-	}
-
 	public UI ui() {
 		return new UI(palette);
 	}

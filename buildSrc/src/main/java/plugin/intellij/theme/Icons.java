@@ -43,7 +43,7 @@ class Icons {
 			@JsonProperty Color Green = palette.green().brighter();
 			@JsonProperty Color Blue = palette.blue().brighter();
 			@JsonProperty Color Purple = palette.purple().brighter();
-			@JsonProperty Color BlackText = style.foreground().base();
+			@JsonProperty Color BlackText = style.ui().foreground().base();
 			@JsonProperty Color YellowDark = palette.yellow().darker();
 		}
 

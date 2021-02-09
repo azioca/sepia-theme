@@ -12,6 +12,10 @@ public class UI {
 		this.palette = requireNonNull(palette);
 	}
 
+	public Foreground foreground() {
+		return new Foreground(palette);
+	}
+
 	public Background background() {
 		return new Background(palette.sepia().brightest());
 	}
