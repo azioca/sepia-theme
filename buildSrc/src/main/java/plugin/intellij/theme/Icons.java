@@ -62,30 +62,30 @@ class Icons {
 			}
 
 			class Background {
-				@JsonProperty("Default") Color Default = style.checkbox().hook();
-				@JsonProperty("Disabled") Color Disabled = style.checkbox().disabledBoxBackground();
-				@JsonProperty("Selected") Color Selected = style.checkbox().selectedBoxBackground();
+				@JsonProperty("Default") Color Default = style.theme().checkbox().hook();
+				@JsonProperty("Disabled") Color Disabled = style.theme().checkbox().disabledBoxBackground();
+				@JsonProperty("Selected") Color Selected = style.theme().checkbox().selectedBoxBackground();
 				@JsonProperty("Default.Dark") Color DefaultDark;
 				@JsonProperty("Disabled.Dark") Color DisabledDark;
 				@JsonProperty("Selected.Dark") Color SelectedDark;
 			}
 
 			class Border {
-				@JsonProperty("Default") Color Default = style.checkbox().border();
-				@JsonProperty("Disabled") Color Disabled = style.checkbox().disabledBorder();
+				@JsonProperty("Default") Color Default = style.theme().checkbox().border();
+				@JsonProperty("Disabled") Color Disabled = style.theme().checkbox().disabledBorder();
 				@JsonProperty("Selected") Color Selected = Default;
 				@JsonProperty("Default.Dark") Color DefaultDark;
 				@JsonProperty("Disabled.Dark") Color DisabledDark;
 			}
 
 			class Focus {
-				@JsonProperty("Wide") Color Wide = style.checkbox().focus();
+				@JsonProperty("Wide") Color Wide = style.theme().checkbox().focus();
 				@JsonProperty("Wide.Dark") Color WideDark;
 				@JsonUnwrapped(prefix = "Thin.") @JsonProperty ColorPalette.Checkbox.Focus.Thin Thin = new ColorPalette.Checkbox.Focus.Thin();
 
 				class Thin {
-					@JsonProperty("Default") Color Default = style.checkbox().focus();
-					@JsonProperty("Selected") Color Selected = style.checkbox().focus();
+					@JsonProperty("Default") Color Default = style.theme().checkbox().focus();
+					@JsonProperty("Selected") Color Selected = style.theme().checkbox().focus();
 					@JsonProperty("Default.Dark") Color DefaultDark;
 					@JsonProperty("Selected.Dark") Color SelectedDark;
 				}

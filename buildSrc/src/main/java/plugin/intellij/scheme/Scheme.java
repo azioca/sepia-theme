@@ -77,26 +77,26 @@ public class Scheme {
 			new Option.Color("FILESTATUS_DELETED", deleted),
 			new Option.Color("FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM", deleted),
 
-			new Option.Color("ScrollBar.Transparent.trackColor", style.scrollbar().trackColor()),
-			new Option.Color("ScrollBar.Transparent.thumbColor", style.scrollbar().thumbColor()),
-			new Option.Color("ScrollBar.Transparent.thumbBorderColor", (style.scrollbar()).thumbBorderColor()),
-			new Option.Color("ScrollBar.Transparent.hoverTrackColor", (style.scrollbar()).hoverTrackColor()),
-			new Option.Color("ScrollBar.Transparent.hoverThumbColor", (style.scrollbar()).hoverThumbColor()),
-			new Option.Color("ScrollBar.Transparent.hoverThumbBorderColor", (style.scrollbar()).hoverThumbBorderColor()),
+			new Option.Color("ScrollBar.Transparent.trackColor", style.theme().scrollbar().trackColor()),
+			new Option.Color("ScrollBar.Transparent.thumbColor", style.theme().scrollbar().thumbColor()),
+			new Option.Color("ScrollBar.Transparent.thumbBorderColor", (style.theme().scrollbar()).thumbBorderColor()),
+			new Option.Color("ScrollBar.Transparent.hoverTrackColor", (style.theme().scrollbar()).hoverTrackColor()),
+			new Option.Color("ScrollBar.Transparent.hoverThumbColor", (style.theme().scrollbar()).hoverThumbColor()),
+			new Option.Color("ScrollBar.Transparent.hoverThumbBorderColor", (style.theme().scrollbar()).hoverThumbBorderColor()),
 
-			new Option.Color("ScrollBar.Mac.Transparent.trackColor", (style.scrollbar()).trackColor()),
-			new Option.Color("ScrollBar.Mac.Transparent.thumbColor", (style.scrollbar()).thumbColor()),
-			new Option.Color("ScrollBar.Mac.Transparent.thumbBorderColor", (style.scrollbar()).thumbBorderColor()),
-			new Option.Color("ScrollBar.Mac.Transparent.hoverTrackColor", (style.scrollbar()).hoverTrackColor()),
-			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbColor", (style.scrollbar()).hoverThumbColor()),
-			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbBorderColor", (style.scrollbar()).hoverThumbBorderColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.trackColor", (style.theme().scrollbar()).trackColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.thumbColor", (style.theme().scrollbar()).thumbColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.thumbBorderColor", (style.theme().scrollbar()).thumbBorderColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.hoverTrackColor", (style.theme().scrollbar()).hoverTrackColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbColor", (style.theme().scrollbar()).hoverThumbColor()),
+			new Option.Color("ScrollBar.Mac.Transparent.hoverThumbBorderColor", (style.theme().scrollbar()).hoverThumbBorderColor()),
 
 			new Option.Color("SELECTED_INDENT_GUIDE", style.scheme().foreground().base()),
 			new Option.Color("SELECTED_TEARLINE_COLOR", style.scheme().foreground().base()),
-			new Option.Color("INDENT_GUIDE", style.editorLines()),
-			new Option.Color("RIGHT_MARGIN_COLOR", style.editorLines()),
-			new Option.Color("TEARLINE_COLOR", style.editorLines().darker()),
-			new Option.Color("LINE_NUMBERS_COLOR", style.editorLines().darker()),
+			new Option.Color("INDENT_GUIDE", style.scheme().lines()),
+			new Option.Color("RIGHT_MARGIN_COLOR", style.scheme().lines()),
+			new Option.Color("TEARLINE_COLOR", style.scheme().lines().darker()),
+			new Option.Color("LINE_NUMBERS_COLOR", style.scheme().lines().darker()),
 
 			new Option.Color("ANNOTATIONS_COLOR", style.scheme().foreground().base()),
 			new Option.Color("CONSOLE_BACKGROUND_KEY", style.scheme().background().base()),
@@ -114,7 +114,7 @@ public class Scheme {
 	class Attributes {
 		private final Color deprecated = style.scheme().foreground().base().brighter(3);
 
-		private final Color searchBackground = style.searchBackground();
+		private final Color searchBackground = style.theme().background().search();
 		private final Color searchWriteBackground = searchBackground.darker();
 
 		@JacksonXmlElementWrapper(useWrapping = false)

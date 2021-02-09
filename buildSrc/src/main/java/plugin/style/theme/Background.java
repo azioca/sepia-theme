@@ -1,14 +1,19 @@
 package plugin.style.theme;
 
 import plugin.domain.Color;
+import plugin.domain.Palette;
+
+import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
 public class Background {
 
+	private final Palette palette;
 	private final Color input;
 
-	public Background(Color input) {
+	public Background(Palette palette, Color input) {
+		this.palette = Objects.requireNonNull(palette);
 		this.input = requireNonNull(input);
 	}
 
@@ -34,5 +39,9 @@ public class Background {
 
 	public Color selected() {
 		return selectedInactive().darker();
+	}
+
+	public Color search() {
+		return palette.aqua().brighter();
 	}
 }

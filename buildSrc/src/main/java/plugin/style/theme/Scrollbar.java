@@ -6,11 +6,13 @@ import static java.util.Objects.requireNonNull;
 
 public class Scrollbar {
 
-	private final Color trackColor;
+	private final Theme theme;
 
-	public Scrollbar(Color trackColor) { this.trackColor = requireNonNull(trackColor); }
+	public Scrollbar(Theme theme) {
+		this.theme = requireNonNull(theme);
+	}
 
-	public Color trackColor() { return trackColor.opacity(0); }
+	public Color trackColor() { return theme.background().base().opacity(0); }
 	public Color thumbColor() { return trackColor().darker(3).opacity(0.4); }
 	public Color thumbBorderColor() { return thumbColor(); }
 	public Color hoverTrackColor() { return trackColor(); }

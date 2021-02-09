@@ -1,5 +1,6 @@
 package plugin.style.theme;
 
+import plugin.domain.Color;
 import plugin.domain.Palette;
 
 import static java.util.Objects.requireNonNull;
@@ -17,6 +18,34 @@ public class Theme {
 	}
 
 	public Background background() {
-		return new Background(palette.sepia().brightest());
+		return new Background(palette, palette.sepia().brightest());
+	}
+
+	public Button button() {
+		return new Button(this);
+	}
+
+	public Checkbox checkbox() {
+		return new Checkbox(this);
+	}
+
+	public Tab tab() {
+		return new Tab(this);
+	}
+
+	public Table table() {
+		return new Table(this);
+	}
+
+	public Color borderColor() {
+		return background().base().darker(3);
+	}
+
+	public Scrollbar scrollbar() {
+		return new Scrollbar(this);
+	}
+
+	Color focus() {
+		return palette.blue().brighter();
 	}
 }

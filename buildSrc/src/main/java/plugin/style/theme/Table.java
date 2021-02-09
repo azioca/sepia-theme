@@ -1,20 +1,19 @@
 package plugin.style.theme;
 
 import plugin.domain.Color;
-import plugin.style.Style;
 
 import java.util.Objects;
 
 public class Table {
 
-	private final Style style;
+	private final Theme theme;
 
-	public Table(Style style) {
-		this.style = Objects.requireNonNull(style);
+	public Table(Theme theme) {
+		this.theme = Objects.requireNonNull(theme);
 	}
 
 	public Color background() {
-		return style.theme().background().base().brighter();
+		return theme.background().base().brighter();
 	}
 
 	public Color alternativeRowBackground() {
@@ -42,7 +41,7 @@ public class Table {
 	}
 
 	public Color grid() {
-		return style.borderColor().brighter();
+		return theme.borderColor().brighter();
 	}
 
 	public Color sortIcon() {
@@ -60,7 +59,7 @@ public class Table {
 		}
 
 		public Color separator() {
-			return style.borderColor();
+			return theme.borderColor();
 		}
 
 		public Color focusCellBackground() {

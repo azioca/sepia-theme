@@ -1,5 +1,6 @@
 package plugin.style.scheme;
 
+import plugin.domain.Color;
 import plugin.domain.Palette;
 
 import static java.util.Objects.requireNonNull;
@@ -18,5 +19,9 @@ public class Scheme {
 
 	public Background background() {
 		return new Background(palette);
+	}
+
+	public Color lines() {
+		return palette.gray().brighter(3);
 	}
 }

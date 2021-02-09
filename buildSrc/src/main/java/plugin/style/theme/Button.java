@@ -1,20 +1,19 @@
 package plugin.style.theme;
 
 import plugin.domain.Color;
-import plugin.style.Style;
 
 import java.util.Objects;
 
 public class Button {
 
-	private final Style style;
+	private final Theme theme;
 
-	public Button(Style style) {
-		this.style = Objects.requireNonNull(style);
+	public Button(Theme theme) {
+		this.theme = Objects.requireNonNull(theme);
 	}
 
 	public Color around() {
-		return style.theme().background().base();
+		return theme.background().base();
 	}
 
 	public Ordinary ordinary() {
@@ -28,7 +27,7 @@ public class Button {
 	public class Ordinary {
 
 		public Color background() {
-			return style.theme().background().base().darker();
+			return theme.background().base().darker();
 		}
 
 		public Color border() {
@@ -55,7 +54,7 @@ public class Button {
 		}
 
 		public Color focusedBorder() {
-			return style.scheme().background().selectedText();
+			return theme.focus();
 		}
 	}
 }

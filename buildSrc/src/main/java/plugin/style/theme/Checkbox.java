@@ -1,22 +1,21 @@
 package plugin.style.theme;
 
 import plugin.domain.Color;
-import plugin.style.Style;
 
 public class Checkbox {
 
-	private final Style style;
+	private final Theme theme;
 
-	public Checkbox(Style style) {
-		this.style = style;
+	public Checkbox(Theme theme) {
+		this.theme = theme;
 	}
 
 	public Color textForeground() {
-		return style.theme().foreground().base();
+		return theme.foreground().base();
 	}
 
 	public Color textBackground() {
-		return style.theme().background().base();
+		return theme.background().base();
 	}
 
 	public Color focus() {
@@ -24,15 +23,15 @@ public class Checkbox {
 	}
 
 	public Color hook() {
-		return style.theme().background().base().brightest();
+		return theme.background().base().brightest();
 	}
 
 	public Color selectedBoxBackground() {
-		return style.theme().background().base().darkest();
+		return theme.background().base().darkest();
 	}
 
 	public Color disabledBoxBackground() {
-		return style.theme().background().base();
+		return theme.background().base();
 	}
 
 	public Color border() {
