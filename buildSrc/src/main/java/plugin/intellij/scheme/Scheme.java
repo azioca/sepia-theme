@@ -98,9 +98,17 @@ public class Scheme {
 			new Option.Color("TEARLINE_COLOR", style.scheme().lines().darker()),
 			new Option.Color("LINE_NUMBERS_COLOR", style.scheme().lines().darker()),
 
+			// General -> Popups and Hints
+			new Option.Color("DOCUMENTATION_COLOR", style.scheme().background().documentation()),
+			new Option.Color("ERROR_HINT", style.scheme().background().hints()),
+			new Option.Color("INFORMATION_HINT", style.scheme().background().hints()),
+			new Option.Color("PROMOTION_PANE", style.scheme().background().hints()),
+			new Option.Color("QUESTION_HINT", style.scheme().background().hints()),
+			new Option.Color("RECENT_LOCATIONS_SELECTION", style.scheme().background().base().darker()),
+			new Option.Color("TOOLTIP", style.scheme().background().hints()),
+
 			new Option.Color("ANNOTATIONS_COLOR", style.scheme().foreground().base()),
 			new Option.Color("CONSOLE_BACKGROUND_KEY", style.scheme().background().base()),
-			new Option.Color("DOCUMENTATION_COLOR", style.scheme().background().base()),
 			new Option.Color("GUTTER_BACKGROUND", style.scheme().background().base()),
 
 			new Option.Color("VCS_ANNOTATIONS_COLOR_1", style.scheme().background().base()),

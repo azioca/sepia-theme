@@ -92,8 +92,8 @@
 			"foreground": "#282828",
 			"matchForeground": "#076678",
 			"nonFocusedMask": "00000000",
-			"selectionBackground": "#ebdbb2",
-			"selectionInactiveBackground": "#f2e5bc"
+			"selectionBackground": "#f2e5bc",
+			"selectionInactiveBackground": "#fbf1c7"
 		},
 		"Component": {
 			"borderColor": "#d5c4a1",
@@ -490,7 +490,7 @@
 			"foreground": "#282828",
 			"inactiveBackground": "#f2e5bc",
 			"inactiveForeground": "#282828",
-			"selectionBackground": "#ebdbb2",
+			"selectionBackground": "#f2e5bc",
 			"selectionForeground": "#282828"
 		},
 		"ToolBar": {

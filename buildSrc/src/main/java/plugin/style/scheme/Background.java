@@ -14,22 +14,30 @@ public class Background {
 	}
 
 	public Color base() {
-		return palette.sepia().brighter(3);
+		return palette.sepia().brightest();
 	}
 
 	public Color selectedLine() {
-		return base().darker(3);
+		return base().darker(2);
 	}
 
 	public Color underCaret() {
-		return selectedLine().darker();
+		return selectedLine().darker(2);
 	}
 
 	public Color underCaretWrite() {
-		return underCaret().darker();
+		return underCaret().darker(2);
 	}
 
 	public Color selectedText() {
 		return palette.blue().brighter();
+	}
+
+	public Color documentation() {
+		return base();
+	}
+
+	public Color hints() {
+		return base().darker();
 	}
 }
