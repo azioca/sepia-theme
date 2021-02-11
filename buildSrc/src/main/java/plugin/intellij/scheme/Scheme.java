@@ -226,7 +226,13 @@ public class Scheme {
 				new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
 				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
 
-				new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER")
+				new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),
+
+				new Attribute("GO_METHOD_RECEIVER").foreground(palette.purple().darker()).bold(),
+				new Attribute("GO_FUNCTION_PARAMETER").foreground(palette.purple()).bold(),
+				new Attribute("GO_STRUCT_LOCAL_MEMBER").foreground(palette.purple())
+
+
 			);
 		}
 
