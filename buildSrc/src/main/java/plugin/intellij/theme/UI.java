@@ -325,33 +325,35 @@ class UI {
 		}
 	}
 
+	// Balloon - bottom right side notifications
 	class Notification {
+		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color borderColor = style.theme().borderColor();
-		@JsonProperty Color errorBackground = style.error();
+		@JsonProperty Color errorBackground = background;
 		@JsonProperty Color errorBorderColor = style.theme().borderColor();
 		@JsonProperty Color errorForeground = style.theme().foreground().base();
-		@JsonProperty Color foreground = style.theme().foreground().base();
 
 		@JsonProperty MoreButton MoreButton = new MoreButton();
 		@JsonProperty ToolWindow ToolWindow = new ToolWindow();
 
 		class MoreButton {
-			@JsonProperty Color background = Notification.this.background.darker();
 			@JsonProperty Color foreground = style.theme().foreground().disabled();
-			@JsonProperty Color innerBorderColor = background.darker(2);
+			@JsonProperty Color background = Notification.this.background.darker();
+			@JsonProperty Color innerBorderColor = background.darker();
 		}
 
+		// over tools colorful notifications
 		class ToolWindow {
-			@JsonProperty Color errorBackground = style.error().brightest();
-			@JsonProperty Color errorBorderColor = errorBackground.darker();
-			@JsonProperty Color errorForeground = style.theme().foreground().base();
 			@JsonProperty Color informativeBackground = style.success().brightest();
 			@JsonProperty Color informativeBorderColor = informativeBackground.darker();
 			@JsonProperty Color informativeForeground = style.theme().foreground().base();
 			@JsonProperty Color warningBackground = style.warning().brightest();
 			@JsonProperty Color warningBorderColor = warningBackground.darker();
 			@JsonProperty Color warningForeground = style.theme().foreground().base();
+			@JsonProperty Color errorBackground = style.error().brightest();
+			@JsonProperty Color errorBorderColor = errorBackground.darker();
+			@JsonProperty Color errorForeground = style.theme().foreground().base();
 		}
 	}
 

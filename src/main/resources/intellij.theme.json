@@ -228,7 +228,7 @@
 			"MoreButton": {
 				"background": "#f2e5bc",
 				"foreground": "#a89984",
-				"innerBorderColor": "#d5c4a1"
+				"innerBorderColor": "#ebdbb2"
 			},
 			"ToolWindow": {
 				"errorBackground": "#fb4934",
@@ -243,7 +243,7 @@
 			},
 			"background": "#fbf1c7",
 			"borderColor": "#d5c4a1",
-			"errorBackground": "#cc241d",
+			"errorBackground": "#fbf1c7",
 			"errorBorderColor": "#d5c4a1",
 			"errorForeground": "#282828",
 			"foreground": "#282828"
