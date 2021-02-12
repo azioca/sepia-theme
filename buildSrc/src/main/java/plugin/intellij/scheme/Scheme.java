@@ -54,7 +54,7 @@ public class Scheme {
 		List<Option.Color> option = List.of(
 			new Option.Color("CARET_COLOR", style.scheme().foreground().base()),
 			new Option.Color("CARET_ROW_COLOR", style.scheme().background().selectedLine()),
-			new Option.Color("SELECTION_FOREGROUND", style.scheme().foreground().base()),
+			new Option.Color("SELECTION_FOREGROUND", style.scheme().foreground().selectedText()),
 			new Option.Color("SELECTION_BACKGROUND", style.scheme().background().selectedText()),
 			new Option.Color("READONLY_BACKGROUND", style.theme().background().readOnly()),
 

@@ -1,17 +1,16 @@
 package plugin.style.scheme;
 
-import plugin.domain.color.Color;
 import plugin.domain.Palette;
+import plugin.domain.color.Color;
 
-import java.util.Objects;
+import static java.util.Objects.requireNonNull;
 
-// todo divide to editor and ui
 public class Foreground {
 
 	private final Palette palette;
 
 	Foreground(Palette palette) {
-		this.palette = Objects.requireNonNull(palette);
+		this.palette = requireNonNull(palette);
 	}
 
 	public Color base() {
@@ -20,5 +19,9 @@ public class Foreground {
 
 	public Color disabled() {
 		return palette.gray().brighter();
+	}
+
+	public Color selectedText() {
+		return base();
 	}
 }

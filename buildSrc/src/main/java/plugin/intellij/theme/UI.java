@@ -151,7 +151,7 @@ class UI {
 	// has documentation background
 	class CompletionPopup {
 		@JsonProperty Color foreground = style.theme().foreground().base();
-		@JsonProperty Color matchForeground = style.scheme().background().selectedText().darker().darker();
+		@JsonProperty Color matchForeground = palette.blue().darkest();
 		@JsonProperty Color nonFocusedMask = Color.transparent();
 		@JsonProperty Color selectionBackground = style.scheme().background().documentation().darker(2);
 		@JsonProperty Color selectionInactiveBackground = selectionBackground.brighter();
