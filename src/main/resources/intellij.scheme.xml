@@ -552,7 +552,7 @@
       <value>
         <option name="FOREGROUND" value="282828"/>
         <option name="BACKGROUND" value="fe8019"/>
-        <option name="ERROR_STRIPE_COLOR" value="282828"/>
+        <option name="ERROR_STRIPE_COLOR" value="fe8019"/>
       </value>
     </option>
     <option name="TYPE_PARAMETER_NAME_ATTRIBUTES">

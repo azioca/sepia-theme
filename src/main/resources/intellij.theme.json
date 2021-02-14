@@ -71,17 +71,17 @@
 		},
 		"ComboBox": {
 			"ArrowButton": {
-				"background": "#fbf1c7",
+				"background": "#f9f5d7",
 				"disabledIconColor": "#a89984",
 				"iconColor": "#282828",
-				"nonEditableBackground": "#fbf1c7"
+				"nonEditableBackground": "#f9f5d7"
 			},
-			"background": "#fbf1c7",
+			"background": "#f9f5d7",
 			"disabledBackground": "#fbf1c7",
 			"disabledForeground": "#a89984",
 			"foreground": "#282828",
 			"modifiedItemForeground": "#458588",
-			"nonEditableBackground": "#fbf1c7",
+			"nonEditableBackground": "#f9f5d7",
 			"selectionBackground": "#d5c4a1",
 			"selectionForeground": "#282828"
 		},

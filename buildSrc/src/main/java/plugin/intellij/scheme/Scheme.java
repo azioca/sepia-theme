@@ -173,7 +173,7 @@ public class Scheme {
 				new Attribute("TODO_DEFAULT_ATTRIBUTES")
 					.foreground(style.scheme().foreground().base())
 					.background(palette.orange().brighter())
-					.errorStripeAsForeground(),
+					.errorStripeAsBackground(),
 				new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
 
 				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(palette.aqua().brighter()),
@@ -188,7 +188,6 @@ public class Scheme {
 
 		private Collection<Attribute> language() {
 			// todo create value instead of empty Attribute and then setValue()
-			Attribute.Value keyword2 = new Attribute("").foreground(palette.blue()).bold().value();
 			Attribute.Value keyword = new Attribute("").foreground(palette.blue()).bold().value();
 			return Set.of(
 				new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),

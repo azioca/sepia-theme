@@ -128,8 +128,8 @@ class UI {
 		@JsonProperty Color selectionForeground = style.theme().foreground().base();
 		@JsonProperty Color disabledForeground = style.theme().foreground().disabled();
 		@JsonProperty Color modifiedItemForeground = style.theme().foreground().modified();
-		@JsonProperty Color background = style.theme().background().base();
-		@JsonProperty Color disabledBackground = background; // deprecated but it works, no other ways of setting this value in code
+		@JsonProperty Color background = style.theme().background().base().brighter();
+		@JsonProperty Color disabledBackground = style.theme().background().base(); // deprecated but it works, no other ways of setting this value in code
 		@JsonProperty Color nonEditableBackground = background;
 		@JsonProperty Color selectionBackground = style.theme().background().selected();
 
