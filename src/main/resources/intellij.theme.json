@@ -92,8 +92,8 @@
 			"foreground": "#282828",
 			"matchForeground": "#076678",
 			"nonFocusedMask": "00000000",
-			"selectionBackground": "#f2e5bc",
-			"selectionInactiveBackground": "#fbf1c7"
+			"selectionBackground": "#ebdbb2",
+			"selectionInactiveBackground": "#f2e5bc"
 		},
 		"Component": {
 			"borderColor": "#d5c4a1",
