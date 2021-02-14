@@ -153,8 +153,8 @@ class UI {
 		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color matchForeground = palette.blue().darkest();
 		@JsonProperty Color nonFocusedMask = Color.transparent();
-		@JsonProperty Color selectionBackground = style.scheme().background().documentation().darker(3);
-		@JsonProperty Color selectionInactiveBackground = selectionBackground.brighter();
+		@JsonProperty Color selectionInactiveBackground = style.scheme().background().documentation().darker(2);
+		@JsonProperty Color selectionBackground = selectionInactiveBackground.darker();
 	}
 
 	class Component {
