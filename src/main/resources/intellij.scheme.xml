@@ -99,11 +99,6 @@
         <option name="BACKGROUND" value="ebdbb2"/>
       </value>
     </option>
-    <option name="Block comment">
-      <value>
-        <option name="FOREGROUND" value="928374"/>
-      </value>
-    </option>
     <option name="CONSOLE_BLACK_OUTPUT">
       <value>
         <option name="FOREGROUND" value="282828"/>
@@ -234,28 +229,30 @@
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="d3869b"/>
+        <option name="FOREGROUND" value="b16286"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT">
       <value>
         <option name="FOREGROUND" value="928374"/>
+        <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT_TAG">
       <value>
         <option name="FOREGROUND" value="928374"/>
+        <option name="FONT_TYPE" value="3"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
       <value>
         <option name="FOREGROUND" value="665c54"/>
-        <option name="FONT_TYPE" value="2"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_MARKUP">
       <value>
-        <option name="FOREGROUND" value="665c54"/>
+        <option name="FOREGROUND" value="458588"/>
       </value>
     </option>
     <option name="DEFAULT_DOT">
@@ -408,7 +405,6 @@
         <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
-    <option name="DOC_COMMENT_TAG_VALUE" baseAttributes="DEFAULT_DOC_COMMENT_TAG_VALUE"/>
     <option name="ERRORS_ATTRIBUTES">
       <value>
         <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
@@ -448,9 +444,8 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="282828"/>
         <option name="BACKGROUND" value="d5c4a1"/>
-        <option name="ERROR_STRIPE_COLOR" value="282828"/>
+        <option name="ERROR_STRIPE_COLOR" value="d5c4a1"/>
       </value>
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
@@ -555,9 +550,9 @@
     </option>
     <option name="TODO_DEFAULT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="79740e"/>
-        <option name="FONT_TYPE" value="2"/>
-        <option name="ERROR_STRIPE_COLOR" value="79740e"/>
+        <option name="FOREGROUND" value="282828"/>
+        <option name="BACKGROUND" value="fe8019"/>
+        <option name="ERROR_STRIPE_COLOR" value="282828"/>
       </value>
     </option>
     <option name="TYPE_PARAMETER_NAME_ATTRIBUTES">
@@ -588,9 +583,8 @@
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="282828"/>
-        <option name="BACKGROUND" value="a89984"/>
-        <option name="ERROR_STRIPE_COLOR" value="282828"/>
+        <option name="BACKGROUND" value="bdae93"/>
+        <option name="ERROR_STRIPE_COLOR" value="bdae93"/>
       </value>
     </option>
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">

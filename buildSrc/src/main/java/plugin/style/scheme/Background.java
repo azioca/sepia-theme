@@ -26,7 +26,7 @@ public class Background {
 	}
 
 	public Color underCaretWrite() {
-		return underCaret().darker(2);
+		return underCaret().darker();
 	}
 
 	public Color selectedText() {

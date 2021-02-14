@@ -97,15 +97,27 @@ class Attribute {
 		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectColor(effectColor));
 	}
 
+	public Attribute removeEffect() {
+		return new Attribute(name, baseAttributes, atLeastEmptyValue().effectType(null).effectColor(null));
+	}
+
+	public Attribute removeFontType() {
+		return new Attribute(name, baseAttributes, atLeastEmptyValue().fontType(null));
+	}
+
 	private Value atLeastEmptyValue() {
 		return value != null ? value : new Value();
+	}
+
+	public Attribute setValue(Value value) {
+		return new Attribute(name, baseAttributes, value);
 	}
 
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
 	@JacksonXmlProperty(isAttribute = true) String baseAttributes() { return baseAttributes; }
 	@JacksonXmlProperty Value value() { return value; }
 
-	private static class Value {
+	public static class Value {
 
 		private final Color foreground;
 		private final Color background;

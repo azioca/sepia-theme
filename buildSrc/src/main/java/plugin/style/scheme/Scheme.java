@@ -14,7 +14,7 @@ public class Scheme {
 	}
 
 	public Foreground foreground() {
-		return new Foreground(palette);
+		return new Foreground(palette, this);
 	}
 
 	public Background background() {

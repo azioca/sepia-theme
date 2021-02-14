@@ -140,8 +140,10 @@ public class Scheme {
 
 		private Collection<Attribute> operations() {
 			return Set.of(
-				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(style.scheme().background().underCaret()).errorStripeAsForeground(),
-				new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(style.scheme().background().underCaretWrite()).errorStripeAsForeground(),
+				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").background(style.scheme().background().underCaret()).errorStripeAsBackground(),
+				new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES")
+					.background(style.scheme().background().underCaretWrite())
+					.errorStripeAsBackground(),
 
 				new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchBackground).errorStripeAsBackground(),
 				new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchBackground).errorStripeAsBackground(),
@@ -163,13 +165,15 @@ public class Scheme {
 				new Attribute("TEXT").foreground(style.scheme().foreground().base()).background(style.scheme().background().base()),
 
 				new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
-				new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
 				new Attribute("DEFAULT_BRACES").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_BRACKETS").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base()),
 
-				new Attribute("TODO_DEFAULT_ATTRIBUTES").foreground(palette.green().darker()).italic().errorStripeAsForeground(),
+				new Attribute("TODO_DEFAULT_ATTRIBUTES")
+					.foreground(style.scheme().foreground().base())
+					.background(palette.orange().brighter())
+					.errorStripeAsForeground(),
 				new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
 
 				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(palette.aqua().brighter()),
@@ -183,19 +187,22 @@ public class Scheme {
 		}
 
 		private Collection<Attribute> language() {
+			// todo create value instead of empty Attribute and then setValue()
+			Attribute.Value keyword2 = new Attribute("").foreground(palette.blue()).bold().value();
+			Attribute.Value keyword = new Attribute("").foreground(palette.blue()).bold().value();
 			return Set.of(
 				new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),
 				new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua().darker()).bold(),
 				new Attribute("DEFAULT_INVALID_STRING_ESCAPE").foreground(style.error()).underwaved(style.error()).bold(),
 
-				new Attribute("DEFAULT_CONSTANT").foreground(palette.purple().brighter()),
-				new Attribute("DEFAULT_DOC_COMMENT").foreground(palette.gray()),
-				new Attribute("DEFAULT_DOC_COMMENT_TAG").foreground(palette.gray()),
-				new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE").foreground(palette.gray().darker(2)).italic(),
-				new Attribute("DEFAULT_DOC_MARKUP").foreground(palette.gray().darker(2)),
-				new Attribute("DOC_COMMENT_TAG_VALUE").baseAttributes("DEFAULT_DOC_COMMENT_TAG_VALUE"),
+				new Attribute("DEFAULT_CONSTANT").foreground(palette.purple()),
+
 				new Attribute("DEFAULT_LINE_COMMENT").foreground(palette.gray()).italic(),
-				new Attribute("Block comment").foreground(palette.gray()),
+				new Attribute("DEFAULT_BLOCK_COMMENT").foreground(palette.gray()).italic(),
+				new Attribute("DEFAULT_DOC_COMMENT").foreground(palette.gray()).italic(),
+				new Attribute("DEFAULT_DOC_COMMENT_TAG").foreground(palette.gray()).italic().bold(),
+				new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE").foreground(palette.gray().darker(2)).bold(),
+				new Attribute("DEFAULT_DOC_MARKUP").setValue(keyword).removeFontType(),
 
 				new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
 				new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base()),
@@ -203,7 +210,7 @@ public class Scheme {
 				new Attribute("DEFAULT_IDENTIFIER").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_INSTANCE_FIELD").foreground(palette.purple().darker()).bold(),
 				new Attribute("DEFAULT_INTERFACE_NAME").foreground(style.scheme().foreground().base()).italic(),
-				new Attribute("DEFAULT_KEYWORD").foreground(palette.blue()).bold(),
+				new Attribute("DEFAULT_KEYWORD").setValue(keyword),
 				new Attribute("DEFAULT_LABEL").foreground(palette.blue()).bold(),
 				new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
 				new Attribute("DEFAULT_METADATA").foreground(palette.green()),
