@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import plugin.domain.color.Color;
 import plugin.domain.Palette;
+import plugin.domain.color.Color;
 import plugin.style.Style;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -128,7 +129,7 @@ public class Scheme {
 		@JacksonXmlElementWrapper(useWrapping = false)
 		public List<Attribute> option() {
 			List<Attribute> option = new ArrayList<>();
-			option.addAll(operations());
+			option.addAll(code());
 			option.addAll(editor());
 			option.addAll(language());
 			option.addAll(errors());
@@ -138,7 +139,7 @@ public class Scheme {
 			return option.stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
 		}
 
-		private Collection<Attribute> operations() {
+		private Collection<Attribute> code() {
 			return Set.of(
 				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES")
 					.background(style.scheme().background().underCaret())
@@ -184,13 +185,24 @@ public class Scheme {
 				new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),
 
 				new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.scheme().foreground().base()),
-				new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3))
+				new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3)),
+
+				new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link())
 			);
 		}
 
 		private Collection<Attribute> language() {
+			Set<Attribute> language = new HashSet<>();
+			language.addAll(Default());
+			language.addAll(Java());
+			language.addAll(Go());
+			return language;
+		}
+
+		private Collection<Attribute> Default() {
 			// todo create value instead of empty Attribute and then setValue()
 			Attribute.Value keyword = new Attribute("").foreground(palette.blue()).bold().value();
+
 			return Set.of(
 				new Attribute("DEFAULT_STRING").foreground(palette.aqua()).bold(),
 				new Attribute("DEFAULT_VALID_STRING_ESCAPE").foreground(palette.aqua().darker()).bold(),
@@ -222,10 +234,14 @@ public class Scheme {
 				new Attribute("DEFAULT_STATIC_FIELD").foreground(palette.purple().darker()).bold().italic(),
 				new Attribute("DEFAULT_STATIC_METHOD").foreground(style.scheme().foreground().base()).italic(),
 				new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
-				new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3)),
+				new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3))
+			);
+		}
+
+		private Collection<? extends Attribute> Java() {
+			return Set.of(
 				new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold(),
 				new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).italic().strikeout(deprecated),
-				new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link()),
 
 				new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").baseAttributes("CLASS_NAME_ATTRIBUTES"),
 				new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
@@ -234,13 +250,15 @@ public class Scheme {
 				new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
 				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
 
-				new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER"),
+				new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER")
+			);
+		}
 
+		private Collection<? extends Attribute> Go() {
+			return Set.of(
 				new Attribute("GO_METHOD_RECEIVER").foreground(palette.purple().darker()).bold(),
 				new Attribute("GO_FUNCTION_PARAMETER").foreground(palette.purple()).bold(),
 				new Attribute("GO_STRUCT_LOCAL_MEMBER").foreground(palette.purple())
-
-
 			);
 		}
 
