@@ -37,6 +37,10 @@ public class Background {
 		return base();
 	}
 
+	public Color readOnly() {
+		return base().darker();
+	}
+
 	public Color hints() {
 		return base().darker();
 	}

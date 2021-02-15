@@ -56,7 +56,7 @@ public class Scheme {
 			new Option.Color("CARET_ROW_COLOR", style.scheme().background().selectedLine()),
 			new Option.Color("SELECTION_FOREGROUND", style.scheme().foreground().selectedText()),
 			new Option.Color("SELECTION_BACKGROUND", style.scheme().background().selectedText()),
-			new Option.Color("READONLY_BACKGROUND", style.theme().background().readOnly()),
+			new Option.Color("READONLY_BACKGROUND", style.scheme().background().readOnly()),
 
 			new Option.Color("ADDED_LINES_COLOR", added),
 			new Option.Color("IGNORED_ADDED_LINES_BORDER_COLOR", added),
