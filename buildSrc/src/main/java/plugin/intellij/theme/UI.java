@@ -260,7 +260,7 @@ class UI {
 	}
 
 	class List {
-		@JsonProperty Color background = style.theme().background().base(); // used also for branch search field
+		@JsonProperty Color background = style.theme().background().input(); // used also for branch search field
 
 		@JsonProperty Color dropLineColor = style.theme().borderColor();
 		@JsonProperty Color foreground = style.theme().foreground().base();
@@ -781,11 +781,15 @@ class UI {
 			@JsonProperty Color tagIconColor;
 		}
 
+		/*
+			background = UI.this.List().background
+			selectionBackground = UI.this.List().selectionBackground
+		*/
 		class Log {
 			@JsonProperty VersionControl.Log.Commit Commit = new VersionControl.Log.Commit();
 
 			class Commit {
-				@JsonProperty Color currentBranchBackground = style.theme().background().base().darker();
+				@JsonProperty Color currentBranchBackground = UI.this.List().background.darker();
 				@JsonProperty Color hoveredBackground = currentBranchBackground.darker();
 				@JsonProperty Color unmatchedForeground;
 			}

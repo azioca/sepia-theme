@@ -176,7 +176,7 @@
 			"visitedForeground": "#458588"
 		},
 		"List": {
-			"background": "#fbf1c7",
+			"background": "#f9f5d7",
 			"dropLineColor": "#d5c4a1",
 			"foreground": "#282828",
 			"hoverBackground": "#f2e5bc",
@@ -555,8 +555,8 @@
 			"GitLog": { },
 			"Log": {
 				"Commit": {
-					"currentBranchBackground": "#f2e5bc",
-					"hoveredBackground": "#ebdbb2"
+					"currentBranchBackground": "#fbf1c7",
+					"hoveredBackground": "#f2e5bc"
 				}
 			},
 			"RefLabel": {
