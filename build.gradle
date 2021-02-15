@@ -23,9 +23,8 @@ intellij {
 patchPluginXml {
 	untilBuild = '211.*'
 	pluginDescription = """
-    	<h3>Sepia Theme</h3>
     	Light eye-friendly theme
-    	<br>
+    	<br><br>
     	<a href="https://github.com/adamwojszczyk/sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/sepia-theme/issues">Report an issue</a>
     	<br><br><br>
     	<img src="https://raw.githubusercontent.com/adamwojszczyk/sepia-theme/master/screenshots/main-window.png" border="0" alt="Main window screenshot">
