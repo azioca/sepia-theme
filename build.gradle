@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.0.1-SNAPSHOT'
+version '0.0.1'
 
 repositories {
 	mavenCentral()
@@ -24,6 +24,7 @@ patchPluginXml {
 	untilBuild = '211.*'
 	pluginDescription = """
     	<h3>Sepia Theme</h3>
+    	Light eye-friendly theme
     	<br>
     	<a href="https://github.com/adamwojszczyk/sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/sepia-theme/issues">Report an issue</a>
     	<br><br><br>
