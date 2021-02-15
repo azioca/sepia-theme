@@ -140,10 +140,12 @@ public class Scheme {
 
 		private Collection<Attribute> operations() {
 			return Set.of(
-				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES").background(style.scheme().background().underCaret()).errorStripeAsBackground(),
+				new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES")
+					.background(style.scheme().background().underCaret())
+					.errorStripe(style.scheme().background().underCaret()),
 				new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES")
 					.background(style.scheme().background().underCaretWrite())
-					.errorStripeAsBackground(),
+					.errorStripe(style.scheme().background().underCaretWrite().darker()),
 
 				new Attribute("SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchBackground).errorStripeAsBackground(),
 				new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(searchBackground).errorStripeAsBackground(),
