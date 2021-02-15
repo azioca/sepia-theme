@@ -73,6 +73,8 @@ public class Scheme {
 			// new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker()),
 			// new Option.Color("FILESTATUS_modifiedOutside", modified.darker()),
 
+			new Option.Color("FOLDED_TEXT_BORDER_COLOR", palette.yellow().brighter()),
+
 			new Option.Color("DELETED_LINES_COLOR", deleted),
 			new Option.Color("IGNORED_DELETED_LINES_BORDER_COLOR", deleted),
 			new Option.Color("FILESTATUS_DELETED", deleted),
@@ -179,7 +181,7 @@ public class Scheme {
 					.errorStripeAsBackground(),
 				new Attribute("DELETED_TEXT_ATTRIBUTES").errorStripe(style.error()).dottedLine(style.error()),
 
-				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(style.scheme().foreground().base()).background(palette.aqua().brighter()),
+				new Attribute("FOLDED_TEXT_ATTRIBUTES").foreground(palette.gray()).bordered(palette.gray().brighter()),
 				new Attribute("INJECTED_LANGUAGE_FRAGMENT").foreground(style.scheme().foreground().base().darker()),
 				new Attribute("INLINE_PARAMETER_HINT").foreground(style.scheme().foreground().base()).background(palette.aqua().darker()),
 				new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),

@@ -15,6 +15,7 @@
     <option name="ERROR_HINT" value="fbf1c7"/>
     <option name="FILESTATUS_DELETED" value="928374"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="928374"/>
+    <option name="FOLDED_TEXT_BORDER_COLOR" value="fabd2f"/>
     <option name="GUTTER_BACKGROUND" value="f9f5d7"/>
     <option name="IGNORED_ADDED_LINES_BORDER_COLOR" value="b8bb26"/>
     <option name="IGNORED_DELETED_LINES_BORDER_COLOR" value="928374"/>
@@ -414,8 +415,9 @@
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="282828"/>
-        <option name="BACKGROUND" value="8ec07c"/>
+        <option name="FOREGROUND" value="928374"/>
+        <option name="EFFECT_COLOR" value="a89984"/>
+        <option name="EFFECT_TYPE" value="6"/>
       </value>
     </option>
     <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
