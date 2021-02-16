@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.0.2-SNAPSHOT'
+version '0.0.2'
 
 repositories {
 	mavenCentral()
@@ -30,6 +30,10 @@ patchPluginXml {
     	<img src="https://raw.githubusercontent.com/adamwojszczyk/sepia-theme/master/screenshots/main-window.png" border="0" alt="Main window screenshot">
 	"""
 	changeNotes = """
+		<i><b>0.0.2</b></i>
+		<ul>
+			<li>color diff & merge</li>
+		</ul>
 		<i><b>0.0.1</b></i>
 		<ul>
 			<li>initial release</li>
