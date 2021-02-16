@@ -53,9 +53,10 @@ public class Scheme {
 	}
 
 	class Colors {
-		private final Color added = palette.green().brighter();
-		private final Color modified = palette.blue().brighter();
-		private final Color deleted = palette.gray();
+		private final Color added = palette.green().brighter(2);
+		private final Color modified = palette.blue().brighter(2);
+		private final Color deleted = palette.silver();
+
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
 			new Option.Color("CARET_COLOR", style.scheme().foreground().base()),
@@ -85,7 +86,7 @@ public class Scheme {
 			new Option.Color("FILESTATUS_DELETED", deleted),
 			new Option.Color("FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM", deleted),
 
-			new Option.Color("DIFF_SEPARATORS_BACKGROUND", palette.gray().brightest()),
+			new Option.Color("DIFF_SEPARATORS_BACKGROUND", style.scheme().background().readOnly().darker(2)),
 
 			new Option.Color("ScrollBar.Transparent.trackColor", style.scrollBar().trackColor()),
 			new Option.Color("ScrollBar.Transparent.thumbColor", style.scrollBar().thumbColor()),
@@ -106,7 +107,7 @@ public class Scheme {
 			new Option.Color("INDENT_GUIDE", style.scheme().lines()),
 			new Option.Color("RIGHT_MARGIN_COLOR", style.scheme().lines()),
 			new Option.Color("TEARLINE_COLOR", style.scheme().lines().darker()),
-			new Option.Color("LINE_NUMBERS_COLOR", style.scheme().lines().darker()),
+			new Option.Color("LINE_NUMBERS_COLOR", style.scheme().lines().darker(2)),
 
 			// General -> Popups and Hints
 			new Option.Color("DOCUMENTATION_COLOR", style.scheme().background().documentation()),
@@ -180,7 +181,7 @@ public class Scheme {
 					new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.scheme().foreground().base()),
 					new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base()),
 					new Attribute("INLINE_PARAMETER_HINT").foreground(style.scheme().foreground().base()).background(palette.aqua().darker()),
-					new Attribute("INFO_ATTRIBUTES").errorStripe(style.warning()).dottedLine(style.warning()),
+					new Attribute("INFO_ATTRIBUTES").dottedLine(style.warning()).errorStripeAsEffect(),
 					new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3)),
 					new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link())
 				),
@@ -220,8 +221,8 @@ public class Scheme {
 					.foreground(deprecated).italic()
 					.strikeout(deprecated),
 				new Attribute("WARNING_ATTRIBUTES")
-					.underwaved(style.warning())
-					.errorStripeAsEffect(),
+					.underwaved(palette.orange().brighter())
+					.errorStripe(style.warning()),
 				new Attribute("WRONG_REFERENCES_ATTRIBUTES")
 					.underwaved(style.error())
 					.errorStripeAsEffect()
@@ -373,10 +374,10 @@ public class Scheme {
 
 		private Collection<Attribute> diffAndMerge() {
 			return Set.of(
-				new Attribute("DIFF_INSERTED").background(palette.green().brightest()).errorStripeAsBackground(),
-				new Attribute("DIFF_MODIFIED").background(palette.blue().brightest()).errorStripeAsBackground(),
-				new Attribute("DIFF_DELETED").background(palette.gray().brightest()).errorStripeAsBackground(),
-				new Attribute("DIFF_CONFLICT").background(palette.orange().brightest()).errorStripeAsBackground()
+				new Attribute("DIFF_INSERTED").background(palette.green().brighter(3)).errorStripe(palette.green().brighter(2)),
+				new Attribute("DIFF_MODIFIED").background(palette.blue().brighter(3)).errorStripe(palette.blue().brighter(2)),
+				new Attribute("DIFF_DELETED").background(palette.silver().brighter()).errorStripe(palette.silver()),
+				new Attribute("DIFF_CONFLICT").background(palette.red().brighter(3)).errorStripe(palette.red().brighter(2))
 			);
 		}
 

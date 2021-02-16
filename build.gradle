@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.0.2'
+version '0.0.3-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -30,6 +30,14 @@ patchPluginXml {
     	<img src="https://raw.githubusercontent.com/adamwojszczyk/sepia-theme/master/screenshots/main-window.png" border="0" alt="Main window screenshot">
 	"""
 	changeNotes = """
+		<i><b>0.0.3</b></i>
+		<ul>
+			<li>diff & merge - brighter</li>
+			<li>diff & merge - silver color for deleted lines</li>
+			<li>vcs editor gutter - brighter</li>
+			<li>line numbers - darker</li>
+			<li>warning underwave - darker</li>
+		</ul>
 		<i><b>0.0.2</b></i>
 		<ul>
 			<li>color diff & merge</li>

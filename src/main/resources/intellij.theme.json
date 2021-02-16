@@ -231,11 +231,11 @@
 				"innerBorderColor": "#ebdbb2"
 			},
 			"ToolWindow": {
-				"errorBackground": "#fb4934",
-				"errorBorderColor": "#cc241d",
+				"errorBackground": "#fc8c7f",
+				"errorBorderColor": "#fb4934",
 				"errorForeground": "#282828",
-				"informativeBackground": "#8ec07c",
-				"informativeBorderColor": "#689d6a",
+				"informativeBackground": "#d9dc52",
+				"informativeBorderColor": "#b8bb26",
 				"informativeForeground": "#282828",
 				"warningBackground": "#fabd2f",
 				"warningBorderColor": "#d79921",
@@ -331,7 +331,7 @@
 			"foreground": "#282828",
 			"indeterminateEndColor": "#a89984",
 			"indeterminateStartColor": "#ebdbb2",
-			"passedColor": "#8ec07c",
+			"passedColor": "#d9dc52",
 			"passedEndColor": "#ebdbb2",
 			"progressColor": "#a89984",
 			"trackColor": "#ebdbb2"
@@ -548,8 +548,8 @@
 		"ValidationTooltip": {
 			"errorBackground": "#cc241d",
 			"errorBorderColor": "#9d0006",
-			"warningBackground": "#fabd2f",
-			"warningBorderColor": "#d79921"
+			"warningBackground": "#fcd57a",
+			"warningBorderColor": "#fabd2f"
 		},
 		"VersionControl": {
 			"GitLog": { },

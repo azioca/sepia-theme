@@ -151,7 +151,7 @@ class UI {
 	// has documentation background
 	class CompletionPopup {
 		@JsonProperty Color foreground = style.theme().foreground().base();
-		@JsonProperty Color matchForeground = palette.blue().darkest();
+		@JsonProperty Color matchForeground = palette.blue().darker();
 		@JsonProperty Color nonFocusedMask = Color.transparent();
 		@JsonProperty Color selectionInactiveBackground = style.scheme().background().documentation().darker(2);
 		@JsonProperty Color selectionBackground = selectionInactiveBackground.darker();
@@ -345,13 +345,13 @@ class UI {
 
 		// over tools colorful notifications
 		class ToolWindow {
-			@JsonProperty Color informativeBackground = style.success().brightest();
+			@JsonProperty Color informativeBackground = style.success().brighter(2);
 			@JsonProperty Color informativeBorderColor = informativeBackground.darker();
 			@JsonProperty Color informativeForeground = style.theme().foreground().base();
-			@JsonProperty Color warningBackground = style.warning().brightest();
+			@JsonProperty Color warningBackground = style.warning();
 			@JsonProperty Color warningBorderColor = warningBackground.darker();
 			@JsonProperty Color warningForeground = style.theme().foreground().base();
-			@JsonProperty Color errorBackground = style.error().brightest();
+			@JsonProperty Color errorBackground = style.error().brighter(2);
 			@JsonProperty Color errorBorderColor = errorBackground.darker();
 			@JsonProperty Color errorForeground = style.theme().foreground().base();
 		}
@@ -476,7 +476,7 @@ class UI {
 		@JsonProperty Color progressColor = trackColor.darker(3);
 		@JsonProperty Color indeterminateStartColor = trackColor;
 		@JsonProperty Color indeterminateEndColor = progressColor;
-		@JsonProperty Color passedColor = style.success();
+		@JsonProperty Color passedColor = style.success().brighter(2);
 		@JsonProperty Color passedEndColor = trackColor;
 		@JsonProperty Color failedColor = style.error();
 		@JsonProperty Color failedEndColor = trackColor;
@@ -762,7 +762,7 @@ class UI {
 	class ValidationTooltip {
 		@JsonProperty Color errorBackground = style.error();
 		@JsonProperty Color errorBorderColor = errorBackground.darker();
-		@JsonProperty Color warningBackground = style.warning();
+		@JsonProperty Color warningBackground = style.warning().brighter();
 		@JsonProperty Color warningBorderColor = warningBackground.darker();
 	}
 

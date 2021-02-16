@@ -12,6 +12,7 @@ public interface Palette {
 	Color aqua();
 	Color blue();
 	Color purple();
+	Color silver();
 
 	Color black();
 	Color gray();
@@ -21,7 +22,7 @@ public interface Palette {
 
 		private final Palette palette;
 
-		public Hex(Palette palette) {this.palette = Objects.requireNonNull(palette);}
+		public Hex(Palette palette) { this.palette = Objects.requireNonNull(palette); }
 
 		@Override
 		public Color red() {
@@ -59,6 +60,11 @@ public interface Palette {
 		}
 
 		@Override
+		public Color silver() {
+			return palette.silver().hex();
+		}
+
+		@Override
 		public Color black() {
 			return palette.black().hex();
 		}
@@ -78,7 +84,7 @@ public interface Palette {
 
 		private final Palette palette;
 
-		public Plain(Palette palette) {this.palette = palette;}
+		public Plain(Palette palette) { this.palette = palette; }
 
 		@Override
 		public Color red() {
@@ -113,6 +119,11 @@ public interface Palette {
 		@Override
 		public Color purple() {
 			return palette.purple().plain();
+		}
+
+		@Override
+		public Color silver() {
+			return palette.silver().plain();
 		}
 
 		@Override
