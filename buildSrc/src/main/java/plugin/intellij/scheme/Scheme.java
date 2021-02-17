@@ -53,13 +53,15 @@ public class Scheme {
 	}
 
 	class Colors {
-		private final Color added = palette.green().brighter(2);
-		private final Color modified = palette.blue().brighter(2);
-		private final Color deleted = palette.silver();
+		private final Color added = palette.green().brighter();
+		private final Color modified = palette.blue().brighter();
+		private final Color deleted = palette.silver().darker(3);
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
 			new Option.Color("CARET_COLOR", style.scheme().foreground().base()),
+
+
 			new Option.Color("CARET_ROW_COLOR", style.scheme().background().selectedLine()),
 			new Option.Color("SELECTION_FOREGROUND", style.scheme().foreground().selectedText()),
 			new Option.Color("SELECTION_BACKGROUND", style.scheme().background().selectedText()),
@@ -73,7 +75,7 @@ public class Scheme {
 
 			new Option.Color("MODIFIED_LINES_COLOR", modified),
 			new Option.Color("IGNORED_MODIFIED_LINES_BORDER_COLOR", modified),
-			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", style.scheme().background().selectedLine().darker()),
+			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", style.scheme().background().selectedLine().darker(2)),
 			// new Option.Color("FILESTATUS_MODIFIED", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker()),
 			// new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker()),
