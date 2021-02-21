@@ -113,6 +113,10 @@ class Attribute {
 		return new Attribute(name, baseAttributes, value);
 	}
 
+	public Attribute emptyValue() {
+		return new Attribute(name, baseAttributes, new Value());
+	}
+
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
 	@JacksonXmlProperty(isAttribute = true) String baseAttributes() { return baseAttributes; }
 	@JacksonXmlProperty Value value() { return value; }
@@ -177,7 +181,7 @@ class Attribute {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Object> option() {
-			ArrayList<Object> options = new ArrayList<>();
+			List<Object> options = new ArrayList<>();
 			if (foreground != null) options.add(new Option.Color("FOREGROUND", foreground));
 			if (background != null) options.add(new Option.Color("BACKGROUND", background));
 			if (fontType != null) options.add(new Option.Number("FONT_TYPE", fontType));

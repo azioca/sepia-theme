@@ -140,7 +140,7 @@ public class Scheme {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		public Collection<Attribute> option() {
-			return merge(general(), languageDefaults(), consoleColors(), diffAndMerge(), java(), go()).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
+			return merge(general(), languageDefaults(), consoleColors(), diffAndMerge(), java(), groovy(), go(), typeScript(), javaScript(), python(), php()).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
 		}
 
 		// todo convert to objects with colors() and attributes()
@@ -274,7 +274,7 @@ public class Scheme {
 					.foreground(style.error())
 					.underwaved(style.error())
 					.bold(),
-				new Attribute("DEFAULT_CONSTANT").foreground(palette.purple()),
+				new Attribute("DEFAULT_CONSTANT").foreground(palette.purple().darker(2)).bold(),
 
 				new Attribute("DEFAULT_LINE_COMMENT")
 					.foreground(palette.gray())
@@ -296,7 +296,7 @@ public class Scheme {
 
 				new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
 				new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base()),
-				new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.blue().darker()),
+				new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.purple().darker(2)).bold(),
 				new Attribute("DEFAULT_IDENTIFIER").foreground(style.scheme().foreground().base()),
 				new Attribute("DEFAULT_INSTANCE_FIELD")
 					.foreground(palette.purple().darker())
@@ -316,10 +316,9 @@ public class Scheme {
 				new Attribute("DEFAULT_PARAMETER")
 					.foreground(palette.purple())
 					.bold(),
-				new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()),
-				new Attribute("DEFAULT_REASSIGNED_PARAMETER")
-					.foreground(palette.purple())
-					.bold(),
+				new Attribute("DEFAULT_PREDEFINED_SYMBOL").baseAttributes("DEFAULT_IDENTIFIER"),
+				new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()).dottedLine(palette.purple()),
+				new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold().dottedLine(palette.purple()),
 				new Attribute("DEFAULT_STATIC_FIELD")
 					.foreground(palette.purple().darker())
 					.bold()
@@ -396,21 +395,75 @@ public class Scheme {
 				new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
 				new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
 				new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
-				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
+				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES")
+			);
+		}
 
-				new Attribute("List/map to object conversion").baseAttributes("JAVA_NUMBER")
+		private Collection<Attribute> groovy() {
+			return Set.of(
+				new Attribute("GROOVY_KEYWORD").baseAttributes("JAVA_KEYWORD"),
+				new Attribute("List/map to object conversion").foreground(style.scheme().foreground().base()), // DEFAULT_IDENTIFIER
+				new Attribute("Static property reference ID").baseAttributes("STATIC_FINAL_FIELD_ATTRIBUTES"),
+				new Attribute("Unresolved reference access").foreground(palette.gray()) // NOT_USED_ELEMENT_ATTRIBUTES
 			);
 		}
 
 		private Collection<Attribute> go() {
 			return Set.of(
-				new Attribute("GO_METHOD_RECEIVER")
-					.foreground(palette.purple().darker())
-					.bold(),
-				new Attribute("GO_FUNCTION_PARAMETER")
-					.foreground(palette.purple())
-					.bold(),
-				new Attribute("GO_STRUCT_LOCAL_MEMBER").foreground(palette.purple())
+				new Attribute("GO_BUILTIN_CONSTANT").foreground(palette.blue()).bold(), // DEFAULT_KEYWORD
+				new Attribute("GO_BUILTIN_VARIABLE").foreground(palette.blue()).bold(), // DEFAULT_KEYWORD
+				new Attribute("GO_COMMENT_REFERENCE").foreground(palette.gray().darker(2)).bold(), // DEFAULT_DOC_COMMENT_TAG_VALUE
+				new Attribute("GO_FUNCTION_PARAMETER").foreground(palette.purple()).bold(), // DEFAULT_PARAMETER
+				new Attribute("GO_LOCAL_CONSTANT").foreground(palette.purple()),
+				new Attribute("GO_METHOD_RECEIVER").foreground(palette.purple().darker()).bold(),
+				new Attribute("GO_PACKAGE_EXPORTED_CONSTANT").foreground(palette.purple().darker()).bold(),
+				new Attribute("GO_PACKAGE_EXPORTED_VARIABLE").foreground(palette.purple().darker()).bold(),
+				new Attribute("GO_PACKAGE_LOCAL_CONSTANT").foreground(palette.purple().darker()).bold(),
+				new Attribute("GO_PACKAGE_LOCAL_VARIABLE").foreground(palette.purple().darker()).bold(),
+				new Attribute("GO_SHADOWING_VARIABLE").foreground(palette.purple()).dottedLine(palette.purple()),
+				new Attribute("GO_STRUCT_EXPORTED_MEMBER").foreground(palette.purple().darker()).bold(), // DEFAULT_INSTANCE_FIELD
+				new Attribute("GO_STRUCT_LOCAL_MEMBER").foreground(palette.purple().darker()).bold() // DEFAULT_INSTANCE_FIELD
+			);
+		}
+
+		private Collection<Attribute> typeScript() {
+			return Set.of(
+				new Attribute("TS.TYPE_PARAMETER").foreground(style.scheme().foreground().base()).bold(), // java -> TYPE_PARAMETER_NAME_ATTRIBUTES
+				new Attribute("TS.TYPE_GUARD").emptyValue()
+			);
+		}
+
+		private Collection<Attribute> javaScript() {
+			return Set.of(
+				new Attribute("JS.GLOBAL_VARIABLE").baseAttributes("DEFAULT_PARAMETER"),
+				new Attribute("JS.GLOBAL_FUNCTION").baseAttributes("DEFAULT_FUNCTION_DECLARATION"),
+				new Attribute("JavaScript:INJECTED_LANGUAGE_FRAGMENT").baseAttributes("INJECTED_LANGUAGE_FRAGMENT"),
+				new Attribute("JS.INSTANCE_MEMBER_FUNCTION").baseAttributes("DEFAULT_INSTANCE_METHOD"),
+				new Attribute("JS.LOCAL_VARIABLE").baseAttributes("DEFAULT_LOCAL_VARIABLE"),
+				new Attribute("JS.PARAMETER").baseAttributes("DEFAULT_PARAMETER"),
+				new Attribute("JS.REGEXP").foreground(palette.aqua().darker()).bold() // DEFAULT_VALID_STRING_ESCAPE
+			);
+		}
+
+		private Collection<Attribute> python() {
+			return Set.of(
+				new Attribute("PY.DECORATOR").foreground(palette.green()), // DEFAULT_METADATA
+				new Attribute("PY.KEYWORD_ARGUMENT").foreground(palette.purple()), // DEFAULT_LOCAL_VARIABLE
+				new Attribute("PY.PREDEFINED_DEFINITION").baseAttributes("DEFAULT_PREDEFINED_SYMBOL"),
+				new Attribute("PY.PREDEFINED_USAGE").baseAttributes("DEFAULT_PREDEFINED_SYMBOL"),
+				new Attribute("PY.SELF_PARAMETER").baseAttributes("DEFAULT_PARAMETER"),
+				new Attribute("PY.STRING.U").baseAttributes("DEFAULT_STRING")
+			);
+		}
+
+		private Collection<Attribute> php() {
+			return Set.of(
+				new Attribute("MAGIC_MEMBER_ACCESS").foreground(palette.gray()), // NOT_USED_ELEMENT_ATTRIBUTES
+				new Attribute("PHP_DOC_PARAMETER").foreground(palette.gray().darker(2)).bold(), // DEFAULT_DOC_COMMENT_TAG_VALUE
+				new Attribute("PHP_EXEC_COMMAND_ID").background(palette.silver().brighter(3)),
+				new Attribute("PHP_NAMED_ARGUMENT").foreground(palette.purple()), // DEFAULT_LOCAL_VARIABLE
+				new Attribute("PHP_PARAMETER").baseAttributes("DEFAULT_PARAMETER"),
+				new Attribute("PHP_VAR").baseAttributes("DEFAULT_LOCAL_VARIABLE")
 			);
 		}
 	}

@@ -231,7 +231,8 @@
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="b16286"/>
+        <option name="FOREGROUND" value="7d3763"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT">
@@ -274,7 +275,8 @@
     </option>
     <option name="DEFAULT_GLOBAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="076678"/>
+        <option name="FOREGROUND" value="7d3763"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="DEFAULT_IDENTIFIER">
@@ -347,15 +349,20 @@
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
+    <option name="DEFAULT_PREDEFINED_SYMBOL" baseAttributes="DEFAULT_IDENTIFIER"/>
     <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
       <value>
         <option name="FOREGROUND" value="b16286"/>
+        <option name="EFFECT_COLOR" value="b16286"/>
+        <option name="EFFECT_TYPE" value="5"/>
       </value>
     </option>
     <option name="DEFAULT_REASSIGNED_PARAMETER">
       <value>
         <option name="FOREGROUND" value="b16286"/>
         <option name="FONT_TYPE" value="1"/>
+        <option name="EFFECT_COLOR" value="b16286"/>
+        <option name="EFFECT_TYPE" value="5"/>
       </value>
     </option>
     <option name="DEFAULT_STATIC_FIELD">
@@ -452,10 +459,33 @@
         <option name="EFFECT_TYPE" value="4"/>
       </value>
     </option>
+    <option name="GO_BUILTIN_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="458588"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_BUILTIN_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="458588"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_COMMENT_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="665c54"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
     <option name="GO_FUNCTION_PARAMETER">
       <value>
         <option name="FOREGROUND" value="b16286"/>
         <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_LOCAL_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
       </value>
     </option>
     <option name="GO_METHOD_RECEIVER">
@@ -464,11 +494,50 @@
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
-    <option name="GO_STRUCT_LOCAL_MEMBER">
+    <option name="GO_PACKAGE_EXPORTED_CONSTANT">
       <value>
-        <option name="FOREGROUND" value="b16286"/>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
+    <option name="GO_PACKAGE_EXPORTED_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_PACKAGE_LOCAL_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_PACKAGE_LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_SHADOWING_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+        <option name="EFFECT_COLOR" value="b16286"/>
+        <option name="EFFECT_TYPE" value="5"/>
+      </value>
+    </option>
+    <option name="GO_STRUCT_EXPORTED_MEMBER">
+      <value>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GO_STRUCT_LOCAL_MEMBER">
+      <value>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="GROOVY_KEYWORD" baseAttributes="JAVA_KEYWORD"/>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
         <option name="BACKGROUND" value="d5c4a1"/>
@@ -495,6 +564,18 @@
       </value>
     </option>
     <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD"/>
+    <option name="JS.GLOBAL_FUNCTION" baseAttributes="DEFAULT_FUNCTION_DECLARATION"/>
+    <option name="JS.GLOBAL_VARIABLE" baseAttributes="DEFAULT_PARAMETER"/>
+    <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD"/>
+    <option name="JS.LOCAL_VARIABLE" baseAttributes="DEFAULT_LOCAL_VARIABLE"/>
+    <option name="JS.PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
+    <option name="JS.REGEXP">
+      <value>
+        <option name="FOREGROUND" value="427b58"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="JavaScript:INJECTED_LANGUAGE_FRAGMENT" baseAttributes="INJECTED_LANGUAGE_FRAGMENT"/>
     <option name="LIVE_TEMPLATE_ATTRIBUTES">
       <value>
         <option name="EFFECT_COLOR" value="fb4934"/>
@@ -521,7 +602,16 @@
         <option name="FOREGROUND" value="fabd2f"/>
       </value>
     </option>
-    <option name="List/map to object conversion" baseAttributes="JAVA_NUMBER"/>
+    <option name="List/map to object conversion">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
+    <option name="MAGIC_MEMBER_ACCESS">
+      <value>
+        <option name="FOREGROUND" value="928374"/>
+      </value>
+    </option>
     <option name="MARKED_FOR_REMOVAL_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="504945"/>
@@ -541,6 +631,38 @@
         <option name="FOREGROUND" value="928374"/>
       </value>
     </option>
+    <option name="PHP_DOC_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="665c54"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="PHP_EXEC_COMMAND_ID">
+      <value>
+        <option name="BACKGROUND" value="e6e6e6"/>
+      </value>
+    </option>
+    <option name="PHP_NAMED_ARGUMENT">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+      </value>
+    </option>
+    <option name="PHP_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
+    <option name="PHP_VAR" baseAttributes="DEFAULT_LOCAL_VARIABLE"/>
+    <option name="PY.DECORATOR">
+      <value>
+        <option name="FOREGROUND" value="98971a"/>
+      </value>
+    </option>
+    <option name="PY.KEYWORD_ARGUMENT">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+      </value>
+    </option>
+    <option name="PY.PREDEFINED_DEFINITION" baseAttributes="DEFAULT_PREDEFINED_SYMBOL"/>
+    <option name="PY.PREDEFINED_USAGE" baseAttributes="DEFAULT_PREDEFINED_SYMBOL"/>
+    <option name="PY.SELF_PARAMETER" baseAttributes="DEFAULT_PARAMETER"/>
+    <option name="PY.STRING.U" baseAttributes="DEFAULT_STRING"/>
     <option name="RUNTIME_ERROR">
       <value>
         <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
@@ -557,6 +679,7 @@
     </option>
     <option name="STATIC_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_STATIC_FIELD"/>
     <option name="STATIC_FINAL_FIELD_ATTRIBUTES" baseAttributes="STATIC_FIELD_ATTRIBUTES"/>
+    <option name="Static property reference ID" baseAttributes="STATIC_FINAL_FIELD_ATTRIBUTES"/>
     <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="b16286"/>
@@ -582,6 +705,15 @@
         <option name="ERROR_STRIPE_COLOR" value="fe8019"/>
       </value>
     </option>
+    <option name="TS.TYPE_GUARD">
+      <value/>
+    </option>
+    <option name="TS.TYPE_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
     <option name="TYPE_PARAMETER_NAME_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="282828"/>
@@ -601,6 +733,11 @@
       </value>
     </option>
     <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>
+    <option name="Unresolved reference access">
+      <value>
+        <option name="FOREGROUND" value="928374"/>
+      </value>
+    </option>
     <option name="WARNING_ATTRIBUTES">
       <value>
         <option name="ERROR_STRIPE_COLOR" value="fabd2f"/>

@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.0.5-SNAPSHOT'
+version '0.1.0-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -23,13 +23,36 @@ intellij {
 patchPluginXml {
 	untilBuild = '211.*'
 	pluginDescription = """
-    	Light eye-friendly theme
+    	<i>Light eye-friendly theme</i>
+    	<br><br>
+    	<b>Goals:</b>
+    	<ul>
+    		<li>healthy for eyes and good for a night's sleep => reducing blue light</li>
+    		<li>readable => minimal and logical usage of colors and effects</li>
+    	</ul>
+    	<br>
+    	I recommend to use it together with night light system option.
+    	<br>
+    	I develop and use it with a very warm setting. (Linux/Windows ~ 70 + screen warm profile)
     	<br><br>
     	<a href="https://github.com/adamwojszczyk/sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/sepia-theme/issues">Report an issue</a>
-    	<br><br><br>
+    	<br><br>
+    	Font: Fira Code, Size: 18, Line-spacing: 1.1
+    	<br>
     	<img src="https://raw.githubusercontent.com/adamwojszczyk/sepia-theme/master/screenshots/main-window.png" border="0" alt="Main window screenshot">
 	"""
+
 	changeNotes = """
+		<i><b>0.1.0</b></i>
+		<ul>
+			<li>Java - reassigned variable/parameter - dotted line</li>
+			<li>Python - reviewed & updated</li>
+			<li>PHP - reviewed & updated</li>
+			<li>JavaScript - reviewed & updated</li>
+			<li>TypeScript - reviewed & updated</li>
+			<li>Go - reviewed & updated</li>
+			<li>Groovy - reviewed & updated</li>
+		</ul>
 		<i><b>0.0.4</b></i>
 		<ul>
 			<li>vcs editor gutter - darker</li>
