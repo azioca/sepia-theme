@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.1.0'
+version '0.2.0-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -31,10 +31,22 @@ patchPluginXml {
     		<li>readable => minimal and logical usage of colors and effects</li>
     	</ul>
     	<br>
-    	I recommend to use it together with night light system option.
+    	I recommend to use night light system option with<br>
+    	screen warm profile always on.<br>
+    	sunny day: ~10% or even 0%<br>
+    	night: ~60%<br>
     	<br>
-    	I develop and use it with a very warm setting. (Linux/Windows ~ 70 + screen warm profile)
-    	<br><br>
+    	<b>Reviewed & adjusted:</b>
+    	<ul>
+    		<li>Java</li>
+    		<li>JavaScript</li>
+    		<li>TypeScript</li>
+    		<li>Python</li>
+    		<li>PHP</li>
+    		<li>Go</li>
+    		<li>Groovy</li>
+    	</ul>
+    	<br>
     	<a href="https://github.com/adamwojszczyk/sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/sepia-theme/issues">Report an issue</a>
     	<br><br>
     	Font: Fira Code, Size: 18, Line-spacing: 1.1
@@ -43,15 +55,21 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.0</b></i>
+		<ul>
+			<li>File status colors - adjusted</li>
+			<li>File color -> Green (test background) - brighter</li>
+			<li>Notification -> ToolWindow - brighter, border same as background</li>
+		</ul>
 		<i><b>0.1.0</b></i>
 		<ul>
 			<li>Java - reassigned variable/parameter - dotted line</li>
-			<li>Python - reviewed & updated</li>
-			<li>PHP - reviewed & updated</li>
-			<li>JavaScript - reviewed & updated</li>
-			<li>TypeScript - reviewed & updated</li>
-			<li>Go - reviewed & updated</li>
-			<li>Groovy - reviewed & updated</li>
+			<li>Python - reviewed & adjusted</li>
+			<li>PHP - reviewed & adjusted</li>
+			<li>JavaScript - reviewed & adjusted</li>
+			<li>TypeScript - reviewed & adjusted</li>
+			<li>Go - reviewed & adjusted</li>
+			<li>Groovy - reviewed & adjusted</li>
 		</ul>
 		<i><b>0.0.4</b></i>
 		<ul>

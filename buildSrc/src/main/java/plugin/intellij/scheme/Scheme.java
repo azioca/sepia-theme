@@ -30,6 +30,7 @@ public class Scheme {
 		this.style = Objects.requireNonNull(style);
 	}
 
+	@SafeVarargs
 	private static <T> Collection<T> merge(Collection<T>... collections) {
 		Collection<T> merged = new ArrayList<>();
 		Arrays.stream(collections).forEach(merged::addAll);
@@ -53,40 +54,47 @@ public class Scheme {
 	}
 
 	class Colors {
-		private final Color added = palette.green().brighter();
-		private final Color modified = palette.blue().brighter();
-		private final Color deleted = palette.silver().darker(3);
+		private final Color added = palette.green();
+		private final Color modified = palette.blue();
+		private final Color deleted = palette.silver().darker();
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		List<Option.Color> option = List.of(
 			new Option.Color("CARET_COLOR", style.scheme().foreground().base()),
-
-
 			new Option.Color("CARET_ROW_COLOR", style.scheme().background().selectedLine()),
 			new Option.Color("SELECTION_FOREGROUND", style.scheme().foreground().selectedText()),
 			new Option.Color("SELECTION_BACKGROUND", style.scheme().background().selectedText()),
 			new Option.Color("READONLY_BACKGROUND", style.scheme().background().readOnly()),
 
-			new Option.Color("ADDED_LINES_COLOR", added),
-			new Option.Color("IGNORED_ADDED_LINES_BORDER_COLOR", added),
-			// new Option.Color("FILESTATUS_ADDED", added.darker()),
-			// new Option.Color("FILESTATUS_COPIED", added.darker()),
-			// new Option.Color("FILESTATUS_addedOutside", added.darker()),
-
-			new Option.Color("MODIFIED_LINES_COLOR", modified),
-			new Option.Color("IGNORED_MODIFIED_LINES_BORDER_COLOR", modified),
+			new Option.Color("ADDED_LINES_COLOR", added.brighter()),
+			new Option.Color("IGNORED_ADDED_LINES_BORDER_COLOR", added.brighter()),
+			new Option.Color("MODIFIED_LINES_COLOR", modified.brighter()),
+			new Option.Color("IGNORED_MODIFIED_LINES_BORDER_COLOR", modified.brighter()),
 			new Option.Color("WHITESPACES_MODIFIED_LINES_COLOR", style.scheme().background().selectedLine().darker(2)),
-			// new Option.Color("FILESTATUS_MODIFIED", modified.darker()),
-			// new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker()),
-			// new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker()),
-			// new Option.Color("FILESTATUS_modifiedOutside", modified.darker()),
-
 			new Option.Color("FOLDED_TEXT_BORDER_COLOR", palette.yellow().brighter()),
-
 			new Option.Color("DELETED_LINES_COLOR", deleted),
 			new Option.Color("IGNORED_DELETED_LINES_BORDER_COLOR", deleted),
+
+			new Option.Color("FILESTATUS_NOT_CHANGED", style.theme().foreground().base()),
+			new Option.Color("FILESTATUS_ADDED", added),
+			new Option.Color("FILESTATUS_addedOutside", added.brighter()),
+			new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker(3)),
+			new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker(2)),
+			new Option.Color("FILESTATUS_MODIFIED", modified.darker()),
+			new Option.Color("FILESTATUS_modifiedOutside", modified.darker()),
 			new Option.Color("FILESTATUS_DELETED", deleted),
 			new Option.Color("FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM", deleted),
+			new Option.Color("FILESTATUS_IDEA_FILESTATUS_IGNORED", style.theme().foreground().disabled()),
+			new Option.Color("FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS", palette.red()),
+			new Option.Color("FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS", palette.red()),
+			new Option.Color("FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS", palette.red()),
+			new Option.Color("FILESTATUS_changelistConflict", palette.red()),
+			new Option.Color("FILESTATUS_MERGED", palette.red().brighter(2)),
+			new Option.Color("FILESTATUS_OBSOLETE", palette.orange()),
+			// new Option.Color("FILESTATUS_SUPPRESSED", null),
+			new Option.Color("FILESTATUS_SWITCHED", palette.aqua().darker()),
+			new Option.Color("FILESTATUS_UNKNOWN", palette.red().darker()),
+			// new Option.Color("FILESTATUS_HIJACKED", null),
 
 			new Option.Color("DIFF_SEPARATORS_BACKGROUND", style.scheme().background().readOnly().darker(2)),
 
@@ -140,10 +148,11 @@ public class Scheme {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		public Collection<Attribute> option() {
+			// todo convert to objects with colors() and attributes()
+			// todo add custom language (number)
 			return merge(general(), languageDefaults(), consoleColors(), diffAndMerge(), java(), groovy(), go(), typeScript(), javaScript(), python(), php()).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
 		}
 
-		// todo convert to objects with colors() and attributes()
 		private Collection<Attribute> general() {
 			return merge(code(), editor(), errorsAndWarnings(), searchResults(), text());
 		}

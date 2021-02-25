@@ -143,7 +143,7 @@
 		},
 		"FileColor": {
 			"Blue": "#83a598",
-			"Green": "#b8bb2621",
+			"Green": "#d9dc5221",
 			"Orange": "#fe8019",
 			"Rose": "#fb4934",
 			"Violet": "#d3869b",
@@ -231,14 +231,14 @@
 				"innerBorderColor": "#ebdbb2"
 			},
 			"ToolWindow": {
-				"errorBackground": "#fc8c7f",
-				"errorBorderColor": "#fb4934",
+				"errorBackground": "#fecfca",
+				"errorBorderColor": "#fecfca",
 				"errorForeground": "#282828",
-				"informativeBackground": "#d9dc52",
-				"informativeBorderColor": "#b8bb26",
+				"informativeBackground": "#e7e992",
+				"informativeBorderColor": "#e7e992",
 				"informativeForeground": "#282828",
-				"warningBackground": "#fabd2f",
-				"warningBorderColor": "#d79921",
+				"warningBackground": "#fcd57a",
+				"warningBorderColor": "#fcd57a",
 				"warningForeground": "#282828"
 			},
 			"background": "#fbf1c7",

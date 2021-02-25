@@ -218,7 +218,7 @@ class UI {
 
 	class FileColor {
 		@JsonProperty Color Yellow = style.theme().background().readOnly();
-		@JsonProperty Color Green = palette.green().brighter().opacity(0.13);
+		@JsonProperty Color Green = palette.green().brighter(2).opacity(0.13);
 		@JsonProperty Color Blue = palette.blue().brighter();
 		@JsonProperty Color Violet = palette.purple().brighter();
 		@JsonProperty Color Orange = palette.orange().brighter();
@@ -345,14 +345,14 @@ class UI {
 
 		// over tools colorful notifications
 		class ToolWindow {
-			@JsonProperty Color informativeBackground = style.success().brighter(2);
-			@JsonProperty Color informativeBorderColor = informativeBackground.darker();
+			@JsonProperty Color informativeBackground = style.success().brighter(3);
+			@JsonProperty Color informativeBorderColor = informativeBackground;
 			@JsonProperty Color informativeForeground = style.theme().foreground().base();
-			@JsonProperty Color warningBackground = style.warning();
-			@JsonProperty Color warningBorderColor = warningBackground.darker();
+			@JsonProperty Color warningBackground = style.warning().brighter();
+			@JsonProperty Color warningBorderColor = warningBackground;
 			@JsonProperty Color warningForeground = style.theme().foreground().base();
-			@JsonProperty Color errorBackground = style.error().brighter(2);
-			@JsonProperty Color errorBorderColor = errorBackground.darker();
+			@JsonProperty Color errorBackground = style.error().brighter(3);
+			@JsonProperty Color errorBorderColor = errorBackground;
 			@JsonProperty Color errorForeground = style.theme().foreground().base();
 		}
 	}
