@@ -149,12 +149,11 @@ public class Scheme {
 		@JacksonXmlElementWrapper(useWrapping = false)
 		public Collection<Attribute> option() {
 			// todo convert to objects with colors() and attributes()
-			// todo add custom language (number)
-			return merge(general(), languageDefaults(), consoleColors(), diffAndMerge(), java(), groovy(), go(), typeScript(), javaScript(), python(), php()).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
+			return merge(general(), languageDefaults(), consoleColors(), diffAndMerge(), java(), groovy(), go(), typeScript(), javaScript(), python(), php(), userDefinedFileTypes()).stream().sorted(Comparator.comparing(Attribute::name)).collect(Collectors.toList());
 		}
 
 		private Collection<Attribute> general() {
-			return merge(code(), editor(), errorsAndWarnings(), searchResults(), text());
+			return merge(code(), editor(), errorsAndWarnings(), hyperlinks(), searchResults(), text());
 		}
 
 		private Collection<Attribute> code() {
@@ -176,9 +175,7 @@ public class Scheme {
 
 				new Attribute("LIVE_TEMPLATE_ATTRIBUTES").bordered(palette.red().brighter()),
 				new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT").foreground(style.scheme().foreground().disabled()),
-				new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple()),
-
-				new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link())
+				new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES").foreground(palette.purple())
 			);
 		}
 
@@ -193,8 +190,7 @@ public class Scheme {
 					new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base()),
 					new Attribute("INLINE_PARAMETER_HINT").foreground(style.scheme().foreground().base()).background(palette.aqua().darker()),
 					new Attribute("INFO_ATTRIBUTES").dottedLine(style.warning()).errorStripeAsEffect(),
-					new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3)),
-					new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(style.link()).boldUnderscored(style.link())
+					new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3))
 				),
 				breadcrumbs()
 			);
@@ -237,6 +233,15 @@ public class Scheme {
 				new Attribute("WRONG_REFERENCES_ATTRIBUTES")
 					.underwaved(style.error())
 					.errorStripeAsEffect()
+			);
+		}
+
+		private Collection<Attribute> hyperlinks() {
+			return Set.of(
+				new Attribute("HYPERLINK_ATTRIBUTES").foreground(style.link()).underscored(style.link()),
+				new Attribute("CTRL_CLICKABLE").foreground(style.link()).underscored(style.link()),
+				new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES").foreground(palette.purple().darker()).underscored(palette.purple().darker()),
+				new Attribute("INACTIVE_HYPERLINK_ATTRIBUTES").foreground(style.scheme().foreground().base()).underscored(style.scheme().foreground().base())
 			);
 		}
 
@@ -473,6 +478,21 @@ public class Scheme {
 				new Attribute("PHP_NAMED_ARGUMENT").foreground(palette.purple()), // DEFAULT_LOCAL_VARIABLE
 				new Attribute("PHP_PARAMETER").baseAttributes("DEFAULT_PARAMETER"),
 				new Attribute("PHP_VAR").baseAttributes("DEFAULT_LOCAL_VARIABLE")
+			);
+		}
+
+		private Collection<Attribute> userDefinedFileTypes() {
+			return Set.of(
+				new Attribute("CUSTOM_INVALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_INVALID_STRING_ESCAPE"),
+				new Attribute("CUSTOM_KEYWORD1_ATTRIBUTES").baseAttributes("DEFAULT_KEYWORD"),
+				new Attribute("CUSTOM_KEYWORD2_ATTRIBUTES").foreground(palette.purple()).bold(), // DEFAULT_PARAMETER
+				new Attribute("CUSTOM_KEYWORD3_ATTRIBUTES").foreground(palette.purple()).bold(), // DEFAULT_PARAMETER
+				new Attribute("CUSTOM_KEYWORD4_ATTRIBUTES").foreground(palette.purple()).bold(), // DEFAULT_PARAMETER
+				new Attribute("CUSTOM_LINE_COMMENT_ATTRIBUTES").baseAttributes("DEFAULT_LINE_COMMENT"),
+				new Attribute("CUSTOM_MULTI_LINE_COMMENT_ATTRIBUTES").baseAttributes("DEFAULT_BLOCK_COMMENT"),
+				new Attribute("CUSTOM_NUMBER_ATTRIBUTES").baseAttributes("DEFAULT_NUMBER"),
+				new Attribute("CUSTOM_STRING_ATTRIBUTES").baseAttributes("DEFAULT_STRING"),
+				new Attribute("CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_VALID_STRING_ESCAPE")
 			);
 		}
 	}

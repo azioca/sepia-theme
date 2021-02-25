@@ -23,7 +23,7 @@ intellij {
 patchPluginXml {
 	untilBuild = '211.*'
 	pluginDescription = """
-    	<i>Light eye-friendly theme</i>
+    	<b><i>Light eye-friendly theme</i></b>
     	<br><br>
     	<b>Goals:</b>
     	<ul>
@@ -31,12 +31,12 @@ patchPluginXml {
     		<li>readable => minimal and logical usage of colors and effects</li>
     	</ul>
     	<br>
-    	I recommend to use night light system option with<br>
-    	screen warm profile always on.<br>
+    	<b>Usage</b><br>
+    	I recommend to use a night light system's option with a screen's warm profile always on.<br>
     	sunny day: ~10% or even 0%<br>
     	night: ~60%<br>
     	<br>
-    	<b>Reviewed & adjusted:</b>
+    	<b>Adjusted languages:</b>
     	<ul>
     		<li>Java</li>
     		<li>JavaScript</li>
@@ -45,6 +45,7 @@ patchPluginXml {
     		<li>PHP</li>
     		<li>Go</li>
     		<li>Groovy</li>
+    		<li>User-Defined File Types</li>
     	</ul>
     	<br>
     	<a href="https://github.com/adamwojszczyk/sepia-theme">On GitHub</a> | <a href="https://github.com/adamwojszczyk/sepia-theme/issues">Report an issue</a>
@@ -60,17 +61,19 @@ patchPluginXml {
 			<li>File status colors - adjusted</li>
 			<li>File color -> Green (test background) - brighter</li>
 			<li>Notification -> ToolWindow - brighter, border same as background</li>
-		</ul>
+			<li>User-Defined File Types - adjusted</li>
+			<li>General -> Hyperlinks - adjusted</li>
+		</ul><br>
 		<i><b>0.1.0</b></i>
 		<ul>
 			<li>Java - reassigned variable/parameter - dotted line</li>
-			<li>Python - reviewed & adjusted</li>
-			<li>PHP - reviewed & adjusted</li>
-			<li>JavaScript - reviewed & adjusted</li>
-			<li>TypeScript - reviewed & adjusted</li>
-			<li>Go - reviewed & adjusted</li>
-			<li>Groovy - reviewed & adjusted</li>
-		</ul>
+			<li>Python - adjusted</li>
+			<li>PHP - adjusted</li>
+			<li>JavaScript - adjusted</li>
+			<li>TypeScript - adjusted</li>
+			<li>Go - adjusted</li>
+			<li>Groovy - adjusted</li>
+		</ul><br>
 		<i><b>0.0.4</b></i>
 		<ul>
 			<li>vcs editor gutter - darker</li>
@@ -82,11 +85,11 @@ patchPluginXml {
 			<li>vcs editor gutter - brighter</li>
 			<li>line numbers - darker</li>
 			<li>warning underwave - darker</li>
-		</ul>
+		</ul><br>
 		<i><b>0.0.2</b></i>
 		<ul>
 			<li>color diff & merge</li>
-		</ul>
+		</ul><br>
 		<i><b>0.0.1</b></i>
 		<ul>
 			<li>initial release</li>

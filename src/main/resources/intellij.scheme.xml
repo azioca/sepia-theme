@@ -224,6 +224,31 @@
         <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
+    <option name="CUSTOM_INVALID_STRING_ESCAPE_ATTRIBUTES" baseAttributes="DEFAULT_INVALID_STRING_ESCAPE"/>
+    <option name="CUSTOM_KEYWORD1_ATTRIBUTES" baseAttributes="DEFAULT_KEYWORD"/>
+    <option name="CUSTOM_KEYWORD2_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="CUSTOM_KEYWORD3_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="CUSTOM_KEYWORD4_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
+    </option>
+    <option name="CUSTOM_LINE_COMMENT_ATTRIBUTES" baseAttributes="DEFAULT_LINE_COMMENT"/>
+    <option name="CUSTOM_MULTI_LINE_COMMENT_ATTRIBUTES" baseAttributes="DEFAULT_BLOCK_COMMENT"/>
+    <option name="CUSTOM_NUMBER_ATTRIBUTES" baseAttributes="DEFAULT_NUMBER"/>
+    <option name="CUSTOM_STRING_ATTRIBUTES" baseAttributes="DEFAULT_STRING"/>
+    <option name="CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES" baseAttributes="DEFAULT_VALID_STRING_ESCAPE"/>
     <option name="DEFAULT_ATTRIBUTE">
       <value>
         <option name="FOREGROUND" value="8f3f71"/>
@@ -470,9 +495,9 @@
     </option>
     <option name="FOLLOWED_HYPERLINK_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="458588"/>
-        <option name="EFFECT_COLOR" value="458588"/>
-        <option name="EFFECT_TYPE" value="4"/>
+        <option name="FOREGROUND" value="8f3f71"/>
+        <option name="EFFECT_COLOR" value="8f3f71"/>
+        <option name="EFFECT_TYPE" value="1"/>
       </value>
     </option>
     <option name="GO_BUILTIN_CONSTANT">
@@ -554,6 +579,13 @@
       </value>
     </option>
     <option name="GROOVY_KEYWORD" baseAttributes="JAVA_KEYWORD"/>
+    <option name="HYPERLINK_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="458588"/>
+        <option name="EFFECT_COLOR" value="458588"/>
+        <option name="EFFECT_TYPE" value="1"/>
+      </value>
+    </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
         <option name="BACKGROUND" value="d5c4a1"/>
@@ -561,6 +593,13 @@
       </value>
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
+    <option name="INACTIVE_HYPERLINK_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+        <option name="EFFECT_COLOR" value="282828"/>
+        <option name="EFFECT_TYPE" value="1"/>
+      </value>
+    </option>
     <option name="INFO_ATTRIBUTES">
       <value>
         <option name="ERROR_STRIPE_COLOR" value="fabd2f"/>
