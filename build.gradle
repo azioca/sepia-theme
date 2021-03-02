@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.2.0'
+version '0.2.1-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -56,6 +56,11 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.1</b></i>
+		<ul>
+			<li>File status added - changed to aqua ~ brighter green</li>
+		</ul><br>
+		
 		<i><b>0.2.0</b></i>
 		<ul>
 			<li>File status colors - adjusted</li>
@@ -64,6 +69,7 @@ patchPluginXml {
 			<li>User-Defined File Types - adjusted</li>
 			<li>General -> Hyperlinks - adjusted</li>
 		</ul><br>
+		
 		<i><b>0.1.0</b></i>
 		<ul>
 			<li>Java - reassigned variable/parameter - dotted line</li>
@@ -74,10 +80,12 @@ patchPluginXml {
 			<li>Go - adjusted</li>
 			<li>Groovy - adjusted</li>
 		</ul><br>
+		
 		<i><b>0.0.4</b></i>
 		<ul>
 			<li>vcs editor gutter - darker</li>
-		</ul>
+		</ul><br>
+		
 		<i><b>0.0.3</b></i>
 		<ul>
 			<li>diff & merge - brighter</li>
@@ -86,10 +94,12 @@ patchPluginXml {
 			<li>line numbers - darker</li>
 			<li>warning underwave - darker</li>
 		</ul><br>
+		
 		<i><b>0.0.2</b></i>
 		<ul>
 			<li>color diff & merge</li>
 		</ul><br>
+		
 		<i><b>0.0.1</b></i>
 		<ul>
 			<li>initial release</li>

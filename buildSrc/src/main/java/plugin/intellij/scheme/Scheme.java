@@ -55,6 +55,7 @@ public class Scheme {
 
 	class Colors {
 		private final Color added = palette.green();
+		private final Color addedFilestatus = palette.aqua();
 		private final Color modified = palette.blue();
 		private final Color deleted = palette.silver().darker();
 
@@ -76,8 +77,8 @@ public class Scheme {
 			new Option.Color("IGNORED_DELETED_LINES_BORDER_COLOR", deleted),
 
 			new Option.Color("FILESTATUS_NOT_CHANGED", style.theme().foreground().base()),
-			new Option.Color("FILESTATUS_ADDED", added),
-			new Option.Color("FILESTATUS_addedOutside", added.brighter()),
+			new Option.Color("FILESTATUS_ADDED", addedFilestatus),
+			new Option.Color("FILESTATUS_addedOutside", addedFilestatus.brighter()),
 			new Option.Color("FILESTATUS_NOT_CHANGED_RECURSIVE", modified.darker(3)),
 			new Option.Color("FILESTATUS_NOT_CHANGED_IMMEDIATE", modified.darker(2)),
 			new Option.Color("FILESTATUS_MODIFIED", modified.darker()),

@@ -14,7 +14,7 @@
     <option name="DIFF_SEPARATORS_BACKGROUND" value="ebdbb2"/>
     <option name="DOCUMENTATION_COLOR" value="f9f5d7"/>
     <option name="ERROR_HINT" value="fbf1c7"/>
-    <option name="FILESTATUS_ADDED" value="98971a"/>
+    <option name="FILESTATUS_ADDED" value="689d6a"/>
     <option name="FILESTATUS_DELETED" value="b3b3b3"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="b3b3b3"/>
     <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="a89984"/>
@@ -29,7 +29,7 @@
     <option name="FILESTATUS_OBSOLETE" value="d65d0e"/>
     <option name="FILESTATUS_SWITCHED" value="427b58"/>
     <option name="FILESTATUS_UNKNOWN" value="9d0006"/>
-    <option name="FILESTATUS_addedOutside" value="b8bb26"/>
+    <option name="FILESTATUS_addedOutside" value="8ec07c"/>
     <option name="FILESTATUS_changelistConflict" value="cc241d"/>
     <option name="FILESTATUS_modifiedOutside" value="076678"/>
     <option name="FOLDED_TEXT_BORDER_COLOR" value="fabd2f"/>
