@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.2.1'
+version '0.2.2-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -56,6 +56,12 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.2</b></i>
+		<ul>
+			<li>IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES - removed a style, a client's variable style is used</li>
+			<li>Set theme's black for all braces and operators</li>
+		</ul><br>
+
 		<i><b>0.2.1</b></i>
 		<ul>
 			<li>File status added - changed to aqua ~ brighter green</li>

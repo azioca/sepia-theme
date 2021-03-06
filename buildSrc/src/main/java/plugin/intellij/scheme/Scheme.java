@@ -185,10 +185,6 @@ public class Scheme {
 				Set.of(
 					new Attribute("BOOKMARKS_ATTRIBUTES").errorStripe(style.scheme().foreground().base()),
 					new Attribute("DEFAULT_ATTRIBUTE").foreground(palette.purple().darker()),
-					new Attribute("DEFAULT_BRACES").foreground(style.scheme().foreground().base()),
-					new Attribute("DEFAULT_BRACKETS").foreground(style.scheme().foreground().base()),
-					new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.scheme().foreground().base()),
-					new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base()),
 					new Attribute("INLINE_PARAMETER_HINT").foreground(style.scheme().foreground().base()).background(palette.aqua().darker()),
 					new Attribute("INFO_ATTRIBUTES").dottedLine(style.warning()).errorStripeAsEffect(),
 					new Attribute("BREAKPOINT_ATTRIBUTES").background(style.scheme().background().base().darker(3))
@@ -276,73 +272,89 @@ public class Scheme {
 
 		private Collection<Attribute> languageDefaults() {
 			// todo create value instead of empty Attribute and then setValue()
+			// todo prefer to use references to objects with colors and attributes
 			Attribute.Value keyword = new Attribute("").foreground(palette.blue()).bold().value();
 
+			return merge(
+				bracesAndOperators(),
+				Set.of(
+					new Attribute("DEFAULT_STRING")
+						.foreground(palette.aqua())
+						.bold(),
+					new Attribute("DEFAULT_VALID_STRING_ESCAPE")
+						.foreground(palette.aqua().darker())
+						.bold(),
+					new Attribute("DEFAULT_INVALID_STRING_ESCAPE")
+						.foreground(style.error())
+						.underwaved(style.error())
+						.bold(),
+					new Attribute("DEFAULT_CONSTANT").foreground(palette.purple().darker(2)).bold(),
+
+					new Attribute("DEFAULT_LINE_COMMENT")
+						.foreground(palette.gray())
+						.italic(),
+					new Attribute("DEFAULT_BLOCK_COMMENT")
+						.foreground(palette.gray())
+						.italic(),
+					new Attribute("DEFAULT_DOC_COMMENT")
+						.foreground(palette.gray())
+						.italic(),
+					new Attribute("DEFAULT_DOC_COMMENT_TAG")
+						.foreground(palette.gray())
+						.italic()
+						.bold(),
+					new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE")
+						.foreground(palette.gray().darker(2))
+						.bold(),
+					new Attribute("DEFAULT_DOC_MARKUP").setValue(keyword).removeFontType(),
+
+					new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
+					new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base()),
+					new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.purple().darker(2)).bold(),
+					new Attribute("DEFAULT_IDENTIFIER").foreground(style.scheme().foreground().base()),
+					new Attribute("DEFAULT_INSTANCE_FIELD")
+						.foreground(palette.purple().darker())
+						.bold(),
+					new Attribute("DEFAULT_INTERFACE_NAME")
+						.foreground(style.scheme().foreground().base())
+						.italic(),
+					new Attribute("DEFAULT_KEYWORD").setValue(keyword),
+					new Attribute("DEFAULT_LABEL")
+						.foreground(palette.blue())
+						.bold(),
+					new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
+					new Attribute("DEFAULT_METADATA").foreground(palette.green()),
+					new Attribute("DEFAULT_NUMBER")
+						.foreground(palette.blue())
+						.bold(),
+					new Attribute("DEFAULT_PARAMETER")
+						.foreground(palette.purple())
+						.bold(),
+					new Attribute("DEFAULT_PREDEFINED_SYMBOL").baseAttributes("DEFAULT_IDENTIFIER"),
+					new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()).dottedLine(palette.purple()),
+					new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold().dottedLine(palette.purple()),
+					new Attribute("DEFAULT_STATIC_FIELD")
+						.foreground(palette.purple().darker())
+						.bold()
+						.italic(),
+					new Attribute("DEFAULT_STATIC_METHOD")
+						.foreground(style.scheme().foreground().base())
+						.italic(),
+					new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
+					new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3))
+				)
+			);
+		}
+
+		private Collection<Attribute> bracesAndOperators() {
 			return Set.of(
-				new Attribute("DEFAULT_STRING")
-					.foreground(palette.aqua())
-					.bold(),
-				new Attribute("DEFAULT_VALID_STRING_ESCAPE")
-					.foreground(palette.aqua().darker())
-					.bold(),
-				new Attribute("DEFAULT_INVALID_STRING_ESCAPE")
-					.foreground(style.error())
-					.underwaved(style.error())
-					.bold(),
-				new Attribute("DEFAULT_CONSTANT").foreground(palette.purple().darker(2)).bold(),
-
-				new Attribute("DEFAULT_LINE_COMMENT")
-					.foreground(palette.gray())
-					.italic(),
-				new Attribute("DEFAULT_BLOCK_COMMENT")
-					.foreground(palette.gray())
-					.italic(),
-				new Attribute("DEFAULT_DOC_COMMENT")
-					.foreground(palette.gray())
-					.italic(),
-				new Attribute("DEFAULT_DOC_COMMENT_TAG")
-					.foreground(palette.gray())
-					.italic()
-					.bold(),
-				new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE")
-					.foreground(palette.gray().darker(2))
-					.bold(),
-				new Attribute("DEFAULT_DOC_MARKUP").setValue(keyword).removeFontType(),
-
-				new Attribute("DEFAULT_ENTITY").foreground(palette.yellow()),
-				new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base()),
-				new Attribute("DEFAULT_GLOBAL_VARIABLE").foreground(palette.purple().darker(2)).bold(),
-				new Attribute("DEFAULT_IDENTIFIER").foreground(style.scheme().foreground().base()),
-				new Attribute("DEFAULT_INSTANCE_FIELD")
-					.foreground(palette.purple().darker())
-					.bold(),
-				new Attribute("DEFAULT_INTERFACE_NAME")
-					.foreground(style.scheme().foreground().base())
-					.italic(),
-				new Attribute("DEFAULT_KEYWORD").setValue(keyword),
-				new Attribute("DEFAULT_LABEL")
-					.foreground(palette.blue())
-					.bold(),
-				new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple()),
-				new Attribute("DEFAULT_METADATA").foreground(palette.green()),
-				new Attribute("DEFAULT_NUMBER")
-					.foreground(palette.blue())
-					.bold(),
-				new Attribute("DEFAULT_PARAMETER")
-					.foreground(palette.purple())
-					.bold(),
-				new Attribute("DEFAULT_PREDEFINED_SYMBOL").baseAttributes("DEFAULT_IDENTIFIER"),
-				new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE").foreground(palette.purple()).dottedLine(palette.purple()),
-				new Attribute("DEFAULT_REASSIGNED_PARAMETER").foreground(palette.purple()).bold().dottedLine(palette.purple()),
-				new Attribute("DEFAULT_STATIC_FIELD")
-					.foreground(palette.purple().darker())
-					.bold()
-					.italic(),
-				new Attribute("DEFAULT_STATIC_METHOD")
-					.foreground(style.scheme().foreground().base())
-					.italic(),
-				new Attribute("DEFAULT_TAG").foreground(palette.blue().darker()),
-				new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3))
+				new Attribute("DEFAULT_BRACES").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_BRACKETS").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_COMMA").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_PARENTHS").foreground(style.scheme().foreground().base()),
+				new Attribute("DEFAULT_SEMICOLON").foreground(style.scheme().foreground().base())
 			);
 		}
 
@@ -405,7 +417,7 @@ public class Scheme {
 					.strikeout(deprecated)
 					.italic(),
 
-				new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").baseAttributes("CLASS_NAME_ATTRIBUTES"),
+				new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").emptyValue(), // "DEFAULT_PARAMETER"
 				new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
 				new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
 				new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),

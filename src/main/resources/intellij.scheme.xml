@@ -270,6 +270,11 @@
         <option name="FOREGROUND" value="282828"/>
       </value>
     </option>
+    <option name="DEFAULT_COMMA">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
     <option name="DEFAULT_CONSTANT">
       <value>
         <option name="FOREGROUND" value="7d3763"/>
@@ -390,6 +395,11 @@
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
+    <option name="DEFAULT_PARENTHS">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+      </value>
+    </option>
     <option name="DEFAULT_PREDEFINED_SYMBOL" baseAttributes="DEFAULT_IDENTIFIER"/>
     <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
       <value>
@@ -404,6 +414,11 @@
         <option name="FONT_TYPE" value="1"/>
         <option name="EFFECT_COLOR" value="b16286"/>
         <option name="EFFECT_TYPE" value="5"/>
+      </value>
+    </option>
+    <option name="DEFAULT_SEMICOLON">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
       </value>
     </option>
     <option name="DEFAULT_STATIC_FIELD">
@@ -592,7 +607,9 @@
         <option name="ERROR_STRIPE_COLOR" value="d5c4a1"/>
       </value>
     </option>
-    <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES" baseAttributes="CLASS_NAME_ATTRIBUTES"/>
+    <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
+      <value/>
+    </option>
     <option name="INACTIVE_HYPERLINK_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="282828"/>
