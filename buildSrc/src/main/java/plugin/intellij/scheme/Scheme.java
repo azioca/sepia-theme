@@ -411,18 +411,15 @@ public class Scheme {
 
 		private Collection<Attribute> java() {
 			return Set.of(
-				new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold(),
-				new Attribute("DEPRECATED_ATTRIBUTES")
-					.foreground(deprecated)
-					.strikeout(deprecated)
-					.italic(),
-
-				new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").emptyValue(), // "DEFAULT_PARAMETER"
-				new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
+				new Attribute("ABSTRACT_CLASS_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).italic(), // DEFAULT_INTERFACE_NAME
 				new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple()),
 				new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA"),
+				new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).strikeout(deprecated).italic(),
+				new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").emptyValue(), // "DEFAULT_PARAMETER"
+				new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD"),
 				new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD"),
-				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES")
+				new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES"),
+				new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold()
 			);
 		}
 

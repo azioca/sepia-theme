@@ -72,6 +72,12 @@
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="d5c4a1"/>
   </colors>
   <attributes>
+    <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="282828"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="b16286"/>

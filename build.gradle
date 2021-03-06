@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.2.2'
+version '0.2.3-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -56,10 +56,15 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.3</b></i>
+		<ul>
+			<li>ABSTRACT_CLASS_NAME_ATTRIBUTES - same style as for DEFAULT_INTERFACE_NAME</li>
+		</ul><br>
+		
 		<i><b>0.2.2</b></i>
 		<ul>
 			<li>IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES - removed a style, a client's variable style is used</li>
-			<li>Set theme's black for all braces and operators</li>
+			<li>braces and operators - theme's black for all</li>
 		</ul><br>
 
 		<i><b>0.2.1</b></i>
