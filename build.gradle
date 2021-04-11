@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.2.4-SNAPSHOT'
+version '0.2.4'
 
 repositories {
 	mavenCentral()
@@ -56,6 +56,11 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.4</b></i>
+		<ul>
+			<li>Paint ToolTip border</li>
+		</ul><br>
+		
 		<i><b>0.2.3</b></i>
 		<ul>
 			<li>ABSTRACT_CLASS_NAME_ATTRIBUTES - same style as for DEFAULT_INTERFACE_NAME</li>
