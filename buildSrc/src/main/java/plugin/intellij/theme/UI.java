@@ -694,12 +694,13 @@ class UI {
 		@JsonProperty Color floatingForeground = style.theme().foreground().base();
 	}
 
+	// hover balloon
 	class ToolTip {
 		@JsonProperty Color background = style.theme().background().base();
-		@JsonProperty Color borderColor;
+		@JsonProperty Color borderColor = style.theme().borderColor();
 		@JsonProperty Color foreground = style.theme().foreground().base();
 		@JsonProperty Color infoForeground = style.theme().foreground().info();
-		@JsonProperty Boolean paintBorder = false;
+		@JsonProperty Boolean paintBorder = true;
 		@JsonProperty Color shortcutForeground = style.theme().foreground().disabled();
 
 		@JsonProperty ToolTip.Actions Actions = new ToolTip.Actions();
