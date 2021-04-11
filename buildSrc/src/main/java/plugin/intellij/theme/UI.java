@@ -694,8 +694,7 @@ class UI {
 		@JsonProperty Color floatingForeground = style.theme().foreground().base();
 	}
 
-	// hover balloon
-	class ToolTip {
+	class ToolTip { // hover balloon
 		@JsonProperty Color background = style.theme().background().base();
 		@JsonProperty Color borderColor = style.theme().borderColor();
 		@JsonProperty Color foreground = style.theme().foreground().base();
