@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.2.4'
+version '0.2.5-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -56,6 +56,12 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.5</b></i>
+		<ul>
+			<li>IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES - same style as for DEFAULT_PARAMETER instead of relying on implicit behaviour of a null value</li>
+			<li>Unused reference access - remove a duplicate with an inherited value from DEFAULT_IDENTIFIER</li>
+		</ul><br>
+		
 		<i><b>0.2.4</b></i>
 		<ul>
 			<li>Paint ToolTip border</li>

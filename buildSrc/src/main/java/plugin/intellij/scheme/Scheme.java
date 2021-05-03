@@ -30,6 +30,10 @@ public class Scheme {
 		this.style = Objects.requireNonNull(style);
 	}
 
+	private static Collection<Attribute> mergeAttributes(Group... groups) {
+		return Arrays.stream(groups).flatMap(group -> group.attributes().stream()).collect(Collectors.toSet());
+	}
+
 	@SafeVarargs
 	private static <T> Collection<T> merge(Collection<T>... collections) {
 		Collection<T> merged = new ArrayList<>();
@@ -147,22 +151,30 @@ public class Scheme {
 		private final Color searchBackground = style.theme().background().search();
 		private final Color searchWriteBackground = searchBackground.darker();
 
+		General general() { return new General(); }
+		LanguageDefaults languageDefaults() { return new LanguageDefaults(); }
+		ConsoleColors consoleColors() { return new ConsoleColors(); }
+		DiffAndMerge diffAndMerge() { return new DiffAndMerge(); }
+		Language language() { return new Language(); }
+
 		@JacksonXmlElementWrapper(useWrapping = false)
-		public Collection<Attribute> option() {
-			return merge(
-				new General().attributes(),
-				new LanguageDefaults().attributes(),
-				new ConsoleColors().attributes(), new DiffAndMerge().attributes(),
-				new Language().attributes()
-			).stream()
+		public List<Attribute> option() {
+			return mergeAttributes(general(), languageDefaults(), consoleColors(), diffAndMerge(), language()).stream()
 				.sorted(Comparator.comparing(Attribute::name))
 				.collect(Collectors.toList());
 		}
 
 		class General implements Group {
 
+			Code code() { return new Code(); }
+			Editor editor() { return new Editor(); }
+			ErrorsAndWarnings errorsAndWarnings() { return new ErrorsAndWarnings(); }
+			Hyperlinks hyperlinks() { return new Hyperlinks(); }
+			SearchResults searchResults() { return new SearchResults(); }
+			Text text() { return new Text(); }
+
 			@Override public Collection<Attribute> attributes() {
-				return merge(new Code().attributes(), new Editor().attributes(), new ErrorsAndWarnings().attributes(), new Hyperlinks().attributes(), new SearchResults().attributes(), new Text().attributes());
+				return mergeAttributes(code(), editor(), errorsAndWarnings(), hyperlinks(), searchResults(), text());
 			}
 
 			class Code implements Group {
@@ -263,8 +275,6 @@ public class Scheme {
 					.underwaved(palette.gray().brighter());
 				private final Attribute not_used_element_attributes = new Attribute("NOT_USED_ELEMENT_ATTRIBUTES")
 					.foreground(palette.gray());
-				private final Attribute unresolved_reference_access = new Attribute("Unresolved reference access")
-					.baseAttributes("DEFAULT_IDENTIFIER");
 				private final Attribute marked_for_removal_attributes = new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES")
 					.foreground(deprecated).italic()
 					.strikeout(deprecated);
@@ -278,7 +288,7 @@ public class Scheme {
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
 						bad_character, errors_attributes, runtime_error, typo, not_used_element_attributes,
-						unresolved_reference_access, marked_for_removal_attributes, warning_attributes, wrong_references_attributes
+						marked_for_removal_attributes, warning_attributes, wrong_references_attributes
 					);
 				}
 			}
@@ -335,9 +345,7 @@ public class Scheme {
 
 		class LanguageDefaults implements Group {
 
-			// todo create value instead of empty Attribute and then setValue()
-			// todo prefer to use references to objects with colors and attributes
-			private final Attribute.Value commonKeyword = new Attribute("").foreground(palette.blue()).bold().value();
+			private final Attribute commonKeyword = new Attribute("").foreground(palette.blue()).bold();
 
 			private final Attribute string = new Attribute("DEFAULT_STRING")
 				.foreground(palette.aqua())
@@ -367,7 +375,7 @@ public class Scheme {
 			private final Attribute doc_comment_tag_value = new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE")
 				.foreground(palette.gray().darker(2))
 				.bold();
-			private final Attribute doc_markup = new Attribute("DEFAULT_DOC_MARKUP").setValue(commonKeyword).removeFontType();
+			private final Attribute doc_markup = new Attribute("DEFAULT_DOC_MARKUP").copy(commonKeyword).removeFontType();
 			private final Attribute entity = new Attribute("DEFAULT_ENTITY").foreground(palette.yellow());
 			private final Attribute function_declaration = new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base());
 			private final Attribute global_variable = new Attribute("DEFAULT_GLOBAL_VARIABLE")
@@ -377,10 +385,7 @@ public class Scheme {
 			private final Attribute instance_field = new Attribute("DEFAULT_INSTANCE_FIELD")
 				.foreground(palette.purple().darker())
 				.bold();
-			private final Attribute interface_name = new Attribute("DEFAULT_INTERFACE_NAME")
-				.foreground(style.scheme().foreground().base())
-				.italic();
-			private final Attribute keyword = new Attribute("DEFAULT_KEYWORD").setValue(commonKeyword);
+			private final Attribute keyword = new Attribute("DEFAULT_KEYWORD").copy(commonKeyword);
 			private final Attribute label = new Attribute("DEFAULT_LABEL").foreground(palette.blue()).bold();
 			private final Attribute local_variable = new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple());
 			private final Attribute metadata = new Attribute("DEFAULT_METADATA").foreground(palette.green());
@@ -406,7 +411,9 @@ public class Scheme {
 				.italic();
 			private final Attribute tag = new Attribute("DEFAULT_TAG").foreground(palette.blue().darker());
 			private final Attribute template_language_color = new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3));
-
+			private final Attribute interface_name = new Attribute("DEFAULT_INTERFACE_NAME")
+				.foreground(style.scheme().foreground().base())
+				.italic();
 			@Override public Collection<Attribute> attributes() {
 				return merge(
 					new BracesAndOperators().attributes(),
@@ -438,8 +445,13 @@ public class Scheme {
 		}
 
 		class ConsoleColors implements Group {
+
+			ANSIColors ansiColors() { return new ANSIColors(); }
+			Console console() { return new Console(); }
+			LogConsole logConsole() { return new LogConsole(); }
+
 			@Override public Collection<Attribute> attributes() {
-				return merge(new ANSIColors().attributes(), new Console().attributes(), new LogConsole().attributes());
+				return mergeAttributes(ansiColors(), console(), logConsole());
 			}
 
 			class ANSIColors implements Group {
@@ -506,25 +518,26 @@ public class Scheme {
 		}
 
 		class Language implements Group {
+
+			Java java() { return new Java(); }
+			Groovy groovy() { return new Groovy(); }
+			Go go() { return new Go(); }
+			TypeScript typeScript() { return new TypeScript(); }
+			JavaScript javaScript() { return new JavaScript(); }
+			Python python() { return new Python(); }
+			Php php() { return new Php(); }
+			UserDefinedFileTypes userDefinedFileTypes() { return new UserDefinedFileTypes(); }
+
 			@Override public Collection<Attribute> attributes() {
-				return merge(
-					new Java().attributes(),
-					new Groovy().attributes(),
-					new Go().attributes(),
-					new TypeScript().attributes(),
-					new JavaScript().attributes(),
-					new Python().attributes(),
-					new Php().attributes(),
-					new UserDefinedFileTypes().attributes()
-				);
+				return mergeAttributes(java(), groovy(), go(), typeScript(), javaScript(), python(), php(), userDefinedFileTypes());
 			}
 
 			class Java implements Group {
-				private final Attribute abstract_class_name_attributes = new Attribute("ABSTRACT_CLASS_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).italic();
+				private final Attribute abstract_class_name_attributes = new Attribute("ABSTRACT_CLASS_NAME_ATTRIBUTES").copy(Attributes.this.languageDefaults().interface_name);
 				private final Attribute annotation_attribute_name_attributes = new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple());
 				private final Attribute annotation_name_attributes = new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA");
 				private final Attribute deprecated_attributes = new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).strikeout(deprecated).italic();
-				private final Attribute implicit_anonymous_class_parameter_attributes = new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").emptyValue();
+				private final Attribute implicit_anonymous_class_parameter_attributes = new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
 				private final Attribute instance_field_attributes = new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD");
 				private final Attribute static_field_attributes = new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD");
 				private final Attribute static_final_field_attributes = new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES");
@@ -532,11 +545,11 @@ public class Scheme {
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
-						abstract_class_name_attributes, // DEFAULT_INTERFACE_NAME
+						abstract_class_name_attributes,
 						annotation_attribute_name_attributes,
 						annotation_name_attributes,
 						deprecated_attributes,
-						implicit_anonymous_class_parameter_attributes, // "DEFAULT_PARAMETER"
+						implicit_anonymous_class_parameter_attributes,
 						instance_field_attributes,
 						static_field_attributes,
 						static_final_field_attributes,
@@ -546,26 +559,26 @@ public class Scheme {
 			}
 
 			class Groovy implements Group {
-				private final Attribute keyword = new Attribute("GROOVY_KEYWORD").baseAttributes("JAVA_KEYWORD");
-				private final Attribute list_map_to_object_conversion = new Attribute("List/map to object conversion").foreground(style.scheme().foreground().base());
+				private final Attribute groovy_keyword = new Attribute("GROOVY_KEYWORD").baseAttributes("JAVA_KEYWORD");
+				private final Attribute list_map_to_object_conversion = new Attribute("List/map to object conversion").copy(Attributes.this.languageDefaults().identifier);
 				private final Attribute static_property_reference_ID = new Attribute("Static property reference ID").baseAttributes("STATIC_FINAL_FIELD_ATTRIBUTES");
-				private final Attribute unresolved_reference_access = new Attribute("Unresolved reference access").foreground(palette.gray());
+				private final Attribute unresolved_reference_access = new Attribute("Unresolved reference access").copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes);
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
-						keyword,
-						list_map_to_object_conversion, // DEFAULT_IDENTIFIER
+						groovy_keyword,
+						list_map_to_object_conversion,
 						static_property_reference_ID,
-						unresolved_reference_access // NOT_USED_ELEMENT_ATTRIBUTES
+						unresolved_reference_access
 					);
 				}
 			}
 
 			class Go implements Group {
-				private final Attribute builtin_constant = new Attribute("GO_BUILTIN_CONSTANT").foreground(palette.blue()).bold();
-				private final Attribute builtin_variable = new Attribute("GO_BUILTIN_VARIABLE").foreground(palette.blue()).bold();
-				private final Attribute comment_reference = new Attribute("GO_COMMENT_REFERENCE").foreground(palette.gray().darker(2)).bold();
-				private final Attribute function_parameter = new Attribute("GO_FUNCTION_PARAMETER").foreground(palette.purple()).bold();
+				private final Attribute builtin_constant = new Attribute("GO_BUILTIN_CONSTANT").copy(Attributes.this.languageDefaults().keyword);
+				private final Attribute builtin_variable = new Attribute("GO_BUILTIN_VARIABLE").copy(Attributes.this.languageDefaults().keyword);
+				private final Attribute comment_reference = new Attribute("GO_COMMENT_REFERENCE").copy(Attributes.this.languageDefaults().doc_comment_tag_value);
+				private final Attribute function_parameter = new Attribute("GO_FUNCTION_PARAMETER").copy(Attributes.this.languageDefaults().parameter);
 				private final Attribute local_constant = new Attribute("GO_LOCAL_CONSTANT").foreground(palette.purple());
 				private final Attribute method_receiver = new Attribute("GO_METHOD_RECEIVER").foreground(palette.purple().darker()).bold();
 				private final Attribute package_exported_constant = new Attribute("GO_PACKAGE_EXPORTED_CONSTANT").foreground(palette.purple().darker()).bold();
@@ -573,15 +586,15 @@ public class Scheme {
 				private final Attribute package_local_constant = new Attribute("GO_PACKAGE_LOCAL_CONSTANT").foreground(palette.purple().darker()).bold();
 				private final Attribute package_local_variable = new Attribute("GO_PACKAGE_LOCAL_VARIABLE").foreground(palette.purple().darker()).bold();
 				private final Attribute shadowing_variable = new Attribute("GO_SHADOWING_VARIABLE").foreground(palette.purple()).dottedLine(palette.purple());
-				private final Attribute struct_exported_member = new Attribute("GO_STRUCT_EXPORTED_MEMBER").foreground(palette.purple().darker()).bold();
-				private final Attribute struct_local_member = new Attribute("GO_STRUCT_LOCAL_MEMBER").foreground(palette.purple().darker()).bold();
+				private final Attribute struct_exported_member = new Attribute("GO_STRUCT_EXPORTED_MEMBER").copy(Attributes.this.languageDefaults().instance_field);
+				private final Attribute struct_local_member = new Attribute("GO_STRUCT_LOCAL_MEMBER").copy(Attributes.this.languageDefaults().instance_field);
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
-						builtin_constant, // DEFAULT_KEYWORD
-						builtin_variable, // DEFAULT_KEYWORD
-						comment_reference, // DEFAULT_DOC_COMMENT_TAG_VALUE
-						function_parameter, // DEFAULT_PARAMETER
+						builtin_constant,
+						builtin_variable,
+						comment_reference,
+						function_parameter,
 						local_constant,
 						method_receiver,
 						package_exported_constant,
@@ -589,19 +602,19 @@ public class Scheme {
 						package_local_constant,
 						package_local_variable,
 						shadowing_variable,
-						struct_exported_member, // DEFAULT_INSTANCE_FIELD
-						struct_local_member // DEFAULT_INSTANCE_FIELD
+						struct_exported_member,
+						struct_local_member
 					);
 				}
 			}
 
 			class TypeScript implements Group {
-				private final Attribute type_parameter = new Attribute("TS.TYPE_PARAMETER").foreground(style.scheme().foreground().base()).bold();
+				private final Attribute type_parameter = new Attribute("TS.TYPE_PARAMETER").copy(Attributes.this.language().java().type_parameter_name_attributes);
 				private final Attribute type_guard = new Attribute("TS.TYPE_GUARD").emptyValue();
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
-						type_parameter, // java -> TYPE_PARAMETER_NAME_ATTRIBUTES
+						type_parameter,
 						type_guard
 					);
 				}
@@ -614,7 +627,7 @@ public class Scheme {
 				private final Attribute instance_member_function = new Attribute("JS.INSTANCE_MEMBER_FUNCTION").baseAttributes("DEFAULT_INSTANCE_METHOD");
 				private final Attribute local_variable = new Attribute("JS.LOCAL_VARIABLE").baseAttributes("DEFAULT_LOCAL_VARIABLE");
 				private final Attribute parameter = new Attribute("JS.PARAMETER").baseAttributes("DEFAULT_PARAMETER");
-				private final Attribute regex = new Attribute("JS.REGEXP").foreground(palette.aqua().darker()).bold();
+				private final Attribute regex = new Attribute("JS.REGEXP").copy(Attributes.this.languageDefaults().valid_string_escape);
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
@@ -624,14 +637,14 @@ public class Scheme {
 						instance_member_function,
 						local_variable,
 						parameter,
-						regex // DEFAULT_VALID_STRING_ESCAPE
+						regex
 					);
 				}
 			}
 
 			class Python implements Group {
-				private final Attribute decorator = new Attribute("PY.DECORATOR").foreground(palette.green());
-				private final Attribute keyword_argument = new Attribute("PY.KEYWORD_ARGUMENT").foreground(palette.purple());
+				private final Attribute decorator = new Attribute("PY.DECORATOR").copy(Attributes.this.languageDefaults().metadata);
+				private final Attribute keyword_argument = new Attribute("PY.KEYWORD_ARGUMENT").copy(Attributes.this.languageDefaults().local_variable);
 				private final Attribute predefined_definition = new Attribute("PY.PREDEFINED_DEFINITION").baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
 				private final Attribute predefined_usage = new Attribute("PY.PREDEFINED_USAGE").baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
 				private final Attribute self_parameter = new Attribute("PY.SELF_PARAMETER").baseAttributes("DEFAULT_PARAMETER");
@@ -639,8 +652,8 @@ public class Scheme {
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
-						decorator, // DEFAULT_METADATA
-						keyword_argument, // DEFAULT_LOCAL_VARIABLE
+						decorator,
+						keyword_argument,
 						predefined_definition,
 						predefined_usage,
 						self_parameter,
@@ -650,19 +663,19 @@ public class Scheme {
 			}
 
 			class Php implements Group {
-				private final Attribute magic_member_access = new Attribute("MAGIC_MEMBER_ACCESS").foreground(palette.gray());
-				private final Attribute doc_parameter = new Attribute("PHP_DOC_PARAMETER").foreground(palette.gray().darker(2)).bold();
+				private final Attribute magic_member_access = new Attribute("MAGIC_MEMBER_ACCESS").copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes);
+				private final Attribute doc_parameter = new Attribute("PHP_DOC_PARAMETER").copy(Attributes.this.languageDefaults().doc_comment_tag_value);
 				private final Attribute exec_command_id = new Attribute("PHP_EXEC_COMMAND_ID").background(palette.silver().brighter(3));
-				private final Attribute named_argument = new Attribute("PHP_NAMED_ARGUMENT").foreground(palette.purple());
+				private final Attribute named_argument = new Attribute("PHP_NAMED_ARGUMENT").copy(Attributes.this.languageDefaults().local_variable);
 				private final Attribute parameter = new Attribute("PHP_PARAMETER").baseAttributes("DEFAULT_PARAMETER");
 				private final Attribute var = new Attribute("PHP_VAR").baseAttributes("DEFAULT_LOCAL_VARIABLE");
 
 				@Override public Collection<Attribute> attributes() {
 					return Set.of(
-						magic_member_access, // NOT_USED_ELEMENT_ATTRIBUTES
-						doc_parameter, // DEFAULT_DOC_COMMENT_TAG_VALUE
+						magic_member_access,
+						doc_parameter,
 						exec_command_id,
-						named_argument, // DEFAULT_LOCAL_VARIABLE
+						named_argument,
 						parameter,
 						var
 					);
@@ -672,9 +685,9 @@ public class Scheme {
 			class UserDefinedFileTypes implements Group {
 				private final Attribute invalid_string_escape_attributes = new Attribute("CUSTOM_INVALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_INVALID_STRING_ESCAPE");
 				private final Attribute keyword1_attributes = new Attribute("CUSTOM_KEYWORD1_ATTRIBUTES").baseAttributes("DEFAULT_KEYWORD");
-				private final Attribute keyword2_attributes = new Attribute("CUSTOM_KEYWORD2_ATTRIBUTES").foreground(palette.purple()).bold();
-				private final Attribute keyword3_attributes = new Attribute("CUSTOM_KEYWORD3_ATTRIBUTES").foreground(palette.purple()).bold();
-				private final Attribute keyword4_attributes = new Attribute("CUSTOM_KEYWORD4_ATTRIBUTES").foreground(palette.purple()).bold();
+				private final Attribute keyword2_attributes = new Attribute("CUSTOM_KEYWORD2_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
+				private final Attribute keyword3_attributes = new Attribute("CUSTOM_KEYWORD3_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
+				private final Attribute keyword4_attributes = new Attribute("CUSTOM_KEYWORD4_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
 				private final Attribute line_comment_attributes = new Attribute("CUSTOM_LINE_COMMENT_ATTRIBUTES").baseAttributes("DEFAULT_LINE_COMMENT");
 				private final Attribute multi_line_comment_attributes = new Attribute("CUSTOM_MULTI_LINE_COMMENT_ATTRIBUTES").baseAttributes("DEFAULT_BLOCK_COMMENT");
 				private final Attribute number_attributes = new Attribute("CUSTOM_NUMBER_ATTRIBUTES").baseAttributes("DEFAULT_NUMBER");
@@ -685,9 +698,9 @@ public class Scheme {
 					return Set.of(
 						invalid_string_escape_attributes,
 						keyword1_attributes,
-						keyword2_attributes, // DEFAULT_PARAMETER
-						keyword3_attributes, // DEFAULT_PARAMETER
-						keyword4_attributes, // DEFAULT_PARAMETER
+						keyword2_attributes,
+						keyword3_attributes,
+						keyword4_attributes,
 						line_comment_attributes,
 						multi_line_comment_attributes,
 						number_attributes,

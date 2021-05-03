@@ -109,6 +109,10 @@ class Attribute {
 		return value != null ? value : new Value();
 	}
 
+	public Attribute copy(Attribute attribute) {
+		return new Attribute(name, baseAttributes, attribute.value());
+	}
+
 	public Attribute setValue(Value value) {
 		return new Attribute(name, baseAttributes, value);
 	}
@@ -120,6 +124,7 @@ class Attribute {
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
 	@JacksonXmlProperty(isAttribute = true) String baseAttributes() { return baseAttributes; }
 	@JacksonXmlProperty Value value() { return value; }
+
 
 	public static class Value {
 

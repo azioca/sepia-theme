@@ -614,7 +614,10 @@
       </value>
     </option>
     <option name="IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES">
-      <value/>
+      <value>
+        <option name="FOREGROUND" value="b16286"/>
+        <option name="FONT_TYPE" value="1"/>
+      </value>
     </option>
     <option name="INACTIVE_HYPERLINK_ATTRIBUTES">
       <value>
@@ -810,7 +813,6 @@
         <option name="ERROR_STRIPE_COLOR" value="cc241d"/>
       </value>
     </option>
-    <option name="Unresolved reference access" baseAttributes="DEFAULT_IDENTIFIER"/>
     <option name="Unresolved reference access">
       <value>
         <option name="FOREGROUND" value="928374"/>
