@@ -8,14 +8,13 @@ import plugin.domain.Palette;
 import plugin.domain.color.Color;
 import plugin.style.Style;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @JsonPropertyOrder({"metaInfo", "colors", "attributes"})
 @JacksonXmlRootElement(localName = "scheme")
@@ -28,17 +27,6 @@ public class Scheme {
 		this.name = Objects.requireNonNull(name);
 		this.palette = Objects.requireNonNull(palette);
 		this.style = Objects.requireNonNull(style);
-	}
-
-	private static Collection<Attribute> mergeAttributes(Group... groups) {
-		return Arrays.stream(groups).flatMap(group -> group.attributes().stream()).collect(Collectors.toSet());
-	}
-
-	@SafeVarargs
-	private static <T> Collection<T> merge(Collection<T>... collections) {
-		Collection<T> merged = new ArrayList<>();
-		Arrays.stream(collections).forEach(merged::addAll);
-		return merged;
 	}
 
 	@JacksonXmlProperty(isAttribute = true) String name() { return name; }
@@ -159,12 +147,14 @@ public class Scheme {
 
 		@JacksonXmlElementWrapper(useWrapping = false)
 		public List<Attribute> option() {
-			return mergeAttributes(general(), languageDefaults(), consoleColors(), diffAndMerge(), language()).stream()
+			return Stream.of(general(), languageDefaults(), consoleColors(), diffAndMerge(), language())
+				.map(Group::attributes)
+				.flatMap(Collection::stream)
 				.sorted(Comparator.comparing(Attribute::name))
 				.collect(Collectors.toList());
 		}
 
-		class General implements Group {
+		class General extends Group {
 
 			Code code() { return new Code(); }
 			Editor editor() { return new Editor(); }
@@ -173,11 +163,17 @@ public class Scheme {
 			SearchResults searchResults() { return new SearchResults(); }
 			Text text() { return new Text(); }
 
-			@Override public Collection<Attribute> attributes() {
-				return mergeAttributes(code(), editor(), errorsAndWarnings(), hyperlinks(), searchResults(), text());
+			@Override
+			protected Set<Option.Color> colors() {
+				return Set.of();
 			}
 
-			class Code implements Group {
+			@Override
+			public Set<Attribute> attributes() {
+				return new Group.Union(code(), editor(), errorsAndWarnings(), hyperlinks(), searchResults(), text()).attributes();
+			}
+
+			class Code extends Group {
 
 				private final Attribute identifier_under_caret_attributes = new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES")
 					.background(style.scheme().background().underCaret())
@@ -205,7 +201,12 @@ public class Scheme {
 					.foreground(palette.purple());
 
 				@Override
-				public Collection<Attribute> attributes() {
+				protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override
+				public Set<Attribute> attributes() {
 					return Set.of(
 						identifier_under_caret_attributes, write_identifier_under_caret_attributes, injected_language_fragment, todo_default_attributes,
 						matched_brace_attributes, unmatched_brace_attributes,
@@ -215,7 +216,7 @@ public class Scheme {
 				}
 			}
 
-			class Editor implements Group {
+			class Editor extends Group {
 
 				private final Attribute bookmarks_attributes = new Attribute("BOOKMARKS_ATTRIBUTES")
 					.errorStripe(style.scheme().foreground().base());
@@ -230,14 +231,20 @@ public class Scheme {
 				private final Attribute breakpoint_attributes = new Attribute("BREAKPOINT_ATTRIBUTES")
 					.background(style.scheme().background().base().darker(3));
 
-				@Override public Collection<Attribute> attributes() {
-					return merge(
+				@Override
+				protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override
+				public Set<Attribute> attributes() {
+					return union(
 						Set.of(bookmarks_attributes, default_attribute, inline_parameter_hint, info_attributes, breakpoint_attributes),
 						new Breadcrumbs().attributes()
 					);
 				}
 
-				class Breadcrumbs implements Group {
+				class Breadcrumbs extends Group {
 
 					private final Attribute breadcrumbs_default = new Attribute("BREADCRUMBS_DEFAULT")
 						.foreground(style.scheme().foreground().base())
@@ -251,7 +258,13 @@ public class Scheme {
 					private final Attribute inactive = new Attribute("BREADCRUMBS_INACTIVE")
 						.foreground(style.scheme().foreground().base()); // unknown effect
 
-					@Override public Collection<Attribute> attributes() {
+					@Override
+					protected Set<Option.Color> colors() {
+						return Set.of();
+					}
+
+					@Override
+					public Set<Attribute> attributes() {
 						return Set.of(
 							breadcrumbs_default,
 							hovered,
@@ -262,7 +275,7 @@ public class Scheme {
 				}
 			}
 
-			class ErrorsAndWarnings implements Group {
+			class ErrorsAndWarnings extends Group {
 				private final Attribute bad_character = new Attribute("BAD_CHARACTER")
 					.underwaved(style.error());
 				private final Attribute errors_attributes = new Attribute("ERRORS_ATTRIBUTES")
@@ -285,7 +298,13 @@ public class Scheme {
 					.underwaved(style.error())
 					.errorStripeAsEffect();
 
-				@Override public Collection<Attribute> attributes() {
+				@Override
+				protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override
+				public Set<Attribute> attributes() {
 					return Set.of(
 						bad_character, errors_attributes, runtime_error, typo, not_used_element_attributes,
 						marked_for_removal_attributes, warning_attributes, wrong_references_attributes
@@ -293,7 +312,7 @@ public class Scheme {
 				}
 			}
 
-			class Hyperlinks implements Group {
+			class Hyperlinks extends Group {
 				private final Attribute hyperlink_attributes = new Attribute("HYPERLINK_ATTRIBUTES")
 					.foreground(style.link()).underscored(style.link());
 				private final Attribute ctrl_clickable = new Attribute("CTRL_CLICKABLE")
@@ -305,12 +324,16 @@ public class Scheme {
 					.foreground(style.scheme().foreground().base())
 					.underscored(style.scheme().foreground().base());
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(hyperlink_attributes, ctrl_clickable, followed_hyperlink_attributes, inactive_hyperlink_attributes);
 				}
 			}
 
-			class SearchResults implements Group {
+			class SearchResults extends Group {
 				private final Attribute search_result_attributes = new Attribute("SEARCH_RESULT_ATTRIBUTES")
 					.foreground(style.scheme().foreground().base())
 					.background(searchBackground).errorStripeAsBackground();
@@ -321,12 +344,16 @@ public class Scheme {
 					.foreground(style.scheme().foreground().base())
 					.background(searchBackground).errorStripeAsBackground();
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(search_result_attributes, write_search_result_attributes, text_search_result_attributes);
 				}
 			}
 
-			class Text implements Group {
+			class Text extends Group {
 				private final Attribute text = new Attribute("TEXT")
 					.foreground(style.scheme().foreground().base())
 					.background(style.scheme().background().base());
@@ -337,13 +364,16 @@ public class Scheme {
 					.foreground(palette.gray())
 					.bordered(palette.gray().brighter());
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+				@Override public Set<Attribute> attributes() {
 					return Set.of(text, deleted_text_attributes, folded_text_attributes);
 				}
 			}
 		}
 
-		class LanguageDefaults implements Group {
+		class LanguageDefaults extends Group {
 
 			private final Attribute commonKeyword = new Attribute("").foreground(palette.blue()).bold();
 
@@ -414,8 +444,13 @@ public class Scheme {
 			private final Attribute interface_name = new Attribute("DEFAULT_INTERFACE_NAME")
 				.foreground(style.scheme().foreground().base())
 				.italic();
-			@Override public Collection<Attribute> attributes() {
-				return merge(
+
+			@Override protected Set<Option.Color> colors() {
+				return Set.of();
+			}
+
+			@Override public Set<Attribute> attributes() {
+				return union(
 					new BracesAndOperators().attributes(),
 					Set.of(
 						string, valid_string_escape, invalid_string_escape, constant,
@@ -429,7 +464,7 @@ public class Scheme {
 			}
 		}
 
-		class BracesAndOperators implements Group {
+		class BracesAndOperators extends Group {
 
 			private final Attribute braces = new Attribute("DEFAULT_BRACES").foreground(style.scheme().foreground().base());
 			private final Attribute brackets = new Attribute("DEFAULT_BRACKETS").foreground(style.scheme().foreground().base());
@@ -439,22 +474,30 @@ public class Scheme {
 			private final Attribute parenths = new Attribute("DEFAULT_PARENTHS").foreground(style.scheme().foreground().base());
 			private final Attribute semicolon = new Attribute("DEFAULT_SEMICOLON").foreground(style.scheme().foreground().base());
 
-			@Override public Collection<Attribute> attributes() {
+			@Override protected Set<Option.Color> colors() {
+				return Set.of();
+			}
+
+			@Override public Set<Attribute> attributes() {
 				return Set.of(braces, brackets, comma, dot, operation_sign, parenths, semicolon);
 			}
 		}
 
-		class ConsoleColors implements Group {
+		class ConsoleColors extends Group {
 
 			ANSIColors ansiColors() { return new ANSIColors(); }
 			Console console() { return new Console(); }
 			LogConsole logConsole() { return new LogConsole(); }
 
-			@Override public Collection<Attribute> attributes() {
-				return mergeAttributes(ansiColors(), console(), logConsole());
+			@Override protected Set<Option.Color> colors() {
+				return Set.of();
 			}
 
-			class ANSIColors implements Group {
+			@Override public Set<Attribute> attributes() {
+				return new Group.Union(ansiColors(), console(), logConsole()).attributes();
+			}
+
+			class ANSIColors extends Group {
 				private final Attribute black = new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.scheme().foreground().base());
 				private final Attribute blue_bright = new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT").foreground(palette.blue().brighter());
 				private final Attribute blue = new Attribute("CONSOLE_BLUE_OUTPUT").foreground(palette.blue());
@@ -472,7 +515,11 @@ public class Scheme {
 				private final Attribute yellow_bright = new Attribute("CONSOLE_YELLOW_BRIGHT_OUTPUT").foreground(palette.yellow().brighter());
 				private final Attribute yellow = new Attribute("CONSOLE_YELLOW_OUTPUT").foreground(palette.yellow());
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						black, blue_bright, blue, cyan_bright, cyan, darkgray, gray, green_bright, green,
 						magenta_bright, magenta, red_bright, red, white, yellow_bright, yellow
@@ -480,23 +527,31 @@ public class Scheme {
 				}
 			}
 
-			class Console implements Group {
+			class Console extends Group {
 				private final Attribute error = new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error());
 				private final Attribute system = new Attribute("CONSOLE_SYSTEM_OUTPUT").foreground(palette.yellow().darker());
 				private final Attribute user_input = new Attribute("CONSOLE_USER_INPUT").foreground(style.scheme().foreground().base());
 				private final Attribute normal = new Attribute("CONSOLE_NORMAL_OUTPUT").foreground(style.scheme().foreground().base());
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(error, system, user_input, normal);
 				}
 			}
 
-			class LogConsole implements Group {
+			class LogConsole extends Group {
 				private final Attribute error_output = new Attribute("LOG_ERROR_OUTPUT").foreground(style.error());
 				private final Attribute expired_entry = new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray());
 				private final Attribute warning_output = new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning());
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						error_output,
 						expired_entry,
@@ -506,18 +561,22 @@ public class Scheme {
 			}
 		}
 
-		class DiffAndMerge implements Group {
+		class DiffAndMerge extends Group {
 			private final Attribute inserted = new Attribute("DIFF_INSERTED").background(palette.green().brighter(3)).errorStripe(palette.green().brighter(2));
 			private final Attribute modified = new Attribute("DIFF_MODIFIED").background(palette.blue().brighter(3)).errorStripe(palette.blue().brighter(2));
 			private final Attribute deleted = new Attribute("DIFF_DELETED").background(palette.silver().brighter()).errorStripe(palette.silver());
 			private final Attribute conflict = new Attribute("DIFF_CONFLICT").background(palette.red().brighter(3)).errorStripe(palette.red().brighter(2));
 
-			@Override public Collection<Attribute> attributes() {
+			@Override protected Set<Option.Color> colors() {
+				return Set.of();
+			}
+
+			@Override public Set<Attribute> attributes() {
 				return Set.of(inserted, modified, deleted, conflict);
 			}
 		}
 
-		class Language implements Group {
+		class Language extends Group {
 
 			Java java() { return new Java(); }
 			Groovy groovy() { return new Groovy(); }
@@ -528,11 +587,15 @@ public class Scheme {
 			Php php() { return new Php(); }
 			UserDefinedFileTypes userDefinedFileTypes() { return new UserDefinedFileTypes(); }
 
-			@Override public Collection<Attribute> attributes() {
-				return mergeAttributes(java(), groovy(), go(), typeScript(), javaScript(), python(), php(), userDefinedFileTypes());
+			@Override protected Set<Option.Color> colors() {
+				return Set.of();
 			}
 
-			class Java implements Group {
+			@Override public Set<Attribute> attributes() {
+				return new Group.Union(java(), groovy(), go(), typeScript(), javaScript(), python(), php(), userDefinedFileTypes()).attributes();
+			}
+
+			class Java extends Group {
 				private final Attribute abstract_class_name_attributes = new Attribute("ABSTRACT_CLASS_NAME_ATTRIBUTES").copy(Attributes.this.languageDefaults().interface_name);
 				private final Attribute annotation_attribute_name_attributes = new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple());
 				private final Attribute annotation_name_attributes = new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA");
@@ -543,7 +606,11 @@ public class Scheme {
 				private final Attribute static_final_field_attributes = new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES");
 				private final Attribute type_parameter_name_attributes = new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold();
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						abstract_class_name_attributes,
 						annotation_attribute_name_attributes,
@@ -558,13 +625,17 @@ public class Scheme {
 				}
 			}
 
-			class Groovy implements Group {
+			class Groovy extends Group {
 				private final Attribute groovy_keyword = new Attribute("GROOVY_KEYWORD").baseAttributes("JAVA_KEYWORD");
 				private final Attribute list_map_to_object_conversion = new Attribute("List/map to object conversion").copy(Attributes.this.languageDefaults().identifier);
 				private final Attribute static_property_reference_ID = new Attribute("Static property reference ID").baseAttributes("STATIC_FINAL_FIELD_ATTRIBUTES");
 				private final Attribute unresolved_reference_access = new Attribute("Unresolved reference access").copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes);
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						groovy_keyword,
 						list_map_to_object_conversion,
@@ -574,7 +645,7 @@ public class Scheme {
 				}
 			}
 
-			class Go implements Group {
+			class Go extends Group {
 				private final Attribute builtin_constant = new Attribute("GO_BUILTIN_CONSTANT").copy(Attributes.this.languageDefaults().keyword);
 				private final Attribute builtin_variable = new Attribute("GO_BUILTIN_VARIABLE").copy(Attributes.this.languageDefaults().keyword);
 				private final Attribute comment_reference = new Attribute("GO_COMMENT_REFERENCE").copy(Attributes.this.languageDefaults().doc_comment_tag_value);
@@ -589,7 +660,11 @@ public class Scheme {
 				private final Attribute struct_exported_member = new Attribute("GO_STRUCT_EXPORTED_MEMBER").copy(Attributes.this.languageDefaults().instance_field);
 				private final Attribute struct_local_member = new Attribute("GO_STRUCT_LOCAL_MEMBER").copy(Attributes.this.languageDefaults().instance_field);
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						builtin_constant,
 						builtin_variable,
@@ -608,11 +683,15 @@ public class Scheme {
 				}
 			}
 
-			class TypeScript implements Group {
+			class TypeScript extends Group {
 				private final Attribute type_parameter = new Attribute("TS.TYPE_PARAMETER").copy(Attributes.this.language().java().type_parameter_name_attributes);
 				private final Attribute type_guard = new Attribute("TS.TYPE_GUARD").emptyValue();
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						type_parameter,
 						type_guard
@@ -620,7 +699,7 @@ public class Scheme {
 				}
 			}
 
-			class JavaScript implements Group {
+			class JavaScript extends Group {
 				private final Attribute global_variable = new Attribute("JS.GLOBAL_VARIABLE").baseAttributes("DEFAULT_PARAMETER");
 				private final Attribute global_function = new Attribute("JS.GLOBAL_FUNCTION").baseAttributes("DEFAULT_FUNCTION_DECLARATION");
 				private final Attribute injected_language_fragment = new Attribute("JavaScript:INJECTED_LANGUAGE_FRAGMENT").baseAttributes("INJECTED_LANGUAGE_FRAGMENT");
@@ -629,7 +708,11 @@ public class Scheme {
 				private final Attribute parameter = new Attribute("JS.PARAMETER").baseAttributes("DEFAULT_PARAMETER");
 				private final Attribute regex = new Attribute("JS.REGEXP").copy(Attributes.this.languageDefaults().valid_string_escape);
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						global_variable,
 						global_function,
@@ -642,7 +725,7 @@ public class Scheme {
 				}
 			}
 
-			class Python implements Group {
+			class Python extends Group {
 				private final Attribute decorator = new Attribute("PY.DECORATOR").copy(Attributes.this.languageDefaults().metadata);
 				private final Attribute keyword_argument = new Attribute("PY.KEYWORD_ARGUMENT").copy(Attributes.this.languageDefaults().local_variable);
 				private final Attribute predefined_definition = new Attribute("PY.PREDEFINED_DEFINITION").baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
@@ -650,7 +733,11 @@ public class Scheme {
 				private final Attribute self_parameter = new Attribute("PY.SELF_PARAMETER").baseAttributes("DEFAULT_PARAMETER");
 				private final Attribute string_u = new Attribute("PY.STRING.U").baseAttributes("DEFAULT_STRING");
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						decorator,
 						keyword_argument,
@@ -662,7 +749,7 @@ public class Scheme {
 				}
 			}
 
-			class Php implements Group {
+			class Php extends Group {
 				private final Attribute magic_member_access = new Attribute("MAGIC_MEMBER_ACCESS").copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes);
 				private final Attribute doc_parameter = new Attribute("PHP_DOC_PARAMETER").copy(Attributes.this.languageDefaults().doc_comment_tag_value);
 				private final Attribute exec_command_id = new Attribute("PHP_EXEC_COMMAND_ID").background(palette.silver().brighter(3));
@@ -670,7 +757,10 @@ public class Scheme {
 				private final Attribute parameter = new Attribute("PHP_PARAMETER").baseAttributes("DEFAULT_PARAMETER");
 				private final Attribute var = new Attribute("PHP_VAR").baseAttributes("DEFAULT_LOCAL_VARIABLE");
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						magic_member_access,
 						doc_parameter,
@@ -682,7 +772,7 @@ public class Scheme {
 				}
 			}
 
-			class UserDefinedFileTypes implements Group {
+			class UserDefinedFileTypes extends Group {
 				private final Attribute invalid_string_escape_attributes = new Attribute("CUSTOM_INVALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_INVALID_STRING_ESCAPE");
 				private final Attribute keyword1_attributes = new Attribute("CUSTOM_KEYWORD1_ATTRIBUTES").baseAttributes("DEFAULT_KEYWORD");
 				private final Attribute keyword2_attributes = new Attribute("CUSTOM_KEYWORD2_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
@@ -694,7 +784,11 @@ public class Scheme {
 				private final Attribute string_attributes = new Attribute("CUSTOM_STRING_ATTRIBUTES").baseAttributes("DEFAULT_STRING");
 				private final Attribute valid_string_escape_attributes = new Attribute("CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_VALID_STRING_ESCAPE");
 
-				@Override public Collection<Attribute> attributes() {
+				@Override protected Set<Option.Color> colors() {
+					return Set.of();
+				}
+
+				@Override public Set<Attribute> attributes() {
 					return Set.of(
 						invalid_string_escape_attributes,
 						keyword1_attributes,
