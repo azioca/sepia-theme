@@ -175,30 +175,45 @@ public class Scheme {
 
 			class Code extends Group {
 
-				private final Attribute identifier_under_caret_attributes = new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES")
-					.background(style.scheme().background().underCaret())
-					.errorStripe(style.scheme().background().underCaret());
-				private final Attribute write_identifier_under_caret_attributes = new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES")
-					.background(style.scheme().background().underCaretWrite())
-					.errorStripe(style.scheme().background().underCaretWrite().darker());
-				private final Attribute injected_language_fragment = new Attribute("INJECTED_LANGUAGE_FRAGMENT")
-					.foreground(style.scheme().foreground().base().darker());
-				private final Attribute todo_default_attributes = new Attribute("TODO_DEFAULT_ATTRIBUTES")
-					.foreground(style.scheme().foreground().base())
-					.background(palette.orange().brighter())
-					.errorStripeAsBackground();
-				private final Attribute matched_brace_attributes = new Attribute("MATCHED_BRACE_ATTRIBUTES")
-					.foreground(style.scheme().foreground().base())
-					.bold();
-				private final Attribute unmatched_brace_attributes = new Attribute("UNMATCHED_BRACE_ATTRIBUTES")
-					.background(style.error())
-					.errorStripeAsBackground();
-				private final Attribute live_template_attributes = new Attribute("LIVE_TEMPLATE_ATTRIBUTES")
-					.bordered(palette.red().brighter());
-				private final Attribute live_template_inactive_segment = new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT")
-					.foreground(style.scheme().foreground().disabled());
-				private final Attribute template_variable_attributes = new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES")
-					.foreground(palette.purple());
+				Attribute identifier_under_caret_attributes() {
+					return new Attribute("IDENTIFIER_UNDER_CARET_ATTRIBUTES")
+						.background(style.scheme().background().underCaret())
+						.errorStripe(style.scheme().background().underCaret());
+				}
+				Attribute write_identifier_under_caret_attributes() {
+					return new Attribute("WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES")
+						.background(style.scheme().background().underCaretWrite())
+						.errorStripe(style.scheme().background().underCaretWrite().darker());
+				}
+				Attribute injected_language_fragment() {
+					return new Attribute("INJECTED_LANGUAGE_FRAGMENT")
+						.foreground(style.scheme().foreground().base().darker());
+				}
+				Attribute todo_default_attributes() {
+					return new Attribute("TODO_DEFAULT_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base())
+						.background(palette.orange().brighter()).errorStripeAsBackground();
+				}
+				Attribute matched_brace_attributes() {
+					return new Attribute("MATCHED_BRACE_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base()).bold();
+				}
+				Attribute unmatched_brace_attributes() {
+					return new Attribute("UNMATCHED_BRACE_ATTRIBUTES")
+						.background(style.error()).errorStripeAsBackground();
+				}
+				Attribute live_template_attributes() {
+					return new Attribute("LIVE_TEMPLATE_ATTRIBUTES")
+						.bordered(palette.red().brighter());
+				}
+				Attribute live_template_inactive_segment() {
+					return new Attribute("LIVE_TEMPLATE_INACTIVE_SEGMENT")
+						.foreground(style.scheme().foreground().disabled());
+				}
+				Attribute template_variable_attributes() {
+					return new Attribute("TEMPLATE_VARIABLE_ATTRIBUTES")
+						.foreground(palette.purple());
+				}
 
 				@Override
 				protected Set<Option.Color> colors() {
@@ -208,28 +223,38 @@ public class Scheme {
 				@Override
 				public Set<Attribute> attributes() {
 					return Set.of(
-						identifier_under_caret_attributes, write_identifier_under_caret_attributes, injected_language_fragment, todo_default_attributes,
-						matched_brace_attributes, unmatched_brace_attributes,
+						identifier_under_caret_attributes(), write_identifier_under_caret_attributes(), injected_language_fragment(), todo_default_attributes(),
+						matched_brace_attributes(), unmatched_brace_attributes(),
 
-						live_template_attributes, live_template_inactive_segment, template_variable_attributes
+						live_template_attributes(), live_template_inactive_segment(), template_variable_attributes()
 					);
 				}
 			}
 
 			class Editor extends Group {
 
-				private final Attribute bookmarks_attributes = new Attribute("BOOKMARKS_ATTRIBUTES")
-					.errorStripe(style.scheme().foreground().base());
-				private final Attribute default_attribute = new Attribute("DEFAULT_ATTRIBUTE")
-					.foreground(palette.purple().darker());
-				private final Attribute inline_parameter_hint = new Attribute("INLINE_PARAMETER_HINT")
-					.foreground(style.scheme().foreground().base())
-					.background(palette.aqua().darker());
-				private final Attribute info_attributes = new Attribute("INFO_ATTRIBUTES")
-					.dottedLine(style.warning())
-					.errorStripeAsEffect();
-				private final Attribute breakpoint_attributes = new Attribute("BREAKPOINT_ATTRIBUTES")
-					.background(style.scheme().background().base().darker(3));
+				Attribute bookmarks_attributes() {
+					return new Attribute("BOOKMARKS_ATTRIBUTES")
+						.errorStripe(style.scheme().foreground().base());
+				}
+				Attribute default_attribute() {
+					return new Attribute("DEFAULT_ATTRIBUTE")
+						.foreground(palette.purple().darker());
+				}
+				Attribute inline_parameter_hint() {
+					return new Attribute("INLINE_PARAMETER_HINT")
+						.foreground(style.scheme().foreground().base())
+						.background(palette.aqua().darker());
+				}
+				Attribute info_attributes() {
+					return new Attribute("INFO_ATTRIBUTES")
+						.dottedLine(style.warning())
+						.errorStripeAsEffect();
+				}
+				Attribute breakpoint_attributes() {
+					return new Attribute("BREAKPOINT_ATTRIBUTES")
+						.background(style.scheme().background().base().darker(3));
+				}
 
 				@Override
 				protected Set<Option.Color> colors() {
@@ -239,24 +264,32 @@ public class Scheme {
 				@Override
 				public Set<Attribute> attributes() {
 					return union(
-						Set.of(bookmarks_attributes, default_attribute, inline_parameter_hint, info_attributes, breakpoint_attributes),
+						Set.of(bookmarks_attributes(), default_attribute(), inline_parameter_hint(), info_attributes(), breakpoint_attributes()),
 						new Breadcrumbs().attributes()
 					);
 				}
 
 				class Breadcrumbs extends Group {
 
-					private final Attribute breadcrumbs_default = new Attribute("BREADCRUMBS_DEFAULT")
-						.foreground(style.scheme().foreground().base())
-						.background(style.scheme().background().base());
-					private final Attribute hovered = new Attribute("BREADCRUMBS_HOVERED")
-						.foreground(style.scheme().foreground().base())
-						.background(style.scheme().background().base().darker(2));
-					private final Attribute current = new Attribute("BREADCRUMBS_CURRENT")
-						.foreground(style.scheme().foreground().base())
-						.background(style.scheme().background().base().darker(4));
-					private final Attribute inactive = new Attribute("BREADCRUMBS_INACTIVE")
-						.foreground(style.scheme().foreground().base()); // unknown effect
+					Attribute breadcrumbs_default() {
+						return new Attribute("BREADCRUMBS_DEFAULT")
+							.foreground(style.scheme().foreground().base())
+							.background(style.scheme().background().base());
+					}
+					Attribute hovered() {
+						return new Attribute("BREADCRUMBS_HOVERED")
+							.foreground(style.scheme().foreground().base())
+							.background(style.scheme().background().base().darker(2));
+					}
+					Attribute current() {
+						return new Attribute("BREADCRUMBS_CURRENT")
+							.foreground(style.scheme().foreground().base())
+							.background(style.scheme().background().base().darker(4));
+					}
+					Attribute inactive() {
+						return new Attribute("BREADCRUMBS_INACTIVE")
+							.foreground(style.scheme().foreground().base()); // unknown effect
+					}
 
 					@Override
 					protected Set<Option.Color> colors() {
@@ -266,37 +299,53 @@ public class Scheme {
 					@Override
 					public Set<Attribute> attributes() {
 						return Set.of(
-							breadcrumbs_default,
-							hovered,
-							current,
-							inactive
+							breadcrumbs_default(),
+							hovered(),
+							current(),
+							inactive()
 						);
 					}
 				}
 			}
 
 			class ErrorsAndWarnings extends Group {
-				private final Attribute bad_character = new Attribute("BAD_CHARACTER")
-					.underwaved(style.error());
-				private final Attribute errors_attributes = new Attribute("ERRORS_ATTRIBUTES")
-					.underwaved(style.error())
-					.errorStripeAsEffect();
-				private final Attribute runtime_error = new Attribute("RUNTIME_ERROR")
-					.underwaved(style.error())
-					.errorStripeAsEffect();
-				private final Attribute typo = new Attribute("TYPO")
-					.underwaved(palette.gray().brighter());
-				private final Attribute not_used_element_attributes = new Attribute("NOT_USED_ELEMENT_ATTRIBUTES")
-					.foreground(palette.gray());
-				private final Attribute marked_for_removal_attributes = new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES")
-					.foreground(deprecated).italic()
-					.strikeout(deprecated);
-				private final Attribute warning_attributes = new Attribute("WARNING_ATTRIBUTES")
-					.underwaved(palette.orange().brighter())
-					.errorStripe(style.warning());
-				private final Attribute wrong_references_attributes = new Attribute("WRONG_REFERENCES_ATTRIBUTES")
-					.underwaved(style.error())
-					.errorStripeAsEffect();
+				Attribute bad_character() {
+					return new Attribute("BAD_CHARACTER")
+						.underwaved(style.error());
+				}
+				Attribute errors_attributes() {
+					return new Attribute("ERRORS_ATTRIBUTES")
+						.underwaved(style.error())
+						.errorStripeAsEffect();
+				}
+				Attribute runtime_error() {
+					return new Attribute("RUNTIME_ERROR")
+						.underwaved(style.error())
+						.errorStripeAsEffect();
+				}
+				Attribute typo() {
+					return new Attribute("TYPO")
+						.underwaved(palette.gray().brighter());
+				}
+				Attribute not_used_element_attributes() {
+					return new Attribute("NOT_USED_ELEMENT_ATTRIBUTES")
+						.foreground(palette.gray());
+				}
+				Attribute marked_for_removal_attributes() {
+					return new Attribute("MARKED_FOR_REMOVAL_ATTRIBUTES")
+						.foreground(deprecated).italic()
+						.strikeout(deprecated);
+				}
+				Attribute warning_attributes() {
+					return new Attribute("WARNING_ATTRIBUTES")
+						.underwaved(palette.orange().brighter())
+						.errorStripe(style.warning());
+				}
+				Attribute wrong_references_attributes() {
+					return new Attribute("WRONG_REFERENCES_ATTRIBUTES")
+						.underwaved(style.error())
+						.errorStripeAsEffect();
+				}
 
 				@Override
 				protected Set<Option.Color> colors() {
@@ -306,144 +355,236 @@ public class Scheme {
 				@Override
 				public Set<Attribute> attributes() {
 					return Set.of(
-						bad_character, errors_attributes, runtime_error, typo, not_used_element_attributes,
-						marked_for_removal_attributes, warning_attributes, wrong_references_attributes
+						bad_character(), errors_attributes(), runtime_error(), typo(), not_used_element_attributes(),
+						marked_for_removal_attributes(), warning_attributes(), wrong_references_attributes()
 					);
 				}
 			}
 
 			class Hyperlinks extends Group {
-				private final Attribute hyperlink_attributes = new Attribute("HYPERLINK_ATTRIBUTES")
-					.foreground(style.link()).underscored(style.link());
-				private final Attribute ctrl_clickable = new Attribute("CTRL_CLICKABLE")
-					.foreground(style.link()).underscored(style.link());
-				private final Attribute followed_hyperlink_attributes = new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES")
-					.foreground(palette.purple().darker())
-					.underscored(palette.purple().darker());
-				private final Attribute inactive_hyperlink_attributes = new Attribute("INACTIVE_HYPERLINK_ATTRIBUTES")
-					.foreground(style.scheme().foreground().base())
-					.underscored(style.scheme().foreground().base());
+				Attribute hyperlink_attributes() {
+					return new Attribute("HYPERLINK_ATTRIBUTES")
+						.foreground(style.link()).underscored(style.link());
+				}
+				Attribute ctrl_clickable() {
+					return new Attribute("CTRL_CLICKABLE")
+						.foreground(style.link()).underscored(style.link());
+				}
+				Attribute followed_hyperlink_attributes() {
+					return new Attribute("FOLLOWED_HYPERLINK_ATTRIBUTES")
+						.foreground(palette.purple().darker())
+						.underscored(palette.purple().darker());
+				}
+				Attribute inactive_hyperlink_attributes() {
+					return new Attribute("INACTIVE_HYPERLINK_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base())
+						.underscored(style.scheme().foreground().base());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
 				}
 
 				@Override public Set<Attribute> attributes() {
-					return Set.of(hyperlink_attributes, ctrl_clickable, followed_hyperlink_attributes, inactive_hyperlink_attributes);
+					return Set.of(hyperlink_attributes(), ctrl_clickable(), followed_hyperlink_attributes(), inactive_hyperlink_attributes());
 				}
 			}
 
 			class SearchResults extends Group {
-				private final Attribute search_result_attributes = new Attribute("SEARCH_RESULT_ATTRIBUTES")
-					.foreground(style.scheme().foreground().base())
-					.background(searchBackground).errorStripeAsBackground();
-				private final Attribute write_search_result_attributes = new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES")
-					.foreground(style.scheme().foreground().base())
-					.background(searchWriteBackground).errorStripeAsBackground();
-				private final Attribute text_search_result_attributes = new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES")
-					.foreground(style.scheme().foreground().base())
-					.background(searchBackground).errorStripeAsBackground();
+				Attribute search_result_attributes() {
+					return new Attribute("SEARCH_RESULT_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base())
+						.background(searchBackground).errorStripeAsBackground();
+				}
+				Attribute write_search_result_attributes() {
+					return new Attribute("WRITE_SEARCH_RESULT_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base())
+						.background(searchWriteBackground).errorStripeAsBackground();
+				}
+				Attribute text_search_result_attributes() {
+					return new Attribute("TEXT_SEARCH_RESULT_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base())
+						.background(searchBackground).errorStripeAsBackground();
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
 				}
 
 				@Override public Set<Attribute> attributes() {
-					return Set.of(search_result_attributes, write_search_result_attributes, text_search_result_attributes);
+					return Set.of(search_result_attributes(), write_search_result_attributes(), text_search_result_attributes());
 				}
 			}
 
 			class Text extends Group {
-				private final Attribute text = new Attribute("TEXT")
-					.foreground(style.scheme().foreground().base())
-					.background(style.scheme().background().base());
-				private final Attribute deleted_text_attributes = new Attribute("DELETED_TEXT_ATTRIBUTES")
-					.errorStripe(style.error())
-					.dottedLine(style.error());
-				private final Attribute folded_text_attributes = new Attribute("FOLDED_TEXT_ATTRIBUTES")
-					.foreground(palette.gray())
-					.bordered(palette.gray().brighter());
+				Attribute text() {
+					return new Attribute("TEXT")
+						.foreground(style.scheme().foreground().base())
+						.background(style.scheme().background().base());
+				}
+				Attribute deleted_text_attributes() {
+					return new Attribute("DELETED_TEXT_ATTRIBUTES")
+						.errorStripe(style.error())
+						.dottedLine(style.error());
+				}
+				Attribute folded_text_attributes() {
+					return new Attribute("FOLDED_TEXT_ATTRIBUTES")
+						.foreground(palette.gray())
+						.bordered(palette.gray().brighter());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
 				}
 				@Override public Set<Attribute> attributes() {
-					return Set.of(text, deleted_text_attributes, folded_text_attributes);
+					return Set.of(text(), deleted_text_attributes(), folded_text_attributes());
 				}
 			}
 		}
 
 		class LanguageDefaults extends Group {
 
-			private final Attribute commonKeyword = new Attribute("").foreground(palette.blue()).bold();
+			Attribute commonKeyword() {
+				return new Attribute("")
+					.foreground(palette.blue()).bold();
+			}
 
-			private final Attribute string = new Attribute("DEFAULT_STRING")
-				.foreground(palette.aqua())
-				.bold();
-			private final Attribute valid_string_escape = new Attribute("DEFAULT_VALID_STRING_ESCAPE")
-				.foreground(palette.aqua().darker())
-				.bold();
-			private final Attribute invalid_string_escape = new Attribute("DEFAULT_INVALID_STRING_ESCAPE")
-				.foreground(style.error()).underwaved(style.error())
-				.bold();
-			private final Attribute constant = new Attribute("DEFAULT_CONSTANT")
-				.foreground(palette.purple().darker(2))
-				.bold();
-			private final Attribute line_comment = new Attribute("DEFAULT_LINE_COMMENT")
-				.foreground(palette.gray())
-				.italic();
-			private final Attribute block_comment = new Attribute("DEFAULT_BLOCK_COMMENT")
-				.foreground(palette.gray())
-				.italic();
-			private final Attribute doc_comment = new Attribute("DEFAULT_DOC_COMMENT")
-				.foreground(palette.gray())
-				.italic();
-			private final Attribute doc_comment_tag = new Attribute("DEFAULT_DOC_COMMENT_TAG")
-				.foreground(palette.gray())
-				.italic()
-				.bold();
-			private final Attribute doc_comment_tag_value = new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE")
-				.foreground(palette.gray().darker(2))
-				.bold();
-			private final Attribute doc_markup = new Attribute("DEFAULT_DOC_MARKUP").copy(commonKeyword).removeFontType();
-			private final Attribute entity = new Attribute("DEFAULT_ENTITY").foreground(palette.yellow());
-			private final Attribute function_declaration = new Attribute("DEFAULT_FUNCTION_DECLARATION").foreground(style.scheme().foreground().base());
-			private final Attribute global_variable = new Attribute("DEFAULT_GLOBAL_VARIABLE")
-				.foreground(palette.purple().darker(2))
-				.bold();
-			private final Attribute identifier = new Attribute("DEFAULT_IDENTIFIER").foreground(style.scheme().foreground().base());
-			private final Attribute instance_field = new Attribute("DEFAULT_INSTANCE_FIELD")
-				.foreground(palette.purple().darker())
-				.bold();
-			private final Attribute keyword = new Attribute("DEFAULT_KEYWORD").copy(commonKeyword);
-			private final Attribute label = new Attribute("DEFAULT_LABEL").foreground(palette.blue()).bold();
-			private final Attribute local_variable = new Attribute("DEFAULT_LOCAL_VARIABLE").foreground(palette.purple());
-			private final Attribute metadata = new Attribute("DEFAULT_METADATA").foreground(palette.green());
-			private final Attribute number = new Attribute("DEFAULT_NUMBER")
-				.foreground(palette.blue())
-				.bold();
-			private final Attribute parameter = new Attribute("DEFAULT_PARAMETER")
-				.foreground(palette.purple())
-				.bold();
-			private final Attribute predefined_symbol = new Attribute("DEFAULT_PREDEFINED_SYMBOL").baseAttributes("DEFAULT_IDENTIFIER");
-			private final Attribute reassigned_local_variable = new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE")
-				.foreground(palette.purple())
-				.dottedLine(palette.purple());
-			private final Attribute reassigned_parameter = new Attribute("DEFAULT_REASSIGNED_PARAMETER")
-				.foreground(palette.purple())
-				.bold()
-				.dottedLine(palette.purple());
-			private final Attribute static_field = new Attribute("DEFAULT_STATIC_FIELD")
-				.foreground(palette.purple().darker()).bold()
-				.italic();
-			private final Attribute static_method = new Attribute("DEFAULT_STATIC_METHOD")
-				.foreground(style.scheme().foreground().base())
-				.italic();
-			private final Attribute tag = new Attribute("DEFAULT_TAG").foreground(palette.blue().darker());
-			private final Attribute template_language_color = new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR").foreground(style.scheme().foreground().base().brighter(3));
-			private final Attribute interface_name = new Attribute("DEFAULT_INTERFACE_NAME")
-				.foreground(style.scheme().foreground().base())
-				.italic();
+			Attribute string() {
+				return new Attribute("DEFAULT_STRING")
+					.foreground(palette.aqua())
+					.bold();
+			}
+			Attribute valid_string_escape() {
+				return new Attribute("DEFAULT_VALID_STRING_ESCAPE")
+					.foreground(palette.aqua().darker())
+					.bold();
+			}
+			Attribute invalid_string_escape() {
+				return new Attribute("DEFAULT_INVALID_STRING_ESCAPE")
+					.foreground(style.error()).underwaved(style.error())
+					.bold();
+			}
+			Attribute constant() {
+				return new Attribute("DEFAULT_CONSTANT")
+					.foreground(palette.purple().darker(2))
+					.bold();
+			}
+			Attribute line_comment() {
+				return new Attribute("DEFAULT_LINE_COMMENT")
+					.foreground(palette.gray())
+					.italic();
+			}
+			Attribute block_comment() {
+				return new Attribute("DEFAULT_BLOCK_COMMENT")
+					.foreground(palette.gray())
+					.italic();
+			}
+			Attribute doc_comment() {
+				return new Attribute("DEFAULT_DOC_COMMENT")
+					.foreground(palette.gray())
+					.italic();
+			}
+			Attribute doc_comment_tag() {
+				return new Attribute("DEFAULT_DOC_COMMENT_TAG")
+					.foreground(palette.gray())
+					.italic()
+					.bold();
+			}
+			Attribute doc_comment_tag_value() {
+				return new Attribute("DEFAULT_DOC_COMMENT_TAG_VALUE")
+					.foreground(palette.gray().darker(2))
+					.bold();
+			}
+			Attribute doc_markup() {
+				return new Attribute("DEFAULT_DOC_MARKUP")
+					.copy(commonKeyword()).removeFontType();
+			}
+			Attribute entity() {
+				return new Attribute("DEFAULT_ENTITY")
+					.foreground(palette.yellow());
+			}
+			Attribute function_declaration() {
+				return new Attribute("DEFAULT_FUNCTION_DECLARATION")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute global_variable() {
+				return new Attribute("DEFAULT_GLOBAL_VARIABLE")
+					.foreground(palette.purple().darker(2))
+					.bold();
+			}
+			Attribute identifier() {
+				return new Attribute("DEFAULT_IDENTIFIER")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute instance_field() {
+				return new Attribute("DEFAULT_INSTANCE_FIELD")
+					.foreground(palette.purple().darker())
+					.bold();
+			}
+			Attribute keyword() {
+				return new Attribute("DEFAULT_KEYWORD")
+					.copy(commonKeyword());
+			}
+			Attribute label() {
+				return new Attribute("DEFAULT_LABEL")
+					.foreground(palette.blue()).bold();
+			}
+			Attribute local_variable() {
+				return new Attribute("DEFAULT_LOCAL_VARIABLE")
+					.foreground(palette.purple());
+			}
+			Attribute metadata() {
+				return new Attribute("DEFAULT_METADATA")
+					.foreground(palette.green());
+			}
+			Attribute number() {
+				return new Attribute("DEFAULT_NUMBER")
+					.foreground(palette.blue())
+					.bold();
+			}
+			Attribute parameter() {
+				return new Attribute("DEFAULT_PARAMETER")
+					.foreground(palette.purple())
+					.bold();
+			}
+			Attribute predefined_symbol() {
+				return new Attribute("DEFAULT_PREDEFINED_SYMBOL")
+					.baseAttributes("DEFAULT_IDENTIFIER");
+			}
+			Attribute reassigned_local_variable() {
+				return new Attribute("DEFAULT_REASSIGNED_LOCAL_VARIABLE")
+					.foreground(palette.purple())
+					.dottedLine(palette.purple());
+			}
+			Attribute reassigned_parameter() {
+				return new Attribute("DEFAULT_REASSIGNED_PARAMETER")
+					.foreground(palette.purple())
+					.bold()
+					.dottedLine(palette.purple());
+			}
+			Attribute static_field() {
+				return new Attribute("DEFAULT_STATIC_FIELD")
+					.foreground(palette.purple().darker()).bold()
+					.italic();
+			}
+			Attribute static_method() {
+				return new Attribute("DEFAULT_STATIC_METHOD")
+					.foreground(style.scheme().foreground().base())
+					.italic();
+			}
+			Attribute tag() {
+				return new Attribute("DEFAULT_TAG")
+					.foreground(palette.blue().darker());
+			}
+			Attribute template_language_color() {
+				return new Attribute("DEFAULT_TEMPLATE_LANGUAGE_COLOR")
+					.foreground(style.scheme().foreground().base().brighter(3));
+			}
+			Attribute interface_name() {
+				return new Attribute("DEFAULT_INTERFACE_NAME")
+					.foreground(style.scheme().foreground().base())
+					.italic();
+			}
 
 			@Override protected Set<Option.Color> colors() {
 				return Set.of();
@@ -453,12 +594,12 @@ public class Scheme {
 				return union(
 					new BracesAndOperators().attributes(),
 					Set.of(
-						string, valid_string_escape, invalid_string_escape, constant,
+						string(), valid_string_escape(), invalid_string_escape(), constant(),
 
-						line_comment, block_comment, doc_comment, doc_comment_tag, doc_comment_tag_value, doc_markup,
+						line_comment(), block_comment(), doc_comment(), doc_comment_tag(), doc_comment_tag_value(), doc_markup(),
 
-						entity, function_declaration, global_variable, identifier, instance_field, interface_name, keyword, label, local_variable, metadata, number, parameter,
-						predefined_symbol, reassigned_local_variable, reassigned_parameter, static_field, static_method, tag, template_language_color
+						entity(), function_declaration(), global_variable(), identifier(), instance_field(), interface_name(), keyword(), label(), local_variable(), metadata(), number(), parameter(),
+						predefined_symbol(), reassigned_local_variable(), reassigned_parameter(), static_field(), static_method(), tag(), template_language_color()
 					)
 				);
 			}
@@ -466,20 +607,41 @@ public class Scheme {
 
 		class BracesAndOperators extends Group {
 
-			private final Attribute braces = new Attribute("DEFAULT_BRACES").foreground(style.scheme().foreground().base());
-			private final Attribute brackets = new Attribute("DEFAULT_BRACKETS").foreground(style.scheme().foreground().base());
-			private final Attribute comma = new Attribute("DEFAULT_COMMA").foreground(style.scheme().foreground().base());
-			private final Attribute dot = new Attribute("DEFAULT_DOT").foreground(style.scheme().foreground().base());
-			private final Attribute operation_sign = new Attribute("DEFAULT_OPERATION_SIGN").foreground(style.scheme().foreground().base());
-			private final Attribute parenths = new Attribute("DEFAULT_PARENTHS").foreground(style.scheme().foreground().base());
-			private final Attribute semicolon = new Attribute("DEFAULT_SEMICOLON").foreground(style.scheme().foreground().base());
+			Attribute braces() {
+				return new Attribute("DEFAULT_BRACES")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute brackets() {
+				return new Attribute("DEFAULT_BRACKETS")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute comma() {
+				return new Attribute("DEFAULT_COMMA")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute dot() {
+				return new Attribute("DEFAULT_DOT")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute operation_sign() {
+				return new Attribute("DEFAULT_OPERATION_SIGN")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute parenths() {
+				return new Attribute("DEFAULT_PARENTHS")
+					.foreground(style.scheme().foreground().base());
+			}
+			Attribute semicolon() {
+				return new Attribute("DEFAULT_SEMICOLON")
+					.foreground(style.scheme().foreground().base());
+			}
 
 			@Override protected Set<Option.Color> colors() {
 				return Set.of();
 			}
 
 			@Override public Set<Attribute> attributes() {
-				return Set.of(braces, brackets, comma, dot, operation_sign, parenths, semicolon);
+				return Set.of(braces(), brackets(), comma(), dot(), operation_sign(), parenths(), semicolon());
 			}
 		}
 
@@ -498,22 +660,70 @@ public class Scheme {
 			}
 
 			class ANSIColors extends Group {
-				private final Attribute black = new Attribute("CONSOLE_BLACK_OUTPUT").foreground(style.scheme().foreground().base());
-				private final Attribute blue_bright = new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT").foreground(palette.blue().brighter());
-				private final Attribute blue = new Attribute("CONSOLE_BLUE_OUTPUT").foreground(palette.blue());
-				private final Attribute cyan_bright = new Attribute("CONSOLE_CYAN_BRIGHT_OUTPUT").foreground(palette.aqua().brighter());
-				private final Attribute cyan = new Attribute("CONSOLE_CYAN_OUTPUT").foreground(palette.aqua());
-				private final Attribute darkgray = new Attribute("CONSOLE_DARKGRAY_OUTPUT").foreground(palette.gray().darker());
-				private final Attribute gray = new Attribute("CONSOLE_GRAY_OUTPUT").foreground(palette.gray());
-				private final Attribute green_bright = new Attribute("CONSOLE_GREEN_BRIGHT_OUTPUT").foreground(palette.green().brighter());
-				private final Attribute green = new Attribute("CONSOLE_GREEN_OUTPUT").foreground(palette.green());
-				private final Attribute magenta_bright = new Attribute("CONSOLE_MAGENTA_BRIGHT_OUTPUT").foreground(palette.purple().brighter());
-				private final Attribute magenta = new Attribute("CONSOLE_MAGENTA_OUTPUT").foreground(palette.purple());
-				private final Attribute red_bright = new Attribute("CONSOLE_RED_BRIGHT_OUTPUT").foreground(palette.red().brighter());
-				private final Attribute red = new Attribute("CONSOLE_RED_OUTPUT").foreground(palette.red());
-				private final Attribute white = new Attribute("CONSOLE_WHITE_OUTPUT").foreground(style.scheme().foreground().base());
-				private final Attribute yellow_bright = new Attribute("CONSOLE_YELLOW_BRIGHT_OUTPUT").foreground(palette.yellow().brighter());
-				private final Attribute yellow = new Attribute("CONSOLE_YELLOW_OUTPUT").foreground(palette.yellow());
+				Attribute black() {
+					return new Attribute("CONSOLE_BLACK_OUTPUT")
+						.foreground(style.scheme().foreground().base());
+				}
+				Attribute blue_bright() {
+					return new Attribute("CONSOLE_BLUE_BRIGHT_OUTPUT")
+						.foreground(palette.blue().brighter());
+				}
+				Attribute blue() {
+					return new Attribute("CONSOLE_BLUE_OUTPUT")
+						.foreground(palette.blue());
+				}
+				Attribute cyan_bright() {
+					return new Attribute("CONSOLE_CYAN_BRIGHT_OUTPUT")
+						.foreground(palette.aqua().brighter());
+				}
+				Attribute cyan() {
+					return new Attribute("CONSOLE_CYAN_OUTPUT")
+						.foreground(palette.aqua());
+				}
+				Attribute darkgray() {
+					return new Attribute("CONSOLE_DARKGRAY_OUTPUT")
+						.foreground(palette.gray().darker());
+				}
+				Attribute gray() {
+					return new Attribute("CONSOLE_GRAY_OUTPUT")
+						.foreground(palette.gray());
+				}
+				Attribute green_bright() {
+					return new Attribute("CONSOLE_GREEN_BRIGHT_OUTPUT")
+						.foreground(palette.green().brighter());
+				}
+				Attribute green() {
+					return new Attribute("CONSOLE_GREEN_OUTPUT")
+						.foreground(palette.green());
+				}
+				Attribute magenta_bright() {
+					return new Attribute("CONSOLE_MAGENTA_BRIGHT_OUTPUT")
+						.foreground(palette.purple().brighter());
+				}
+				Attribute magenta() {
+					return new Attribute("CONSOLE_MAGENTA_OUTPUT")
+						.foreground(palette.purple());
+				}
+				Attribute red_bright() {
+					return new Attribute("CONSOLE_RED_BRIGHT_OUTPUT")
+						.foreground(palette.red().brighter());
+				}
+				Attribute red() {
+					return new Attribute("CONSOLE_RED_OUTPUT")
+						.foreground(palette.red());
+				}
+				Attribute white() {
+					return new Attribute("CONSOLE_WHITE_OUTPUT")
+						.foreground(style.scheme().foreground().base());
+				}
+				Attribute yellow_bright() {
+					return new Attribute("CONSOLE_YELLOW_BRIGHT_OUTPUT")
+						.foreground(palette.yellow().brighter());
+				}
+				Attribute yellow() {
+					return new Attribute("CONSOLE_YELLOW_OUTPUT")
+						.foreground(palette.yellow());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -521,31 +731,52 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						black, blue_bright, blue, cyan_bright, cyan, darkgray, gray, green_bright, green,
-						magenta_bright, magenta, red_bright, red, white, yellow_bright, yellow
+						black(), blue_bright(), blue(), cyan_bright(), cyan(), darkgray(), gray(), green_bright(), green(),
+						magenta_bright(), magenta(), red_bright(), red(), white(), yellow_bright(), yellow()
 					);
 				}
 			}
 
 			class Console extends Group {
-				private final Attribute error = new Attribute("CONSOLE_ERROR_OUTPUT").foreground(style.error());
-				private final Attribute system = new Attribute("CONSOLE_SYSTEM_OUTPUT").foreground(palette.yellow().darker());
-				private final Attribute user_input = new Attribute("CONSOLE_USER_INPUT").foreground(style.scheme().foreground().base());
-				private final Attribute normal = new Attribute("CONSOLE_NORMAL_OUTPUT").foreground(style.scheme().foreground().base());
+				Attribute error() {
+					return new Attribute("CONSOLE_ERROR_OUTPUT")
+						.foreground(style.error());
+				}
+				Attribute system() {
+					return new Attribute("CONSOLE_SYSTEM_OUTPUT")
+						.foreground(palette.yellow().darker());
+				}
+				Attribute user_input() {
+					return new Attribute("CONSOLE_USER_INPUT")
+						.foreground(style.scheme().foreground().base());
+				}
+				Attribute normal() {
+					return new Attribute("CONSOLE_NORMAL_OUTPUT")
+						.foreground(style.scheme().foreground().base());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
 				}
 
 				@Override public Set<Attribute> attributes() {
-					return Set.of(error, system, user_input, normal);
+					return Set.of(error(), system(), user_input(), normal());
 				}
 			}
 
 			class LogConsole extends Group {
-				private final Attribute error_output = new Attribute("LOG_ERROR_OUTPUT").foreground(style.error());
-				private final Attribute expired_entry = new Attribute("LOG_EXPIRED_ENTRY").foreground(palette.gray());
-				private final Attribute warning_output = new Attribute("LOG_WARNING_OUTPUT").foreground(style.warning());
+				Attribute error_output() {
+					return new Attribute("LOG_ERROR_OUTPUT")
+						.foreground(style.error());
+				}
+				Attribute expired_entry() {
+					return new Attribute("LOG_EXPIRED_ENTRY")
+						.foreground(palette.gray());
+				}
+				Attribute warning_output() {
+					return new Attribute("LOG_WARNING_OUTPUT")
+						.foreground(style.warning());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -553,26 +784,42 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						error_output,
-						expired_entry,
-						warning_output
+						error_output(),
+						expired_entry(),
+						warning_output()
 					);
 				}
 			}
 		}
 
 		class DiffAndMerge extends Group {
-			private final Attribute inserted = new Attribute("DIFF_INSERTED").background(palette.green().brighter(3)).errorStripe(palette.green().brighter(2));
-			private final Attribute modified = new Attribute("DIFF_MODIFIED").background(palette.blue().brighter(3)).errorStripe(palette.blue().brighter(2));
-			private final Attribute deleted = new Attribute("DIFF_DELETED").background(palette.silver().brighter()).errorStripe(palette.silver());
-			private final Attribute conflict = new Attribute("DIFF_CONFLICT").background(palette.red().brighter(3)).errorStripe(palette.red().brighter(2));
+			Attribute inserted() {
+				return new Attribute("DIFF_INSERTED")
+					.background(palette.green().brighter(3))
+					.errorStripe(palette.green().brighter(2));
+			}
+			Attribute modified() {
+				return new Attribute("DIFF_MODIFIED")
+					.background(palette.blue().brighter(3))
+					.errorStripe(palette.blue().brighter(2));
+			}
+			Attribute deleted() {
+				return new Attribute("DIFF_DELETED")
+					.background(palette.silver().brighter())
+					.errorStripe(palette.silver());
+			}
+			Attribute conflict() {
+				return new Attribute("DIFF_CONFLICT")
+					.background(palette.red().brighter(3))
+					.errorStripe(palette.red().brighter(2));
+			}
 
 			@Override protected Set<Option.Color> colors() {
 				return Set.of();
 			}
 
 			@Override public Set<Attribute> attributes() {
-				return Set.of(inserted, modified, deleted, conflict);
+				return Set.of(inserted(), modified(), deleted(), conflict());
 			}
 		}
 
@@ -596,15 +843,42 @@ public class Scheme {
 			}
 
 			class Java extends Group {
-				private final Attribute abstract_class_name_attributes = new Attribute("ABSTRACT_CLASS_NAME_ATTRIBUTES").copy(Attributes.this.languageDefaults().interface_name);
-				private final Attribute annotation_attribute_name_attributes = new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES").foreground(palette.purple());
-				private final Attribute annotation_name_attributes = new Attribute("ANNOTATION_NAME_ATTRIBUTES").baseAttributes("DEFAULT_METADATA");
-				private final Attribute deprecated_attributes = new Attribute("DEPRECATED_ATTRIBUTES").foreground(deprecated).strikeout(deprecated).italic();
-				private final Attribute implicit_anonymous_class_parameter_attributes = new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
-				private final Attribute instance_field_attributes = new Attribute("INSTANCE_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_INSTANCE_FIELD");
-				private final Attribute static_field_attributes = new Attribute("STATIC_FIELD_ATTRIBUTES").baseAttributes("DEFAULT_STATIC_FIELD");
-				private final Attribute static_final_field_attributes = new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES").baseAttributes("STATIC_FIELD_ATTRIBUTES");
-				private final Attribute type_parameter_name_attributes = new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES").foreground(style.scheme().foreground().base()).bold();
+				Attribute abstract_class_name_attributes() {
+					return new Attribute("ABSTRACT_CLASS_NAME_ATTRIBUTES")
+						.copy(Attributes.this.languageDefaults().interface_name());
+				}
+				Attribute annotation_attribute_name_attributes() {
+					return new Attribute("ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES")
+						.foreground(palette.purple());
+				}
+				Attribute annotation_name_attributes() {
+					return new Attribute("ANNOTATION_NAME_ATTRIBUTES")
+						.baseAttributes("DEFAULT_METADATA");
+				}
+				Attribute deprecated_attributes() {
+					return new Attribute("DEPRECATED_ATTRIBUTES")
+						.foreground(deprecated).strikeout(deprecated).italic();
+				}
+				Attribute implicit_anonymous_class_parameter_attributes() {
+					return new Attribute("IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES")
+						.copy(Attributes.this.languageDefaults().parameter());
+				}
+				Attribute instance_field_attributes() {
+					return new Attribute("INSTANCE_FIELD_ATTRIBUTES")
+						.baseAttributes("DEFAULT_INSTANCE_FIELD");
+				}
+				Attribute static_field_attributes() {
+					return new Attribute("STATIC_FIELD_ATTRIBUTES")
+						.baseAttributes("DEFAULT_STATIC_FIELD");
+				}
+				Attribute static_final_field_attributes() {
+					return new Attribute("STATIC_FINAL_FIELD_ATTRIBUTES")
+						.baseAttributes("STATIC_FIELD_ATTRIBUTES");
+				}
+				Attribute type_parameter_name_attributes() {
+					return new Attribute("TYPE_PARAMETER_NAME_ATTRIBUTES")
+						.foreground(style.scheme().foreground().base()).bold();
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -612,24 +886,36 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						abstract_class_name_attributes,
-						annotation_attribute_name_attributes,
-						annotation_name_attributes,
-						deprecated_attributes,
-						implicit_anonymous_class_parameter_attributes,
-						instance_field_attributes,
-						static_field_attributes,
-						static_final_field_attributes,
-						type_parameter_name_attributes
+						abstract_class_name_attributes(),
+						annotation_attribute_name_attributes(),
+						annotation_name_attributes(),
+						deprecated_attributes(),
+						implicit_anonymous_class_parameter_attributes(),
+						instance_field_attributes(),
+						static_field_attributes(),
+						static_final_field_attributes(),
+						type_parameter_name_attributes()
 					);
 				}
 			}
 
 			class Groovy extends Group {
-				private final Attribute groovy_keyword = new Attribute("GROOVY_KEYWORD").baseAttributes("JAVA_KEYWORD");
-				private final Attribute list_map_to_object_conversion = new Attribute("List/map to object conversion").copy(Attributes.this.languageDefaults().identifier);
-				private final Attribute static_property_reference_ID = new Attribute("Static property reference ID").baseAttributes("STATIC_FINAL_FIELD_ATTRIBUTES");
-				private final Attribute unresolved_reference_access = new Attribute("Unresolved reference access").copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes);
+				Attribute groovy_keyword() {
+					return new Attribute("GROOVY_KEYWORD")
+						.baseAttributes("JAVA_KEYWORD");
+				}
+				Attribute list_map_to_object_conversion() {
+					return new Attribute("List/map to object conversion")
+						.copy(Attributes.this.languageDefaults().identifier());
+				}
+				Attribute static_property_reference_ID() {
+					return new Attribute("Static property reference ID")
+						.baseAttributes("STATIC_FINAL_FIELD_ATTRIBUTES");
+				}
+				Attribute unresolved_reference_access() {
+					return new Attribute("Unresolved reference access")
+						.copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -637,28 +923,67 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						groovy_keyword,
-						list_map_to_object_conversion,
-						static_property_reference_ID,
-						unresolved_reference_access
+						groovy_keyword(),
+						list_map_to_object_conversion(),
+						static_property_reference_ID(),
+						unresolved_reference_access()
 					);
 				}
 			}
 
 			class Go extends Group {
-				private final Attribute builtin_constant = new Attribute("GO_BUILTIN_CONSTANT").copy(Attributes.this.languageDefaults().keyword);
-				private final Attribute builtin_variable = new Attribute("GO_BUILTIN_VARIABLE").copy(Attributes.this.languageDefaults().keyword);
-				private final Attribute comment_reference = new Attribute("GO_COMMENT_REFERENCE").copy(Attributes.this.languageDefaults().doc_comment_tag_value);
-				private final Attribute function_parameter = new Attribute("GO_FUNCTION_PARAMETER").copy(Attributes.this.languageDefaults().parameter);
-				private final Attribute local_constant = new Attribute("GO_LOCAL_CONSTANT").foreground(palette.purple());
-				private final Attribute method_receiver = new Attribute("GO_METHOD_RECEIVER").foreground(palette.purple().darker()).bold();
-				private final Attribute package_exported_constant = new Attribute("GO_PACKAGE_EXPORTED_CONSTANT").foreground(palette.purple().darker()).bold();
-				private final Attribute package_exported_variable = new Attribute("GO_PACKAGE_EXPORTED_VARIABLE").foreground(palette.purple().darker()).bold();
-				private final Attribute package_local_constant = new Attribute("GO_PACKAGE_LOCAL_CONSTANT").foreground(palette.purple().darker()).bold();
-				private final Attribute package_local_variable = new Attribute("GO_PACKAGE_LOCAL_VARIABLE").foreground(palette.purple().darker()).bold();
-				private final Attribute shadowing_variable = new Attribute("GO_SHADOWING_VARIABLE").foreground(palette.purple()).dottedLine(palette.purple());
-				private final Attribute struct_exported_member = new Attribute("GO_STRUCT_EXPORTED_MEMBER").copy(Attributes.this.languageDefaults().instance_field);
-				private final Attribute struct_local_member = new Attribute("GO_STRUCT_LOCAL_MEMBER").copy(Attributes.this.languageDefaults().instance_field);
+				Attribute builtin_constant() {
+					return new Attribute("GO_BUILTIN_CONSTANT")
+						.copy(Attributes.this.languageDefaults().keyword());
+				}
+				Attribute builtin_variable() {
+					return new Attribute("GO_BUILTIN_VARIABLE")
+						.copy(Attributes.this.languageDefaults().keyword());
+				}
+				Attribute comment_reference() {
+					return new Attribute("GO_COMMENT_REFERENCE")
+						.copy(Attributes.this.languageDefaults().doc_comment_tag_value());
+				}
+				Attribute function_parameter() {
+					return new Attribute("GO_FUNCTION_PARAMETER")
+						.copy(Attributes.this.languageDefaults().parameter());
+				}
+				Attribute local_constant() {
+					return new Attribute("GO_LOCAL_CONSTANT")
+						.foreground(palette.purple());
+				}
+				Attribute method_receiver() {
+					return new Attribute("GO_METHOD_RECEIVER")
+						.foreground(palette.purple().darker()).bold();
+				}
+				Attribute package_exported_constant() {
+					return new Attribute("GO_PACKAGE_EXPORTED_CONSTANT")
+						.foreground(palette.purple().darker()).bold();
+				}
+				Attribute package_exported_variable() {
+					return new Attribute("GO_PACKAGE_EXPORTED_VARIABLE")
+						.foreground(palette.purple().darker()).bold();
+				}
+				Attribute package_local_constant() {
+					return new Attribute("GO_PACKAGE_LOCAL_CONSTANT")
+						.foreground(palette.purple().darker()).bold();
+				}
+				Attribute package_local_variable() {
+					return new Attribute("GO_PACKAGE_LOCAL_VARIABLE")
+						.foreground(palette.purple().darker()).bold();
+				}
+				Attribute shadowing_variable() {
+					return new Attribute("GO_SHADOWING_VARIABLE")
+						.foreground(palette.purple()).dottedLine(palette.purple());
+				}
+				Attribute struct_exported_member() {
+					return new Attribute("GO_STRUCT_EXPORTED_MEMBER")
+						.copy(Attributes.this.languageDefaults().instance_field());
+				}
+				Attribute struct_local_member() {
+					return new Attribute("GO_STRUCT_LOCAL_MEMBER")
+						.copy(Attributes.this.languageDefaults().instance_field());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -666,26 +991,32 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						builtin_constant,
-						builtin_variable,
-						comment_reference,
-						function_parameter,
-						local_constant,
-						method_receiver,
-						package_exported_constant,
-						package_exported_variable,
-						package_local_constant,
-						package_local_variable,
-						shadowing_variable,
-						struct_exported_member,
-						struct_local_member
+						builtin_constant(),
+						builtin_variable(),
+						comment_reference(),
+						function_parameter(),
+						local_constant(),
+						method_receiver(),
+						package_exported_constant(),
+						package_exported_variable(),
+						package_local_constant(),
+						package_local_variable(),
+						shadowing_variable(),
+						struct_exported_member(),
+						struct_local_member()
 					);
 				}
 			}
 
 			class TypeScript extends Group {
-				private final Attribute type_parameter = new Attribute("TS.TYPE_PARAMETER").copy(Attributes.this.language().java().type_parameter_name_attributes);
-				private final Attribute type_guard = new Attribute("TS.TYPE_GUARD").emptyValue();
+				Attribute type_parameter() {
+					return new Attribute("TS.TYPE_PARAMETER")
+						.copy(Attributes.this.language().java().type_parameter_name_attributes());
+				}
+				Attribute type_guard() {
+					return new Attribute("TS.TYPE_GUARD")
+						.emptyValue();
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -693,20 +1024,41 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						type_parameter,
-						type_guard
+						type_parameter(),
+						type_guard()
 					);
 				}
 			}
 
 			class JavaScript extends Group {
-				private final Attribute global_variable = new Attribute("JS.GLOBAL_VARIABLE").baseAttributes("DEFAULT_PARAMETER");
-				private final Attribute global_function = new Attribute("JS.GLOBAL_FUNCTION").baseAttributes("DEFAULT_FUNCTION_DECLARATION");
-				private final Attribute injected_language_fragment = new Attribute("JavaScript:INJECTED_LANGUAGE_FRAGMENT").baseAttributes("INJECTED_LANGUAGE_FRAGMENT");
-				private final Attribute instance_member_function = new Attribute("JS.INSTANCE_MEMBER_FUNCTION").baseAttributes("DEFAULT_INSTANCE_METHOD");
-				private final Attribute local_variable = new Attribute("JS.LOCAL_VARIABLE").baseAttributes("DEFAULT_LOCAL_VARIABLE");
-				private final Attribute parameter = new Attribute("JS.PARAMETER").baseAttributes("DEFAULT_PARAMETER");
-				private final Attribute regex = new Attribute("JS.REGEXP").copy(Attributes.this.languageDefaults().valid_string_escape);
+				Attribute global_variable() {
+					return new Attribute("JS.GLOBAL_VARIABLE")
+						.baseAttributes("DEFAULT_PARAMETER");
+				}
+				Attribute global_function() {
+					return new Attribute("JS.GLOBAL_FUNCTION")
+						.baseAttributes("DEFAULT_FUNCTION_DECLARATION");
+				}
+				Attribute injected_language_fragment() {
+					return new Attribute("JavaScript:INJECTED_LANGUAGE_FRAGMENT")
+						.baseAttributes("INJECTED_LANGUAGE_FRAGMENT");
+				}
+				Attribute instance_member_function() {
+					return new Attribute("JS.INSTANCE_MEMBER_FUNCTION")
+						.baseAttributes("DEFAULT_INSTANCE_METHOD");
+				}
+				Attribute local_variable() {
+					return new Attribute("JS.LOCAL_VARIABLE")
+						.baseAttributes("DEFAULT_LOCAL_VARIABLE");
+				}
+				Attribute parameter() {
+					return new Attribute("JS.PARAMETER")
+						.baseAttributes("DEFAULT_PARAMETER");
+				}
+				Attribute regex() {
+					return new Attribute("JS.REGEXP")
+						.copy(Attributes.this.languageDefaults().valid_string_escape());
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -714,24 +1066,42 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						global_variable,
-						global_function,
-						injected_language_fragment,
-						instance_member_function,
-						local_variable,
-						parameter,
-						regex
+						global_variable(),
+						global_function(),
+						injected_language_fragment(),
+						instance_member_function(),
+						local_variable(),
+						parameter(),
+						regex()
 					);
 				}
 			}
 
 			class Python extends Group {
-				private final Attribute decorator = new Attribute("PY.DECORATOR").copy(Attributes.this.languageDefaults().metadata);
-				private final Attribute keyword_argument = new Attribute("PY.KEYWORD_ARGUMENT").copy(Attributes.this.languageDefaults().local_variable);
-				private final Attribute predefined_definition = new Attribute("PY.PREDEFINED_DEFINITION").baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
-				private final Attribute predefined_usage = new Attribute("PY.PREDEFINED_USAGE").baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
-				private final Attribute self_parameter = new Attribute("PY.SELF_PARAMETER").baseAttributes("DEFAULT_PARAMETER");
-				private final Attribute string_u = new Attribute("PY.STRING.U").baseAttributes("DEFAULT_STRING");
+				Attribute decorator() {
+					return new Attribute("PY.DECORATOR")
+						.copy(Attributes.this.languageDefaults().metadata());
+				}
+				Attribute keyword_argument() {
+					return new Attribute("PY.KEYWORD_ARGUMENT")
+						.copy(Attributes.this.languageDefaults().local_variable());
+				}
+				Attribute predefined_definition() {
+					return new Attribute("PY.PREDEFINED_DEFINITION")
+						.baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
+				}
+				Attribute predefined_usage() {
+					return new Attribute("PY.PREDEFINED_USAGE")
+						.baseAttributes("DEFAULT_PREDEFINED_SYMBOL");
+				}
+				Attribute self_parameter() {
+					return new Attribute("PY.SELF_PARAMETER")
+						.baseAttributes("DEFAULT_PARAMETER");
+				}
+				Attribute string_u() {
+					return new Attribute("PY.STRING.U")
+						.baseAttributes("DEFAULT_STRING");
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -739,50 +1109,98 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						decorator,
-						keyword_argument,
-						predefined_definition,
-						predefined_usage,
-						self_parameter,
-						string_u
+						decorator(),
+						keyword_argument(),
+						predefined_definition(),
+						predefined_usage(),
+						self_parameter(),
+						string_u()
 					);
 				}
 			}
 
 			class Php extends Group {
-				private final Attribute magic_member_access = new Attribute("MAGIC_MEMBER_ACCESS").copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes);
-				private final Attribute doc_parameter = new Attribute("PHP_DOC_PARAMETER").copy(Attributes.this.languageDefaults().doc_comment_tag_value);
-				private final Attribute exec_command_id = new Attribute("PHP_EXEC_COMMAND_ID").background(palette.silver().brighter(3));
-				private final Attribute named_argument = new Attribute("PHP_NAMED_ARGUMENT").copy(Attributes.this.languageDefaults().local_variable);
-				private final Attribute parameter = new Attribute("PHP_PARAMETER").baseAttributes("DEFAULT_PARAMETER");
-				private final Attribute var = new Attribute("PHP_VAR").baseAttributes("DEFAULT_LOCAL_VARIABLE");
+				Attribute magic_member_access() {
+					return new Attribute("MAGIC_MEMBER_ACCESS")
+						.copy(Attributes.this.general().errorsAndWarnings().not_used_element_attributes());
+				}
+				Attribute doc_parameter() {
+					return new Attribute("PHP_DOC_PARAMETER")
+						.copy(Attributes.this.languageDefaults().doc_comment_tag_value());
+				}
+				Attribute exec_command_id() {
+					return new Attribute("PHP_EXEC_COMMAND_ID")
+						.background(palette.silver().brighter(3));
+				}
+				Attribute named_argument() {
+					return new Attribute("PHP_NAMED_ARGUMENT")
+						.copy(Attributes.this.languageDefaults().local_variable());
+				}
+				Attribute parameter() {
+					return new Attribute("PHP_PARAMETER")
+						.baseAttributes("DEFAULT_PARAMETER");
+				}
+				Attribute var() {
+					return new Attribute("PHP_VAR")
+						.baseAttributes("DEFAULT_LOCAL_VARIABLE");
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
 				}
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						magic_member_access,
-						doc_parameter,
-						exec_command_id,
-						named_argument,
-						parameter,
-						var
+						magic_member_access(),
+						doc_parameter(),
+						exec_command_id(),
+						named_argument(),
+						parameter(),
+						var()
 					);
 				}
 			}
 
 			class UserDefinedFileTypes extends Group {
-				private final Attribute invalid_string_escape_attributes = new Attribute("CUSTOM_INVALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_INVALID_STRING_ESCAPE");
-				private final Attribute keyword1_attributes = new Attribute("CUSTOM_KEYWORD1_ATTRIBUTES").baseAttributes("DEFAULT_KEYWORD");
-				private final Attribute keyword2_attributes = new Attribute("CUSTOM_KEYWORD2_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
-				private final Attribute keyword3_attributes = new Attribute("CUSTOM_KEYWORD3_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
-				private final Attribute keyword4_attributes = new Attribute("CUSTOM_KEYWORD4_ATTRIBUTES").copy(Attributes.this.languageDefaults().parameter);
-				private final Attribute line_comment_attributes = new Attribute("CUSTOM_LINE_COMMENT_ATTRIBUTES").baseAttributes("DEFAULT_LINE_COMMENT");
-				private final Attribute multi_line_comment_attributes = new Attribute("CUSTOM_MULTI_LINE_COMMENT_ATTRIBUTES").baseAttributes("DEFAULT_BLOCK_COMMENT");
-				private final Attribute number_attributes = new Attribute("CUSTOM_NUMBER_ATTRIBUTES").baseAttributes("DEFAULT_NUMBER");
-				private final Attribute string_attributes = new Attribute("CUSTOM_STRING_ATTRIBUTES").baseAttributes("DEFAULT_STRING");
-				private final Attribute valid_string_escape_attributes = new Attribute("CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES").baseAttributes("DEFAULT_VALID_STRING_ESCAPE");
+				Attribute invalid_string_escape_attributes() {
+					return new Attribute("CUSTOM_INVALID_STRING_ESCAPE_ATTRIBUTES")
+						.baseAttributes("DEFAULT_INVALID_STRING_ESCAPE");
+				}
+				Attribute keyword1_attributes() {
+					return new Attribute("CUSTOM_KEYWORD1_ATTRIBUTES")
+						.baseAttributes("DEFAULT_KEYWORD");
+				}
+				Attribute keyword2_attributes() {
+					return new Attribute("CUSTOM_KEYWORD2_ATTRIBUTES")
+						.copy(Attributes.this.languageDefaults().parameter());
+				}
+				Attribute keyword3_attributes() {
+					return new Attribute("CUSTOM_KEYWORD3_ATTRIBUTES")
+						.copy(Attributes.this.languageDefaults().parameter());
+				}
+				Attribute keyword4_attributes() {
+					return new Attribute("CUSTOM_KEYWORD4_ATTRIBUTES")
+						.copy(Attributes.this.languageDefaults().parameter());
+				}
+				Attribute line_comment_attributes() {
+					return new Attribute("CUSTOM_LINE_COMMENT_ATTRIBUTES")
+						.baseAttributes("DEFAULT_LINE_COMMENT");
+				}
+				Attribute multi_line_comment_attributes() {
+					return new Attribute("CUSTOM_MULTI_LINE_COMMENT_ATTRIBUTES")
+						.baseAttributes("DEFAULT_BLOCK_COMMENT");
+				}
+				Attribute number_attributes() {
+					return new Attribute("CUSTOM_NUMBER_ATTRIBUTES")
+						.baseAttributes("DEFAULT_NUMBER");
+				}
+				Attribute string_attributes() {
+					return new Attribute("CUSTOM_STRING_ATTRIBUTES")
+						.baseAttributes("DEFAULT_STRING");
+				}
+				Attribute valid_string_escape_attributes() {
+					return new Attribute("CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES")
+						.baseAttributes("DEFAULT_VALID_STRING_ESCAPE");
+				}
 
 				@Override protected Set<Option.Color> colors() {
 					return Set.of();
@@ -790,16 +1208,16 @@ public class Scheme {
 
 				@Override public Set<Attribute> attributes() {
 					return Set.of(
-						invalid_string_escape_attributes,
-						keyword1_attributes,
-						keyword2_attributes,
-						keyword3_attributes,
-						keyword4_attributes,
-						line_comment_attributes,
-						multi_line_comment_attributes,
-						number_attributes,
-						string_attributes,
-						valid_string_escape_attributes
+						invalid_string_escape_attributes(),
+						keyword1_attributes(),
+						keyword2_attributes(),
+						keyword3_attributes(),
+						keyword4_attributes(),
+						line_comment_attributes(),
+						multi_line_comment_attributes(),
+						number_attributes(),
+						string_attributes(),
+						valid_string_escape_attributes()
 					);
 				}
 			}
