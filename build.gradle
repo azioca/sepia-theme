@@ -21,7 +21,7 @@ intellij {
 }
 
 patchPluginXml {
-	untilBuild = '211.*'
+	untilBuild = '212.*'
 	pluginDescription = """
     	<b><i>Light eye-friendly theme</i></b>
     	<br><br>
