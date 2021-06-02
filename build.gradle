@@ -21,7 +21,7 @@ intellij {
 }
 
 patchPluginXml {
-	untilBuild = '212.*'
+	untilBuild = '*.*'
 	pluginDescription = """
     	<b><i>Light eye-friendly theme</i></b>
     	<br><br>
@@ -60,6 +60,7 @@ patchPluginXml {
 		<ul>
 			<li>IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES - same style as for DEFAULT_PARAMETER instead of relying on implicit behaviour of a null value</li>
 			<li>Unused reference access - remove a duplicate with an inherited value from DEFAULT_IDENTIFIER</li>
+			<li>Configure as compatible with any future version of IntelliJ</li>
 		</ul><br>
 		
 		<i><b>0.2.4</b></i>
