@@ -108,7 +108,7 @@ public class Scheme {
 			new Option.Color("SELECTED_INDENT_GUIDE", style.scheme().foreground().base()),
 			new Option.Color("SELECTED_TEARLINE_COLOR", style.scheme().foreground().base()),
 			new Option.Color("INDENT_GUIDE", style.scheme().lines()),
-			new Option.Color("VISUAL_INDENT_GUIDE", style.scheme().lines()),
+			new Option.Color("VISUAL_INDENT_GUIDE", style.scheme().background().base().darker(3)),
 			new Option.Color("RIGHT_MARGIN_COLOR", style.scheme().lines()),
 			new Option.Color("TEARLINE_COLOR", style.scheme().lines().darker()),
 			new Option.Color("LINE_NUMBERS_COLOR", style.scheme().lines().darker(2)),
