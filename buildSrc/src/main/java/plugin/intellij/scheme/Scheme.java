@@ -108,6 +108,7 @@ public class Scheme {
 			new Option.Color("SELECTED_INDENT_GUIDE", style.scheme().foreground().base()),
 			new Option.Color("SELECTED_TEARLINE_COLOR", style.scheme().foreground().base()),
 			new Option.Color("INDENT_GUIDE", style.scheme().lines()),
+			new Option.Color("VISUAL_INDENT_GUIDE", style.scheme().lines()),
 			new Option.Color("RIGHT_MARGIN_COLOR", style.scheme().lines()),
 			new Option.Color("TEARLINE_COLOR", style.scheme().lines().darker()),
 			new Option.Color("LINE_NUMBERS_COLOR", style.scheme().lines().darker(2)),
@@ -130,6 +131,7 @@ public class Scheme {
 			new Option.Color("VCS_ANNOTATIONS_COLOR_3", style.scheme().background().base().darker(2)),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_4", style.scheme().background().base().darker(3)),
 			new Option.Color("VCS_ANNOTATIONS_COLOR_5", style.scheme().background().base().darker(4))
+
 		).stream().sorted(Comparator.comparing(Option.Color::name)).collect(Collectors.toList());
 	}
 

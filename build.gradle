@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.2.5'
+version '0.2.6-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -56,6 +56,11 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.2.6</b></i>
+		<ul>
+			<li>VISUAL_INDENT_GUIDE - set same color as for INDENT_GUIDE</li>
+		</ul><br>
+		
 		<i><b>0.2.5</b></i>
 		<ul>
 			<li>IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES - same style as for DEFAULT_PARAMETER instead of relying on implicit behaviour of a null value</li>
