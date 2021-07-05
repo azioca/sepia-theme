@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.3.0-SNAPSHOT'
+version '0.3.0'
 
 repositories {
 	mavenCentral()
@@ -58,7 +58,7 @@ patchPluginXml {
 	changeNotes = """
 		<i><b>0.3.0</b></i>
 		<ul>
-			<li>VISUAL_INDENT_GUIDE - set one hue value brighter color then for INDENT_GUIDE</li>
+			<li>VISUAL_INDENT_GUIDE - one hue value brighter color then for INDENT_GUIDE</li>
 		</ul><br>
 		
 		<i><b>0.2.5</b></i>
