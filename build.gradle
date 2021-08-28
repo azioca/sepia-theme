@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.adamwojszczyk'
-version '0.3.0'
+version '0.4.0-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -27,14 +27,9 @@ patchPluginXml {
     	<br><br>
     	<b>Goals:</b>
     	<ul>
-    		<li>healthy for eyes and good for a night's sleep => reducing blue light</li>
-    		<li>readable => minimal and logical usage of colors and effects</li>
+    		<li>healthy for eyes and good for a night's sleep &lt;= reducing blue light</li>
+    		<li>readable &lt;= minimal and logical usage of colors and effects</li>
     	</ul>
-    	<br>
-    	<b>Usage</b><br>
-    	I recommend to use a night light system's option with a screen's warm profile always on.<br>
-    	sunny day: ~10% or even 0%<br>
-    	night: ~60%<br>
     	<br>
     	<b>Adjusted languages:</b>
     	<ul>
@@ -56,6 +51,11 @@ patchPluginXml {
 	"""
 
 	changeNotes = """
+		<i><b>0.4.0</b></i>
+		<ul>
+			<li>TitlePane (theme) - adjusted after IntelliJ 2021.02 update</li>
+		</ul><br>
+		
 		<i><b>0.3.0</b></i>
 		<ul>
 			<li>VISUAL_INDENT_GUIDE - one hue value brighter color then for INDENT_GUIDE</li>

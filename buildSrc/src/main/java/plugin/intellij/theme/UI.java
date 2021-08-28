@@ -66,6 +66,7 @@ class UI {
 	@JsonProperty TextArea TextArea() { return new TextArea(); }
 	@JsonProperty TextField TextField() { return new TextField(); }
 	@JsonProperty TextPane TextPane() { return new TextPane(); }
+	@JsonProperty TitlePane TitlePane() { return new TitlePane(); }
 	@JsonProperty ToolBar ToolBar() { return new ToolBar(); }
 	@JsonProperty("Toolbar.Floating.background") Color ToolBarFloatingBackground() { return style.theme().background().base().darker(); }
 	@JsonProperty ToolTip ToolTip() { return new ToolTip(); }
@@ -681,6 +682,19 @@ class UI {
 		@JsonProperty Color inactiveForeground = style.theme().foreground().base();
 		@JsonProperty Color selectionBackground = style.scheme().background().selectedLine();
 		@JsonProperty Color selectionForeground = style.theme().foreground().base();
+	}
+
+	class TitlePane { // IDE title
+		@JsonProperty Color background = style.theme().background().base();
+		@JsonProperty Color inactiveBackground = style.theme().background().readOnly();
+		@JsonProperty Color inactiveInfoForeground = style.theme().foreground().info();
+		@JsonProperty Color infoForeground = style.theme().foreground().info();
+
+		@JsonProperty Button Button = new Button();
+
+		class Button {
+			@JsonProperty Color hoverBackground = style.theme().background().hover();
+		}
 	}
 
 	class ToolBar { // Find -> soft wrap preview floating icon

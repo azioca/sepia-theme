@@ -493,6 +493,15 @@
 			"selectionBackground": "#f2e5bc",
 			"selectionForeground": "#282828"
 		},
+		"TitlePane": {
+			"Button": {
+				"hoverBackground": "#f2e5bc"
+			},
+			"background": "#fbf1c7",
+			"inactiveBackground": "#f2e5bc",
+			"inactiveInfoForeground": "#928374",
+			"infoForeground": "#928374"
+		},
 		"ToolBar": {
 			"background": "#fbf1c7",
 			"floatingForeground": "#282828",
